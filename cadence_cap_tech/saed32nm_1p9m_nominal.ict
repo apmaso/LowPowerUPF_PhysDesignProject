@@ -1,0 +1,380 @@
+#Converted from /pkgs/synopsys/2016/libs/SAED32_EDK/tech/star_rcxt/saed32nm_1p9m_nominal.itf by using itf_to_ict.pl, version 4.98
+# 
+process saed32nm_1p9m_nominal { 
+   background_dielectric_constant 1.0
+} 
+# Well declarations 
+well NWELL {} 
+well PWELL {} 
+ 
+# Diffusion Layers 
+diffusion DIFF {
+   thickness    	 0.05 
+   resistivity  	 15 
+} 
+ 
+diffusion P_SOURCE_DRAIN {
+   thickness    	 0.05 
+   resistivity  	 15 
+} 
+ 
+diffusion N_SOURCE_DRAIN {
+   thickness    	 0.05 
+   resistivity  	 15 
+} 
+ 
+# Conducting Layers 
+conductor POLY {
+   min_spacing  	 0.086 
+   min_width    	 0.03 
+   height       	 0.1315 
+   thickness    	 0.071 
+   resistivity  	 15 
+   gate_forming_layer  	 true 
+} 
+ 
+conductor M1 {
+   min_spacing  	 0.05 
+   min_width    	 0.05 
+   height       	 0.3315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M2 {
+   min_spacing  	 0.056 
+   min_width    	 0.056 
+   height       	 0.9315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M3 {
+   min_spacing  	 0.056 
+   min_width    	 0.056 
+   height       	 1.5315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M4 {
+   min_spacing  	 0.056 
+   min_width    	 0.056 
+   height       	 2.1315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M5 {
+   min_spacing  	 0.056 
+   min_width    	 0.056 
+   height       	 2.7315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M6 {
+   min_spacing  	 0.056 
+   min_width    	 0.056 
+   height       	 3.3315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M7 {
+   min_spacing  	 0.056 
+   min_width    	 0.056 
+   height       	 3.9315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M8 {
+   min_spacing  	 0.056 
+   min_width    	 0.056 
+   height       	 4.5315 
+   thickness    	 0.095 
+   resistivity  	 0.1 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor M9 {
+   min_spacing  	 0.16 
+   min_width    	 0.16 
+   height       	 5.1315 
+   thickness    	 0.19 
+   resistivity  	 0.28 
+   gate_forming_layer  	 false 
+} 
+ 
+conductor MRDL {
+   min_spacing  	 2 
+   min_width    	 2 
+   height       	 8.1315 
+   thickness    	 0.28 
+   resistivity  	 0.35 
+   gate_forming_layer  	 false 
+} 
+ 
+# dielectric Layers 
+dielectric   D0 {
+   conformal 		   FALSE 
+   height    		   0.0000 
+   thickness 		   0.1300 
+   dielectric_constant 	   4 
+} 
+ 
+dielectric   GOX {
+   conformal 		   FALSE 
+   height    		   0.1300 
+   thickness 		   0.0015 
+   dielectric_constant 	   4 
+} 
+ 
+dielectric   D1 {
+   conformal 		   FALSE 
+   height    		   0.1315 
+   thickness 		   0.2000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D2 {
+   conformal 		   FALSE 
+   height    		   0.3315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D3 {
+   conformal 		   FALSE 
+   height    		   0.9315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D4 {
+   conformal 		   FALSE 
+   height    		   1.5315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D5 {
+   conformal 		   FALSE 
+   height    		   2.1315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D6 {
+   conformal 		   FALSE 
+   height    		   2.7315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D7 {
+   conformal 		   FALSE 
+   height    		   3.3315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D8 {
+   conformal 		   FALSE 
+   height    		   3.9315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   D9 {
+   conformal 		   FALSE 
+   height    		   4.5315 
+   thickness 		   0.6000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   PASS2 {
+   conformal 		   FALSE 
+   height    		   5.1315 
+   thickness 		   3.0000 
+   dielectric_constant 	   3.9 
+} 
+ 
+dielectric   PASS1 {
+   conformal 		   FALSE 
+   height    		   8.1315 
+   thickness 		   3.0000 
+   dielectric_constant 	   3.9 
+} 
+ 
+# Connect Layers 
+via   DIFFCONT {
+   bottom_layer  	 P_SOURCE_DRAIN 
+   top_layer     	 M1 
+   contact_resistance  	 150 
+} 
+ 
+via   DIFFCONT {
+   bottom_layer  	 N_SOURCE_DRAIN 
+   top_layer     	 M1 
+   contact_resistance  	 150 
+} 
+ 
+via   VIARDL {
+   bottom_layer   	 M9 
+   top_layer      	 MRDL 
+   contact_resistance 0.05 
+} 
+ 
+via   VIA8 {
+   bottom_layer   	 M8 
+   top_layer      	 M9 
+   contact_resistance 0.1 
+} 
+ 
+via   VIA7_LRG {
+   bottom_layer   	 M7 
+   top_layer      	 M8 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA7_BAR {
+   bottom_layer   	 M7 
+   top_layer      	 M8 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA7 {
+   bottom_layer   	 M7 
+   top_layer      	 M8 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA6_LRG {
+   bottom_layer   	 M6 
+   top_layer      	 M7 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA6_BAR {
+   bottom_layer   	 M6 
+   top_layer      	 M7 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA6 {
+   bottom_layer   	 M6 
+   top_layer      	 M7 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA5_LRG {
+   bottom_layer   	 M5 
+   top_layer      	 M6 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA5_BAR {
+   bottom_layer   	 M5 
+   top_layer      	 M6 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA5 {
+   bottom_layer   	 M5 
+   top_layer      	 M6 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA4_LRG {
+   bottom_layer   	 M4 
+   top_layer      	 M5 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA4_BAR {
+   bottom_layer   	 M4 
+   top_layer      	 M5 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA4 {
+   bottom_layer   	 M4 
+   top_layer      	 M5 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA3_LRG {
+   bottom_layer   	 M3 
+   top_layer      	 M4 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA3_BAR {
+   bottom_layer   	 M3 
+   top_layer      	 M4 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA3 {
+   bottom_layer   	 M3 
+   top_layer      	 M4 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA2_LRG {
+   bottom_layer   	 M2 
+   top_layer      	 M3 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA2_BAR {
+   bottom_layer   	 M2 
+   top_layer      	 M3 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA2 {
+   bottom_layer   	 M2 
+   top_layer      	 M3 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA1_LRG {
+   bottom_layer   	 M1 
+   top_layer      	 M2 
+   contact_resistance 0.5 
+} 
+ 
+via   VIA1_BAR {
+   bottom_layer   	 M1 
+   top_layer      	 M2 
+   contact_resistance 1 
+} 
+ 
+via   VIA1 {
+   bottom_layer   	 M1 
+   top_layer      	 M2 
+   contact_resistance 1 
+} 
+ 
+via   POLYCONT {
+   bottom_layer   	 POLY 
+   top_layer      	 M1 
+   contact_resistance 135 
+} 
+ 
+via   DIFFCONT {
+   bottom_layer   	 DIFF 
+   top_layer      	 M1 
+   contact_resistance 150 
+} 
+ 

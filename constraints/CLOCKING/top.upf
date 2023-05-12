@@ -1,0 +1,59 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:04 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VSS
+create_supply_port VDD
+create_supply_port VDDH
+
+create_power_domain PD_ORCA_TOP
+
+create_supply_net VSS -domain PD_ORCA_TOP
+create_supply_net VDD -domain PD_ORCA_TOP
+create_supply_net VDDH -domain PD_ORCA_TOP
+
+set_domain_supply_net PD_ORCA_TOP -primary_power_net VDD -primary_ground_net VSS
+
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+connect_supply_net VDDH -ports VDDH
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst pst -supplies {VDD VDDH VSS}
+add_pst_state state_1 -pst pst -state {V0p75 V0p75 always}
+add_pst_state state_2 -pst pst -state {V0p75 V0p95 always}
+add_pst_state state_3 -pst pst -state {V0p95 V1p16 always}
+add_pst_state state_4 -pst pst -state {V0p95 V0p95 always}
+
+if {[info exists upf_extension] && $upf_extension} {
+set_related_supply_net -ground VSS -object_list {pclk_in sdram_clk_in \
+    sys_2x_clk_in prst_n test_mode shutdown pclk sdram_clk sys_clk sys_2x_clk \
+    pci_rst_n sdram_rst_n sys_rst_n sys_2x_rst_n sys_clk_cts_2 sys_2x_clk_cts_2 \
+    sdram_clk_cts_2 pclk_cts_2}
+set_related_supply_net -power VDD -object_list {pclk_in sdram_clk_in \
+    sys_2x_clk_in prst_n test_mode shutdown pclk sdram_clk sys_clk sys_2x_clk \
+    pci_rst_n sdram_rst_n sys_rst_n sys_2x_rst_n sys_clk_cts_2 sys_2x_clk_cts_2 \
+    sdram_clk_cts_2 pclk_cts_2}
+}
+

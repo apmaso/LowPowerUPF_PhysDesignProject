@@ -1,0 +1,42 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#  Library Setup
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+set synthetic_library dw_foundation.sldb
+
+# This ensures that temporary files generated during
+# analysis [reading of verilog/vhdl] are stored in the directory "analyzed"
+#define_design_lib DEFAULT -path ./analyzed
+
+#suppress_message {VHDL-2285 TIM-052 UID-401 OPT-1006 VHD-4 PSYN-256 TLUP-004 TLUP-005 MWDC-023 PSYN-040 PSYN-087 PSYN-088}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# General setup
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Create log files with datestamp
+set timestamp [clock format [clock scan now] -format "%Y-%m-%d_%H-%M"]
+set sh_output_log_file "${synopsys_program_name}.log.$timestamp"
+set sh_command_log_file "${synopsys_program_name}.cmd.$timestamp"
+
+# Disable tracking and reporting of when new variables are created
+set sh_new_variable_message false
+
+# No assign or tri in verilog netlist
+set verilogout_no_tri true
+
+
+# For ICC
+echo "setting auto_restore_mw_cel_lib_setup true"
+set auto_restore_mw_cel_lib_setup true
+
+set enable_page_mode false
+set sh_enable_page_mode false
+
+alias _ measure_time
+
+alias o {puts "setting top_design to: " ; set top_design ORCA_TOP}
+alias e {puts "setting top_design to: " ; set top_design ExampleRocketSystem}
+alias f {puts "setting top_design to: " ; set top_design fifo1}
+alias fs {puts "setting top_design to: " ; set top_design fifo1_sram}
+

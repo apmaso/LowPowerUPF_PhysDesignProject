@@ -1,0 +1,140 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:05 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VDD
+create_supply_port VDDH
+create_supply_port VSS
+
+create_power_domain PD_ORCA_TOP
+create_power_domain PD_RISC_CORE -elements I_RISC_CORE
+
+create_supply_net VSS -domain PD_ORCA_TOP
+create_supply_net VSS -domain PD_RISC_CORE -reuse
+create_supply_net VDD -domain PD_ORCA_TOP
+create_supply_net VDD -domain PD_RISC_CORE -reuse
+create_supply_net VDDH -domain PD_ORCA_TOP
+create_supply_net VDDH -domain PD_RISC_CORE -reuse
+
+set_domain_supply_net PD_ORCA_TOP -primary_power_net VDD -primary_ground_net VSS
+set_domain_supply_net PD_RISC_CORE -primary_power_net VDDH -primary_ground_net \
+    VSS
+
+connect_supply_net VDD -ports VDD
+connect_supply_net VDD -ports {Xecutng_Instrn_0__UPF_LS/VDDL \
+    Xecutng_Instrn_1__UPF_LS/VDDL Xecutng_Instrn_2__UPF_LS/VDDL \
+    Xecutng_Instrn_3__UPF_LS/VDDL Xecutng_Instrn_4__UPF_LS/VDDL \
+    Xecutng_Instrn_5__UPF_LS/VDDL Xecutng_Instrn_6__UPF_LS/VDDL \
+    Xecutng_Instrn_7__UPF_LS/VDDL Xecutng_Instrn_8__UPF_LS/VDDL \
+    Xecutng_Instrn_9__UPF_LS/VDDL Xecutng_Instrn_10__UPF_LS/VDDL \
+    Xecutng_Instrn_11__UPF_LS/VDDL Xecutng_Instrn_12__UPF_LS/VDDL \
+    Xecutng_Instrn_13__UPF_LS/VDDL Xecutng_Instrn_14__UPF_LS/VDDL \
+    Xecutng_Instrn_15__UPF_LS/VDDL Xecutng_Instrn_16__UPF_LS/VDDL \
+    Xecutng_Instrn_17__UPF_LS/VDDL Xecutng_Instrn_18__UPF_LS/VDDL \
+    Xecutng_Instrn_19__UPF_LS/VDDL Xecutng_Instrn_20__UPF_LS/VDDL \
+    Xecutng_Instrn_21__UPF_LS/VDDL Xecutng_Instrn_22__UPF_LS/VDDL \
+    Xecutng_Instrn_23__UPF_LS/VDDL Xecutng_Instrn_24__UPF_LS/VDDL \
+    Xecutng_Instrn_25__UPF_LS/VDDL Xecutng_Instrn_26__UPF_LS/VDDL \
+    Xecutng_Instrn_27__UPF_LS/VDDL Xecutng_Instrn_28__UPF_LS/VDDL \
+    Xecutng_Instrn_29__UPF_LS/VDDL Xecutng_Instrn_30__UPF_LS/VDDL \
+    Xecutng_Instrn_31__UPF_LS/VDDL PSW_2__UPF_LS/VDDL PSW_3__UPF_LS/VDDL \
+    PSW_5__UPF_LS/VDDL PSW_6__UPF_LS/VDDL PSW_7__UPF_LS/VDDL PSW_8__UPF_LS/VDDL \
+    PSW_9__UPF_LS/VDDL PSW_10__UPF_LS/VDDL RESULT_DATA_0__UPF_LS/VDDL \
+    RESULT_DATA_1__UPF_LS/VDDL RESULT_DATA_2__UPF_LS/VDDL \
+    RESULT_DATA_3__UPF_LS/VDDL RESULT_DATA_4__UPF_LS/VDDL \
+    RESULT_DATA_5__UPF_LS/VDDL RESULT_DATA_6__UPF_LS/VDDL \
+    RESULT_DATA_7__UPF_LS/VDDL RESULT_DATA_8__UPF_LS/VDDL \
+    RESULT_DATA_9__UPF_LS/VDDL RESULT_DATA_10__UPF_LS/VDDL \
+    RESULT_DATA_11__UPF_LS/VDDL RESULT_DATA_12__UPF_LS/VDDL \
+    RESULT_DATA_13__UPF_LS/VDDL RESULT_DATA_14__UPF_LS/VDDL \
+    RESULT_DATA_15__UPF_LS/VDDL STACK_FULL_UPF_LS/VDDL OUT_VALID_UPF_LS/VDDL \
+    Rd_Instr_UPF_LS/VDDL EndOfInstrn_UPF_LS/VDDL PSW_4__UPF_LS/VDDL}
+connect_supply_net VDDH -ports VDDH
+connect_supply_net VSS -ports VSS
+connect_supply_net VSS -ports {Xecutng_Instrn_0__UPF_LS/VSS \
+    Xecutng_Instrn_1__UPF_LS/VSS Xecutng_Instrn_2__UPF_LS/VSS \
+    Xecutng_Instrn_3__UPF_LS/VSS Xecutng_Instrn_4__UPF_LS/VSS \
+    Xecutng_Instrn_5__UPF_LS/VSS Xecutng_Instrn_6__UPF_LS/VSS \
+    Xecutng_Instrn_7__UPF_LS/VSS Xecutng_Instrn_8__UPF_LS/VSS \
+    Xecutng_Instrn_9__UPF_LS/VSS Xecutng_Instrn_10__UPF_LS/VSS \
+    Xecutng_Instrn_11__UPF_LS/VSS Xecutng_Instrn_12__UPF_LS/VSS \
+    Xecutng_Instrn_13__UPF_LS/VSS Xecutng_Instrn_14__UPF_LS/VSS \
+    Xecutng_Instrn_15__UPF_LS/VSS Xecutng_Instrn_16__UPF_LS/VSS \
+    Xecutng_Instrn_17__UPF_LS/VSS Xecutng_Instrn_18__UPF_LS/VSS \
+    Xecutng_Instrn_19__UPF_LS/VSS Xecutng_Instrn_20__UPF_LS/VSS \
+    Xecutng_Instrn_21__UPF_LS/VSS Xecutng_Instrn_22__UPF_LS/VSS \
+    Xecutng_Instrn_23__UPF_LS/VSS Xecutng_Instrn_24__UPF_LS/VSS \
+    Xecutng_Instrn_25__UPF_LS/VSS Xecutng_Instrn_26__UPF_LS/VSS \
+    Xecutng_Instrn_27__UPF_LS/VSS Xecutng_Instrn_28__UPF_LS/VSS \
+    Xecutng_Instrn_29__UPF_LS/VSS Xecutng_Instrn_30__UPF_LS/VSS \
+    Xecutng_Instrn_31__UPF_LS/VSS PSW_2__UPF_LS/VSS PSW_3__UPF_LS/VSS \
+    PSW_5__UPF_LS/VSS PSW_6__UPF_LS/VSS PSW_7__UPF_LS/VSS PSW_8__UPF_LS/VSS \
+    PSW_9__UPF_LS/VSS PSW_10__UPF_LS/VSS RESULT_DATA_0__UPF_LS/VSS \
+    RESULT_DATA_1__UPF_LS/VSS RESULT_DATA_2__UPF_LS/VSS \
+    RESULT_DATA_3__UPF_LS/VSS RESULT_DATA_4__UPF_LS/VSS \
+    RESULT_DATA_5__UPF_LS/VSS RESULT_DATA_6__UPF_LS/VSS \
+    RESULT_DATA_7__UPF_LS/VSS RESULT_DATA_8__UPF_LS/VSS \
+    RESULT_DATA_9__UPF_LS/VSS RESULT_DATA_10__UPF_LS/VSS \
+    RESULT_DATA_11__UPF_LS/VSS RESULT_DATA_12__UPF_LS/VSS \
+    RESULT_DATA_13__UPF_LS/VSS RESULT_DATA_14__UPF_LS/VSS \
+    RESULT_DATA_15__UPF_LS/VSS STACK_FULL_UPF_LS/VSS OUT_VALID_UPF_LS/VSS \
+    Rd_Instr_UPF_LS/VSS EndOfInstrn_UPF_LS/VSS PSW_4__UPF_LS/VSS}
+connect_supply_net VSS -ports I_SDRAM_TOP/VSS
+connect_supply_net VDD -ports I_SDRAM_TOP/VDD
+connect_supply_net VDDH -ports I_SDRAM_TOP/VDDH
+connect_supply_net VSS -ports I_BLENDER_1/VSS
+connect_supply_net VDD -ports I_BLENDER_1/VDD
+connect_supply_net VDDH -ports I_BLENDER_1/VDDH
+connect_supply_net VSS -ports I_BLENDER_0/VSS
+connect_supply_net VDD -ports I_BLENDER_0/VDD
+connect_supply_net VDDH -ports I_BLENDER_0/VDDH
+connect_supply_net VSS -ports I_RISC_CORE/VSS
+connect_supply_net VDD -ports I_RISC_CORE/VDD
+connect_supply_net VDDH -ports I_RISC_CORE/VDDH
+connect_supply_net VSS -ports I_CONTEXT_MEM/VSS
+connect_supply_net VDD -ports I_CONTEXT_MEM/VDD
+connect_supply_net VDDH -ports I_CONTEXT_MEM/VDDH
+connect_supply_net VSS -ports I_PCI_TOP/VSS
+connect_supply_net VDD -ports I_PCI_TOP/VDD
+connect_supply_net VDDH -ports I_PCI_TOP/VDDH
+connect_supply_net VSS -ports I_PARSER/VSS
+connect_supply_net VDD -ports I_PARSER/VDD
+connect_supply_net VDDH -ports I_PARSER/VDDH
+connect_supply_net VSS -ports I_CLOCKING/VSS
+connect_supply_net VDD -ports I_CLOCKING/VDD
+connect_supply_net VDDH -ports I_CLOCKING/VDDH
+
+set_level_shifter ls_out -domain PD_RISC_CORE -location parent -applies_to \
+    outputs -rule high_to_low
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst power_state -supplies {VDD VDDH VSS}
+add_pst_state risc_high_worst -pst power_state -state {V0p75 V0p95 always}
+add_pst_state risc_low_worst -pst power_state -state {V0p75 V0p75 always}
+add_pst_state risc_high_best -pst power_state -state {V0p95 V1p16 always}
+add_pst_state risc_low_best -pst power_state -state {V0p95 V0p95 always}
+
+set_design_attributes -elements {I_SDRAM_TOP I_BLENDER_1 I_BLENDER_0 \
+    I_CONTEXT_MEM I_PCI_TOP I_PARSER I_CLOCKING} -attribute merge_domain TRUE
+

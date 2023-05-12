@@ -1,0 +1,131 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:03 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VSS
+create_supply_port VDD
+create_supply_port VDDH
+
+create_power_domain PD_RISC_CORE
+
+create_supply_net VSS -domain PD_RISC_CORE
+create_supply_net VDD -domain PD_RISC_CORE
+create_supply_net VDDH -domain PD_RISC_CORE
+
+set_domain_supply_net PD_RISC_CORE -primary_power_net VDDH -primary_ground_net \
+    VSS
+
+connect_supply_net VDD -ports {reset_n_UPF_LS/VDDL Instrn_23__UPF_LS/VDDL \
+    Instrn_22__UPF_LS/VDDL Instrn_29__UPF_LS/VDDL Instrn_15__UPF_LS/VDDL \
+    Instrn_13__UPF_LS/VDDL Instrn_27__UPF_LS/VDDL Instrn_11__UPF_LS/VDDL \
+    Instrn_14__UPF_LS/VDDL Instrn_9__UPF_LS/VDDL Instrn_31__UPF_LS/VDDL \
+    Instrn_26__UPF_LS/VDDL Instrn_28__UPF_LS/VDDL Instrn_25__UPF_LS/VDDL \
+    Instrn_19__UPF_LS/VDDL Instrn_20__UPF_LS/VDDL Instrn_16__UPF_LS/VDDL \
+    Instrn_18__UPF_LS/VDDL Instrn_17__UPF_LS/VDDL Instrn_30__UPF_LS/VDDL \
+    Instrn_24__UPF_LS/VDDL Instrn_12__UPF_LS/VDDL Instrn_10__UPF_LS/VDDL \
+    Instrn_8__UPF_LS/VDDL Instrn_21__UPF_LS/VDDL Instrn_0__UPF_LS/VDDL \
+    Instrn_5__UPF_LS/VDDL Instrn_4__UPF_LS/VDDL Instrn_7__UPF_LS/VDDL \
+    Instrn_1__UPF_LS/VDDL Instrn_6__UPF_LS/VDDL Instrn_3__UPF_LS/VDDL \
+    Instrn_2__UPF_LS/VDDL}
+connect_supply_net VDDH -ports {reset_n_UPF_LS/VDDH Instrn_23__UPF_LS/VDDH \
+    Instrn_22__UPF_LS/VDDH Instrn_29__UPF_LS/VDDH Instrn_15__UPF_LS/VDDH \
+    Instrn_13__UPF_LS/VDDH Instrn_27__UPF_LS/VDDH Instrn_11__UPF_LS/VDDH \
+    Instrn_14__UPF_LS/VDDH Instrn_9__UPF_LS/VDDH Instrn_31__UPF_LS/VDDH \
+    Instrn_26__UPF_LS/VDDH Instrn_28__UPF_LS/VDDH Instrn_25__UPF_LS/VDDH \
+    Instrn_19__UPF_LS/VDDH Instrn_20__UPF_LS/VDDH Instrn_16__UPF_LS/VDDH \
+    Instrn_18__UPF_LS/VDDH Instrn_17__UPF_LS/VDDH Instrn_30__UPF_LS/VDDH \
+    Instrn_24__UPF_LS/VDDH Instrn_12__UPF_LS/VDDH Instrn_10__UPF_LS/VDDH \
+    Instrn_8__UPF_LS/VDDH Instrn_21__UPF_LS/VDDH Instrn_0__UPF_LS/VDDH \
+    Instrn_5__UPF_LS/VDDH Instrn_4__UPF_LS/VDDH Instrn_7__UPF_LS/VDDH \
+    Instrn_1__UPF_LS/VDDH Instrn_6__UPF_LS/VDDH Instrn_3__UPF_LS/VDDH \
+    Instrn_2__UPF_LS/VDDH}
+connect_supply_net VSS -ports {reset_n_UPF_LS/VSS Instrn_23__UPF_LS/VSS \
+    Instrn_22__UPF_LS/VSS Instrn_29__UPF_LS/VSS Instrn_15__UPF_LS/VSS \
+    Instrn_13__UPF_LS/VSS Instrn_27__UPF_LS/VSS Instrn_11__UPF_LS/VSS \
+    Instrn_14__UPF_LS/VSS Instrn_9__UPF_LS/VSS Instrn_31__UPF_LS/VSS \
+    Instrn_26__UPF_LS/VSS Instrn_28__UPF_LS/VSS Instrn_25__UPF_LS/VSS \
+    Instrn_19__UPF_LS/VSS Instrn_20__UPF_LS/VSS Instrn_16__UPF_LS/VSS \
+    Instrn_18__UPF_LS/VSS Instrn_17__UPF_LS/VSS Instrn_30__UPF_LS/VSS \
+    Instrn_24__UPF_LS/VSS Instrn_12__UPF_LS/VSS Instrn_10__UPF_LS/VSS \
+    Instrn_8__UPF_LS/VSS Instrn_21__UPF_LS/VSS Instrn_0__UPF_LS/VSS \
+    Instrn_5__UPF_LS/VSS Instrn_4__UPF_LS/VSS Instrn_7__UPF_LS/VSS \
+    Instrn_1__UPF_LS/VSS Instrn_6__UPF_LS/VSS Instrn_3__UPF_LS/VSS \
+    Instrn_2__UPF_LS/VSS}
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+connect_supply_net VDDH -ports VDDH
+
+set_level_shifter ls_in -domain PD_RISC_CORE -location self -applies_to inputs \
+    -rule low_to_high
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst pst -supplies {VDD VDDH VSS}
+add_pst_state state_1 -pst pst -state {V0p75 V0p75 always}
+add_pst_state state_2 -pst pst -state {V0p75 V0p95 always}
+add_pst_state state_3 -pst pst -state {V0p95 V1p16 always}
+add_pst_state state_4 -pst pst -state {V0p95 V0p95 always}
+
+if {[info exists upf_extension] && $upf_extension} {
+set_related_supply_net -ground VSS -object_list {clk reset_n Instrn[31] \
+    Instrn[30] Instrn[29] Instrn[28] Instrn[27] Instrn[26] Instrn[25] \
+    Instrn[24] Instrn[23] Instrn[22] Instrn[21] Instrn[20] Instrn[19] \
+    Instrn[18] Instrn[17] Instrn[16] Instrn[15] Instrn[14] Instrn[13] \
+    Instrn[12] Instrn[11] Instrn[10] Instrn[9] Instrn[8] Instrn[7] Instrn[6] \
+    Instrn[5] Instrn[4] Instrn[3] Instrn[2] Instrn[1] Instrn[0] \
+    Xecutng_Instrn[31] Xecutng_Instrn[30] Xecutng_Instrn[29] Xecutng_Instrn[28] \
+    Xecutng_Instrn[27] Xecutng_Instrn[26] Xecutng_Instrn[25] Xecutng_Instrn[24] \
+    Xecutng_Instrn[23] Xecutng_Instrn[22] Xecutng_Instrn[21] Xecutng_Instrn[20] \
+    Xecutng_Instrn[19] Xecutng_Instrn[18] Xecutng_Instrn[17] Xecutng_Instrn[16] \
+    Xecutng_Instrn[15] Xecutng_Instrn[14] Xecutng_Instrn[13] Xecutng_Instrn[12] \
+    Xecutng_Instrn[11] Xecutng_Instrn[10] Xecutng_Instrn[9] Xecutng_Instrn[8] \
+    Xecutng_Instrn[7] Xecutng_Instrn[6] Xecutng_Instrn[5] Xecutng_Instrn[4] \
+    Xecutng_Instrn[3] Xecutng_Instrn[2] Xecutng_Instrn[1] Xecutng_Instrn[0] \
+    EndOfInstrn PSW[10] PSW[9] PSW[8] PSW[7] PSW[6] PSW[5] PSW[4] PSW[3] PSW[2] \
+    PSW[1] PSW[0] Rd_Instr RESULT_DATA[15] RESULT_DATA[14] RESULT_DATA[13] \
+    RESULT_DATA[12] RESULT_DATA[11] RESULT_DATA[10] RESULT_DATA[9] \
+    RESULT_DATA[8] RESULT_DATA[7] RESULT_DATA[6] RESULT_DATA[5] RESULT_DATA[4] \
+    RESULT_DATA[3] RESULT_DATA[2] RESULT_DATA[1] RESULT_DATA[0] OUT_VALID \
+    STACK_FULL test_so}
+set_related_supply_net -power VDD -object_list {clk reset_n Instrn[31] \
+    Instrn[30] Instrn[29] Instrn[28] Instrn[27] Instrn[26] Instrn[25] \
+    Instrn[24] Instrn[23] Instrn[22] Instrn[21] Instrn[20] Instrn[19] \
+    Instrn[18] Instrn[17] Instrn[16] Instrn[15] Instrn[14] Instrn[13] \
+    Instrn[12] Instrn[11] Instrn[10] Instrn[9] Instrn[8] Instrn[7] Instrn[6] \
+    Instrn[5] Instrn[4] Instrn[3] Instrn[2] Instrn[1] Instrn[0]}
+set_related_supply_net -power VDDH -object_list {Xecutng_Instrn[31] \
+    Xecutng_Instrn[30] Xecutng_Instrn[29] Xecutng_Instrn[28] Xecutng_Instrn[27] \
+    Xecutng_Instrn[26] Xecutng_Instrn[25] Xecutng_Instrn[24] Xecutng_Instrn[23] \
+    Xecutng_Instrn[22] Xecutng_Instrn[21] Xecutng_Instrn[20] Xecutng_Instrn[19] \
+    Xecutng_Instrn[18] Xecutng_Instrn[17] Xecutng_Instrn[16] Xecutng_Instrn[15] \
+    Xecutng_Instrn[14] Xecutng_Instrn[13] Xecutng_Instrn[12] Xecutng_Instrn[11] \
+    Xecutng_Instrn[10] Xecutng_Instrn[9] Xecutng_Instrn[8] Xecutng_Instrn[7] \
+    Xecutng_Instrn[6] Xecutng_Instrn[5] Xecutng_Instrn[4] Xecutng_Instrn[3] \
+    Xecutng_Instrn[2] Xecutng_Instrn[1] Xecutng_Instrn[0] EndOfInstrn PSW[10] \
+    PSW[9] PSW[8] PSW[7] PSW[6] PSW[5] PSW[4] PSW[3] PSW[2] PSW[1] PSW[0] \
+    Rd_Instr RESULT_DATA[15] RESULT_DATA[14] RESULT_DATA[13] RESULT_DATA[12] \
+    RESULT_DATA[11] RESULT_DATA[10] RESULT_DATA[9] RESULT_DATA[8] \
+    RESULT_DATA[7] RESULT_DATA[6] RESULT_DATA[5] RESULT_DATA[4] RESULT_DATA[3] \
+    RESULT_DATA[2] RESULT_DATA[1] RESULT_DATA[0] OUT_VALID STACK_FULL test_so}
+}
+

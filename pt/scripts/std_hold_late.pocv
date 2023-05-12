@@ -1,0 +1,9 @@
+version:	4.0
+ocvm_type:	pocvm
+object_type:	lib_cell
+rf_type:	rise fall
+delay_type:	cell
+derate_type:	late
+object_spec:	*/*
+coefficient:	0.033
+

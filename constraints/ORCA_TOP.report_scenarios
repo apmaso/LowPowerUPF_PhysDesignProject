@@ -1,0 +1,166 @@
+ 
+****************************************
+Report : scenarios
+Design : ORCA_TOP
+Scenario(s): func_worst test_worst func_best test_best leak
+Version: N-2017.09-SP4
+Date   : Sat Feb 29 13:45:52 2020
+****************************************
+
+All scenarios (Total=5): func_worst test_worst func_best test_best leak
+All Active scenarios (Total=5): func_worst test_worst func_best test_best leak
+Current scenario     : func_worst
+CTS scenario         : not defined.
+
+Scenario #0: func_worst is active.
+Scenario options: Setup Dynamic_power Cts_mode
+Cts_corner: max
+Has timing derate: Yes
+
+Library(s) Used:
+ saed32hvt_ss0p75vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.db)
+ saed32lvt_ss0p75vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.db)
+ saed32lvt_dlvl_ss0p75vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p95v.db)
+ saed32sramlp_ss0p75vn40c_i0p75v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ss0p75vn40c_i0p75v.db)
+ saed32lvt_ss0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.db)
+ saed32sramlp_ss0p95vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ss0p95vn40c_i0p95v.db)
+ saed32hvt_ss0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.db)
+ saed32lvt_ulvl_ss0p95vn40c_i0p75v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p75v.db)
+
+Operating condition(s) Used:
+  Analysis Type    : on_chip_variation
+  Max Operating Condition: saed32lvt_ss0p75vn40c:ss0p75vn40c
+  Max Process    : 0.99
+  Max Voltage    : 0.75
+  Max Temperature: -40.00
+  Min Operating Condition: saed32lvt_ss0p75vn40c:ss0p75vn40c
+  Min Process    : 0.99
+  Min Voltage    : 0.75
+  Min Temperature: -40.00
+
+TLU+ Files Used:
+  Max TLU+ file: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus
+  Min TLU+ file: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus
+  Tech2ITF mapping file: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_tf_itf_tluplus.map
+
+Scenario #1: test_worst is active.
+Scenario options: Setup Cts_mode
+Cts_corner: max
+Has timing derate: Yes
+
+Library(s) Used:
+ saed32hvt_ss0p75vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.db)
+ saed32lvt_ss0p75vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.db)
+ saed32lvt_dlvl_ss0p75vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p95v.db)
+ saed32sramlp_ss0p75vn40c_i0p75v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ss0p75vn40c_i0p75v.db)
+ saed32lvt_ss0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.db)
+ saed32sramlp_ss0p95vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ss0p95vn40c_i0p95v.db)
+ saed32hvt_ss0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.db)
+ saed32lvt_ulvl_ss0p95vn40c_i0p75v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p75v.db)
+
+Operating condition(s) Used:
+  Analysis Type    : on_chip_variation
+  Max Operating Condition: saed32lvt_ss0p75vn40c:ss0p75vn40c
+  Max Process    : 0.99
+  Max Voltage    : 0.75
+  Max Temperature: -40.00
+  Min Operating Condition: saed32lvt_ss0p75vn40c:ss0p75vn40c
+  Min Process    : 0.99
+  Min Voltage    : 0.75
+  Min Temperature: -40.00
+
+TLU+ Files Used:
+  Max TLU+ file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus
+  Tech2ITF mapping file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_tf_itf_tluplus.map
+
+Scenario #2: func_best is active.
+Scenario options: Hold
+Cts_corner: none
+Has timing derate: Yes
+
+Library(s) Used:
+ saed32hvt_ff0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p95vn40c.db)
+ saed32lvt_ff0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ff0p95vn40c.db)
+ saed32lvt_dlvl_ff0p95vn40c_i1p16v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ff0p95vn40c_i1p16v.db)
+ saed32sramlp_ff0p95vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ff0p95vn40c_i0p95v.db)
+ saed32lvt_ff1p16vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ff1p16vn40c.db)
+ saed32sramlp_ff1p16vn40c_i1p16v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ff1p16vn40c_i1p16v.db)
+ saed32hvt_ff1p16vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16vn40c.db)
+ saed32lvt_ulvl_ff1p16vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ff1p16vn40c_i0p95v.db)
+
+Operating condition(s) Used:
+  Analysis Type    : on_chip_variation
+  Max Operating Condition: saed32lvt_ff0p95vn40c:ff0p95vn40c
+  Max Process    : 1.01
+  Max Voltage    : 0.95
+  Max Temperature: -40.00
+  Min Operating Condition: saed32lvt_ff0p95vn40c:ff0p95vn40c
+  Min Process    : 1.01
+  Min Voltage    : 0.95
+  Min Temperature: -40.00
+
+TLU+ Files Used:
+  Max TLU+ file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus
+  Tech2ITF mapping file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_tf_itf_tluplus.map
+
+Scenario #3: test_best is active.
+Scenario options: Hold
+Cts_corner: none
+Has timing derate: Yes
+
+Library(s) Used:
+ saed32hvt_ff0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p95vn40c.db)
+ saed32lvt_ff0p95vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ff0p95vn40c.db)
+ saed32lvt_dlvl_ff0p95vn40c_i1p16v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ff0p95vn40c_i1p16v.db)
+ saed32sramlp_ff0p95vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ff0p95vn40c_i0p95v.db)
+ saed32lvt_ff1p16vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ff1p16vn40c.db)
+ saed32sramlp_ff1p16vn40c_i1p16v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ff1p16vn40c_i1p16v.db)
+ saed32hvt_ff1p16vn40c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16vn40c.db)
+ saed32lvt_ulvl_ff1p16vn40c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ff1p16vn40c_i0p95v.db)
+
+Operating condition(s) Used:
+  Analysis Type    : on_chip_variation
+  Max Operating Condition: saed32lvt_ff0p95vn40c:ff0p95vn40c
+  Max Process    : 1.01
+  Max Voltage    : 0.95
+  Max Temperature: -40.00
+  Min Operating Condition: saed32lvt_ff0p95vn40c:ff0p95vn40c
+  Min Process    : 1.01
+  Min Voltage    : 0.95
+  Min Temperature: -40.00
+
+TLU+ Files Used:
+  Max TLU+ file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus
+  Tech2ITF mapping file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_tf_itf_tluplus.map
+
+Scenario #4: leak is active.
+Scenario options: Leakage_power
+Cts_corner: none
+Has timing derate: No
+
+Library(s) Used:
+ saed32hvt_ff0p95v125c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p95v125c.db)
+ saed32lvt_ff0p95v125c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ff0p95v125c.db)
+ saed32lvt_dlvl_ff0p95v125c_i1p16v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ff0p95v125c_i1p16v.db)
+ saed32sramlp_ff0p95v125c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ff0p95v125c_i0p95v.db)
+ saed32lvt_ff1p16v125c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ff1p16v125c.db)
+ saed32sramlp_ff1p16v125c_i1p16v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/sram_lp/db_nldm/saed32sramlp_ff1p16v125c_i1p16v.db)
+ saed32hvt_ff1p16v125c (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16v125c.db)
+ saed32lvt_ulvl_ff1p16v125c_i0p95v (File: /u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ff1p16v125c_i0p95v.db)
+
+Operating condition(s) Used:
+  Analysis Type    : on_chip_variation
+  Max Operating Condition: saed32lvt_ff0p95v125c:ff0p95v125c
+  Max Process    : 1.01
+  Max Voltage    : 0.95
+  Max Temperature: 125.00
+  Min Operating Condition: saed32lvt_ff0p95v125c:ff0p95v125c
+  Min Process    : 1.01
+  Min Voltage    : 0.95
+  Min Temperature: 125.00
+
+TLU+ Files Used:
+  Max TLU+ file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus
+  Tech2ITF mapping file: ../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_tf_itf_tluplus.map
+
+1

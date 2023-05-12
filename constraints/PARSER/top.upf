@@ -1,0 +1,109 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:04 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VSS
+create_supply_port VDD
+create_supply_port VDDH
+
+create_power_domain PD_ORCA_TOP
+
+create_supply_net VSS -domain PD_ORCA_TOP
+create_supply_net VDD -domain PD_ORCA_TOP
+create_supply_net VDDH -domain PD_ORCA_TOP
+
+set_domain_supply_net PD_ORCA_TOP -primary_power_net VDD -primary_ground_net VSS
+
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+connect_supply_net VDDH -ports VDDH
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst pst -supplies {VDD VDDH VSS}
+add_pst_state state_1 -pst pst -state {V0p75 V0p75 always}
+add_pst_state state_2 -pst pst -state {V0p75 V0p95 always}
+add_pst_state state_3 -pst pst -state {V0p95 V1p16 always}
+add_pst_state state_4 -pst pst -state {V0p95 V0p95 always}
+
+if {[info exists upf_extension] && $upf_extension} {
+set_related_supply_net -ground VSS -object_list {sys_clk pclk sys_rst_n \
+    pcmd_3__BAR pcmd_2_ pcmd_1_ pcmd_0_ pcmd_out[3] pcmd_out[2] pcmd_out[1] \
+    pcmd_out[0] pcmd_out_valid blender_op[3] blender_op[2] blender_op[1] \
+    blender_op[0] blender_clk_en context_en context_cmd[7] context_cmd[6] \
+    context_cmd[5] context_cmd[4] context_cmd[3] context_cmd[2] context_cmd[1] \
+    context_cmd[0] fifo_read_pop fifo_read_empty fifo_write_push \
+    fifo_write_full risc_Instrn_lo[7] risc_Instrn_lo[6] risc_Instrn_lo[5] \
+    risc_Instrn_lo[4] risc_Instrn_lo[3] risc_Instrn_lo[2] risc_Instrn_lo[1] \
+    risc_Instrn_lo[0] risc_Xecutng_Instrn_lo[15] risc_Xecutng_Instrn_lo[14] \
+    risc_Xecutng_Instrn_lo[13] risc_Xecutng_Instrn_lo[12] \
+    risc_Xecutng_Instrn_lo[11] risc_Xecutng_Instrn_lo[10] \
+    risc_Xecutng_Instrn_lo[9] risc_Xecutng_Instrn_lo[8] \
+    risc_Xecutng_Instrn_lo[7] risc_Xecutng_Instrn_lo[6] \
+    risc_Xecutng_Instrn_lo[5] risc_Xecutng_Instrn_lo[4] \
+    risc_Xecutng_Instrn_lo[3] risc_Xecutng_Instrn_lo[2] \
+    risc_Xecutng_Instrn_lo[1] risc_Xecutng_Instrn_lo[0] pci_w_mux_select_2__BAR \
+    pci_w_mux_select_1_ pci_w_mux_select_0_ sd_w_mux_select_1__BAR \
+    sd_w_mux_select_0_ parser_sd_rfifo_pop sd_rfifo_parser_empty \
+    parser_sd_wfifo_push sd_wfifo_parser_full IN0 IN1 IN2 IN3 IN4 IN5 \
+    sys_clk_cts_7 sys_clk_cts_8 sys_clk_cts_9 sys_clk_cts_0_1 test_so8 test_so7 \
+    test_so6 test_so5 test_so4 test_so3 test_so2 test_so1 test_se IN6 IN7 IN8 \
+    test_se_hfs_netlink_151 test_se_hfs_netlink_152 test_se_hfs_netlink_153 \
+    test_se_hfs_netlink_154 test_se_hfs_netlink_155 test_se_hfs_netlink_156 \
+    test_se_hfs_netlink_157 test_se_hfs_netlink_158 test_se_hfs_netlink_159 \
+    test_se_hfs_netlink_160 test_se_hfs_netlink_161 IN9 IN10 IN11 IN12 IN13 \
+    IN14 IN15 IN16 IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 test_si25 test_si24 \
+    test_si23 test_si22 test_si21 test_si20 test_si19 test_si18 test_si17 \
+    test_si16 test_si15 test_si14 test_so13 test_so12 test_so11 test_so10 \
+    test_so9 pcmd_valid}
+set_related_supply_net -power VDD -object_list {sys_clk pclk sys_rst_n \
+    pcmd_3__BAR pcmd_2_ pcmd_1_ pcmd_0_ pcmd_out[3] pcmd_out[2] pcmd_out[1] \
+    pcmd_out[0] pcmd_out_valid blender_op[3] blender_op[2] blender_op[1] \
+    blender_op[0] blender_clk_en context_en context_cmd[7] context_cmd[6] \
+    context_cmd[5] context_cmd[4] context_cmd[3] context_cmd[2] context_cmd[1] \
+    context_cmd[0] fifo_read_pop fifo_read_empty fifo_write_push \
+    fifo_write_full risc_Instrn_lo[7] risc_Instrn_lo[6] risc_Instrn_lo[5] \
+    risc_Instrn_lo[4] risc_Instrn_lo[3] risc_Instrn_lo[2] risc_Instrn_lo[1] \
+    risc_Instrn_lo[0] risc_Xecutng_Instrn_lo[15] risc_Xecutng_Instrn_lo[14] \
+    risc_Xecutng_Instrn_lo[13] risc_Xecutng_Instrn_lo[12] \
+    risc_Xecutng_Instrn_lo[11] risc_Xecutng_Instrn_lo[10] \
+    risc_Xecutng_Instrn_lo[9] risc_Xecutng_Instrn_lo[8] \
+    risc_Xecutng_Instrn_lo[7] risc_Xecutng_Instrn_lo[6] \
+    risc_Xecutng_Instrn_lo[5] risc_Xecutng_Instrn_lo[4] \
+    risc_Xecutng_Instrn_lo[3] risc_Xecutng_Instrn_lo[2] \
+    risc_Xecutng_Instrn_lo[1] risc_Xecutng_Instrn_lo[0] pci_w_mux_select_2__BAR \
+    pci_w_mux_select_1_ pci_w_mux_select_0_ sd_w_mux_select_1__BAR \
+    sd_w_mux_select_0_ parser_sd_rfifo_pop sd_rfifo_parser_empty \
+    parser_sd_wfifo_push sd_wfifo_parser_full IN0 IN1 IN2 IN3 IN4 IN5 \
+    sys_clk_cts_7 sys_clk_cts_8 sys_clk_cts_9 sys_clk_cts_0_1 test_so8 test_so7 \
+    test_so6 test_so5 test_so4 test_so3 test_so2 test_so1 test_se IN6 IN7 IN8 \
+    test_se_hfs_netlink_151 test_se_hfs_netlink_152 test_se_hfs_netlink_153 \
+    test_se_hfs_netlink_154 test_se_hfs_netlink_155 test_se_hfs_netlink_156 \
+    test_se_hfs_netlink_157 test_se_hfs_netlink_158 test_se_hfs_netlink_159 \
+    test_se_hfs_netlink_160 test_se_hfs_netlink_161 IN9 IN10 IN11 IN12 IN13 \
+    IN14 IN15 IN16 IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 test_si25 test_si24 \
+    test_si23 test_si22 test_si21 test_si20 test_si19 test_si18 test_si17 \
+    test_si16 test_si15 test_si14 test_so13 test_so12 test_so11 test_so10 \
+    test_so9 pcmd_valid}
+}
+

@@ -1,0 +1,33 @@
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmin.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus'. (PLMGR-06)
+Warning: The tool found the same TLUPlus file names with different paths; will replace '../../../ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus' by '/u/bcruik2/IC_Compiler_2016.03-SP1/ref/SAED32_2012-12-25/tech/star_rc/saed32nm_1p9m_Cmax.tluplus'. (PLMGR-06)
+ 
+****************************************
+Report : clock tree
+Design : ORCA_TOP
+Scenario(s): test_best
+Version: N-2017.09-SP4
+Date   : Sat Feb 29 14:10:33 2020
+****************************************
+
+=============================Report for scenario (test_best)=============================
+Information: Float pin scale factor for the 'max' operating condition of scenario 'test_best' is set to 0.381 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+PCI_CLK              503       33        37        0.1603    0.3748      0            196.1992
+SYS_2x_CLK           2037      85        113       0.2985    0.6229      5            416.7960
+SYS_CLK              1812      56        63        0.0823    0.3479      4            301.4148
+SDRAM_CLK            2899      70        76        0.2789    0.4722      0            467.6247
+SD_DDR_CLK           0         0         0         0.0000    0.0000      0              0.0000
+SD_DDR_CLKn          0         0         0         0.0000    0.0000      0              0.0000
+ate_clk              5403      152       190       0.1411    0.4279      5            892.0449
+1

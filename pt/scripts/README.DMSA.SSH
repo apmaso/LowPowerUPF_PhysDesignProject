@@ -1,0 +1,15 @@
+DMSA (Distributed Multi-Scenario Analysis) works by distributing different scenarios or mode/corner combinations to different jobs which can be on different machines.  Synopsys defaults to using rsh, but this is not set up on eve to work probably due to it not being secure.  ssh is setup, but will require a password which will cause issues with the DMSA process. So the first thing that needs to be done is create secure keys so that passwords are no longer needed for a user using ssh.
+
+Follow something like what is described in this link:
+https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/
+
+if ~/.ssh/authorized_keys exists as a directory, remove the directory and its contents
+
+Then do this roughly:
+
+ssh-keygen -t rsa
+cd ~
+ssh ${USER}@mo mkdir -p .ssh
+cat .ssh/id_rsa.pub >> .ssh/authorized_keys
+chmod 700 .ssh
+chmod 640 .ssh/authorized_keys

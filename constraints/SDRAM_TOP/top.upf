@@ -1,0 +1,225 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:02 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VSS
+create_supply_port VDD
+create_supply_port VDDH
+
+create_power_domain PD_ORCA_TOP
+
+create_supply_net VSS -domain PD_ORCA_TOP
+create_supply_net VDD -domain PD_ORCA_TOP
+create_supply_net VDDH -domain PD_ORCA_TOP
+
+set_domain_supply_net PD_ORCA_TOP -primary_power_net VDD -primary_ground_net VSS
+
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+connect_supply_net VDDH -ports VDDH
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst pst -supplies {VDD VDDH VSS}
+add_pst_state state_1 -pst pst -state {V0p75 V0p75 always}
+add_pst_state state_2 -pst pst -state {V0p75 V0p95 always}
+add_pst_state state_3 -pst pst -state {V0p95 V1p16 always}
+add_pst_state state_4 -pst pst -state {V0p95 V0p95 always}
+
+if {[info exists upf_extension] && $upf_extension} {
+set_related_supply_net -ground VSS -object_list {sys_clk sdram_clk sys_rst_n \
+    sdram_rst_n test_mode risc_OUT_VALID risc_STACK_FULL risc_EndOfInstrn \
+    risc_PSW[10] risc_PSW[9] risc_PSW[8] risc_PSW[7] risc_PSW[6] risc_PSW[5] \
+    risc_PSW[4] risc_PSW[3] risc_PSW[2] risc_PSW[1] risc_PSW[0] risc_Rd_Instr \
+    sd_A[9] sd_A[8] sd_A[7] sd_A[6] sd_A[5] sd_A[4] sd_A[3] sd_A[2] sd_A[1] \
+    sd_A[0] sd_CK sd_CKn sd_LD sd_RW sd_BWS[1] sd_BWS[0] sd_DQ_in[31] \
+    sd_DQ_in[30] sd_DQ_in[29] sd_DQ_in[28] sd_DQ_in[27] sd_DQ_in[26] \
+    sd_DQ_in[25] sd_DQ_in[24] sd_DQ_in[23] sd_DQ_in[22] sd_DQ_in[21] \
+    sd_DQ_in[20] sd_DQ_in[19] sd_DQ_in[18] sd_DQ_in[17] sd_DQ_in[16] \
+    sd_DQ_in[15] sd_DQ_in[14] sd_DQ_in[13] sd_DQ_in[12] sd_DQ_in[11] \
+    sd_DQ_in[10] sd_DQ_in[9] sd_DQ_in[8] sd_DQ_in[7] sd_DQ_in[6] sd_DQ_in[5] \
+    sd_DQ_in[4] sd_DQ_in[3] sd_DQ_in[2] sd_DQ_in[1] sd_DQ_in[0] sd_DQ_out[31] \
+    sd_DQ_out[30] sd_DQ_out[29] sd_DQ_out[28] sd_DQ_out[27] sd_DQ_out[26] \
+    sd_DQ_out[25] sd_DQ_out[24] sd_DQ_out[23] sd_DQ_out[22] sd_DQ_out[21] \
+    sd_DQ_out[20] sd_DQ_out[19] sd_DQ_out[18] sd_DQ_out[17] sd_DQ_out[16] \
+    sd_DQ_out[15] sd_DQ_out[14] sd_DQ_out[13] sd_DQ_out[12] sd_DQ_out[11] \
+    sd_DQ_out[10] sd_DQ_out[9] sd_DQ_out[8] sd_DQ_out[7] sd_DQ_out[6] \
+    sd_DQ_out[5] sd_DQ_out[4] sd_DQ_out[3] sd_DQ_out[2] sd_DQ_out[1] \
+    sd_DQ_out[0] sd_sys_data_out[63] sd_sys_data_out[62] sd_sys_data_out[61] \
+    sd_sys_data_out[60] sd_sys_data_out[59] sd_sys_data_out[58] \
+    sd_sys_data_out[57] sd_sys_data_out[56] sd_sys_data_out[55] \
+    sd_sys_data_out[54] sd_sys_data_out[53] sd_sys_data_out[52] \
+    sd_sys_data_out[51] sd_sys_data_out[50] sd_sys_data_out[49] \
+    sd_sys_data_out[48] sd_sys_data_out[47] sd_sys_data_out[46] \
+    sd_sys_data_out[45] sd_sys_data_out[44] sd_sys_data_out[43] \
+    sd_sys_data_out[42] sd_sys_data_out[41] sd_sys_data_out[40] \
+    sd_sys_data_out[39] sd_sys_data_out[38] sd_sys_data_out[37] \
+    sd_sys_data_out[36] sd_sys_data_out[35] sd_sys_data_out[34] \
+    sd_sys_data_out[33] sd_sys_data_out[32] sd_sys_data_out[31] \
+    sd_sys_data_out[30] sd_sys_data_out[29] sd_sys_data_out[28] \
+    sd_sys_data_out[27] sd_sys_data_out[26] sd_sys_data_out[25] \
+    sd_sys_data_out[24] sd_sys_data_out[23] sd_sys_data_out[22] \
+    sd_sys_data_out[21] sd_sys_data_out[20] sd_sys_data_out[19] \
+    sd_sys_data_out[18] sd_sys_data_out[17] sd_sys_data_out[16] \
+    sd_sys_data_out[15] sd_sys_data_out[14] sd_sys_data_out[13] \
+    sd_sys_data_out[12] sd_sys_data_out[11] sd_sys_data_out[10] \
+    sd_sys_data_out[9] sd_sys_data_out[8] sd_sys_data_out[7] sd_sys_data_out[6] \
+    sd_sys_data_out[5] sd_sys_data_out[4] sd_sys_data_out[3] sd_sys_data_out[2] \
+    sd_sys_data_out[1] sd_sys_data_out[0] sd_wfifo_data[63] sd_wfifo_data[62] \
+    sd_wfifo_data[61] sd_wfifo_data[60] sd_wfifo_data[59] sd_wfifo_data[58] \
+    sd_wfifo_data[57] sd_wfifo_data[56] sd_wfifo_data[55] sd_wfifo_data[54] \
+    sd_wfifo_data[53] sd_wfifo_data[52] sd_wfifo_data[51] sd_wfifo_data[50] \
+    sd_wfifo_data[49] sd_wfifo_data[48] sd_wfifo_data[47] sd_wfifo_data[46] \
+    sd_wfifo_data[45] sd_wfifo_data[44] sd_wfifo_data[43] sd_wfifo_data[42] \
+    sd_wfifo_data[41] sd_wfifo_data[40] sd_wfifo_data[39] sd_wfifo_data[38] \
+    sd_wfifo_data[37] sd_wfifo_data[36] sd_wfifo_data[35] sd_wfifo_data[34] \
+    sd_wfifo_data[33] sd_wfifo_data[32] sd_wfifo_data[31] sd_wfifo_data[30] \
+    sd_wfifo_data[29] sd_wfifo_data[28] sd_wfifo_data[27] sd_wfifo_data[26] \
+    sd_wfifo_data[25] sd_wfifo_data[24] sd_wfifo_data[23] sd_wfifo_data[22] \
+    sd_wfifo_data[21] sd_wfifo_data[20] sd_wfifo_data[19] sd_wfifo_data[18] \
+    sd_wfifo_data[17] sd_wfifo_data[16] sd_wfifo_data[15] sd_wfifo_data[14] \
+    sd_wfifo_data[13] sd_wfifo_data[12] sd_wfifo_data[11] sd_wfifo_data[10] \
+    sd_wfifo_data[9] sd_wfifo_data[8] sd_wfifo_data[7] sd_wfifo_data[6] \
+    sd_wfifo_data[5] sd_wfifo_data[4] sd_wfifo_data[3] sd_wfifo_data[2] \
+    sd_wfifo_data[1] sd_wfifo_data[0] parser_sd_rfifo_pop parser_sd_wfifo_push \
+    sd_rfifo_parser_empty sd_wfifo_parser_full IN0 IN1 IN2 test_si12 \
+    sys_clk_cts_4 test_si5 test_si3 test_si2 test_si1 test_so10 test_so8 \
+    test_so7 test_so5 test_so4 test_so3 test_so2 test_so1 test_se \
+    test_se_hfs_netlink_3 test_se_hfs_netlink_4 test_se_hfs_netlink_5 \
+    test_se_hfs_netlink_6 test_se_hfs_netlink_7 test_se_hfs_netlink_8 \
+    test_se_hfs_netlink_9 test_se_hfs_netlink_10 test_se_hfs_netlink_11 \
+    test_se_hfs_netlink_12 test_se_hfs_netlink_13 test_se_hfs_netlink_14 \
+    test_se_hfs_netlink_15 test_se_hfs_netlink_16 test_se_hfs_netlink_17 \
+    test_se_hfs_netlink_18 test_se_hfs_netlink_19 test_se_hfs_netlink_20 \
+    test_se_hfs_netlink_21 test_se_hfs_netlink_22 test_se_hfs_netlink_23 \
+    test_se_hfs_netlink_24 test_se_hfs_netlink_25 test_se_hfs_netlink_26 \
+    test_se_hfs_netlink_27 test_se_hfs_netlink_28 test_se_hfs_netlink_29 \
+    test_se_hfs_netlink_30 test_se_hfs_netlink_31 test_se_hfs_netlink_32 \
+    test_se_hfs_netlink_33 test_se_hfs_netlink_34 test_se_hfs_netlink_35 \
+    test_se_hfs_netlink_36 test_se_hfs_netlink_37 test_se_hfs_netlink_38 \
+    test_se_hfs_netlink_39 test_se_hfs_netlink_40 test_se_hfs_netlink_41 \
+    test_se_hfs_netlink_42 test_se_hfs_netlink_43 test_se_hfs_netlink_44 \
+    test_se_hfs_netlink_45 test_se_hfs_netlink_46 test_se_hfs_netlink_47 \
+    test_se_hfs_netlink_48 test_se_hfs_netlink_49 test_se_hfs_netlink_50 \
+    test_se_hfs_netlink_51 test_se_hfs_netlink_52 test_se_hfs_netlink_53 IN3 \
+    IN4 IN5 IN6 IN7 IN8 IN9 IN10 IN11 IN12 IN13 IN14 IN15 IN16 IN17 IN18 IN19 \
+    IN20 IN21 IN22 IN23 IN24 IN25 IN26 IN27 IN28 IN29 IN30 IN31 IN32 IN33 IN34 \
+    IN35 IN36 IN37 IN38 IN39 test_si18 test_si17 test_si16 test_si15 test_si14 \
+    test_si13 test_so13 test_so12 test_so11 sd_DQ_en_17__BAR sd_DQ_en_21__BAR \
+    sd_DQ_en_4__BAR sd_DQ_en_5__BAR sd_DQ_en_0__BAR sd_DQ_en_3__BAR \
+    sd_DQ_en_6__BAR sd_DQ_en_11__BAR sd_DQ_en_2__BAR sd_DQ_en_8__BAR \
+    sd_DQ_en_7__BAR sd_DQ_en_13__BAR sd_DQ_en_12__BAR sd_DQ_en_30__BAR \
+    sd_DQ_en_29__BAR sd_DQ_en_25__BAR sd_DQ_en_27__BAR sd_DQ_en_28__BAR \
+    sd_DQ_en_26__BAR sd_DQ_en_23__BAR sd_DQ_en_16__BAR sd_DQ_en_15__BAR \
+    sd_DQ_en_20__BAR sd_DQ_en_14__BAR sd_DQ_en_22__BAR sd_DQ_en_31__BAR \
+    sd_DQ_en_9__BAR sd_DQ_en_1__BAR sd_DQ_en_10__BAR sd_DQ_en_24__BAR \
+    sd_DQ_en_19__BAR sys_clk_cts_6_BAR sd_DQ_en_18_}
+set_related_supply_net -power VDD -object_list {sys_clk sdram_clk sys_rst_n \
+    sdram_rst_n test_mode risc_OUT_VALID risc_STACK_FULL risc_EndOfInstrn \
+    risc_PSW[10] risc_PSW[9] risc_PSW[8] risc_PSW[7] risc_PSW[6] risc_PSW[5] \
+    risc_PSW[4] risc_PSW[3] risc_PSW[2] risc_PSW[1] risc_PSW[0] risc_Rd_Instr \
+    sd_A[9] sd_A[8] sd_A[7] sd_A[6] sd_A[5] sd_A[4] sd_A[3] sd_A[2] sd_A[1] \
+    sd_A[0] sd_CK sd_CKn sd_LD sd_RW sd_BWS[1] sd_BWS[0] sd_DQ_in[31] \
+    sd_DQ_in[30] sd_DQ_in[29] sd_DQ_in[28] sd_DQ_in[27] sd_DQ_in[26] \
+    sd_DQ_in[25] sd_DQ_in[24] sd_DQ_in[23] sd_DQ_in[22] sd_DQ_in[21] \
+    sd_DQ_in[20] sd_DQ_in[19] sd_DQ_in[18] sd_DQ_in[17] sd_DQ_in[16] \
+    sd_DQ_in[15] sd_DQ_in[14] sd_DQ_in[13] sd_DQ_in[12] sd_DQ_in[11] \
+    sd_DQ_in[10] sd_DQ_in[9] sd_DQ_in[8] sd_DQ_in[7] sd_DQ_in[6] sd_DQ_in[5] \
+    sd_DQ_in[4] sd_DQ_in[3] sd_DQ_in[2] sd_DQ_in[1] sd_DQ_in[0] sd_DQ_out[31] \
+    sd_DQ_out[30] sd_DQ_out[29] sd_DQ_out[28] sd_DQ_out[27] sd_DQ_out[26] \
+    sd_DQ_out[25] sd_DQ_out[24] sd_DQ_out[23] sd_DQ_out[22] sd_DQ_out[21] \
+    sd_DQ_out[20] sd_DQ_out[19] sd_DQ_out[18] sd_DQ_out[17] sd_DQ_out[16] \
+    sd_DQ_out[15] sd_DQ_out[14] sd_DQ_out[13] sd_DQ_out[12] sd_DQ_out[11] \
+    sd_DQ_out[10] sd_DQ_out[9] sd_DQ_out[8] sd_DQ_out[7] sd_DQ_out[6] \
+    sd_DQ_out[5] sd_DQ_out[4] sd_DQ_out[3] sd_DQ_out[2] sd_DQ_out[1] \
+    sd_DQ_out[0] sd_sys_data_out[63] sd_sys_data_out[62] sd_sys_data_out[61] \
+    sd_sys_data_out[60] sd_sys_data_out[59] sd_sys_data_out[58] \
+    sd_sys_data_out[57] sd_sys_data_out[56] sd_sys_data_out[55] \
+    sd_sys_data_out[54] sd_sys_data_out[53] sd_sys_data_out[52] \
+    sd_sys_data_out[51] sd_sys_data_out[50] sd_sys_data_out[49] \
+    sd_sys_data_out[48] sd_sys_data_out[47] sd_sys_data_out[46] \
+    sd_sys_data_out[45] sd_sys_data_out[44] sd_sys_data_out[43] \
+    sd_sys_data_out[42] sd_sys_data_out[41] sd_sys_data_out[40] \
+    sd_sys_data_out[39] sd_sys_data_out[38] sd_sys_data_out[37] \
+    sd_sys_data_out[36] sd_sys_data_out[35] sd_sys_data_out[34] \
+    sd_sys_data_out[33] sd_sys_data_out[32] sd_sys_data_out[31] \
+    sd_sys_data_out[30] sd_sys_data_out[29] sd_sys_data_out[28] \
+    sd_sys_data_out[27] sd_sys_data_out[26] sd_sys_data_out[25] \
+    sd_sys_data_out[24] sd_sys_data_out[23] sd_sys_data_out[22] \
+    sd_sys_data_out[21] sd_sys_data_out[20] sd_sys_data_out[19] \
+    sd_sys_data_out[18] sd_sys_data_out[17] sd_sys_data_out[16] \
+    sd_sys_data_out[15] sd_sys_data_out[14] sd_sys_data_out[13] \
+    sd_sys_data_out[12] sd_sys_data_out[11] sd_sys_data_out[10] \
+    sd_sys_data_out[9] sd_sys_data_out[8] sd_sys_data_out[7] sd_sys_data_out[6] \
+    sd_sys_data_out[5] sd_sys_data_out[4] sd_sys_data_out[3] sd_sys_data_out[2] \
+    sd_sys_data_out[1] sd_sys_data_out[0] sd_wfifo_data[63] sd_wfifo_data[62] \
+    sd_wfifo_data[61] sd_wfifo_data[60] sd_wfifo_data[59] sd_wfifo_data[58] \
+    sd_wfifo_data[57] sd_wfifo_data[56] sd_wfifo_data[55] sd_wfifo_data[54] \
+    sd_wfifo_data[53] sd_wfifo_data[52] sd_wfifo_data[51] sd_wfifo_data[50] \
+    sd_wfifo_data[49] sd_wfifo_data[48] sd_wfifo_data[47] sd_wfifo_data[46] \
+    sd_wfifo_data[45] sd_wfifo_data[44] sd_wfifo_data[43] sd_wfifo_data[42] \
+    sd_wfifo_data[41] sd_wfifo_data[40] sd_wfifo_data[39] sd_wfifo_data[38] \
+    sd_wfifo_data[37] sd_wfifo_data[36] sd_wfifo_data[35] sd_wfifo_data[34] \
+    sd_wfifo_data[33] sd_wfifo_data[32] sd_wfifo_data[31] sd_wfifo_data[30] \
+    sd_wfifo_data[29] sd_wfifo_data[28] sd_wfifo_data[27] sd_wfifo_data[26] \
+    sd_wfifo_data[25] sd_wfifo_data[24] sd_wfifo_data[23] sd_wfifo_data[22] \
+    sd_wfifo_data[21] sd_wfifo_data[20] sd_wfifo_data[19] sd_wfifo_data[18] \
+    sd_wfifo_data[17] sd_wfifo_data[16] sd_wfifo_data[15] sd_wfifo_data[14] \
+    sd_wfifo_data[13] sd_wfifo_data[12] sd_wfifo_data[11] sd_wfifo_data[10] \
+    sd_wfifo_data[9] sd_wfifo_data[8] sd_wfifo_data[7] sd_wfifo_data[6] \
+    sd_wfifo_data[5] sd_wfifo_data[4] sd_wfifo_data[3] sd_wfifo_data[2] \
+    sd_wfifo_data[1] sd_wfifo_data[0] parser_sd_rfifo_pop parser_sd_wfifo_push \
+    sd_rfifo_parser_empty sd_wfifo_parser_full IN0 IN1 IN2 test_si12 \
+    sys_clk_cts_4 test_si5 test_si3 test_si2 test_si1 test_so10 test_so8 \
+    test_so7 test_so5 test_so4 test_so3 test_so2 test_so1 test_se \
+    test_se_hfs_netlink_3 test_se_hfs_netlink_4 test_se_hfs_netlink_5 \
+    test_se_hfs_netlink_6 test_se_hfs_netlink_7 test_se_hfs_netlink_8 \
+    test_se_hfs_netlink_9 test_se_hfs_netlink_10 test_se_hfs_netlink_11 \
+    test_se_hfs_netlink_12 test_se_hfs_netlink_13 test_se_hfs_netlink_14 \
+    test_se_hfs_netlink_15 test_se_hfs_netlink_16 test_se_hfs_netlink_17 \
+    test_se_hfs_netlink_18 test_se_hfs_netlink_19 test_se_hfs_netlink_20 \
+    test_se_hfs_netlink_21 test_se_hfs_netlink_22 test_se_hfs_netlink_23 \
+    test_se_hfs_netlink_24 test_se_hfs_netlink_25 test_se_hfs_netlink_26 \
+    test_se_hfs_netlink_27 test_se_hfs_netlink_28 test_se_hfs_netlink_29 \
+    test_se_hfs_netlink_30 test_se_hfs_netlink_31 test_se_hfs_netlink_32 \
+    test_se_hfs_netlink_33 test_se_hfs_netlink_34 test_se_hfs_netlink_35 \
+    test_se_hfs_netlink_36 test_se_hfs_netlink_37 test_se_hfs_netlink_38 \
+    test_se_hfs_netlink_39 test_se_hfs_netlink_40 test_se_hfs_netlink_41 \
+    test_se_hfs_netlink_42 test_se_hfs_netlink_43 test_se_hfs_netlink_44 \
+    test_se_hfs_netlink_45 test_se_hfs_netlink_46 test_se_hfs_netlink_47 \
+    test_se_hfs_netlink_48 test_se_hfs_netlink_49 test_se_hfs_netlink_50 \
+    test_se_hfs_netlink_51 test_se_hfs_netlink_52 test_se_hfs_netlink_53 IN3 \
+    IN4 IN5 IN6 IN7 IN8 IN9 IN10 IN11 IN12 IN13 IN14 IN15 IN16 IN17 IN18 IN19 \
+    IN20 IN21 IN22 IN23 IN24 IN25 IN26 IN27 IN28 IN29 IN30 IN31 IN32 IN33 IN34 \
+    IN35 IN36 IN37 IN38 IN39 test_si18 test_si17 test_si16 test_si15 test_si14 \
+    test_si13 test_so13 test_so12 test_so11 sd_DQ_en_17__BAR sd_DQ_en_21__BAR \
+    sd_DQ_en_4__BAR sd_DQ_en_5__BAR sd_DQ_en_0__BAR sd_DQ_en_3__BAR \
+    sd_DQ_en_6__BAR sd_DQ_en_11__BAR sd_DQ_en_2__BAR sd_DQ_en_8__BAR \
+    sd_DQ_en_7__BAR sd_DQ_en_13__BAR sd_DQ_en_12__BAR sd_DQ_en_30__BAR \
+    sd_DQ_en_29__BAR sd_DQ_en_25__BAR sd_DQ_en_27__BAR sd_DQ_en_28__BAR \
+    sd_DQ_en_26__BAR sd_DQ_en_23__BAR sd_DQ_en_16__BAR sd_DQ_en_15__BAR \
+    sd_DQ_en_20__BAR sd_DQ_en_14__BAR sd_DQ_en_22__BAR sd_DQ_en_31__BAR \
+    sd_DQ_en_9__BAR sd_DQ_en_1__BAR sd_DQ_en_10__BAR sd_DQ_en_24__BAR \
+    sd_DQ_en_19__BAR sys_clk_cts_6_BAR sd_DQ_en_18_}
+}
+

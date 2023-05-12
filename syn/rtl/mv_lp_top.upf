@@ -1,0 +1,147 @@
+set upf_create_implicit_supply_sets false
+
+# Create Power domains for top and sub-modules all the modules
+#create_power_domain
+create_power_domain pd_top -include_scope
+create_power_domain pd_moda -elements {modA_inst}
+create_power_domain pd_modb -elements {modB_inst}
+create_power_domain pd_modc -elements {modC_inst}
+create_power_domain pd_modd -elements {modD_inst}
+
+# Create Supply ports
+#create_supply_port
+create_supply_port VDDH -direction in -domain pd_top
+create_supply_port VDDL -direction in -domain pd_top
+create_supply_port VSS -direction in -domain pd_top
+
+# Create Supply Nets for top
+#create_supply_net
+create_supply_net VDDH -domain pd_top
+create_supply_net VDDL -domain pd_top
+create_supply_net VSS -domain pd_top
+
+
+# Create Supply Nets for (Voltage 1.16V) for module-A and module-B
+#creaet_supply_net
+create_supply_net VDDH -domain pd_moda -reuse
+create_supply_net VDDH_gated_moda -domain pd_moda 
+create_supply_net VSS -domain pd_moda -reuse
+create_supply_net VDDH -domain pd_modb -reuse
+create_supply_net VDDH_gated_modb -domain pd_modb 
+create_supply_net VSS -domain pd_modb -reuse
+
+
+# Create Supply Nets for (Voltage 0.85V) for module-C and module-D
+#create_supply_net
+create_supply_net VDDL -domain pd_modc -reuse
+create_supply_net VDDL_gated_modc -domain pd_modc 
+create_supply_net VSS -domain pd_modc -reuse
+create_supply_net VDDL -domain pd_modd -reuse
+create_supply_net VDDL_gated_modd -domain pd_modd 
+create_supply_net VSS -domain pd_modd -reuse
+
+
+# Connect supply nets to ports (top level)
+#connect_supply_net
+connect_supply_net VDDH -ports VDDH
+connect_supply_net VDDL -ports VDDL
+connect_supply_net VSS -ports VSS
+
+# Set Primary power connection for the domains
+#set_domain_supply_net
+set_domain_supply_net pd_top -primary_power_net VDDH -primary_ground_net VSS
+set_domain_supply_net pd_moda -primary_power_net VDDH_gated_moda -primary_ground_net VSS
+set_domain_supply_net pd_modb -primary_power_net VDDH_gated_modb -primary_ground_net VSS
+set_domain_supply_net pd_modc -primary_power_net VDDL_gated_modc -primary_ground_net VSS
+set_domain_supply_net pd_modd -primary_power_net VDDL_gated_modd -primary_ground_net VSS
+
+# Define Power Switches for the gated domains. All the domains can be gated. You can use -lib_cells HEADX2_HVT
+#create_power_switch
+#map_power_switch 
+create_power_switch pg_moda_ps -domain pd_moda -input_supply_port "VDDH VDDH" -output_supply_port "VDDH_gated_moda VDDH_gated_moda" -control_port "sleep_moda sleep_moda" -on_state "ON VDDH sleep_moda" -off_state "OFF !sleep_moda" 
+map_power_switch pg_moda_ps -domain pd_moda -lib_cells HEADX2_HVT
+
+create_power_switch pg_modc_ps -domain pd_modc -input_supply_port "VDDL VDDL" -output_supply_port "VDDL_gated_modc VDDL_gated_modc" -control_port "sleep_modc sleep_modc" -on_state "ON VDDL sleep_modc" -off_state "OFF !sleep_modc" 
+map_power_switch pg_modc_ps -domain pd_modc -lib_cells HEADX2_HVT
+
+create_power_switch pg_modb_ps -domain pd_modb -input_supply_port "VDDH VDDH" -output_supply_port "VDDH_gated_modb VDDH_gated_modb" -control_port "sleep_modb sleep_modb" -on_state "ON VDDH sleep_modb" -off_state "OFF !sleep_modb" 
+map_power_switch pg_modb_ps -domain pd_modb -lib_cells HEADX2_HVT
+
+create_power_switch pg_modd_ps -domain pd_modd -input_supply_port "VDDL VDDL" -output_supply_port "VDDL_gated_modd VDDL_gated_modd" -control_port "sleep_modd sleep_modd" -on_state "ON VDDL sleep_modd" -off_state "OFF !sleep_modd" 
+map_power_switch pg_modd_ps -domain pd_modd -lib_cells HEADX2_HVT
+
+# Define Isolation Strategies
+#set_isolation 
+set_isolation iso_pg_moda_b -domain pd_moda -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modA_inst/A2B} 
+set_isolation_control iso_pg_moda_b -domain pd_moda -isolation_signal "iso_en" -isolation_sense high -location parent
+
+set_isolation iso_pg_moda_c -domain pd_moda -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modA_inst/A2C} 
+set_isolation_control iso_pg_moda_c -domain pd_moda -isolation_signal "iso_en" -isolation_sense high -location parent
+
+set_isolation iso_pg_modc_a -domain pd_modc -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modC_inst/C2A}
+set_isolation_control iso_pg_modc_a -domain pd_modc -isolation_signal "iso_en" -isolation_sense high -location parent
+
+set_isolation iso_pg_modc_b -domain pd_modc -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modC_inst/C2B}
+set_isolation_control iso_pg_modc_b -domain pd_modc -isolation_signal "iso_en" -isolation_sense high -location parent
+
+set_isolation iso_pg_modd_a -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/D2A}
+set_isolation_control iso_pg_modd_a -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+
+set_isolation iso_pg_modd_b -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/D2B}
+set_isolation_control iso_pg_modd_b -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+
+#set_isolation iso_pg_moda_top -domain pd_moda -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modA_inst/Z_reg}
+#set_isolation_control iso_pg_moda_top -domain pd_moda -isolation_signal "iso_en" -isolation_sense high -location parent
+
+#
+##set_isolation iso_pg_modb_a -domain pd_modb -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modB_inst/B2A} 
+##set_isolation_control iso_pg_modb_a -domain pd_modb -isolation_signal "iso_en" -isolation_sense high -location parent
+
+#set_isolation iso_pg_modb_c -domain pd_modb -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modB_inst/B2C} 
+#set_isolation_control iso_pg_modb_c -domain pd_modb -isolation_signal "iso_en" -isolation_sense high -location parent
+#
+
+
+#set_isolation iso_pg_modd_c -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/D2C_reg}
+#set_isolation_control iso_pg_modd_c -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+#
+#set_isolation iso_pg_modc_top -domain pd_modc -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modC_inst/X_reg}
+#set_isolation_control iso_pg_modc_top -domain pd_modc -isolation_signal "iso_en" -isolation_sense high -location parent
+#
+#set_isolation iso_pg_modd_top -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/W_reg}
+#set_isolation_control iso_pg_modd_top -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+
+
+
+# Define Level Shifter Strategies
+#set_level_shifter
+set_level_shifter ls_modc2top -domain pd_modc -location parent -elements {modC_inst/X} -rule low_to_high 
+set_level_shifter ls_modd2top -domain pd_modd -location parent -elements {modD_inst/W} -rule low_to_high 
+set_level_shifter ls_moda2modc -domain pd_moda -location parent -elements {modA_inst/A2C} -rule high_to_low 
+set_level_shifter ls_moda2modd -domain pd_moda -location parent -elements {modA_inst/A2D} -rule high_to_low 
+set_level_shifter ls_modb2modc -domain pd_modb -location parent -elements {modB_inst/B2C} -rule high_to_low 
+set_level_shifter ls_modb2modd -domain pd_modb -location parent -elements {modB_inst/B2D} -rule high_to_low 
+set_level_shifter ls_modc2moda -domain pd_modc -location parent -elements {modC_inst/C2A} -rule low_to_high 
+set_level_shifter ls_modd2moda -domain pd_modd -location parent -elements {modD_inst/D2A} -rule low_to_high 
+set_level_shifter ls_modc2modb -domain pd_modc -location parent -elements {modC_inst/C2B} -rule low_to_high 
+set_level_shifter ls_modd2modb -domain pd_modd -location parent -elements {modD_inst/D2B} -rule low_to_high 
+#set_level_shifter ls_modc2upfclk -domain pd_modc -location parent -elements {modC_inst/upf_clk} -rule high_to_low
+
+
+# Power State Tables
+#add_port_state 
+add_port_state VDDH -state {power_on 1.16} -state {power_off off} 
+add_port_state VDDL -state {power_on 0.85} -state {power_off off}
+add_port_state VSS -state {gnd 0.0}
+add_port_state pg_moda_ps/VDDH_gated_moda -state {power_on 1.16} -state {power_off off}
+add_port_state pg_modb_ps/VDDH_gated_modb -state {power_on 1.16} -state {power_off off}
+add_port_state pg_modc_ps/VDDL_gated_modc -state {power_on 0.85} -state {power_off off}
+add_port_state pg_modd_ps/VDDL_gated_modd -state {power_on 0.85} -state {power_off off}
+
+#create_pst power_state_table 
+create_pst MV_gated -supplies {VDDH VDDL VSS pg_moda_ps/VDDH_gated_moda pg_modb_ps/VDDH_gated_modb pg_modc_ps/VDDL_gated_modc pg_modd_ps/VDDL_gated_modd}
+#add_pst_state
+#PS1 {ModA_OFF, ModB_ON, ModC_ON, ModD_OFF} & PS2 (ModA_ON, ModB_ON, ModC_OFF, ModD_Off)
+add_pst_state s0 -pst MV_gated -state {power_on power_on gnd power_on power_on power_on power_on}
+add_pst_state s1 -pst MV_gated -state {power_on power_on gnd power_off power_on power_on power_off}
+add_pst_state s2 -pst MV_gated -state {power_on power_on gnd power_on power_on power_off power_off}

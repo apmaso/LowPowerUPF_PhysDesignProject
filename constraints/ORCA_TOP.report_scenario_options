@@ -1,0 +1,55 @@
+ 
+****************************************
+Report : scenario_options
+Design : ORCA_TOP
+Scenario(s): func_best func_worst leak test_best test_worst
+Version: N-2017.09-SP4
+Date   : Sat Feb 29 13:47:18 2020
+****************************************
+
+Scenario: func_best is active.
+ setup         : false 
+ hold          : true 
+ leakage_power : false 
+ dynamic_power : false 
+
+ cts_mode      : false 
+ cts_corner    : none 
+
+Scenario: func_worst is active.
+ setup         : true 
+ hold          : false 
+ leakage_power : false 
+ dynamic_power : true 
+
+ cts_mode      : true 
+ cts_corner    : max 
+
+Scenario: leak is active.
+ setup         : false 
+ hold          : false 
+ leakage_power : true 
+ dynamic_power : false 
+
+ cts_mode      : false 
+ cts_corner    : none 
+
+Scenario: test_best is active.
+ setup         : false 
+ hold          : true 
+ leakage_power : false 
+ dynamic_power : false 
+
+ cts_mode      : false 
+ cts_corner    : none 
+
+Scenario: test_worst is active.
+ setup         : true 
+ hold          : false 
+ leakage_power : false 
+ dynamic_power : false 
+
+ cts_mode      : true 
+ cts_corner    : max 
+
+1

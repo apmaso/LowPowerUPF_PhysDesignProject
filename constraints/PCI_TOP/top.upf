@@ -1,0 +1,145 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:04 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VSS
+create_supply_port VDD
+create_supply_port VDDH
+
+create_power_domain PD_ORCA_TOP
+
+create_supply_net VSS -domain PD_ORCA_TOP
+create_supply_net VDD -domain PD_ORCA_TOP
+create_supply_net VDDH -domain PD_ORCA_TOP
+
+set_domain_supply_net PD_ORCA_TOP -primary_power_net VDD -primary_ground_net VSS
+
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+connect_supply_net VDDH -ports VDDH
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst pst -supplies {VDD VDDH VSS}
+add_pst_state state_1 -pst pst -state {V0p75 V0p75 always}
+add_pst_state state_2 -pst pst -state {V0p75 V0p95 always}
+add_pst_state state_3 -pst pst -state {V0p95 V1p16 always}
+add_pst_state state_4 -pst pst -state {V0p95 V0p95 always}
+
+if {[info exists upf_extension] && $upf_extension} {
+set_related_supply_net -ground VSS -object_list {pclk pci_rst_n pidsel pgnt_n \
+    pad_in[31] pad_in[30] pad_in[29] pad_in[28] pad_in[27] pad_in[26] \
+    pad_in[25] pad_in[24] pad_in[23] pad_in[22] pad_in[21] pad_in[20] \
+    pad_in[19] pad_in[18] pad_in[17] pad_in[16] pad_in[15] pad_in[14] \
+    pad_in[13] pad_in[12] pad_in[11] pad_in[10] pad_in[9] pad_in[8] pad_in[7] \
+    pad_in[6] pad_in[5] pad_in[4] pad_in[3] pad_in[2] pad_in[1] pad_in[0] \
+    pad_en ppar_in ppar_out ppar_en pc_be_in[3] pc_be_in[2] pc_be_in[1] \
+    pc_be_in[0] pc_be_out[3] pc_be_out[2] pc_be_out[1] pc_be_out[0] pc_be_en \
+    pframe_n_in pframe_n_out pframe_n_en ptrdy_n_in ptrdy_n_out ptrdy_n_en \
+    pirdy_n_in pirdy_n_out pirdy_n_en pdevsel_n_in pdevsel_n_en pstop_n_in \
+    pstop_n_out pstop_n_en pperr_n_in pperr_n_out pperr_n_en pserr_n_in \
+    pserr_n_out pserr_n_en preq_n_ pack_n pm66en cmd_2_ cmd_1_ cmd_0_ \
+    cmd_in_valid cmd_in[3] cmd_in[2] cmd_in[1] cmd_in[0] sys_rst_n test_mode \
+    rfifo_pop wfifo_push wfifo_full pci_read_data[31] pci_read_data[30] \
+    pci_read_data[29] pci_read_data[28] pci_read_data[27] pci_read_data[26] \
+    pci_read_data[25] pci_read_data[24] pci_read_data[23] pci_read_data[22] \
+    pci_read_data[21] pci_read_data[20] pci_read_data[19] pci_read_data[18] \
+    pci_read_data[17] pci_read_data[16] pci_read_data[15] pci_read_data[14] \
+    pci_read_data[13] pci_read_data[12] pci_read_data[11] pci_read_data[10] \
+    pci_read_data[9] pci_read_data[8] pci_read_data[7] pci_read_data[6] \
+    pci_read_data[5] pci_read_data[4] pci_read_data[3] pci_read_data[2] \
+    pci_read_data[1] pci_read_data[0] pci_write_data[31] pci_write_data[30] \
+    pci_write_data[29] pci_write_data[28] pci_write_data[27] pci_write_data[26] \
+    pci_write_data[25] pci_write_data[24] pci_write_data[23] pci_write_data[22] \
+    pci_write_data[21] pci_write_data[20] pci_write_data[19] pci_write_data[18] \
+    pci_write_data[17] pci_write_data[16] pci_write_data[15] pci_write_data[14] \
+    pci_write_data[13] pci_write_data[12] pci_write_data[11] pci_write_data[10] \
+    pci_write_data[9] pci_write_data[8] pci_write_data[7] pci_write_data[6] \
+    pci_write_data[5] pci_write_data[4] pci_write_data[3] pci_write_data[2] \
+    pci_write_data[1] pci_write_data[0] light_sleep deep_sleep shutdown IN0 IN1 \
+    test_si5 pclk_cts_7 pclk_cts_8 pclk_cts_9 test_si1 test_so6 test_so5 \
+    test_se IN2 IN3 test_se_hfs_netlink_162 test_se_hfs_netlink_163 \
+    test_se_hfs_netlink_164 test_se_hfs_netlink_165 test_se_hfs_netlink_166 \
+    test_se_hfs_netlink_167 test_se_hfs_netlink_168 test_se_hfs_netlink_169 \
+    test_se_hfs_netlink_170 test_se_hfs_netlink_171 test_se_hfs_netlink_172 \
+    test_se_hfs_netlink_173 test_se_hfs_netlink_174 test_se_hfs_netlink_175 \
+    test_se_hfs_netlink_176 IN4 IN5 IN6 IN7 IN8 IN9 IN10 IN11 IN12 IN13 IN14 \
+    IN15 IN16 IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 IN25 IN26 IN27 IN28 \
+    test_si8 test_si7 test_si6 test_so9 test_so8 pad_out_31__BAR \
+    pad_out_30__BAR pad_out_29__BAR pad_out_28__BAR pad_out_27__BAR \
+    pad_out_26__BAR pad_out_25__BAR pad_out_24__BAR pad_out_23__BAR \
+    pad_out_22__BAR pad_out_21__BAR pad_out_20__BAR pad_out_19__BAR \
+    pad_out_18__BAR pad_out_17__BAR pad_out_16__BAR pad_out_15__BAR \
+    pad_out_14__BAR pad_out_13__BAR pad_out_12__BAR pad_out_11__BAR \
+    pad_out_10__BAR pad_out_9__BAR pad_out_8__BAR pad_out_7__BAR pad_out_6__BAR \
+    pad_out_5__BAR pad_out_4__BAR pad_out_3__BAR pad_out_2__BAR pad_out_1__BAR \
+    pad_out_0__BAR pdevsel_n_out cmd_valid cmd_3_ sys_clk_BAR}
+set_related_supply_net -power VDD -object_list {pclk pci_rst_n pidsel pgnt_n \
+    pad_in[31] pad_in[30] pad_in[29] pad_in[28] pad_in[27] pad_in[26] \
+    pad_in[25] pad_in[24] pad_in[23] pad_in[22] pad_in[21] pad_in[20] \
+    pad_in[19] pad_in[18] pad_in[17] pad_in[16] pad_in[15] pad_in[14] \
+    pad_in[13] pad_in[12] pad_in[11] pad_in[10] pad_in[9] pad_in[8] pad_in[7] \
+    pad_in[6] pad_in[5] pad_in[4] pad_in[3] pad_in[2] pad_in[1] pad_in[0] \
+    pad_en ppar_in ppar_out ppar_en pc_be_in[3] pc_be_in[2] pc_be_in[1] \
+    pc_be_in[0] pc_be_out[3] pc_be_out[2] pc_be_out[1] pc_be_out[0] pc_be_en \
+    pframe_n_in pframe_n_out pframe_n_en ptrdy_n_in ptrdy_n_out ptrdy_n_en \
+    pirdy_n_in pirdy_n_out pirdy_n_en pdevsel_n_in pdevsel_n_en pstop_n_in \
+    pstop_n_out pstop_n_en pperr_n_in pperr_n_out pperr_n_en pserr_n_in \
+    pserr_n_out pserr_n_en preq_n_ pack_n pm66en cmd_2_ cmd_1_ cmd_0_ \
+    cmd_in_valid cmd_in[3] cmd_in[2] cmd_in[1] cmd_in[0] sys_rst_n test_mode \
+    rfifo_pop wfifo_push wfifo_full pci_read_data[31] pci_read_data[30] \
+    pci_read_data[29] pci_read_data[28] pci_read_data[27] pci_read_data[26] \
+    pci_read_data[25] pci_read_data[24] pci_read_data[23] pci_read_data[22] \
+    pci_read_data[21] pci_read_data[20] pci_read_data[19] pci_read_data[18] \
+    pci_read_data[17] pci_read_data[16] pci_read_data[15] pci_read_data[14] \
+    pci_read_data[13] pci_read_data[12] pci_read_data[11] pci_read_data[10] \
+    pci_read_data[9] pci_read_data[8] pci_read_data[7] pci_read_data[6] \
+    pci_read_data[5] pci_read_data[4] pci_read_data[3] pci_read_data[2] \
+    pci_read_data[1] pci_read_data[0] pci_write_data[31] pci_write_data[30] \
+    pci_write_data[29] pci_write_data[28] pci_write_data[27] pci_write_data[26] \
+    pci_write_data[25] pci_write_data[24] pci_write_data[23] pci_write_data[22] \
+    pci_write_data[21] pci_write_data[20] pci_write_data[19] pci_write_data[18] \
+    pci_write_data[17] pci_write_data[16] pci_write_data[15] pci_write_data[14] \
+    pci_write_data[13] pci_write_data[12] pci_write_data[11] pci_write_data[10] \
+    pci_write_data[9] pci_write_data[8] pci_write_data[7] pci_write_data[6] \
+    pci_write_data[5] pci_write_data[4] pci_write_data[3] pci_write_data[2] \
+    pci_write_data[1] pci_write_data[0] light_sleep deep_sleep shutdown IN0 IN1 \
+    test_si5 pclk_cts_7 pclk_cts_8 pclk_cts_9 test_si1 test_so6 test_so5 \
+    test_se IN2 IN3 test_se_hfs_netlink_162 test_se_hfs_netlink_163 \
+    test_se_hfs_netlink_164 test_se_hfs_netlink_165 test_se_hfs_netlink_166 \
+    test_se_hfs_netlink_167 test_se_hfs_netlink_168 test_se_hfs_netlink_169 \
+    test_se_hfs_netlink_170 test_se_hfs_netlink_171 test_se_hfs_netlink_172 \
+    test_se_hfs_netlink_173 test_se_hfs_netlink_174 test_se_hfs_netlink_175 \
+    test_se_hfs_netlink_176 IN4 IN5 IN6 IN7 IN8 IN9 IN10 IN11 IN12 IN13 IN14 \
+    IN15 IN16 IN17 IN18 IN19 IN20 IN21 IN22 IN23 IN24 IN25 IN26 IN27 IN28 \
+    test_si8 test_si7 test_si6 test_so9 test_so8 pad_out_31__BAR \
+    pad_out_30__BAR pad_out_29__BAR pad_out_28__BAR pad_out_27__BAR \
+    pad_out_26__BAR pad_out_25__BAR pad_out_24__BAR pad_out_23__BAR \
+    pad_out_22__BAR pad_out_21__BAR pad_out_20__BAR pad_out_19__BAR \
+    pad_out_18__BAR pad_out_17__BAR pad_out_16__BAR pad_out_15__BAR \
+    pad_out_14__BAR pad_out_13__BAR pad_out_12__BAR pad_out_11__BAR \
+    pad_out_10__BAR pad_out_9__BAR pad_out_8__BAR pad_out_7__BAR pad_out_6__BAR \
+    pad_out_5__BAR pad_out_4__BAR pad_out_3__BAR pad_out_2__BAR pad_out_1__BAR \
+    pad_out_0__BAR pdevsel_n_out cmd_valid cmd_3_ sys_clk_BAR}
+}
+

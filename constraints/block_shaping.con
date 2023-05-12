@@ -1,0 +1,31 @@
+#utilization { target: 0.7; }
+guard_band { width: 0; height: 0; }
+#channel_size { size=5; } 
+
+block RISC_CORE {
+    boundary {
+              type: rigid;
+              shape: {{10.0 433.016} {318.256 653.688}};
+              }
+}
+
+block SDRAM_TOP {
+    boundary {
+              type: rigid;
+              shape: {{800.0 12.0} {300.0 277.0}};
+              }
+}
+
+block PCI_TOP {
+    boundary {
+              type: rigid;
+              shape: {{10.0 433.016} {180.0 433.016} {180.0 200.0} {299.0 200.0} {299.0 16.604} {10.0 16.604}};
+              }
+}
+
+#block CONTEXT_MEM {
+#    boundary {
+#              type: rigid;
+#              shape: {{800.0 319.0} {600.0 319.0} {600.0 482.0} {346.0 482.0} {346.0 650.0} {800.0 650.0}};
+#              }
+#}

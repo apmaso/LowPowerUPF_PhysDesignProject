@@ -1,0 +1,54 @@
+Common Commands:
+- git clone https://github.com/bcruik2/PSU_RTL2GDS.git
+  - Clone into a directory at your present location.
+- git status
+  - to see changes you have made since last commit
+- Getting files to be hidden from git status
+  - Add to .gitignore in whatever level you want
+- git add <filename>
+  - to add to a list the files you want to mark as changed.
+  - To add a file that is in the .gitignore:  git add -f <filename> 
+  - It can be just changed or a new file.  Or the name of a file you want deleted after you deleted it.
+- git commit -m "message"
+  - to commit changes to the repository
+- git push -u origin master
+  - to push the files to github
+- git pull
+  - pull all the changes that are in the repository to your local directories.
+- git log --oneline
+  - In one line, list each commit_hash version with one line of description.  Can do on one specific file too
+- git blame <filename>
+  - Check for who changed each line of the file and when
+- git diff <filename>
+  - Check for differences between your current filename and what is the latest in the repository
+- git diff <commit_hash> <filename>
+  - Check the differences between the filename and the commit_hash indicated
+- git diff <commit_hash> <commit_hash> <filename> 
+  - Check the differences between two different commit_hashes for a filename
+- git checkout -- <filename>
+  - revert your filename back to what was last saved in the repository
+- git checkout <commit_hash>  <filename>
+  - revert your filename back to some earlier version saved in the repository
+  - Get the version from git log --oneline <filename>
+- git reset --hard
+  - Reverts all files in your entire repository to the repository head
+- git reset --soft HEAD~1
+  - Undo your last commit, but don't change the files.  Can be useful if there were problems with git push -u origin master
+- git tag -a version_name -m "version comment/description"
+  - adding a tag to a version of your repository
+  - Push to github with: git push origin version_name
+- git config --global user.name "username"
+- git config --global user.password "password
+- git config --global user.email "user@pdx.edu"
+- git config --global credential.helper store
+  - save your username password in a cache so you don't  have to keep entering it.
+- git config credential.helper cache 3600
+  - Cache it for 1 hour.  Default is 15 minutes
+- Need to figure out ssh username/password
+  - https://help.github.com/en/articles/connecting-to-github-with-ssh 
+- Good documentation on Git:
+  - Good and look at other pages on this site: https://www.atlassian.com/git/tutorials/what-is-version-control
+  - Not too bad: https://wiki.spheredev.org/index.php/Git_for_the_lazy
+  - ok: https://towardsdatascience.com/top-20-most-frequently-used-git-commands-part-1-5f8c9212509f
+- Cheat Sheet
+  - https://www.atlassian.com/dam/jcr:e7e22f25-bba2-4ef1-a197-53f46b6df4a5/SWTM-2088_Atlassian-Git-Cheatsheet.pdf

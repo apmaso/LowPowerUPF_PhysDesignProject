@@ -1,0 +1,8 @@
+*.vg*
+*.def*
+*.upf*
+*.spef*
+!ORCA_TOP.floorplan.macros.def
+!ExampleRocketSystem.floorplan.innovus.*macros.def*
+!fifo1_sram.floorplan.*macros.def*
+

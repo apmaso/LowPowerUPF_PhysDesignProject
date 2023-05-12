@@ -1,0 +1,119 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:03 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VSS
+create_supply_port VDD
+create_supply_port VDDH
+
+create_power_domain PD_ORCA_TOP
+
+create_supply_net VSS -domain PD_ORCA_TOP
+create_supply_net VDD -domain PD_ORCA_TOP
+create_supply_net VDDH -domain PD_ORCA_TOP
+
+set_domain_supply_net PD_ORCA_TOP -primary_power_net VDD -primary_ground_net VSS
+
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+connect_supply_net VDDH -ports VDDH
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst pst -supplies {VDD VDDH VSS}
+add_pst_state state_1 -pst pst -state {V0p75 V0p75 always}
+add_pst_state state_2 -pst pst -state {V0p75 V0p95 always}
+add_pst_state state_3 -pst pst -state {V0p95 V1p16 always}
+add_pst_state state_4 -pst pst -state {V0p95 V0p95 always}
+
+if {[info exists upf_extension] && $upf_extension} {
+set_related_supply_net -ground VSS -object_list {clk reset_n clk_enable \
+    operation_3_ operation_2__BAR operation_1__BAR operation_0_ op1[31] op1[30] \
+    op1[29] op1[28] op1[27] op1[26] op1[25] op1[24] op1[23] op1[22] op1[21] \
+    op1[20] op1[19] op1[18] op1[17] op1[16] op1[15] op1[14] op1[13] op1[12] \
+    op1[11] op1[10] op1[9] op1[8] op1[7] op1[6] op1[5] op1[4] op1[3] op1[2] \
+    op1[1] op1[0] op2[31] op2[30] op2[29] op2[28] op2[27] op2[26] op2[25] \
+    op2[24] op2[23] op2[22] op2[21] op2[20] op2[19] op2[18] op2[17] op2[16] \
+    op2[15] op2[14] op2[13] op2[12] op2[11] op2[10] op2[9] op2[8] op2[7] op2[6] \
+    op2[5] op2[4] op2[3] op2[2] op2[1] op2[0] result[31] result[30] result[29] \
+    result[28] result[27] result[26] result[25] result[24] result[23] \
+    result[22] result[21] result[20] result[19] result[18] result[17] \
+    result[16] result[15] result[14] result[13] result[12] result[11] \
+    result[10] result[9] result[8] result[7] result[6] result[5] result[4] \
+    result[3] result[2] result[1] result[0] IN0 IN1 IN2 IN3 IN4 IN5 IN6 IN7 IN8 \
+    IN9 IN10 IN11 IN12 test_si22 test_so30 test_so29 test_so28 test_so27 \
+    test_so26 test_so25 test_so24 test_so23 test_so20 test_so19 test_so18 \
+    test_so16 test_so15 test_so14 test_so12 test_so11 test_so10 test_so9 \
+    test_so8 test_so7 test_so6 test_so5 test_so4 test_so3 test_so2 test_se IN13 \
+    IN14 IN15 IN16 IN17 IN18 IN19 IN20 IN21 test_se_hfs_netlink_116 \
+    test_se_hfs_netlink_117 test_se_hfs_netlink_118 test_se_hfs_netlink_119 \
+    test_se_hfs_netlink_120 test_se_hfs_netlink_121 test_se_hfs_netlink_122 \
+    test_se_hfs_netlink_123 test_se_hfs_netlink_124 test_se_hfs_netlink_125 \
+    test_se_hfs_netlink_126 test_se_hfs_netlink_127 test_se_hfs_netlink_128 \
+    test_se_hfs_netlink_129 test_se_hfs_netlink_130 test_se_hfs_netlink_131 \
+    test_se_hfs_netlink_132 test_se_hfs_netlink_133 test_se_hfs_netlink_134 \
+    test_se_hfs_netlink_135 test_se_hfs_netlink_136 test_se_hfs_netlink_137 \
+    test_se_hfs_netlink_138 test_se_hfs_netlink_139 test_se_hfs_netlink_140 \
+    test_se_hfs_netlink_141 test_se_hfs_netlink_142 test_se_hfs_netlink_143 \
+    test_se_hfs_netlink_144 test_se_hfs_netlink_145 test_se_hfs_netlink_146 \
+    test_se_hfs_netlink_147 test_se_hfs_netlink_148 test_se_hfs_netlink_149 \
+    IN22 IN23 IN24 IN25 IN26 IN27 IN28 IN29 IN30 IN31 IN32 IN33 IN34 IN35 IN36 \
+    IN37 IN38 IN39 IN40 IN41 IN42 IN43 IN44 IN45 IN46 IN47 IN48 IN49 IN50 IN51 \
+    IN52 IN53 test_si36 test_si35 test_si34 test_si33 test_si32 test_so34 \
+    test_so33 test_so32 test_so31}
+set_related_supply_net -power VDD -object_list {clk reset_n clk_enable \
+    operation_3_ operation_2__BAR operation_1__BAR operation_0_ op1[31] op1[30] \
+    op1[29] op1[28] op1[27] op1[26] op1[25] op1[24] op1[23] op1[22] op1[21] \
+    op1[20] op1[19] op1[18] op1[17] op1[16] op1[15] op1[14] op1[13] op1[12] \
+    op1[11] op1[10] op1[9] op1[8] op1[7] op1[6] op1[5] op1[4] op1[3] op1[2] \
+    op1[1] op1[0] op2[31] op2[30] op2[29] op2[28] op2[27] op2[26] op2[25] \
+    op2[24] op2[23] op2[22] op2[21] op2[20] op2[19] op2[18] op2[17] op2[16] \
+    op2[15] op2[14] op2[13] op2[12] op2[11] op2[10] op2[9] op2[8] op2[7] op2[6] \
+    op2[5] op2[4] op2[3] op2[2] op2[1] op2[0] result[31] result[30] result[29] \
+    result[28] result[27] result[26] result[25] result[24] result[23] \
+    result[22] result[21] result[20] result[19] result[18] result[17] \
+    result[16] result[15] result[14] result[13] result[12] result[11] \
+    result[10] result[9] result[8] result[7] result[6] result[5] result[4] \
+    result[3] result[2] result[1] result[0] IN0 IN1 IN2 IN3 IN4 IN5 IN6 IN7 IN8 \
+    IN9 IN10 IN11 IN12 test_si22 test_so30 test_so29 test_so28 test_so27 \
+    test_so26 test_so25 test_so24 test_so23 test_so20 test_so19 test_so18 \
+    test_so16 test_so15 test_so14 test_so12 test_so11 test_so10 test_so9 \
+    test_so8 test_so7 test_so6 test_so5 test_so4 test_so3 test_so2 test_se IN13 \
+    IN14 IN15 IN16 IN17 IN18 IN19 IN20 IN21 test_se_hfs_netlink_116 \
+    test_se_hfs_netlink_117 test_se_hfs_netlink_118 test_se_hfs_netlink_119 \
+    test_se_hfs_netlink_120 test_se_hfs_netlink_121 test_se_hfs_netlink_122 \
+    test_se_hfs_netlink_123 test_se_hfs_netlink_124 test_se_hfs_netlink_125 \
+    test_se_hfs_netlink_126 test_se_hfs_netlink_127 test_se_hfs_netlink_128 \
+    test_se_hfs_netlink_129 test_se_hfs_netlink_130 test_se_hfs_netlink_131 \
+    test_se_hfs_netlink_132 test_se_hfs_netlink_133 test_se_hfs_netlink_134 \
+    test_se_hfs_netlink_135 test_se_hfs_netlink_136 test_se_hfs_netlink_137 \
+    test_se_hfs_netlink_138 test_se_hfs_netlink_139 test_se_hfs_netlink_140 \
+    test_se_hfs_netlink_141 test_se_hfs_netlink_142 test_se_hfs_netlink_143 \
+    test_se_hfs_netlink_144 test_se_hfs_netlink_145 test_se_hfs_netlink_146 \
+    test_se_hfs_netlink_147 test_se_hfs_netlink_148 test_se_hfs_netlink_149 \
+    IN22 IN23 IN24 IN25 IN26 IN27 IN28 IN29 IN30 IN31 IN32 IN33 IN34 IN35 IN36 \
+    IN37 IN38 IN39 IN40 IN41 IN42 IN43 IN44 IN45 IN46 IN47 IN48 IN49 IN50 IN51 \
+    IN52 IN53 test_si36 test_si35 test_si34 test_si33 test_si32 test_so34 \
+    test_so33 test_so32 test_so31}
+}
+

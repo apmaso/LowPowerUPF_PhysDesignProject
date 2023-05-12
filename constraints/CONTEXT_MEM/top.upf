@@ -1,0 +1,99 @@
+################################################################################
+#
+# Created by icc2 (Q-2019.12-SP4) split_upf on Mon Aug 10 17:13:03 2020
+#
+################################################################################
+
+################################################################################
+#
+# Units
+# time_unit               : 1e-09
+# resistance_unit         : 1000000
+# capacitive_load_unit    : 1e-15
+# voltage_unit            : 1
+# current_unit            : 1e-06
+# power_unit              : 1e-12
+################################################################################
+
+# Implemented: supplies
+
+set_design_attributes -elements . -attribute lower_domain_boundary false
+create_supply_port VSS
+create_supply_port VDD
+create_supply_port VDDH
+
+create_power_domain PD_ORCA_TOP
+
+create_supply_net VSS -domain PD_ORCA_TOP
+create_supply_net VDD -domain PD_ORCA_TOP
+create_supply_net VDDH -domain PD_ORCA_TOP
+
+set_domain_supply_net PD_ORCA_TOP -primary_power_net VDD -primary_ground_net VSS
+
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+connect_supply_net VDDH -ports VDDH
+
+add_port_state VSS -state {always 0}
+add_port_state VDD -state {V0p75 0.75}
+add_port_state VDD -state {V0p95 0.95}
+add_port_state VDDH -state {V0p75 0.75}
+add_port_state VDDH -state {V0p95 0.95}
+add_port_state VDDH -state {V1p16 1.16}
+create_pst pst -supplies {VDD VDDH VSS}
+add_pst_state state_1 -pst pst -state {V0p75 V0p75 always}
+add_pst_state state_2 -pst pst -state {V0p75 V0p95 always}
+add_pst_state state_3 -pst pst -state {V0p95 V1p16 always}
+add_pst_state state_4 -pst pst -state {V0p95 V0p95 always}
+
+if {[info exists upf_extension] && $upf_extension} {
+set_related_supply_net -ground VSS -object_list {sys_clk sys_rst_n context_en \
+    cmd[7] cmd[6] cmd[5] cmd[4] cmd[3] cmd[2] cmd[1] cmd[0] pci_data_in[31] \
+    pci_data_in[30] pci_data_in[29] pci_data_in[28] pci_data_in[27] \
+    pci_data_in[26] pci_data_in[25] pci_data_in[24] pci_data_in[23] \
+    pci_data_in[22] pci_data_in[21] pci_data_in[20] pci_data_in[19] \
+    pci_data_in[18] pci_data_in[17] pci_data_in[16] pci_data_in[15] \
+    pci_data_in[14] pci_data_in[13] pci_data_in[12] pci_data_in[11] \
+    pci_data_in[10] pci_data_in[9] pci_data_in[8] pci_data_in[7] pci_data_in[6] \
+    pci_data_in[5] pci_data_in[4] pci_data_in[3] pci_data_in[2] pci_data_in[1] \
+    pci_data_in[0] pci_context_data[31] pci_context_data[30] \
+    pci_context_data[29] pci_context_data[28] pci_context_data[27] \
+    pci_context_data[26] pci_context_data[25] pci_context_data[24] \
+    pci_context_data[23] pci_context_data[22] pci_context_data[21] \
+    pci_context_data[20] pci_context_data[19] pci_context_data[18] \
+    pci_context_data[17] pci_context_data[16] pci_context_data[15] \
+    pci_context_data[14] pci_context_data[13] pci_context_data[12] \
+    pci_context_data[11] pci_context_data[10] pci_context_data[9] \
+    pci_context_data[8] pci_context_data[7] pci_context_data[6] \
+    pci_context_data[5] pci_context_data[4] pci_context_data[3] \
+    pci_context_data[2] pci_context_data[1] pci_context_data[0] sys_clk_cts_7 \
+    sys_clk_cts_8 sys_clk_cts_9 test_so4 test_so3 test_so2 test_so1 test_se IN0 \
+    IN1 IN2 IN3 test_se_hfs_netlink_150 IN4 IN5 IN6 IN7 test_si12 test_si11 \
+    test_si10 test_si9 test_si8 test_si7 test_si6 test_si5 test_so9 test_so8 \
+    test_so7 test_so6 test_so5 sys_clk_cts_5_1_BAR}
+set_related_supply_net -power VDD -object_list {sys_clk sys_rst_n context_en \
+    cmd[7] cmd[6] cmd[5] cmd[4] cmd[3] cmd[2] cmd[1] cmd[0] pci_data_in[31] \
+    pci_data_in[30] pci_data_in[29] pci_data_in[28] pci_data_in[27] \
+    pci_data_in[26] pci_data_in[25] pci_data_in[24] pci_data_in[23] \
+    pci_data_in[22] pci_data_in[21] pci_data_in[20] pci_data_in[19] \
+    pci_data_in[18] pci_data_in[17] pci_data_in[16] pci_data_in[15] \
+    pci_data_in[14] pci_data_in[13] pci_data_in[12] pci_data_in[11] \
+    pci_data_in[10] pci_data_in[9] pci_data_in[8] pci_data_in[7] pci_data_in[6] \
+    pci_data_in[5] pci_data_in[4] pci_data_in[3] pci_data_in[2] pci_data_in[1] \
+    pci_data_in[0] pci_context_data[31] pci_context_data[30] \
+    pci_context_data[29] pci_context_data[28] pci_context_data[27] \
+    pci_context_data[26] pci_context_data[25] pci_context_data[24] \
+    pci_context_data[23] pci_context_data[22] pci_context_data[21] \
+    pci_context_data[20] pci_context_data[19] pci_context_data[18] \
+    pci_context_data[17] pci_context_data[16] pci_context_data[15] \
+    pci_context_data[14] pci_context_data[13] pci_context_data[12] \
+    pci_context_data[11] pci_context_data[10] pci_context_data[9] \
+    pci_context_data[8] pci_context_data[7] pci_context_data[6] \
+    pci_context_data[5] pci_context_data[4] pci_context_data[3] \
+    pci_context_data[2] pci_context_data[1] pci_context_data[0] sys_clk_cts_7 \
+    sys_clk_cts_8 sys_clk_cts_9 test_so4 test_so3 test_so2 test_so1 test_se IN0 \
+    IN1 IN2 IN3 test_se_hfs_netlink_150 IN4 IN5 IN6 IN7 test_si12 test_si11 \
+    test_si10 test_si9 test_si8 test_si7 test_si6 test_si5 test_so9 test_so8 \
+    test_so7 test_so6 test_so5 sys_clk_cts_5_1_BAR}
+}
+

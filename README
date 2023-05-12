@@ -1,0 +1,92 @@
+# For Innovus flows, add this to ~/.profile after doing the appropriate addpkg
+  alias innovus='/pkgs/cadence/2019-03/INNOVUS171/bin/innovus'
+  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/pkgs/cadence/2019-03/SSV171/tools.lnx86/lib/64bit/"
+
+# Run Synthesis to generate a starting netlist non-physical synthesis.
+cd ~/PSU_RTL2GDS/syn/work
+dc_shell   (or genus)
+# Indicate to set the top design to fifo1.  There is an alias defined in .synopsys_dc.setup and genus_startup.tcl
+fs
+source ../scripts/dc.tcl    (or ../scripts/genus.tcl)
+# it is recommended to exit the shell before sourcing the TCL script again.
+exit
+
+# Run P&R to generate a starting Floorplan with IOs for use in Synth.  Also a spot to move macros around and save results.
+cd ../../apr/work
+icc2_shell  (or innovus)
+# Indicate to set the top design to fifo1.  There is an alias defined in .synopsys_dc.setup and enc.tcl
+fs
+source ../scripts/floorplan-macros2.tcl  (or ../scripts/floorplan-macros-innovus.tcl)
+exit
+
+# Run P&R to generate a floorplan for Synth
+cd ../../apr/work
+icc2_shell  (or (innovus)
+# Indicate to set the top design to fifo1.  There is an alias defined in .synopsys_dc.setup and enc.tcl
+fs
+source ../scripts/create_dct_floorplan2.tcl  (or ../scripts/create_genus_floorplan.tcl)
+exit
+
+# Rerun synthesis with Physically aware synth
+cd ../../syn/work
+dc_shell -topo  (or genus)
+# Indicate to set the top design to fifo1.  There is an alias defined in .synopsys_dc.setup and genus_startup.tcl
+fs
+source ../scripts/dct.tcl (or ../scripts/genus-phys.tcl)
+# it is recommended to exit the shell before sourcing the TCL script again.
+exit
+
+# Rerun ICC and start with the physical synth netlist and proceed through full P&R flow
+cd ../../apr/work
+icc2_shell  (or innovus)
+# Indicate to set the top design to fifo1.  There is an alias defined in .synopsys_dc.setup and enc.tcl
+fs
+# If you only want to run part of the flow, you can set flow "fpcr"  where f=floorplan, p=place, c=clock, r=route.
+source ../scripts/icc2.tcl  (or ../scripts/innovus.tcl)
+# If you rerun flow, either close_lib, then rerun, or exit the icc2_shell and reenter.  (or just source ../scripts/innovus.tcl?)
+exit
+
+# Check results in Primetime Static Timing Analysis in 3 modes
+# Follow directions at pt/scripts/README.DMSA.SSH 
+cd ../../pt/work
+
+# FOR DMSA setup and hold combined use if you have been successful with README.DMSA.SSH 
+pt_shell -multi_scenario
+# Indicate to set the top design to fifo1.  There is an alias defined in .synopsys_dc.setup
+fs
+source ../scripts/dmsa.tcl
+exit
+
+# If you are not successful yet with README.DMSA.SSH 
+pt_shell 
+fs
+source ../scripts/pt_max.tcl
+exit
+pt_shell
+fs
+source ../sripts/pt_min.tcl
+exit
+
+#########################################################
+For selecting the design type to do your synth or ICC2 or PT runs on,
+you can type "f" for fifo1
+you can type "e" for RiscV ExampleRocketSystem.
+you can type "o" for ORCA_TOP.  
+    For ORCA_TOP, the current RTL does not have macros, but the input to ICC2 does have macros.
+    I have only run dc_shell with RTL.  Otherwise, I have always run ICC2.
+That will change the design_top variable through an alias set up in .synopsys*.setup in your current work directory.
+
+Only fifo1_sram is tested in Genus/Innovus currently.
+    Power grid on M1/M2 could be improved in Innovus to improve routing.
+    
+#########################################################
+After reports are generated, the submodule report_parser_asic can be used
+to parse the files for a neater output.
+
+If report_parser_asic file is empty run the following commands:
+
+git submodule init
+git submodule update
+
+Next, follow the README within the submodule folder to get started.
+
