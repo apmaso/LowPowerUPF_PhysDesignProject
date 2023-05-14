@@ -1,0 +1,2025 @@
+  Setting attribute of root '/': 'stdout_log' = genus.log.23-05-14_15-05
+  Setting attribute of root '/': 'command_log' = genus.cmd.23-05-14_15-05
+WARNING: This version of the tool is 1257 days old.
+@genus:root: 1> lp
+mv_lp_top
+@genus:root: 2> gui_show
+@genus:root: 3> source ../scripts/genus.tcl
+Sourcing '../scripts/genus.tcl' (Sun May 14 15:31:10 PDT 2023)...
+#@ Begin verbose source scripts/genus.tcl
+@file(genus.tcl) 1: history keep 100
+@file(genus.tcl) 2: set_db timing_report_fields "delay arrival transition fanout load cell timing_point"
+  Setting attribute of root '/': 'timing_report_fields' = delay arrival transition fanout load cell timing_point
+@file(genus.tcl) 4: source -echo -verbose ../../$top_design.design_config.tcl
+Sourcing '../../mv_lp_top.design_config.tcl' (Sun May 14 15:31:10 PDT 2023)...
+#@ Begin verbose source mv_lp_top.design_config.tcl
+@file(mv_lp_top.design_config.tcl) 1: set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK
+@file(mv_lp_top.design_config.tcl) 3: set top_design ${top_design}
+set top_design ${top_design}
+@file(mv_lp_top.design_config.tcl) 4: set FCL 1
+set FCL 1
+@file(mv_lp_top.design_config.tcl) 5: set add_ios 0
+set add_ios 0
+@file(mv_lp_top.design_config.tcl) 6: set pad_design 0
+set pad_design 0
+@file(mv_lp_top.design_config.tcl) 7: set design_size {100 100}
+set design_size {100 100}
+@file(mv_lp_top.design_config.tcl) 8: set design_io_border 10
+set design_io_border 10
+@file(mv_lp_top.design_config.tcl) 9: set dc_floorplanning 1
+set dc_floorplanning 1
+@file(mv_lp_top.design_config.tcl) 10: set enable_dft 0
+set enable_dft 0
+@file(mv_lp_top.design_config.tcl) 11: set innovus_enable_manual_macro_placement 0
+set innovus_enable_manual_macro_placement 0
+@file(mv_lp_top.design_config.tcl) 12: set split_constraints 0
+set split_constraints 0
+@file(mv_lp_top.design_config.tcl) 14: set rtl_list [list ../rtl/$top_design.sv ]
+set rtl_list [list ../rtl/$top_design.sv ]
+@file(mv_lp_top.design_config.tcl) 16: set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+@file(mv_lp_top.design_config.tcl) 18: set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+@file(mv_lp_top.design_config.tcl) 19: set slow_metal 1p9m_Cmax_-40
+set slow_metal 1p9m_Cmax_-40
+@file(mv_lp_top.design_config.tcl) 20: set fast_metal 1p9m_Cmax_-40
+set fast_metal 1p9m_Cmax_-40
+@file(mv_lp_top.design_config.tcl) 22: set synth_corners $slow_corner
+set synth_corners $slow_corner
+@file(mv_lp_top.design_config.tcl) 23: set synth_corners_slow $slow_corner
+set synth_corners_slow $slow_corner
+@file(mv_lp_top.design_config.tcl) 24: set synth_corners_fast $fast_corner
+set synth_corners_fast $fast_corner
+@file(mv_lp_top.design_config.tcl) 26: set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+@file(mv_lp_top.design_config.tcl) 28: set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+@file(mv_lp_top.design_config.tcl) 31: if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+#@ End verbose source mv_lp_top.design_config.tcl
+@file(genus.tcl) 6: set designs [get_db designs * ]
+@file(genus.tcl) 7: if { $designs != "" } {
+  delete_obj $designs
+}
+@file(genus.tcl) 11: source ../scripts/genus-get-timlibslefs.tcl
+Sourcing '../scripts/genus-get-timlibslefs.tcl' (Sun May 14 15:31:10 PDT 2023)...
+#@ Begin verbose source scripts/genus-get-timlibslefs.tcl
+@file(genus-get-timlibslefs.tcl) 9: set search_path ""
+@file(genus-get-timlibslefs.tcl) 10: foreach i $lib_types { lappend search_path $lib_dir/lib/$i/db_nldm }
+@file(genus-get-timlibslefs.tcl) 20: set link_library ""
+@file(genus-get-timlibslefs.tcl) 21: foreach i $search_path {
+  foreach k $synth_corners {
+      foreach m $sub_lib_type {
+        foreach j [glob -nocomplain $i/$m$k.lib ] {
+          lappend link_library [file tail $j ]
+        }
+      }
+  }
+}
+@file(genus-get-timlibslefs.tcl) 32: set lef_path ""
+@file(genus-get-timlibslefs.tcl) 33: foreach i $lib_types { 
+   foreach m $sub_lib_type {
+      # Trim the "_" that is needed for synopsys timing library searching.  We don't want it for lefs.
+      set n [ string trimright $m "_" ] 
+      # Change a ? to a * since there are some extra characters in the lef path in the same spot.
+      set n [ regsub {\?} $n {*} ]
+      # further munging the sub_lib_type so that it matches the lef file name.  Synopsys was not fully consistent in their naming.
+      set n [ regsub {_} $n {*} ]
+      set n [ regsub {saed32} $n {saed32*} ]
+      foreach j [ glob -nocomplain $lib_dir/lib/$i/lef/${n}*.lef ] {
+         lappend lef_path $j
+      }
+   }
+}
+@file(genus-get-timlibslefs.tcl) 50: lappend search_path .
+#@ End verbose source scripts/genus-get-timlibslefs.tcl
+@file(genus.tcl) 13: set_db init_lib_search_path $search_path
+  Setting attribute of root '/': 'init_lib_search_path' = /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm .
+@file(genus.tcl) 15: set_db library $link_library
+
+Threads Configured:8
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.lib, Line 75714)
+        : Sequential timing checks, such as 'setup_rising' or 'hold_rising', on flop and latch cells require a clock pin. Verify that the 'clock' attribute of the clock pin is set to 'true' or that the clock pin has a 'clocked_on' attribute.
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.lib, Line 76053)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 226791 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 226792 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 226793 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 6569 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 6570 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 6571 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 3945 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 3946 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 3947 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 6569 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 6570 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 6571 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib, Line 75616)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib, Line 75955)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 226348 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 226349 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 226350 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 3945 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 3946 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 3947 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75vn40c.lib, Line 75616)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75vn40c.lib, Line 75953)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 226658 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75vn40c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 226659 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95vn40c.lib, Line 75612)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95vn40c.lib, Line 75949)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_LVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.lib, Line 75612)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_LVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.lib, Line 75949)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_LVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.lib, Line 75612)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_LVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.lib, Line 75949)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW1024x8' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 1441)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW1024x8'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW128x46' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 1881)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW128x46'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW128x8' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 2761)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW128x8'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW128x48' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 2321)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW128x48'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x32' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 3641)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW256x32'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x128' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 3201)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW256x128'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x46' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 4081)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW256x46'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x48' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib, Line 4521)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW256x48'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW256x8'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW32x50'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW512x32'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW512x8'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW64x32'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW512x128'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW64x128'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW64x8'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM1RW64x34'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM2RW128x4'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM2RW128x16'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+Warning : Missing sequential block in the sequential cell. [LBR-526]
+        : Sequential block (ff/ff_bank/latch/latch_bank) missing in cell(s) 'SRAM2RW128x32'. This may cause potential problems with results of downstream tools (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib)
+
+  Message Summary for Library all 19 libraries:
+  *********************************************
+  Missing sequential block in the sequential cell. [LBR-526]: 35
+  Missing clock pin in the sequential cell. [LBR-525]: 47
+  Missing a function attribute in the output pin definition. [LBR-518]: 384
+  An attribute is used before it is defined. [LBR-511]: 57
+  An unsupported construct was detected in this library. [LBR-40]: 105
+  *********************************************
+ 
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32hvt_dlvl_ss0p75vn40c_i0p95v'.
+        : This is a common source of delay calculation confusion and should be avoided.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32hvt_ss0p95vn40c'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32hvt_ulvl_ss0p95vn40c_i0p75v'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32rvt_dlvl_ss0p75vn40c_i0p95v'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32rvt_ss0p95vn40c'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32rvt_ulvl_ss0p95vn40c_i0p75v'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32lvt_dlvl_ss0p75vn40c_i0p95v'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32lvt_ss0p95vn40c'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32lvt_ulvl_ss0p95vn40c_i0p75v'.
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'saed32hvt_ss0p75vn40c' and 'saed32sram_ss0p95vn40c'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32hvt_ss0p75vn40c.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32hvt_ulvl_ss0p75vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32hvt_dlvl_ss0p75vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32hvt_ss0p95vn40c.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32rvt_ss0p75vn40c.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32rvt_dlvl_ss0p75vn40c_i0p95v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32rvt_ulvl_ss0p75vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32rvt_dlvl_ss0p75vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32rvt_ss0p95vn40c.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32rvt_ulvl_ss0p95vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32lvt_ss0p75vn40c.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32lvt_dlvl_ss0p75vn40c_i0p95v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32lvt_ulvl_ss0p75vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.750000, -40.000000) in library 'saed32lvt_dlvl_ss0p75vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32lvt_ss0p95vn40c.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32lvt_ulvl_ss0p95vn40c_i0p75v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, -40.000000) in library 'saed32sram_ss0p95vn40c.lib'.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA_HVT' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BUSKP_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BUSKP_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'CLOAD1_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'CLOAD1_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DHFILLH2_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DHFILLH2_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DHFILLHL2_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DHFILLHL2_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DHFILLHLHLS11_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DHFILLHLHLS11_HVT' must have an output pin.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX1_HVT'.  Ignoring the test_cell.
+        : Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency between the two may exist.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRARX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRARX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRASX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRASX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRSSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRSSRX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFSSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFSSRX2_HVT'.  Ignoring the test_cell.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'SHFILL128_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'SHFILL128_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'SHFILL1_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'SHFILL1_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'SHFILL2_HVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'SHFILL2_HVT' must have an output pin.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX2_HVT'.  Ignoring the test_cell.
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLSSX1_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX1_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX1_HVT).
+        : Library cell names must be unique.  Any duplicates will be deleted.  Only the first (as determined by the order of libraries) will be retained.
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLSSX2_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX2_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX2_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLSSX4_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX4_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX4_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLSSX8_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX8_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLSSX8_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLX1_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX1_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX1_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLX2_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX2_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX2_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLX4_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX4_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX4_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENCLX8_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX8_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENCLX8_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENSSX1_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX1_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX1_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENSSX2_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX2_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX2_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENSSX4_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX4_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX4_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENSSX8_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX8_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENSSX8_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENX1_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX1_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX1_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENX2_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX2_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX2_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENX4_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX4_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX4_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNENX8_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX8_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNENX8_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNSSX1_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX1_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX1_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNSSX2_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX2_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX2_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNSSX4_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX4_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX4_HVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (saed32hvt_dlvl_ss0p75vn40c_i0p95v/LSDNSSX8_HVT and saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX8_HVT).  Deleting (saed32hvt_dlvl_ss0p75vn40c_i0p75v/LSDNSSX8_HVT).
+  Setting attribute of root '/': 'library' = saed32hvt_ss0p75vn40c.lib saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib saed32hvt_ulvl_ss0p75vn40c_i0p75v.lib saed32hvt_dlvl_ss0p75vn40c_i0p75v.lib saed32hvt_ss0p95vn40c.lib saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib saed32rvt_ss0p75vn40c.lib saed32rvt_dlvl_ss0p75vn40c_i0p95v.lib saed32rvt_ulvl_ss0p75vn40c_i0p75v.lib saed32rvt_dlvl_ss0p75vn40c_i0p75v.lib saed32rvt_ss0p95vn40c.lib saed32rvt_ulvl_ss0p95vn40c_i0p75v.lib saed32lvt_ss0p75vn40c.lib saed32lvt_dlvl_ss0p75vn40c_i0p95v.lib saed32lvt_ulvl_ss0p75vn40c_i0p75v.lib saed32lvt_dlvl_ss0p75vn40c_i0p75v.lib saed32lvt_ss0p95vn40c.lib saed32lvt_ulvl_ss0p95vn40c_i0p75v.lib saed32sram_ss0p95vn40c.lib
+@file(genus.tcl) 17: set_db dft_opcg_domain_blocking true
+  Setting attribute of root '/': 'dft_opcg_domain_blocking' = true
+@file(genus.tcl) 19: set_db auto_ungroup none
+  Setting attribute of root '/': 'auto_ungroup' = none
+@file(genus.tcl) 22: read_hdl -language sv ../rtl/${top_design}.sv
+	reg RA1 = 0,RA2 = 0,RA3 = 0,RA4 = 0;
+	           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 73, column 13.
+        : For example, the following constructs will be ignored:
+    - initial block
+    - final block
+    - program block
+    - property block
+    - sequence block
+    - covergroup
+    - checker block
+    - gate drive strength
+    - system task enable
+    - reg declaration with initial value
+    - specify block.
+	reg RA1 = 0,RA2 = 0,RA3 = 0,RA4 = 0;
+	                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 73, column 21.
+	reg RA1 = 0,RA2 = 0,RA3 = 0,RA4 = 0;
+	                           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 73, column 29.
+	reg RA1 = 0,RA2 = 0,RA3 = 0,RA4 = 0;
+	                                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 73, column 37.
+	reg RB1 = 0,RB2 = 0,RB3 = 0,RB4 = 0; 
+	           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 98, column 13.
+	reg RB1 = 0,RB2 = 0,RB3 = 0,RB4 = 0; 
+	                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 98, column 21.
+	reg RB1 = 0,RB2 = 0,RB3 = 0,RB4 = 0; 
+	                           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 98, column 29.
+	reg RB1 = 0,RB2 = 0,RB3 = 0,RB4 = 0; 
+	                                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 98, column 37.
+	reg RC1 = 0,RC2 = 0,RC3 = 0,RC4 = 0;
+	           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 122, column 13.
+	reg RC1 = 0,RC2 = 0,RC3 = 0,RC4 = 0;
+	                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 122, column 21.
+	reg RC1 = 0,RC2 = 0,RC3 = 0,RC4 = 0;
+	                           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 122, column 29.
+	reg RC1 = 0,RC2 = 0,RC3 = 0,RC4 = 0;
+	                                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 122, column 37.
+	reg RD1 = 0,RD2 = 0,RD3 = 0,RD4 = 0;
+	           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 146, column 13.
+	reg RD1 = 0,RD2 = 0,RD3 = 0,RD4 = 0;
+	                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 146, column 21.
+	reg RD1 = 0,RD2 = 0,RD3 = 0,RD4 = 0;
+	                           |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 146, column 29.
+	reg RD1 = 0,RD2 = 0,RD3 = 0,RD4 = 0;
+	                                   |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/mv_lp_top.sv' on line 146, column 37.
+@file(genus.tcl) 34: elaborate $top_design
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_H53' between pins 'CLK' and 'SE' in libcell 'CGLNPRX2_HVT' is a sequential timing arc.
+        : The library cell will be treated as a timing-model. Make sure that the timing arcs and output function are defined correctly. Even if the cell intends to have dual-functionality, it cannot be unmapped or automatically inferred.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_H53' between pins 'CLK' and 'SE' in libcell 'CGLNPRX8_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX16_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX2_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX4_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX8_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_Ha3' between pins 'CLK' and 'SE' in libcell 'CGLPPRX2_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_Ha3' between pins 'CLK' and 'SE' in libcell 'CGLPPRX8_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_Ha0' between pins 'CLK' and 'EN' in libcell 'CGLPPSX16_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_Ha0' between pins 'CLK' and 'EN' in libcell 'CGLPPSX2_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_Ha0' between pins 'CLK' and 'EN' in libcell 'CGLPPSX4_HVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_Ha0' between pins 'CLK' and 'EN' in libcell 'CGLPPSX8_HVT' is a sequential timing arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX1_HVT/D' has no incoming setup arc.
+        : Pin used in a next_state function must have an incoming setup timing arc. Otherwise, the library cell will be treated as a timing model.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX2_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX1_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX2_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_HVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_HVT/SI' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_HVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_HVT/SI' has no incoming setup arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_H53' between pins 'CLK' and 'SE' in libcell 'CGLNPRX2_RVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_H53' between pins 'CLK' and 'SE' in libcell 'CGLNPRX8_RVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX16_RVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX2_RVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX4_RVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_EN_H50' between pins 'CLK' and 'EN' in libcell 'CGLNPSX8_RVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_Ha3' between pins 'CLK' and 'SE' in libcell 'CGLPPRX2_RVT' is a sequential timing arc.
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CLK_SE_Ha3' between pins 'CLK' and 'SE' in libcell 'CGLPPRX8_RVT' is a sequential timing arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX1_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX2_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX1_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX2_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_RVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_RVT/SI' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_RVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_RVT/SI' has no incoming setup arc.
+  Libraries have 390 usable logic and 324 usable sequential lib-cells.
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'mv_lp_top' from file '../rtl/mv_lp_top.sv'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'mv_lp_top'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+UM:   timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                      elaborate
+@file(genus.tcl) 38: if { [info exists enable_dft] &&  $enable_dft  } {
+
+   if { [file exists ../../${top_design}.dft_eco.tcl] == 1 } {
+      # Make eco changes like instantiating a PLL.
+      source -echo -verbose ../../${top_design}.dft_eco.tcl
+   } 
+   # Setup DFT/OPCG dependencies.
+   source -echo -verbose ../../${top_design}.dft_config.tcl
+}
+@file(genus.tcl) 48: if { [ info exists add_ios ] && $add_ios } {
+   source -echo -verbose ../scripts/genus-add_ios.tcl
+   # Source the design dependent code that will put IOs on different sides
+   source ../../$top_design.add_ios.tcl
+}
+@file(genus.tcl) 55: update_names -map { {"." "_" }} -inst -force
+Warning : Port names affected by change_names do not automatically get updated in written out SV wrapper module. [CHNM-108] [update_names]
+        : If user is setting  write_sv_port_wrapper = true then the port names affected by usage of change_name  
+    need to be updated manually in the written out SV wrapper module.
+        : If user is setting write_sv_port_wrapper = true then the port names affected by usage of change_name need to be updated manually in the written out SV wrapper module.
+@file(genus.tcl) 56: update_names -map {{"[" "_"} {"]" "_"}} -inst -force
+Warning : Port names affected by change_names do not automatically get updated in written out SV wrapper module. [CHNM-108] [update_names]
+        : If user is setting  write_sv_port_wrapper = true then the port names affected by usage of change_name  
+    need to be updated manually in the written out SV wrapper module.
+@file(genus.tcl) 57: update_names -map {{"[" "_"} {"]" "_"}} -port_bus
+Warning : Port names affected by change_names do not automatically get updated in written out SV wrapper module. [CHNM-108] [update_names]
+        : If user is setting  write_sv_port_wrapper = true then the port names affected by usage of change_name  
+    need to be updated manually in the written out SV wrapper module.
+@file(genus.tcl) 58: update_names -map {{"[" "_"} {"]" "_"}} -hport_bus
+Warning : Port names affected by change_names do not automatically get updated in written out SV wrapper module. [CHNM-108] [update_names]
+        : If user is setting  write_sv_port_wrapper = true then the port names affected by usage of change_name  
+    need to be updated manually in the written out SV wrapper module.
+@file(genus.tcl) 59: update_names -inst -hnet -restricted {[} -convert_string "_"
+Warning : Option 'convert_string' is obsolete. [CHNM-107] [update_names]
+        : Option 'convert_string' has been replaced by 'replace_str'.
+        : The obsolete option still works in this release, but to avoid this warning and to ensure compatibility with future releases, update your script to use new option.
+Warning : Port names affected by change_names do not automatically get updated in written out SV wrapper module. [CHNM-108] [update_names]
+        : If user is setting  write_sv_port_wrapper = true then the port names affected by usage of change_name  
+    need to be updated manually in the written out SV wrapper module.
+@file(genus.tcl) 60: update_names -inst -hnet -restricted {]} -convert_string "_"
+Warning : Option 'convert_string' is obsolete. [CHNM-107] [update_names]
+        : Option 'convert_string' has been replaced by 'replace_str'.
+Warning : Port names affected by change_names do not automatically get updated in written out SV wrapper module. [CHNM-108] [update_names]
+        : If user is setting  write_sv_port_wrapper = true then the port names affected by usage of change_name  
+    need to be updated manually in the written out SV wrapper module.
+@file(genus.tcl) 64: source -echo -verbose ../../constraints/${top_design}.sdc
+Sourcing '../../constraints/mv_lp_top.sdc' (Sun May 14 15:31:13 PDT 2023)...
+#@ Begin verbose source constraints/mv_lp_top.sdc
+@file(mv_lp_top.sdc) 4: set design_clk upf_clk
+set design_clk upf_clk
+@file(mv_lp_top.sdc) 5: set design_clk_period 0.8
+set design_clk_period 0.8
+@file(mv_lp_top.sdc) 7: create_clock -period ${design_clk_period} -waveform {0 0.5} -name $design_clk [get_ports upf_clk]
+create_clock -period ${design_clk_period} -waveform {0 0.5} -name $design_clk [get_ports upf_clk]
+@file(mv_lp_top.sdc) 8: set_clock_transition 0.05 [get_clocks $design_clk]
+set_clock_transition 0.05 [get_clocks $design_clk]
+@file(mv_lp_top.sdc) 9: set_clock_latency 0.2 [get_clocks $design_clk]
+set_clock_latency 0.2 [get_clocks $design_clk]
+@file(mv_lp_top.sdc) 10: set_clock_uncertainty 0.05 -setup [get_clocks $design_clk]
+set_clock_uncertainty 0.05 -setup [get_clocks $design_clk]
+@file(mv_lp_top.sdc) 11: set_clock_uncertainty 0.01 -hold [get_clocks $design_clk]
+set_clock_uncertainty 0.01 -hold [get_clocks $design_clk]
+@file(mv_lp_top.sdc) 14: set_input_delay -max [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+set_input_delay -max [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+@file(mv_lp_top.sdc) 15: set_input_delay -min [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+set_input_delay -min [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+@file(mv_lp_top.sdc) 18: set_output_delay -max [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+set_output_delay -max [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+@file(mv_lp_top.sdc) 19: set_output_delay -min [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+set_output_delay -min [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+@file(mv_lp_top.sdc) 22: set_max_delay [expr 0.9 * $design_clk_period] -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"] 
+set_max_delay [expr 0.9 * $design_clk_period] -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"] 
+@file(mv_lp_top.sdc) 24: set_drive 0.00001 [get_ports {A C E}] 
+set_drive 0.00001 [get_ports {A C E}] 
+@file(mv_lp_top.sdc) 26: set_load 0.05 [get_ports {P Q R S T}]
+set_load 0.05 [get_ports {P Q R S T}]
+@file(mv_lp_top.sdc) 28: group_path -name in2reg -from [get_ports -filter "direction==in&&full_name!~*clk*"]
+group_path -name in2reg -from [get_ports -filter "direction==in&&full_name!~*clk*"]
+@file(mv_lp_top.sdc) 29: group_path -name reg2out -to [get_ports -filter "direction==out"]
+group_path -name reg2out -to [get_ports -filter "direction==out"]
+@file(mv_lp_top.sdc) 30: group_path -name in2out -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"]
+group_path -name in2out -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"]
+@file(mv_lp_top.sdc) 32: if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_shell") } {
+    puts " Creating ICC2 MCMM "
+    create_mode func
+    create_corner slow
+    create_scenario -mode func -corner slow -name func_slow
+    current_scenario func_slow
+    set_operating_conditions ss0p75v125c
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmax.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmax
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmin.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmin
+ 
+    set_parasitic_parameters -early_spec Cmax -early_temperature 125
+    set_parasitic_parameters -late_spec Cmax -late_temperature 125
+    set_scenario_status func_slow -active true -hold true -setup true
+}
+if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_shell") } {
+    puts " Creating ICC2 MCMM "
+    create_mode func
+    create_corner slow
+    create_scenario -mode func -corner slow -name func_slow
+    current_scenario func_slow
+    set_operating_conditions ss0p75v125c
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmax.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmax
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmin.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmin
+ 
+    set_parasitic_parameters -early_spec Cmax -early_temperature 125
+    set_parasitic_parameters -late_spec Cmax -late_temperature 125
+    set_scenario_status func_slow -active true -hold true -setup true
+}
+#@ End verbose source constraints/mv_lp_top.sdc
+@file(genus.tcl) 66: if { [info exists enable_dft] &&  $enable_dft  } {
+
+   check_dft_rules
+   # Need to have test_mode port defined to run this command. 
+   fix_dft_violations -clock -async_set -async_reset -test_control test_mode  
+   report dft_registers
+
+}
+@file(genus.tcl) 75: set_dont_use [get_lib_cells */DELLN* ]
+@file(genus.tcl) 77: syn_gen
+  Libraries have 381 usable logic and 324 usable sequential lib-cells.
+Info    : Synthesizing. [SYNTH-1]
+        : Synthesizing 'mv_lp_top' to generic gates using 'medium' effort.
+PBS_Generic-Start - Elapsed_Time 0, CPU_Time 0.0
+stamp 'PBS_Generic-Start' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+TNS Restructuring config:  at stage: generic applied.
+Info    : Partition Based Synthesis execution skipped. [PHYS-752]
+        : Design size is less than the partition size '100000' for distributed generic optimization to kick in.
+Starting mux data reorder optimization [v1.0] (stage: post_to_gen_setup, startdef: mv_lp_top, recur: true)
+Completed mux data reorder optimization (accepts: 0, rejects: 0, runtime: 0.000s)
+Starting reconvergence optimization [v1.0] (stage: pre_rtlopt, startdef: mv_lp_top, recur: true)
+Completed reconvergence optimization (accepts: 0, rejects: 0, runtime: 0.001s)
+Starting logic restructure optimization [v1.0] (stage: pre_rtlopt, startdef: mv_lp_top, recur: true)
+Completed logic restructure optimization (accepts: 0, rejects: 0, runtime: 0.000s)
+Info    : Pre-processed datapath logic. [DPOPT-6]
+        : No pre-processing optimizations applied to datapath logic in 'mv_lp_top'.
+Info    : Optimizing datapath logic. [DPOPT-1]
+        : Optimizing datapath logic in 'mv_lp_top'.
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_35'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_35'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_46'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_46'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(1), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_43'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_43'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(1), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_45'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_45'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_37'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_37'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(1), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_44'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_44'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_42'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_42'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_41'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_41'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_40'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_40'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_39'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_39'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_38'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_38'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Implementing datapath configurations. [DPOPT-3]
+        : Implementing datapath configurations for 'CDN_DP_region_36'
+Info    : Done implementing datapath configurations. [DPOPT-4]
+        : Selected 'very_fast' configuration 5 for module 'CDN_DP_region_36'.
+          Optimizations applied to 'very_fast' configuration:
+            rewriting(0), factoring(0), sharing(0), cmultcse(0), downsizing(0), speculation(0)
+Info    : Done optimizing datapath logic. [DPOPT-2]
+        : Done optimizing datapath logic in 'mv_lp_top'.
+Starting mux data reorder optimization [v1.0] (stage: post_rtlopt, startdef: mv_lp_top, recur: true)
+Completed mux data reorder optimization (accepts: 0, rejects: 0, runtime: 0.000s)
+Starting mux speculation [v1.0] (stage: post_muxopt, startdef: mv_lp_top, recur: true)
+Starting speculation optimization
+Completed speculation optimization (accepts:0)
+Completed mux speculation (accepts: 0, rejects: 0, runtime: 0.012s)
+==================================
+Stage : to_generic 
+==================================
+  =================
+   Message Summary
+  =================
+------------------------------------------------------------------------------------------------------------------------------------------
+|    Id     |  Sev   |Count |                                               Message Text                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------
+| CHNM-107  |Warning |    2 |Option 'convert_string' is obsolete.                                                                        |
+|           |        |      |The obsolete option still works in this release, but to avoid this warning and to ensure compatibility with |
+|           |        |      | future releases, update your script to use new option.                                                     |
+| CHNM-108  |Warning |    6 |Port names affected by change_names do not automatically get updated in written out SV wrapper module.      |
+|           |        |      |If user is setting write_sv_port_wrapper = true then the port names affected by usage of change_name need   |
+|           |        |      | to be updated manually in the written out SV wrapper module.                                               |
+| CWD-19    |Info    |  156 |An implementation was inferred.                                                                             |
+| DPOPT-1   |Info    |    1 |Optimizing datapath logic.                                                                                  |
+| DPOPT-2   |Info    |    1 |Done optimizing datapath logic.                                                                             |
+| DPOPT-3   |Info    |   13 |Implementing datapath configurations.                                                                       |
+| DPOPT-4   |Info    |   13 |Done implementing datapath configurations.                                                                  |
+| DPOPT-6   |Info    |    1 |Pre-processed datapath logic.                                                                               |
+| ELAB-1    |Info    |    1 |Elaborating Design.                                                                                         |
+| ELAB-2    |Info    |    4 |Elaborating Subdesign.                                                                                      |
+| ELAB-3    |Info    |    1 |Done Elaborating Design.                                                                                    |
+| LBR-155   |Info    |  180 |Mismatch in unateness between 'timing_sense' attribute and the function.                                    |
+|           |        |      |The 'timing_sense' attribute will be respected.                                                             |
+| LBR-161   |Info    |    1 |Setting the maximum print count of this message to 10 if information_level is less than 9.                  |
+| LBR-162   |Info    |   90 |Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed.                                     |
+|           |        |      |Setting the 'timing_sense' to non_unate.                                                                    |
+| LBR-170   |Info    |   36 |Ignoring specified timing sense.                                                                            |
+|           |        |      |Timing sense should never be set with 'rising_edge' or 'falling_edge' timing type.                          |
+| LBR-22    |Warning |  990 |Multiply-defined library cell.                                                                              |
+|           |        |      |Library cell names must be unique.  Any duplicates will be deleted.  Only the first                         |
+|           |        |      | (as determined by the order of libraries) will be retained.                                                |
+| LBR-30    |Info    |    6 |Promoting a setup arc to recovery.                                                                          |
+|           |        |      |Setup arcs to asynchronous input pins are not supported.                                                    |
+| LBR-31    |Info    |    6 |Promoting a hold arc to removal.                                                                            |
+|           |        |      |Hold arcs to asynchronous input pins are not supported.                                                     |
+| LBR-34    |Warning |   30 |Missing an incoming setup timing arc for next_state library pin.                                            |
+|           |        |      |Pin used in a next_state function must have an incoming setup timing arc. Otherwise, the library cell will  |
+|           |        |      | be treated as a timing model.                                                                              |
+| LBR-38    |Warning |   10 |Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes      |
+|           |        |      | called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values   |
+|           |        |      | of the 2 given .libs differ.                                                                               |
+|           |        |      |This is a common source of delay calculation confusion and should be avoided.                               |
+| LBR-40    |Info    |  105 |An unsupported construct was detected in this library.                                                      |
+|           |        |      |Check to see if this construct is really needed for synthesis. Many liberty constructs are not actually     |
+|           |        |      | required.                                                                                                  |
+| LBR-41    |Info    | 1502 |An output library pin lacks a function attribute.                                                           |
+|           |        |      |If the remainder of this library cell's semantic checks are successful, it will be considered as a          |
+|           |        |      | timing-model (because one of its outputs does not have a valid function.                                   |
+| LBR-412   |Info    |   19 |Created nominal operating condition.                                                                        |
+|           |        |      |The nominal operating condition is represented, either by the nominal PVT values specified in the library   |
+|           |        |      | source (via nom_process,nom_voltage and nom_temperature respectively)                                      |
+|           |        |      | , or by the default PVT values (1.0,1.0,1.0).                                                              |
+| LBR-511   |Warning |   57 |An attribute is used before it is defined.                                                                  |
+| LBR-518   |Info    |  384 |Missing a function attribute in the output pin definition.                                                  |
+| LBR-525   |Warning |   47 |Missing clock pin in the sequential cell.                                                                   |
+|           |        |      |Sequential timing checks, such as 'setup_rising' or 'hold_rising', on flop and latch cells require a clock  |
+|           |        |      | pin. Verify that the 'clock' attribute of the clock pin is set to 'true' or that the clock pin has a       |
+|           |        |      | 'clocked_on' attribute.                                                                                    |
+| LBR-526   |Warning |   35 |Missing sequential block in the sequential cell.                                                            |
+| LBR-64    |Warning |   96 |Malformed test_cell.                                                                                        |
+|           |        |      |Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency  |
+|           |        |      | between the two may exist.                                                                                 |
+| LBR-76    |Warning |   36 |Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from  |
+|           |        |      | using this cell for technology mapping. The tool will treat it as unusable.                                |
+|           |        |      |The library cell will be treated as a timing-model. Make sure that the timing arcs and output function are  |
+|           |        |      | defined correctly. Even if the cell intends to have dual-functionality, it cannot be unmapped or           |
+|           |        |      | automatically inferred.                                                                                    |
+| LBR-9     |Warning |  144 |Library cell has no output pins defined.                                                                    |
+|           |        |      |Add the missing output pin(s)                                                                               |
+|           |        |      | , then reload the library. Else the library cell will be marked as timing model i.e. unusable.             |
+|           |        |      | Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will |
+|           |        |      | mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell.        |
+|           |        |      | Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis.   |
+|           |        |      | If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output   |
+|           |        |      | pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will   |
+|           |        |      | depend upon the output function defined in the pin group (output pin)                                      |
+|           |        |      | of the cell, to use it for mapping. The pg_pin will not have any function defined.                         |
+| PHYS-752  |Info    |    1 |Partition Based Synthesis execution skipped.                                                                |
+| RTLOPT-40 |Info    |   15 |Transformed datapath macro.                                                                                 |
+| SYNTH-1   |Info    |    1 |Synthesizing.                                                                                               |
+| TUI-31    |Warning |    2 |Obsolete command.                                                                                           |
+|           |        |      |This command is no longer supported.                                                                        |
+| VLOGPT-37 |Warning |   16 |Ignoring unsynthesizable construct.                                                                         |
+|           |        |      |For example, the following constructs will be ignored:
+    - initial block
+    - final block
+    - program  |
+|           |        |      | block
+    - property block
+    - sequence block
+    - covergroup
+    - checker block
+    - gate drive      |
+|           |        |      | strength
+    - system task enable
+    - reg declaration with initial value
+    - specify block.            |
+------------------------------------------------------------------------------------------------------------------------------------------
+Mapper: Libraries have:
+	domain _default_: 381 combo usable cells and 324 sequential usable cells
+Multi-threaded constant propagation [1|0] ...
+Multi-threaded Virtual Mapping    (8 threads, 8 of 32 CPUs usable)
+==================================
+Stage : first_condense 
+==================================
+  =================
+   Message Summary
+  =================
+---------------------------------------------------------------
+|  Id  |Sev  |Count |              Message Text               |
+---------------------------------------------------------------
+| GB-6 |Info |   22 |A datapath component has been ungrouped. |
+---------------------------------------------------------------
+ 
+Global mapping target info
+==========================
+Cost Group 'in2out' target slack:     7 ps
+Target path end-point (Port: mv_lp_top/T)
+
+Cost Group 'reg2out' target slack:    15 ps
+Target path end-point (Port: mv_lp_top/Y)
+
+Cost Group 'in2reg' target slack:    15 ps
+Target path end-point (Pin: modD_inst/D2C_reg/d)
+
+Cost Group 'upf_clk' target slack:    19 ps
+Target path end-point (Pin: modB_inst/RB4_reg/d)
+
+PBS_Generic_Opt-Post - Elapsed_Time 2, CPU_Time 2.691172999999999
+stamp 'PBS_Generic_Opt-Post' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) | 100.0(100.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+PBS_Generic-Postgen HBO Optimizations - Elapsed_Time 0, CPU_Time 0.0
+stamp 'PBS_Generic-Postgen HBO Optimizations' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) | 100.0(100.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+##>=================== Cadence Confidential (Generic-Logical) ===================
+##>=================== Cadence Confidential (Generic-Logical) ===================
+##>Main Thread Summary:
+##>----------------------------------------------------------------------------------------
+##>STEP                           Elapsed       WNS       TNS     Insts      Area    Memory
+##>----------------------------------------------------------------------------------------
+##>G:Initial                            1         -         -       142       532       391
+##>G:Setup                              0         -         -         -         -         -
+##>G:Launch ST                          0         -         -         -         -         -
+##>G:Design Partition                   0         -         -         -         -         -
+##>G:Create Partition Netlists          0         -         -         -         -         -
+##>G:Init Power                         0         -         -         -         -         -
+##>G:Budgeting                          0         -         -         -         -         -
+##>G:Derenv-DB                          0         -         -         -         -         -
+##>G:Debug Outputs                      0         -         -         -         -         -
+##>G:ST loading                         0         -         -         -         -         -
+##>G:Distributed                        0         -         -         -         -         -
+##>G:Timer                              0         -         -         -         -         -
+##>G:Assembly                           0         -         -         -         -         -
+##>G:DFT                                0         -         -         -         -         -
+##>G:Const Prop                         0         -         -       172       655       391
+##>G:Misc                               2
+##>----------------------------------------------------------------------------------------
+##>Total Elapsed                        3
+##>========================================================================================
+Info    : Done synthesizing. [SYNTH-2]
+        : Done synthesizing 'mv_lp_top' to generic gates.
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                      syn_gen
+@file(genus.tcl) 82: uniquify $top_design
+Info    : The given (sub)design is already uniquified. [TUI-296]
+        : design:mv_lp_top.
+        : Try running the 'edit_netlist uniquify' command on the parent hierarchy of this (sub)design, if there exists any.
+@file(genus.tcl) 86: syn_map
+Info    : Mapping. [SYNTH-4]
+        : Mapping 'mv_lp_top' using 'high' effort.
+Mapper: Libraries have:
+	domain _default_: 381 combo usable cells and 324 sequential usable cells
+Configuring mapper costing (none)
+TNS Restructuring config:  at stage: map applied.
+PBS_TechMap-Start - Elapsed_Time 0, CPU_Time 0.0
+stamp 'PBS_TechMap-Start' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) | 100.0(100.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+PBS_TechMap-Premap HBO Optimizations - Elapsed_Time 0, CPU_Time 0.0
+stamp 'PBS_TechMap-Premap HBO Optimizations' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) | 100.0(100.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Premap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+Info    : Partition Based Synthesis execution skipped. [PHYS-752]
+        : Design size is less than the partition size '100000' for distributed mapping optimization to kick in.
+Mapper: Libraries have:
+	domain _default_: 381 combo usable cells and 324 sequential usable cells
+Multi-threaded Virtual Mapping    (8 threads, 8 of 32 CPUs usable)
+ 
+Global mapping target info
+==========================
+Cost Group 'in2out' target slack:    15 ps
+Target path end-point (Port: mv_lp_top/T)
+
+Cost Group 'reg2out' target slack:    15 ps
+Target path end-point (Port: mv_lp_top/Y)
+
+Cost Group 'in2reg' target slack:    15 ps
+Target path end-point (Pin: modD_inst/D2C_reg/d)
+
+Cost Group 'upf_clk' target slack:    19 ps
+Target path end-point (Pin: modB_inst/RB4_reg/d)
+
+Multi-threaded Technology Mapping (8 threads, 8 of 32 CPUs usable)
+ 
+Global mapping status
+=====================
+                                   Group   
+                                  Tot Wrst 
+                           Total  Weighted 
+Operation                   Area   Slacks  
+ global_map                  393        0 
+
+    Cost Group            Target    Slack    Diff.  Constr.
+-----------------------------------------------------------
+        in2reg                15       19               800 
+        in2out                15       24               720     (launch clock period: 800)
+       reg2out                15      252               800 
+       upf_clk                19       97               800 
+
+ 
+Global incremental target info
+==============================
+Cost Group 'in2out' target slack:     5 ps
+Target path end-point (Port: mv_lp_top/R)
+
+Cost Group 'reg2out' target slack:    10 ps
+Target path end-point (Port: mv_lp_top/Y)
+
+Cost Group 'upf_clk' target slack:    16 ps
+Target path end-point (Pin: modD_inst/RD4_reg/D (DFFX1_LVT/D))
+
+Cost Group 'in2reg' target slack:    10 ps
+Target path end-point (Pin: modD_inst/D2C_reg/D (DFFX2_LVT/D))
+
+==================================
+Stage : global_incr_map 
+==================================
+  =================
+   Message Summary
+  =================
+------------------------------------------------------------------------------------------------------------------------------------------
+|    Id    |Sev  |Count |                                                 Message Text                                                   |
+------------------------------------------------------------------------------------------------------------------------------------------
+| PA-7     |Info |   22 |Resetting power analysis results.                                                                               |
+|          |     |      |All computed switching activities are removed.                                                                  |
+| PHYS-752 |Info |    1 |Partition Based Synthesis execution skipped.                                                                    |
+| SYNTH-2  |Info |    1 |Done synthesizing.                                                                                              |
+| SYNTH-4  |Info |    1 |Mapping.                                                                                                        |
+| TUI-296  |Info |    1 |The given (sub)design is already uniquified.                                                                    |
+|          |     |      |Try running the 'edit_netlist uniquify' command on the parent hierarchy of this (sub)                           |
+|          |     |      | design, if there exists any.                                                                                   |
+------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Global incremental optimization status
+======================================
+                                   Group   
+                                  Tot Wrst 
+                           Total  Weighted 
+Operation                   Area   Slacks  
+ global_incr                 375        0 
+
+    Cost Group            Target    Slack    Diff.  Constr.
+-----------------------------------------------------------
+        in2reg                10       31               800 
+        in2out                 5       26               720     (launch clock period: 800)
+       reg2out                10      252               800 
+       upf_clk                16       97               800 
+
+INFO: skipping constant propagation
+PBS_Techmap-Global Mapping - Elapsed_Time 3, CPU_Time 2.3598950000000016
+stamp 'PBS_Techmap-Global Mapping' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) |  53.3( 40.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Premap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:32(00:02:01) |  00:00:02(00:00:03) |  46.7( 60.0) |   15:31:20 (May14) |  410.4 MB | PBS_Techmap-Global Mapping
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+Info    : Forcing flat compare. [CFM-212]
+        : The design hierarchies are too small to qualify for hierarchical comparison. Set the attribute wlec_hier_comp_threshold accordingly for hier compare
+Info    : Wrote formal verification information. [CFM-5]
+        : Wrote 'fv/mv_lp_top/fv_map.fv.json' for netlist 'fv/mv_lp_top/fv_map.v.gz'.
+Info    : Existing dofile found. Copied as fv/mv_lp_top/rtl_to_fv_map.do~.
+Info    : Wrote dofile. [CFM-1]
+        : Dofile is 'fv/mv_lp_top/rtl_to_fv_map.do'.
+PBS_TechMap-Datapath Postmap Operations - Elapsed_Time 2, CPU_Time 2.0
+stamp 'PBS_TechMap-Datapath Postmap Operations' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) |  38.2( 28.6) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Premap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:32(00:02:01) |  00:00:02(00:00:03) |  33.5( 42.9) |   15:31:20 (May14) |  410.4 MB | PBS_Techmap-Global Mapping
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:02(00:00:02) |  28.4( 28.6) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Datapath Postmap Operations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+PBS_TechMap-Postmap HBO Optimizations - Elapsed_Time 0, CPU_Time -0.0010019999999997253
+stamp 'PBS_TechMap-Postmap HBO Optimizations' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) |  38.2( 28.6) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Premap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:32(00:02:01) |  00:00:02(00:00:03) |  33.5( 42.9) |   15:31:20 (May14) |  410.4 MB | PBS_Techmap-Global Mapping
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:02(00:00:02) |  28.4( 28.6) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Datapath Postmap Operations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |  -0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+ Doing ConstProp on design:mv_lp_top ... 
+
+PBS_TechMap-Postmap Clock Gating - Elapsed_Time 0, CPU_Time 0.0
+stamp 'PBS_TechMap-Postmap Clock Gating' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) |  38.2( 28.6) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Premap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:32(00:02:01) |  00:00:02(00:00:03) |  33.5( 42.9) |   15:31:20 (May14) |  410.4 MB | PBS_Techmap-Global Mapping
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:02(00:00:02) |  28.4( 28.6) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Datapath Postmap Operations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |  -0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap Clock Gating
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+-------------------------------------------------------------------------------
+ hi_fo_buf                   375        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+       hi_fo_buf         0  (        0 /        0 )  0.00
+
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total - - DRC Totals - -
+                           Total  Weighted      Neg      Max       Max 
+Operation                   Area   Slacks      Slack    Trans      Cap 
+ init_delay                  375        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+       crit_upsz         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+    plc_st_fence         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      plc_laf_st         0  (        0 /        0 )  0.00
+ plc_laf_st_fence         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+   plc_laf_lo_st         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+
+ 
+Local TNS optimization status
+=============================
+                                   Group   
+                                  Tot Wrst     Total - - DRC Totals - -
+                           Total  Weighted      Neg      Max       Max 
+Operation                   Area   Slacks      Slack    Trans      Cap 
+ init_tns                    375        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+   plc_laf_lo_st         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+
+PBS_TechMap-Postmap Cleanup - Elapsed_Time 0, CPU_Time -0.000658999999998855
+stamp 'PBS_TechMap-Postmap Cleanup' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) |  38.2( 28.6) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Premap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:32(00:02:01) |  00:00:02(00:00:03) |  33.5( 42.9) |   15:31:20 (May14) |  410.4 MB | PBS_Techmap-Global Mapping
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:02(00:00:02) |  28.4( 28.6) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Datapath Postmap Operations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |  -0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap Clock Gating
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |  -0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap Cleanup
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+PBS_Techmap-Post_MBCI - Elapsed_Time 0, CPU_Time 0.0
+stamp 'PBS_Techmap-Post_MBCI' being created for table 'pbs_debug'
+
+  Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:27(00:01:56) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:15 (May14) |  391.2 MB | PBS_Generic-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:02(00:00:02) |  38.2( 28.6) |   15:31:17 (May14) |  391.2 MB | PBS_Generic_Opt-Post
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_Generic-Postgen HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Start
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:29(00:01:58) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:17 (May14) |  391.2 MB | PBS_TechMap-Premap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:32(00:02:01) |  00:00:02(00:00:03) |  33.5( 42.9) |   15:31:20 (May14) |  410.4 MB | PBS_Techmap-Global Mapping
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:02(00:00:02) |  28.4( 28.6) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Datapath Postmap Operations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |  -0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap HBO Optimizations
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap Clock Gating
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |  -0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_TechMap-Postmap Cleanup
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+ 00:00:34(00:02:03) |  00:00:00(00:00:00) |   0.0(  0.0) |   15:31:22 (May14) |  410.4 MB | PBS_Techmap-Post_MBCI
+--------------------+---------------------+--------------+--------------------+-----------+----------------------
+Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
+Info: (*N*) indicates data that was populated from previously saved time_info database
+Info: CPU time includes time of parent + longest thread
+##>=================== Cadence Confidential (Mapping-Logical) ===================
+##>Main Thread Summary:
+##>----------------------------------------------------------------------------------------
+##>STEP                           Elapsed       WNS       TNS     Insts      Area    Memory
+##>----------------------------------------------------------------------------------------
+##>M:Initial                            0         -         -       172       655       391
+##>M:Pre Cleanup                        0         -         -       172       655       391
+##>M:Setup                              0         -         -         -         -         -
+##>M:Launch ST                          0         -         -         -         -         -
+##>M:Design Partition                   0         -         -         -         -         -
+##>M:Create Partition Netlists          0         -         -         -         -         -
+##>M:Init Power                         0         -         -         -         -         -
+##>M:Budgeting                          0         -         -         -         -         -
+##>M:Derenv-DB                          0         -         -         -         -         -
+##>M:Debug Outputs                      0         -         -         -         -         -
+##>M:ST loading                         0         -         -         -         -         -
+##>M:Distributed                        0         -         -         -         -         -
+##>M:Timer                              0         -         -         -         -         -
+##>M:Assembly                           0         -         -         -         -         -
+##>M:DFT                                0         -         -         -         -         -
+##>M:DP Operations                      2         -         -        90       374       410
+##>M:Const Prop                         0        26         0        90       374       410
+##>M:Cleanup                            0        26         0        90       374       410
+##>M:MBCI                               0         -         -        90       374       410
+##>M:Const Gate Removal                 0         -         -         -         -         -
+##>M:Misc                               3
+##>----------------------------------------------------------------------------------------
+##>Total Elapsed                        5
+##>========================================================================================
+Info    : Done mapping. [SYNTH-5]
+        : Done mapping 'mv_lp_top'.
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                      syn_map
+@file(genus.tcl) 88: if { [info exists enable_dft] &&  $enable_dft  } {
+   if { [file exists ../../${top_design}.reg_eco.tcl] == 1 } {
+      # Make eco changes to registers.
+      source -echo -verbose ../../${top_design}.reg_eco.tcl
+   } 
+
+   check_dft_rules
+   # Connect the scan chain. 
+   connect_scan_chains -auto_create_chains 
+   report_scan_chains
+}
+@file(genus.tcl) 100: syn_opt
+Info    : Incrementally optimizing. [SYNTH-7]
+        : Incrementally optimizing 'mv_lp_top' using 'high' effort.
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total - - DRC Totals - -
+                           Total  Weighted      Neg      Max       Max 
+Operation                   Area   Slacks      Slack    Trans      Cap 
+ init_iopt                   375        0         0         0        0
+-------------------------------------------------------------------------------
+ const_prop                  375        0         0         0        0
+-------------------------------------------------------------------------------
+ hi_fo_buf                   375        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+       hi_fo_buf         0  (        0 /        0 )  0.00
+
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total - - DRC Totals - -
+                           Total  Weighted      Neg      Max       Max 
+Operation                   Area   Slacks      Slack    Trans      Cap 
+ init_delay                  375        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+        crit_msz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+    plc_st_fence         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      plc_laf_st         0  (        0 /        0 )  0.00
+ plc_laf_st_fence         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+   plc_laf_lo_st         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+       crit_swap         0  (        0 /        0 )  0.00
+       mux2_swap         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       load_swap         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+           phase         0  (        0 /        0 )  0.00
+        in_phase         0  (        0 /        0 )  0.00
+       merge_bit         0  (        0 /        0 )  0.00
+     merge_idrvr         0  (        0 /        0 )  0.00
+     merge_iload         0  (        0 /        0 )  0.00
+    merge_idload         0  (        0 /        0 )  0.00
+      merge_drvr         0  (        0 /        0 )  0.00
+      merge_load         0  (        0 /        0 )  0.00
+          decomp         0  (        0 /        0 )  0.00
+        p_decomp         0  (        0 /        0 )  0.00
+        levelize         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+      mux_retime         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+             exp         0  (        0 /        0 )  0.00
+       gate_deco         0  (        0 /        0 )  0.00
+       gcomp_tim         0  (        0 /        0 )  0.00
+  inv_pair_2_buf         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+         crr_220         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_200         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_300         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_400         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_111         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_210         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_110         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_101         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_201         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_211         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+        crit_msz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+    plc_st_fence         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      plc_laf_st         0  (        0 /        0 )  0.00
+ plc_laf_st_fence         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+       crit_swap         0  (        0 /        0 )  0.00
+       mux2_swap         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       load_swap         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+       merge_bit         0  (        0 /        0 )  0.00
+     merge_idrvr         0  (        0 /        0 )  0.00
+     merge_iload         0  (        0 /        0 )  0.00
+    merge_idload         0  (        0 /        0 )  0.00
+      merge_drvr         0  (        0 /        0 )  0.00
+      merge_load         0  (        0 /        0 )  0.00
+           phase         0  (        0 /        0 )  0.00
+          decomp         0  (        0 /        0 )  0.00
+        p_decomp         0  (        0 /        0 )  0.00
+        levelize         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+        in_phase         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+      mux_retime         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+             exp         0  (        0 /        0 )  0.00
+       gate_deco         0  (        0 /        0 )  0.00
+       gcomp_tim         0  (        0 /        0 )  0.00
+  inv_pair_2_buf         0  (        0 /        0 )  0.00
+ init_drc                    375        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      drc_buf_sp         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      drc_buf_sp         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+ init_tns                    375        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+            fopt         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+        crit_msz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+   plc_laf_lo_st         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+       crit_swap         0  (        0 /        0 )  0.00
+       mux2_swap         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       load_swap         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+       merge_bit         0  (        0 /        0 )  0.00
+     merge_idrvr         0  (        0 /        0 )  0.00
+     merge_iload         0  (        0 /        0 )  0.00
+    merge_idload         0  (        0 /        0 )  0.00
+      merge_drvr         0  (        0 /        0 )  0.00
+      merge_load         0  (        0 /        0 )  0.00
+           phase         0  (        0 /        0 )  0.00
+          decomp         0  (        0 /        0 )  0.00
+        p_decomp         0  (        0 /        0 )  0.00
+        levelize         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+      mux_retime         0  (        0 /        0 )  0.00
+       crr_local         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+
+ init_area                   375        0         0         0        0
+ merge_bi                    372        0         0         0        0
+ rem_inv_qb                  367        0         0         0        0
+ gcomp_mog                   367        0         0         0        0
+ glob_area                   366        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+           undup         0  (        0 /        0 )  0.00
+         rem_buf         0  (        0 /        0 )  0.00
+         rem_inv         0  (        0 /        0 )  0.00
+        merge_bi         2  (        2 /        2 )  0.01
+      rem_inv_qb         4  (        4 /        4 )  0.01
+    seq_res_area         9  (        0 /        0 )  0.86
+        io_phase         0  (        0 /        0 )  0.00
+       gate_comp         0  (        0 /        0 )  0.00
+       gcomp_mog         2  (        2 /        2 )  0.02
+       glob_area         8  (        2 /        8 )  0.00
+       area_down         1  (        0 /        0 )  0.00
+      size_n_buf         1  (        0 /        0 )  0.01
+  gate_deco_area         0  (        0 /        0 )  0.00
+         rem_buf         0  (        0 /        0 )  0.00
+         rem_inv         0  (        0 /        0 )  0.00
+        merge_bi         0  (        0 /        0 )  0.00
+      rem_inv_qb         0  (        0 /        0 )  0.00
+
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total - - DRC Totals - -
+                           Total  Weighted      Neg      Max       Max 
+Operation                   Area   Slacks      Slack    Trans      Cap 
+ init_delay                  366        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+         crr_220         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_200         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_300         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_400         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_111         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_210         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_110         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_101         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_201         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+         crr_211         0  (        0 /        0 )  0.00
+        crr_glob         0  (        0 /        0 )  0.00
+        crit_msz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+    plc_st_fence         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      plc_laf_st         0  (        0 /        0 )  0.00
+ plc_laf_st_fence         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+       crit_swap         0  (        0 /        0 )  0.00
+       mux2_swap         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       load_swap         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+       merge_bit         0  (        0 /        0 )  0.00
+     merge_idrvr         0  (        0 /        0 )  0.00
+     merge_iload         0  (        0 /        0 )  0.00
+    merge_idload         0  (        0 /        0 )  0.00
+      merge_drvr         0  (        0 /        0 )  0.00
+      merge_load         0  (        0 /        0 )  0.00
+           phase         0  (        0 /        0 )  0.00
+          decomp         0  (        0 /        0 )  0.00
+        p_decomp         0  (        0 /        0 )  0.00
+        levelize         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+        in_phase         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+      mux_retime         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+             exp         0  (        0 /        0 )  0.00
+       gate_deco         0  (        0 /        0 )  0.00
+       gcomp_tim         0  (        0 /        0 )  0.00
+  inv_pair_2_buf         0  (        0 /        0 )  0.00
+ init_drc                    366        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+ init_tns                    366        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+            fopt         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+        crit_msz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+   plc_laf_lo_st         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+       crit_swap         0  (        0 /        0 )  0.00
+       mux2_swap         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       load_swap         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+       merge_bit         0  (        0 /        0 )  0.00
+     merge_idrvr         0  (        0 /        0 )  0.00
+     merge_iload         0  (        0 /        0 )  0.00
+    merge_idload         0  (        0 /        0 )  0.00
+      merge_drvr         0  (        0 /        0 )  0.00
+      merge_load         0  (        0 /        0 )  0.00
+           phase         0  (        0 /        0 )  0.00
+          decomp         0  (        0 /        0 )  0.00
+        p_decomp         0  (        0 /        0 )  0.00
+        levelize         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+      mux_retime         0  (        0 /        0 )  0.00
+       crr_local         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+
+ init_area                   366        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+           undup         0  (        0 /        0 )  0.00
+         rem_buf         0  (        0 /        0 )  0.00
+         rem_inv         0  (        0 /        0 )  0.00
+        merge_bi         0  (        0 /        0 )  0.00
+      rem_inv_qb         0  (        0 /        0 )  0.00
+        io_phase         0  (        0 /        0 )  0.00
+       gate_comp         0  (        0 /        0 )  0.00
+       gcomp_mog         0  (        0 /        0 )  0.00
+       glob_area         7  (        0 /        7 )  0.00
+       area_down         1  (        0 /        0 )  0.00
+      size_n_buf         0  (        0 /        0 )  0.00
+  gate_deco_area         0  (        0 /        0 )  0.00
+
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total - - DRC Totals - -
+                           Total  Weighted      Neg      Max       Max 
+Operation                   Area   Slacks      Slack    Trans      Cap 
+ init_delay                  366        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+        crit_msz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st         0  (        0 /        0 )  0.00
+    plc_st_fence         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      plc_laf_st         0  (        0 /        0 )  0.00
+ plc_laf_st_fence         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+   plc_laf_lo_st         0  (        0 /        0 )  0.00
+       plc_lo_st         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+       crit_swap         0  (        0 /        0 )  0.00
+       mux2_swap         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       load_swap         0  (        0 /        0 )  0.00
+            fopt         0  (        0 /        0 )  0.00
+        setup_dn         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+       load_isol         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+        move_for         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+          rem_bi         0  (        0 /        0 )  0.00
+         offload         0  (        0 /        0 )  0.00
+           phase         0  (        0 /        0 )  0.00
+        in_phase         0  (        0 /        0 )  0.00
+       merge_bit         0  (        0 /        0 )  0.00
+     merge_idrvr         0  (        0 /        0 )  0.00
+     merge_iload         0  (        0 /        0 )  0.00
+    merge_idload         0  (        0 /        0 )  0.00
+      merge_drvr         0  (        0 /        0 )  0.00
+      merge_load         0  (        0 /        0 )  0.00
+          decomp         0  (        0 /        0 )  0.00
+        p_decomp         0  (        0 /        0 )  0.00
+        levelize         0  (        0 /        0 )  0.00
+        mb_split         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+      mux_retime         0  (        0 /        0 )  0.00
+         buf2inv         0  (        0 /        0 )  0.00
+             exp         0  (        0 /        0 )  0.00
+       gate_deco         0  (        0 /        0 )  0.00
+       gcomp_tim         0  (        0 /        0 )  0.00
+  inv_pair_2_buf         0  (        0 /        0 )  0.00
+
+ init_drc                    366        0         0         0        0
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+==================================
+Stage : incr_opt 
+==================================
+  =================
+   Message Summary
+  =================
+------------------------------------------------------------------------
+|   Id    |Sev  |Count |                 Message Text                  |
+------------------------------------------------------------------------
+| CFM-1   |Info |    1 |Wrote dofile.                                  |
+| CFM-212 |Info |    1 |Forcing flat compare.                          |
+| CFM-5   |Info |    1 |Wrote formal verification information.         |
+| PA-7    |Info |    4 |Resetting power analysis results.              |
+|         |     |      |All computed switching activities are removed. |
+| SYNTH-5 |Info |    1 |Done mapping.                                  |
+| SYNTH-7 |Info |    1 |Incrementally optimizing.                      |
+------------------------------------------------------------------------
+Info    : Done incrementally optimizing. [SYNTH-8]
+        : Done incrementally optimizing 'mv_lp_top'.
+      timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                      syn_opt
+@file(genus.tcl) 103: set stage genus
+@file(genus.tcl) 104: report_qor > ../reports/${top_design}.$stage.qor.rpt
+@file(genus.tcl) 106: report_timing -max_path 1000 > ../reports/${top_design}.$stage.timing.max.rpt
+Warning : Timing problems have been detected in this design. [TIM-11]
+        : The design is 'mv_lp_top'.
+        : Use 'check_timing_intent' or 'report timing -lint' to report more information.
+@file(genus.tcl) 107: check_timing_intent -verbose  > ../reports/${top_design}.$stage.check_timing.rpt
+@file(genus.tcl) 108: check_design  > ../reports/${top_design}.$stage.check_design.rpt
+
+
+ No LEF file read in.
+@file(genus.tcl) 112: write_hdl $top_design > ../outputs/${top_design}.$stage.vg
+@file(genus.tcl) 113: if { [info exists enable_dft] &&  $enable_dft  } {
+   # output scan def. 
+   write_scandef $top_design > ../outputs/${top_design}.$stage.scan.def
+   write_sdc $top_design > ../outputs/${top_design}.$stage.sdc
+}
+@file(genus.tcl) 119: write_db -all_root_attributes -verbose ../outputs/${top_design}.$stage.db
+Finished exporting design database to file '../outputs/mv_lp_top.genus.db' for 'mv_lp_top' (command execution time mm:ss cpu = 00:00, real = 00:00).
+@file(genus.tcl) 120: write_power_intent -design $top_design -base_name ../outputs/${top_design}.$stage -overwrite
+No power intent.
+#@ End verbose source scripts/genus.tcl
+
+=============================================================================
+  Generated by: Cadence Genus(TM) Synthesis Solution 19.12-s121_1
+  Generated on: May 14 2023 15:37:58
+  Module:       mv_lp_top
+=============================================================================
+
+=========================
+  check_floorplan SUMMARY
+=========================
+--------------------------------------------------------------------------------------------------------------
+        Floorplan Object  |  Status  | #Violations |   #Total    |    ID     |  Violation Reason 
+--------------------------------------------------------------------------------------------------------------
+Core/Die Box              |   FAIL   |          1  |          1  | FPLN-1    | no core box defined                                         
+--------------------------------------------------------------------------------------------------------------
+
+The checking finds issues of the following type(s):  fatal: 1
+Fatal errors must be fixed before proceeding with physical synthesis commands.  Please check your floorplan, and make necessary corrections before proceeding.
+
+Done checking floorplan - Elapsed time 0s, CPU time: 0.00s
+@genus:root: 4> :q
+invalid command name ":q"
+@genus:root: 5> exit
+Normal exit.
