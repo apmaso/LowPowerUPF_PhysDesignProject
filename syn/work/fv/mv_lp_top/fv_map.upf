@@ -1,6 +1,6 @@
 ########################################################################################
 #                                                                                      #
-# Created by Genus(TM) Synthesis Solution 19.12-s121_1 on Sun May 14 15:24:42 PDT 2023 #
+# Created by Genus(TM) Synthesis Solution 19.12-s121_1 on Sun May 14 22:19:32 PDT 2023 #
 #                                                                                      #
 ########################################################################################
 
@@ -350,7 +350,7 @@ add_pst_state s2 \
 set_scope /
 
 connect_supply_net VDDH -ports { \
-	  pd_moda_iso_pg_moda_c_13_UPF_ISO/VDDG \
+	  pd_moda_iso_pg_moda_c_1_UPF_ISO/VDDG \
 	}
 
 connect_supply_net VDDL -ports { \
@@ -358,40 +358,40 @@ connect_supply_net VDDL -ports { \
 	  aon_buf171/VDDG \
 	  aon_buf173/VDDG \
 	  aon_buf174/VDDG \
-	  pd_modc_iso_pg_modc_a_14_UPF_ISO/VDDG \
-	  pd_modc_iso_pg_modc_b_15_UPF_ISO/VDDG \
-	  pd_modc_ls_modc2moda_18_UPF_LS/VDDL \
-	  pd_modc_ls_modc2modb_19_UPF_LS/VDDL \
-	  pd_modd_iso_pg_modd_a_16_UPF_ISO/VDDG \
-	  pd_modd_iso_pg_modd_b_17_UPF_ISO/VDDG \
-	  pd_modd_ls_modd2moda_21_UPF_LS/VDDL \
-	  pd_modd_ls_modd2modb_22_UPF_LS/VDDL \
+	  pd_modc_iso_pg_modc_a_2_UPF_ISO/VDDG \
+	  pd_modc_iso_pg_modc_b_3_UPF_ISO/VDDG \
+	  pd_modc_ls_modc2moda_6_UPF_LS/VDDL \
+	  pd_modc_ls_modc2modb_7_UPF_LS/VDDL \
+	  pd_modd_iso_pg_modd_a_4_UPF_ISO/VDDG \
+	  pd_modd_iso_pg_modd_b_5_UPF_ISO/VDDG \
+	  pd_modd_ls_modd2moda_9_UPF_LS/VDDL \
+	  pd_modd_ls_modd2modb_10_UPF_LS/VDDL \
 	}
 
 connect_supply_net VDDL_gated_modc -ports { \
-	  pd_modc_ls_modc2top_20_UPF_LS/VDDL \
+	  pd_modc_ls_modc2top_8_UPF_LS/VDDL \
 	}
 
 connect_supply_net VDDL_gated_modd -ports { \
-	  pd_modd_ls_modd2top_23_UPF_LS/VDDL \
+	  pd_modd_ls_modd2top_11_UPF_LS/VDDL \
 	}
 
 set_scope /
 
 connect_supply_net VDDH -ports { \
-	  pd_modc_ls_modc2moda_18_UPF_LS/VDDH \
-	  pd_modc_ls_modc2modb_19_UPF_LS/VDDH \
-	  pd_modc_ls_modc2top_20_UPF_LS/VDDH \
-	  pd_modd_ls_modd2moda_21_UPF_LS/VDDH \
-	  pd_modd_ls_modd2modb_22_UPF_LS/VDDH \
-	  pd_modd_ls_modd2top_23_UPF_LS/VDDH \
+	  pd_modc_ls_modc2moda_6_UPF_LS/VDDH \
+	  pd_modc_ls_modc2modb_7_UPF_LS/VDDH \
+	  pd_modc_ls_modc2top_8_UPF_LS/VDDH \
+	  pd_modd_ls_modd2moda_9_UPF_LS/VDDH \
+	  pd_modd_ls_modd2modb_10_UPF_LS/VDDH \
+	  pd_modd_ls_modd2top_11_UPF_LS/VDDH \
 	}
 
 connect_supply_net VSS -ports { \
-	  pd_modc_ls_modc2moda_18_UPF_LS/VSS \
-	  pd_modc_ls_modc2modb_19_UPF_LS/VSS \
-	  pd_modc_ls_modc2top_20_UPF_LS/VSS \
-	  pd_modd_ls_modd2moda_21_UPF_LS/VSS \
-	  pd_modd_ls_modd2modb_22_UPF_LS/VSS \
-	  pd_modd_ls_modd2top_23_UPF_LS/VSS \
+	  pd_modc_ls_modc2moda_6_UPF_LS/VSS \
+	  pd_modc_ls_modc2modb_7_UPF_LS/VSS \
+	  pd_modc_ls_modc2top_8_UPF_LS/VSS \
+	  pd_modd_ls_modd2moda_9_UPF_LS/VSS \
+	  pd_modd_ls_modd2modb_10_UPF_LS/VSS \
+	  pd_modd_ls_modd2top_11_UPF_LS/VSS \
 	}

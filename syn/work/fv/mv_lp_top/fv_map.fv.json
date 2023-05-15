@@ -33,8 +33,8 @@
 "hdl_vhdl_preferred_architecture":"",
 "lbr_seq_in_out_phase_opto":"false",
 "lef_library":"",
-"init_lib_search_path":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm .",
-"lib_search_path":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm .",
+"init_lib_search_path":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm stdcell_hvt stdcell_rvt stdcell_lvt sram",
+"lib_search_path":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm stdcell_hvt stdcell_rvt stdcell_lvt sram",
 "lp_clock_gating_auto_control":"none",
 "lp_insert_clock_gating":"false",
 "multibit_prefix_string":"CDN_MBIT_",
@@ -181,11 +181,12 @@
 "type":"root"},
 
 {"commit_cpf_done":"false",
+"file_1801":"../rtl/mv_lp_top.upf",
 "hdl_filelist":"{default -sv {SYNTHESIS} {../rtl/mv_lp_top.sv} {} {}}",
 "hdl_user_name":"mv_lp_top",
 "is_retimed":"false",
 "lp_clock_gating_style":"latch",
-"pi_commit_done":"false",
+"pi_commit_done":"true",
 "state":"mapped",
 "obsolete_state":"mapped",
 "verification_directory":"fv/mv_lp_top",
@@ -222,98 +223,34 @@
 "object":"/designs/mv_lp_top/subdesigns/modD",
 "type":"subdesign"},
 
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.lib",
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.lib",
 "object":"/libraries/saed32hvt_ss0p75vn40c",
 "type":"library"},
 
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib",
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib",
 "object":"/libraries/saed32hvt_dlvl_ss0p75vn40c_i0p95v",
 "type":"library"},
 
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.lib",
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.lib",
 "object":"/libraries/saed32hvt_ulvl_ss0p75vn40c_i0p75v",
 "type":"library"},
 
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.lib",
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.lib",
 "object":"/libraries/saed32hvt_dlvl_ss0p75vn40c_i0p75v",
 "type":"library"},
 
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib",
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib",
 "object":"/libraries/saed32hvt_ss0p95vn40c",
 "type":"library"},
 
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib",
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib",
 "object":"/libraries/saed32hvt_ulvl_ss0p95vn40c_i0p75v",
 "type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75vn40c.lib",
-"object":"/libraries/saed32rvt_ss0p75vn40c",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_dlvl_ss0p75vn40c_i0p95v.lib",
-"object":"/libraries/saed32rvt_dlvl_ss0p75vn40c_i0p95v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ulvl_ss0p75vn40c_i0p75v.lib",
-"object":"/libraries/saed32rvt_ulvl_ss0p75vn40c_i0p75v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_dlvl_ss0p75vn40c_i0p75v.lib",
-"object":"/libraries/saed32rvt_dlvl_ss0p75vn40c_i0p75v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95vn40c.lib",
-"object":"/libraries/saed32rvt_ss0p95vn40c",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ulvl_ss0p95vn40c_i0p75v.lib",
-"object":"/libraries/saed32rvt_ulvl_ss0p95vn40c_i0p75v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.lib",
-"object":"/libraries/saed32lvt_ss0p75vn40c",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p95v.lib",
-"object":"/libraries/saed32lvt_dlvl_ss0p75vn40c_i0p95v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p75vn40c_i0p75v.lib",
-"object":"/libraries/saed32lvt_ulvl_ss0p75vn40c_i0p75v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p75v.lib",
-"object":"/libraries/saed32lvt_dlvl_ss0p75vn40c_i0p75v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.lib",
-"object":"/libraries/saed32lvt_ss0p95vn40c",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p75v.lib",
-"object":"/libraries/saed32lvt_ulvl_ss0p95vn40c_i0p75v",
-"type":"library"},
-
-{"files":"/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.lib",
-"object":"/libraries/saed32sram_ss0p95vn40c",
-"type":"library"},
-
-{"sequential":"true",
-"gint_phase_inversion":"false",
-"latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/Z_reg",
-"type":"instance"},
 
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
 "object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/RA4_reg",
-"type":"instance"},
-
-{"sequential":"true",
-"gint_phase_inversion":"false",
-"latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/A2D_reg",
 "type":"instance"},
 
 {"sequential":"true",
@@ -325,13 +262,19 @@
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
+"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/RA1_reg",
+"type":"instance"},
+
+{"sequential":"true",
+"gint_phase_inversion":"false",
+"latch":"false",
 "object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/A2C_reg",
 "type":"instance"},
 
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/A2B_reg",
+"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/A2D_reg",
 "type":"instance"},
 
 {"sequential":"true",
@@ -343,37 +286,13 @@
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/RA1_reg",
+"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/Z_reg",
 "type":"instance"},
 
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/RB4_reg",
-"type":"instance"},
-
-{"sequential":"true",
-"gint_phase_inversion":"false",
-"latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/RB3_reg",
-"type":"instance"},
-
-{"sequential":"true",
-"gint_phase_inversion":"false",
-"latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/RB1_reg",
-"type":"instance"},
-
-{"sequential":"true",
-"gint_phase_inversion":"false",
-"latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/B2D_reg",
-"type":"instance"},
-
-{"sequential":"true",
-"gint_phase_inversion":"false",
-"latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/B2C_reg",
+"object":"/designs/mv_lp_top/instances_hier/modA_inst/instances_seq/A2B_reg",
 "type":"instance"},
 
 {"sequential":"true",
@@ -385,13 +304,43 @@
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
+"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/RB4_reg",
+"type":"instance"},
+
+{"sequential":"true",
+"gint_phase_inversion":"false",
+"latch":"false",
+"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/B2D_reg",
+"type":"instance"},
+
+{"sequential":"true",
+"gint_phase_inversion":"false",
+"latch":"false",
+"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/RB3_reg",
+"type":"instance"},
+
+{"sequential":"true",
+"gint_phase_inversion":"false",
+"latch":"false",
 "object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/RB2_reg",
 "type":"instance"},
 
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
+"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/B2C_reg",
+"type":"instance"},
+
+{"sequential":"true",
+"gint_phase_inversion":"false",
+"latch":"false",
 "object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/B2A_reg",
+"type":"instance"},
+
+{"sequential":"true",
+"gint_phase_inversion":"false",
+"latch":"false",
+"object":"/designs/mv_lp_top/instances_hier/modB_inst/instances_seq/RB1_reg",
 "type":"instance"},
 
 {"sequential":"true",
@@ -404,12 +353,6 @@
 "gint_phase_inversion":"false",
 "latch":"false",
 "object":"/designs/mv_lp_top/instances_hier/modC_inst/instances_seq/RC4_reg",
-"type":"instance"},
-
-{"sequential":"true",
-"gint_phase_inversion":"false",
-"latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modC_inst/instances_seq/RC3_reg",
 "type":"instance"},
 
 {"sequential":"true",
@@ -428,6 +371,12 @@
 "gint_phase_inversion":"false",
 "latch":"false",
 "object":"/designs/mv_lp_top/instances_hier/modC_inst/instances_seq/RC2_reg",
+"type":"instance"},
+
+{"sequential":"true",
+"gint_phase_inversion":"false",
+"latch":"false",
+"object":"/designs/mv_lp_top/instances_hier/modC_inst/instances_seq/RC3_reg",
 "type":"instance"},
 
 {"sequential":"true",
@@ -475,13 +424,13 @@
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modD_inst/instances_seq/RD2_reg",
+"object":"/designs/mv_lp_top/instances_hier/modD_inst/instances_seq/D2A_reg",
 "type":"instance"},
 
 {"sequential":"true",
 "gint_phase_inversion":"false",
 "latch":"false",
-"object":"/designs/mv_lp_top/instances_hier/modD_inst/instances_seq/D2A_reg",
+"object":"/designs/mv_lp_top/instances_hier/modD_inst/instances_seq/RD2_reg",
 "type":"instance"},
 
 {"sequential":"true",
@@ -491,14 +440,14 @@
 "type":"instance"},
 
 {"index": "1", 
- "date": "Sun May 14 15:31:22 PDT 2023",
- "seconds": 1684103482.51141,
+ "date": "Sun May 14 22:19:33 PDT 2023",
+ "seconds": 1684127973.776939,
  "netlist": "fv/mv_lp_top/fv_map.v.gz", 
  "design_name": "mv_lp_top", 
  "synth_workdir": "/home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/syn/work", 
  "synthesis_command":"",
  "current_label": "fv_map", 
  "previous_label": "rtl", 
- "write_verif_file_runtime": 1.555302 
+ "write_verif_file_runtime": 1.225933 
  }
 ]
