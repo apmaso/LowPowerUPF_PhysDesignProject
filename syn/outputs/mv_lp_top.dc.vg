@@ -1,0 +1,188 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Ultra(TM) in wire load mode
+// Version   : Q-2019.12-SP3
+// Date      : Sat May 13 21:06:20 2023
+/////////////////////////////////////////////////////////////
+
+
+module modA ( A, B, P, Q, upf_clk, B2A, C2A, D2A, A2B, A2C, Z, A2D_BAR );
+  input A, B, P, Q, upf_clk, B2A, C2A, D2A;
+  output A2B, A2C, Z, A2D_BAR;
+  wire   N0, N1, N3, RA2, N6, RA1, N8, N9, N12, RA4, N13, n3, n4, n5, n6, n7,
+         n10, n11, n12, n13, n14, n15, n23;
+
+  SDFFARX1_LVT RA3_reg ( .D(N9), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .RSTB(
+        1'b1), .QN(n13) );
+  SDFFX1_LVT A2D_reg ( .D(N3), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .QN(
+        A2D_BAR) );
+  SDFFX1_LVT RA1_reg ( .D(N6), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RA1), 
+        .QN(n12) );
+  SDFFX1_LVT RA2_reg ( .D(N8), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RA2), 
+        .QN(n11) );
+  SDFFX1_LVT A2B_reg ( .D(N0), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(A2B) );
+  SDFFX1_LVT Z_reg ( .D(N13), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(Z) );
+  SDFFX1_LVT RA4_reg ( .D(N12), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RA4)
+         );
+  SDFFX1_LVT A2C_reg ( .D(N1), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(A2C), 
+        .QN(n23) );
+  AND3X1_LVT U3 ( .A1(A2B), .A2(A), .A3(Q), .Y(N1) );
+  INVX0_LVT U4 ( .A(n3), .Y(N12) );
+  INVX0_LVT U5 ( .A(D2A), .Y(n7) );
+  NAND4X0_LVT U6 ( .A1(n10), .A2(n6), .A3(n5), .A4(n4), .Y(n3) );
+  NAND3X0_LVT U7 ( .A1(D2A), .A2(A2C), .A3(C2A), .Y(n4) );
+  INVX1_LVT U8 ( .A(B2A), .Y(n5) );
+  NAND2X0_LVT U9 ( .A1(n7), .A2(n23), .Y(n6) );
+  OR2X1_LVT U10 ( .A1(C2A), .A2(A2C), .Y(n10) );
+  XOR2X2_LVT U11 ( .A1(n11), .A2(n12), .Y(N9) );
+  INVX1_LVT U12 ( .A(n13), .Y(n14) );
+  XOR2X2_LVT U20 ( .A1(B), .A2(A), .Y(n15) );
+  AO21X1_LVT U21 ( .A1(RA2), .A2(n15), .A3(A2C), .Y(N6) );
+  XOR2X2_LVT U22 ( .A1(RA4), .A2(n14), .Y(N13) );
+  XOR2X1_LVT U23 ( .A1(n23), .A2(B), .Y(N3) );
+  XOR2X2_LVT U24 ( .A1(n15), .A2(RA1), .Y(N8) );
+  XOR2X2_LVT U25 ( .A1(n15), .A2(P), .Y(N0) );
+endmodule
+
+
+module modB ( A, B, R, upf_clk, A2B, D2B, B2A, B2C, C2B_BAR, Y, B2D_BAR );
+  input A, B, R, upf_clk, A2B, D2B, C2B_BAR;
+  output B2A, B2C, Y, B2D_BAR;
+  wire   B2D, N0, N1, N2, RB2, N5, RB1, N7, N8, N10, RB4, N11, n1, n97, n98,
+         n99, n100, n101, n103, n104, n111;
+
+  SDFFARX1_LVT B2A_reg ( .D(N0), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .RSTB(
+        1'b1), .QN(n101) );
+  SDFFARX1_LVT RB3_reg ( .D(N8), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .RSTB(
+        1'b1), .QN(n99) );
+  SDFFX1_LVT RB1_reg ( .D(N5), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RB1), 
+        .QN(n98) );
+  SDFFX1_LVT RB2_reg ( .D(N7), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RB2), 
+        .QN(n97) );
+  SDFFX1_LVT B2D_reg ( .D(N2), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(B2D), 
+        .QN(B2D_BAR) );
+  SDFFX1_LVT RB4_reg ( .D(N10), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RB4)
+         );
+  SDFFX1_LVT Y_reg ( .D(N11), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(Y) );
+  SDFFX1_LVT B2C_reg ( .D(N1), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(B2C), 
+        .QN(n111) );
+  INVX1_LVT U3 ( .A(n101), .Y(B2A) );
+  XNOR2X2_LVT U4 ( .A1(n1), .A2(A), .Y(N2) );
+  NAND3X0_LVT U5 ( .A1(R), .A2(B2A), .A3(B2C), .Y(n1) );
+  AND2X4_LVT U6 ( .A1(R), .A2(A), .Y(N0) );
+  XOR3X2_LVT U7 ( .A1(D2B), .A2(n111), .A3(n104), .Y(N10) );
+  XOR2X2_LVT U8 ( .A1(n97), .A2(n98), .Y(N8) );
+  INVX1_LVT U9 ( .A(n99), .Y(n100) );
+  XOR2X1_LVT U10 ( .A1(B2A), .A2(R), .Y(N1) );
+  XOR2X2_LVT U17 ( .A1(A), .A2(B), .Y(n103) );
+  AO21X1_LVT U18 ( .A1(RB2), .A2(n103), .A3(B2D), .Y(N5) );
+  XOR2X2_LVT U19 ( .A1(RB4), .A2(n100), .Y(N11) );
+  XOR2X2_LVT U20 ( .A1(n103), .A2(RB1), .Y(N7) );
+  NAND2X0_LVT U21 ( .A1(A2B), .A2(C2B_BAR), .Y(n104) );
+endmodule
+
+
+module modC ( C, D, S, upf_clk, A2C, B2C, C2A, C2D, C2B_BAR, X, D2C_BAR );
+  input C, D, S, upf_clk, A2C, B2C, D2C_BAR;
+  output C2A, C2D, C2B_BAR, X;
+  wire   C2B, N1, N4, RC2, N7, RC1, N9, N10, RC3, N13, RC4, N14, n1, n2, n4,
+         n5, n6, n9, n16, n17;
+
+  SDFFX1_LVT RC2_reg ( .D(N9), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RC2) );
+  SDFFX1_LVT RC1_reg ( .D(N7), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RC1) );
+  SDFFX1_LVT C2D_reg ( .D(N4), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(C2D), 
+        .QN(n16) );
+  SDFFX1_LVT RC4_reg ( .D(N13), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RC4)
+         );
+  SDFFX1_LVT RC3_reg ( .D(N10), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RC3)
+         );
+  SDFFX1_LVT X_reg ( .D(N14), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(X) );
+  SDFFX1_LVT C2A_reg ( .D(n9), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(C2A), 
+        .QN(n17) );
+  SDFFX1_LVT C2B_reg ( .D(N1), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(C2B), 
+        .QN(C2B_BAR) );
+  INVX1_LVT U3 ( .A(D), .Y(n1) );
+  XOR2X1_LVT U4 ( .A1(RC4), .A2(RC3), .Y(N14) );
+  INVX1_LVT U5 ( .A(D2C_BAR), .Y(n2) );
+  XNOR2X2_LVT U6 ( .A1(C), .A2(n1), .Y(n6) );
+  NAND2X0_LVT U15 ( .A1(n17), .A2(C2B), .Y(n4) );
+  XOR2X2_LVT U16 ( .A1(n4), .A2(n16), .Y(N13) );
+  AO22X1_LVT U17 ( .A1(B2C), .A2(A2C), .A3(C2A), .A4(S), .Y(N1) );
+  AO21X1_LVT U18 ( .A1(RC2), .A2(n6), .A3(C2D), .Y(N7) );
+  XOR2X2_LVT U19 ( .A1(RC2), .A2(RC1), .Y(N10) );
+  NAND2X0_LVT U20 ( .A1(C), .A2(D), .Y(n5) );
+  XNOR2X2_LVT U21 ( .A1(RC1), .A2(n5), .Y(N9) );
+  XOR2X2_LVT U22 ( .A1(S), .A2(C2A), .Y(N4) );
+  AND2X1_LVT U23 ( .A1(n2), .A2(n6), .Y(n9) );
+endmodule
+
+
+module modD ( D, E, T, upf_clk, C2D, D2A, D2B, W, A2D_BAR, B2D_BAR, D2C_BAR );
+  input D, E, T, upf_clk, C2D, A2D_BAR, B2D_BAR;
+  output D2A, D2B, W, D2C_BAR;
+  wire   D2C, N0, N1, RD2, N7, RD1, N9, N10, N13, N15, n1, n103, n105, n106,
+         n107, n108, n109, n110, n111, n112, n113, n122, n123;
+
+  SDFFX1_LVT RD2_reg ( .D(N9), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RD2) );
+  SDFFX1_LVT RD1_reg ( .D(N7), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(RD1) );
+  SDFFX1_LVT D2B_reg ( .D(N1), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(D2B), 
+        .QN(n107) );
+  SDFFX1_LVT D2C_reg ( .D(n123), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(
+        D2C_BAR), .QN(D2C) );
+  SDFFX1_LVT RD3_reg ( .D(N10), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .QN(n106)
+         );
+  SDFFX1_LVT W_reg ( .D(N15), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(W) );
+  SDFFX1_LVT D2A_reg ( .D(N0), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .Q(D2A), 
+        .QN(n122) );
+  SDFFX1_LVT RD4_reg ( .D(N13), .SI(1'b0), .SE(1'b0), .CLK(upf_clk), .QN(n105)
+         );
+  NAND3X0_LVT U3 ( .A1(n103), .A2(n109), .A3(n1), .Y(n123) );
+  NAND3X0_LVT U4 ( .A1(T), .A2(E), .A3(D2A), .Y(n1) );
+  OR2X2_LVT U5 ( .A1(T), .A2(D2A), .Y(n103) );
+  INVX1_LVT U6 ( .A(n107), .Y(n108) );
+  XOR2X2_LVT U7 ( .A1(B2D_BAR), .A2(A2D_BAR), .Y(n113) );
+  XOR2X2_LVT U8 ( .A1(RD1), .A2(n110), .Y(N9) );
+  XOR3X2_LVT U9 ( .A1(D2C), .A2(n105), .A3(n106), .Y(N15) );
+  OA21X1_LVT U18 ( .A1(E), .A2(D2A), .A3(n108), .Y(n109) );
+  AO21X1_LVT U19 ( .A1(D2A), .A2(T), .A3(C2D), .Y(N1) );
+  XOR2X2_LVT U20 ( .A1(E), .A2(D), .Y(n112) );
+  AO21X1_LVT U21 ( .A1(RD2), .A2(n112), .A3(D2C), .Y(N7) );
+  XOR2X2_LVT U22 ( .A1(RD2), .A2(RD1), .Y(N10) );
+  AND2X1_LVT U23 ( .A1(E), .A2(D), .Y(n110) );
+  OR2X2_LVT U24 ( .A1(n108), .A2(n122), .Y(n111) );
+  XOR2X2_LVT U25 ( .A1(n111), .A2(D2C_BAR), .Y(N13) );
+  AND2X1_LVT U26 ( .A1(n113), .A2(n112), .Y(N0) );
+endmodule
+
+
+module mv_lp_top ( A, B, C, D, E, upf_clk, P, Q, R, S, T, W, X, Y, Z, 
+        sleep_moda, sleep_modb, sleep_modc, sleep_modd, iso_en );
+  input A, B, C, D, E, upf_clk;
+  output P, Q, R, S, T, W, X, Y, Z, sleep_moda, sleep_modb, sleep_modc,
+         sleep_modd, iso_en;
+  wire   B2A, C2A, D2A, A2B, A2C, A2D, C2B, D2B, B2C, B2D, D2C, C2D, n8, n9,
+         n10, n11, n12, n13;
+
+  modA modA_inst ( .A(A), .B(B), .P(P), .Q(Q), .upf_clk(upf_clk), .B2A(B2A), 
+        .C2A(C2A), .D2A(D2A), .A2B(A2B), .A2C(A2C), .Z(Z), .A2D_BAR(A2D) );
+  modB modB_inst ( .A(A), .B(B), .R(R), .upf_clk(upf_clk), .A2B(A2B), .D2B(D2B), .B2A(B2A), .B2C(B2C), .C2B_BAR(C2B), .Y(Y), .B2D_BAR(B2D) );
+  modC modC_inst ( .C(n8), .D(D), .S(S), .upf_clk(upf_clk), .A2C(A2C), .B2C(
+        B2C), .C2A(C2A), .C2D(C2D), .C2B_BAR(C2B), .X(X), .D2C_BAR(D2C) );
+  modD modD_inst ( .D(D), .E(E), .T(T), .upf_clk(upf_clk), .C2D(C2D), .D2A(D2A), .D2B(D2B), .W(W), .A2D_BAR(A2D), .B2D_BAR(B2D), .D2C_BAR(D2C) );
+  XOR2X1_LVT U14 ( .A1(B), .A2(E), .Y(S) );
+  INVX4_LVT U15 ( .A(A), .Y(n10) );
+  AND2X4_LVT U16 ( .A1(n11), .A2(A), .Y(sleep_moda) );
+  INVX1_LVT U17 ( .A(D), .Y(n13) );
+  INVX0_HVT U18 ( .A(sleep_moda), .Y(iso_en) );
+  INVX1_LVT U19 ( .A(n8), .Y(n9) );
+  AOI22X1_LVT U20 ( .A1(n11), .A2(A), .A3(B), .A4(n10), .Y(P) );
+  NBUFFX8_LVT U21 ( .A(C), .Y(n8) );
+  INVX32_LVT U22 ( .A(B), .Y(n11) );
+  AO22X1_LVT U23 ( .A1(n11), .A2(A), .A3(B), .A4(n10), .Y(R) );
+  INVX32_LVT U24 ( .A(C), .Y(n12) );
+  AND2X1_LVT U25 ( .A1(n12), .A2(B), .Y(sleep_modd) );
+  XNOR2X2_LVT U26 ( .A1(sleep_modd), .A2(n10), .Y(T) );
+  AND2X1_LVT U27 ( .A1(D), .A2(n9), .Y(Q) );
+  AND2X1_LVT U28 ( .A1(n10), .A2(E), .Y(sleep_modc) );
+  AND2X1_LVT U29 ( .A1(n13), .A2(n8), .Y(sleep_modb) );
+endmodule
+

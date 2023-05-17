@@ -1,0 +1,37 @@
+ 
+****************************************
+Report : power state table
+Design : mv_lp_top
+Version: Q-2019.12-SP3
+Date   : Sun May 14 22:02:25 2023
+****************************************
+
+Scope: mv_lp_top
+Supply Names:  VDDH, VDDL, VSS, pg_moda_ps/VDDH_gated_moda, pg_modc_ps/VDDL_gated_modc, pg_modb_ps/VDDH_gated_modb, pg_modd_ps/VDDL_gated_modd,
+Resulting Power States in this Scope:
+                       VDDH|
+                                  VDDL|
+                                              VSS|
+                                  pg_moda_ps/VDDH_gated_moda|
+                                             pg_modc_ps/VDDL_gated_modc|
+                                                        pg_modb_ps/VDDH_gated_modb|
+                                                                   pg_modd_ps/VDDL_gated_modd|
+       drv:        power_on|  power_on|         *|  power_on|  power_on|  power_on|  power_on|
+       drv:        power_on|  power_on|         *|  power_on| power_off|  power_on| power_off|
+       drv:        power_on|  power_on|         *| power_off|  power_on|  power_on| power_off|
+
+User PST Name: MV_gated
+Defined in Scope: mv_lp_top
+Total Power States: 3
+                       VDDH|
+                                  VDDL|
+                                              VSS|
+                                  pg_moda_ps/VDDH_gated_moda|
+                                             pg_modb_ps/VDDH_gated_modb|
+                                                        pg_modc_ps/VDDL_gated_modc|
+                                                                   pg_modd_ps/VDDL_gated_modd|
+        s0:        power_on|  power_on|       gnd|  power_on|  power_on|  power_on|  power_on|
+        s1:        power_on|  power_on|       gnd| power_off|  power_on|  power_on| power_off|
+        s2:        power_on|  power_on|       gnd|  power_on|  power_on| power_off| power_off|
+
+1

@@ -1,4 +1,4 @@
-source -echo -verbose ../../$top_design\_design_config.tcl
+source -echo -verbose ../../$top_design.design_config.tcl
 
 #remove_design -designs
 #remove_design -all
