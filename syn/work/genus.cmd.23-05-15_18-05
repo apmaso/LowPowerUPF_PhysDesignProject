@@ -18,3 +18,4 @@ gui_show
 man select_obj
 select_obj *HVT
 select_obj LSU*HVT
+exit

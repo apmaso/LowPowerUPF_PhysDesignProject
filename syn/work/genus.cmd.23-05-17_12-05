@@ -1,17 +1,28 @@
 # Cadence Genus(TM) Synthesis Solution, Version 19.12-s121_1, built Dec  3 2019 15:07:17
 
-# Date: Mon May 15 18:43:23 2023
+# Date: Wed May 17 12:07:59 2023
 # Host: mo.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.88.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB)
 # OS:   CentOS Linux release 7.9.2009 (Core)
 
 # Cadence Genus(TM) Synthesis Solution, Version 19.12-s121_1, built Dec  3 2019 15:07:17
 
-# Date: Mon May 15 18:43:34 2023
+# Date: Wed May 17 12:08:11 2023
 # Host: mo.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.88.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB)
 # OS:   CentOS Linux release 7.9.2009 (Core)
 
 lp
 source ../scripts/genus-mv_lp_top.tcl
 gui_show
-select_obj man
-man select_obj
+get_db insts -if {.base_cell == *ISO*}
+get_db insts -if {.base_cell == *UPF*}
+get_db insts -if {.base_cell == *ISO*}
+get_db insts -if {.base_cell == *LS*}
+man gui_sv_highlight
+man gui_sv_highlight
+man gui_sv_highlight
+man gui_sv_highlight
+man gui_sv_highlight
+gui_sv_highlight -color red -from mv_lp_top -to pd_moda_iso_pg_moda_b_0_UPF_ISO
+gui_sv_highlight -color red mv_lp_top/pd_moda_iso_pg_moda_b_0_UPF_ISO
+gui_sv_highlight mv_lp_top/pd_moda_iso_pg_moda_b_0_UPF_ISO -append -color red
+exit
