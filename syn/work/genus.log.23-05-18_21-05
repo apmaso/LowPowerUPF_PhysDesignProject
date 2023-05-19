@@ -1,0 +1,5 @@
+  Setting attribute of root '/': 'stdout_log' = genus.log.23-05-18_21-05
+  Setting attribute of root '/': 'command_log' = genus.cmd.23-05-18_21-05
+WARNING: This version of the tool is 1262 days old.
+@genus:root: 1> exit
+Normal exit.

@@ -1,0 +1,20 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2019 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 19.12-s121_1, built Tue Dec 03 15:07:17 PST 2019
+Options: 
+Date:    Thu May 18 21:13:29 2023
+Host:    mo.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.88.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB) (87477784KB)
+PID:     14647
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Finished loading tool scripts (11 seconds elapsed).
+
+Sourcing genus_startup.tcl...
+  Setting attribute of root '/': 'timing_report_fields' = delay arrival cell timing_point
