@@ -89,7 +89,7 @@ modifyPowerDomainAttr pd_modd -box 60 20 80 40
 
 
 #Generate quick floorplan (planDesign)
-planDesign -constraints ../../constraints/mv_lp_top.sdc
+planDesign 
 
 ###################################################################################################################
 #########################################    STOP    #############################################################
