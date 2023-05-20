@@ -1,7 +1,11 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
+<<<<<<< HEAD
 #  Created on Sun May 14 21:01:12 2023                
+=======
+#  Created on Fri May 19 20:01:36 2023                
+>>>>>>> ef97f1b3621a956724db05585b3090896e02b704
 #                                                     
 #######################################################
 
@@ -17,8 +21,18 @@ alias fs set top_design fifo1_sram
 alias f set top_design fifo1
 alias o set top_design ORCA_TOP
 alias e set top_design ExampleRocketSystem
+<<<<<<< HEAD
+=======
+alias lp set top_design mv_lp_top
+>>>>>>> ef97f1b3621a956724db05585b3090896e02b704
 set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
 set_global report_timing_format  {delay arrival slew load fanout cell hpin}
 set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
 suppressMessage ENCEXT-2799
 win
+<<<<<<< HEAD
+=======
+man mod
+man modifyPowerDomainAttr
+man designplanning
+>>>>>>> ef97f1b3621a956724db05585b3090896e02b704
