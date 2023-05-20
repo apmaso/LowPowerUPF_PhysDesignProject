@@ -440,14 +440,14 @@
 "type":"instance"},
 
 {"index": "1", 
- "date": "Wed May 17 12:08:55 PDT 2023",
- "seconds": 1684350535.0743358,
+ "date": "Fri May 19 21:02:26 PDT 2023",
+ "seconds": 1684555346.9606168,
  "netlist": "fv/mv_lp_top/fv_map.v.gz", 
  "design_name": "mv_lp_top", 
  "synth_workdir": "/home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/syn/work", 
  "synthesis_command":"",
  "current_label": "fv_map", 
  "previous_label": "rtl", 
- "write_verif_file_runtime": 1.7003039999999998 
+ "write_verif_file_runtime": 1.45679 
  }
 ]

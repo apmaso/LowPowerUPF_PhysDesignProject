@@ -1,0 +1,48 @@
+ 
+****************************************
+Report : reference
+Design : mv_lp_top
+Version: Q-2019.12-SP3
+Date   : Sun May 14 22:02:25 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X1_HVT         saed32hvt_ff1p16v125c
+                                  2.033152       5     10.165761  
+AO22X1_HVT         saed32hvt_ff1p16v125c
+                                  2.541440       2      5.082880  
+INVX0_HVT          saed32hvt_ff1p16v125c
+                                  1.270720       8     10.165760  
+ISOLANDX1_HVT      saed32hvt_ff1p16v125c
+                                  2.541440       2      5.082880  
+ISOLORAOX1_HVT     saed32hvt_ff0p85v125c
+                                  5.845312       3     17.535936  
+ISOLORAOX2_HVT     saed32hvt_ff0p85v125c
+                                  6.353600       1      6.353600  
+LSUPX1_HVT         saed32hvt_ulvl_ff1p16v125c_i0p85v
+                                  7.116032       4     28.464128  
+NBUFFX2_HVT        saed32hvt_ff1p16v125c
+                                  2.033152      20     40.663042  
+NOR2X0_HVT         saed32hvt_ff1p16v125c
+                                  2.541440       1      2.541440  
+XNOR2X1_HVT        saed32hvt_ff1p16v125c
+                                  4.320448       1      4.320448  
+modA                             93.270850       1     93.270850  h, n
+modB                             93.016706       1     93.016706  h, n
+modC                             99.624450       1     99.624450  h, n
+modD                            101.403458       1    101.403458  h, n
+-----------------------------------------------------------------------------
+Total 14 references                                   517.691340
+1

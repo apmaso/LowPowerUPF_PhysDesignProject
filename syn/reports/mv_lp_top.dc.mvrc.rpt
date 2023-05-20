@@ -1,0 +1,124 @@
+--------------------------------------------------------------------------------
+                            Clock Gating Style Checks
+--------------------------------------------------------------------------------
+Information: Performing clock-gating with positive edge logic: 'integrated' and negative edge logic: 'integrated'. (PWR-1047)
+
+--------------------------------------------------------------------------------
+                         Target Library Subset Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                             Level Shifter Checks
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+                        Level Shifter Checks Summary
+--------------------------------------------------------------------------------
+Warning: Found 24 pin to pin connections requiring level shifter(s).  (MV-229)
+Warning: Pin 'U27/Y'(VDDH[1.16v]) cannot drive 'snps_pd_modd__iso_pg_modd_a_snps_D2A_UPF_ISO/ISO'(VDDL[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'U43/Y'(VDDH[1.16v]) cannot drive 'snps_pd_modd__iso_pg_modd_b_snps_D2B_UPF_ISO/ISO'(VDDL[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'U43/Y'(VDDH[1.16v]) cannot drive 'snps_pd_modc__iso_pg_modc_a_snps_C2A_UPF_ISO/ISO'(VDDL[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'U22/Y'(VDDH[1.16v]) cannot drive 'snps_pd_modc__iso_pg_modc_b_snps_C2B_UPF_ISO/ISO'(VDDL[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'modA_inst/A2D_reg/Q'(VDDH_gated_moda[1.16v]) cannot drive 'modD_inst/U3/A'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = high_to_low, threshold = 0.00]). (MV-231)
+Warning: Pin 'modA_inst/A2D_reg/Q'(VDDH_gated_moda[1.16v]) cannot drive 'modD_inst/U6/A1'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = high_to_low, threshold = 0.00]). (MV-231)
+Warning: Pin 'modC_inst/X_reg/Q'(VDDL_gated_modc[power_on,power_off]) cannot drive 'X'(VDDH[power_on,power_off]) due to PST voltage range differences (effective strategy is [rule = low_to_high, threshold = 0.00]). All high to low voltage transitions from VDDL_gated_modc[power_on,power_off] to VDDH[power_on,power_off] are ignored because the global net has a low_to_high level shifter strategy (ls_modc2top on pin modC_inst/X). (MV-231)
+Warning: Pin 'modD_inst/W_reg/Q'(VDDL_gated_modd[power_on,power_off]) cannot drive 'W'(VDDH[power_on,power_off]) due to PST voltage range differences (effective strategy is [rule = low_to_high, threshold = 0.00]). All high to low voltage transitions from VDDL_gated_modd[power_on,power_off] to VDDH[power_on,power_off] are ignored because the global net has a low_to_high level shifter strategy (ls_modd2top on pin modD_inst/W). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/W_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/RD4_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/RD3_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/RD1_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/RD2_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/D2C_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/D2B_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modD_inst/D2A_reg/CLK'(VDDL_gated_modd[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/X_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/RC4_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/RC3_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/RC1_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/RC2_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/C2D_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/C2B_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+Warning: Pin 'upf_clk'(VDDH[1.16v]) cannot drive 'modC_inst/C2A_reg/CLK'(VDDL_gated_modc[0.85v]) due to voltage differences (effective strategy is [rule = undefined, threshold = 0.00]). (MV-231)
+
+--------------------------------------------------------------------------------
+                             Power Domain Checks
+--------------------------------------------------------------------------------
+Warning: Power state of driver pin modA_inst/Z_reg/Q (related supply net (VDDH_gated_moda,VSS)) is less always on or unrelated to power state of load pin Z (related supply net (VDDH,VSS)). Isolation cell is required on net Z connecting these pins.   (MV-514)
+Warning: Power state of driver pin modD_inst/D2C_reg/Q (related supply net (VDDL_gated_modd,VSS)) is less always on or unrelated to power state of load pin modC_inst/C2A_reg/RSTB (related supply net (VDDL_gated_modc,VSS)). Isolation cell is required on net D2C connecting these pins.   (MV-514)
+Warning: Power state of driver pin modC_inst/X_reg/Q (related supply net (VDDL_gated_modc,VSS)) is less always on or unrelated to power state of load pin X (related supply net (VDDH,VSS)). Isolation cell is required on net X connecting these pins.   (MV-514)
+Warning: Power state of driver pin modD_inst/W_reg/Q (related supply net (VDDL_gated_modd,VSS)) is less always on or unrelated to power state of load pin W (related supply net (VDDH,VSS)). Isolation cell is required on net W connecting these pins.   (MV-514)
+
+--------------------------------------------------------------------------------
+                         Power Domain Checks Summary
+--------------------------------------------------------------------------------
+Warning: Found 4 net(s) without isolation. (MV-046)
+
+--------------------------------------------------------------------------------
+                               Always On Checks
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+                         Always On Checks Summary
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                 Design And Library Operating Condition Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                        Cell Operating Condition Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+           Power Domain and Operating Condition Consistency Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+--------------------------------------------------------------------------------
+                      Power/Ground Pin Connection Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                         Supply Operating Voltage Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                                 Model checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                          Retention Synthesis Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                          Isolation Synthesis Checks
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                 Isolation Library Cell PG Pin Checks Summary
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                         Mapped Power Switches Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                       Power Domains Root Cells Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+--------------------------------------------------------------------------------
+                                Analog Checks
+--------------------------------------------------------------------------------
+No Errors/Warnings Found.
+
+Please review report above for warnings and errors.
+1

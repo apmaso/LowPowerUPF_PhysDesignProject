@@ -2,7 +2,7 @@ alias fs set top_design fifo1_sram
 alias f set top_design fifo1
 alias o set top_design ORCA_TOP
 alias e set top_design ExampleRocketSystem
-alias lp set top_design mv_lp_top 
+alias lp set top_design mv_lp_top
 
 set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
 set_global report_timing_format  {delay arrival slew load fanout cell hpin}

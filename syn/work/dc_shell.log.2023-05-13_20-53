@@ -1,0 +1,1549 @@
+setting auto_restore_mw_cel_lib_setup true
+Initializing gui preferences from file  /u/sun5/.synopsys_dv_prefs.tcl
+dc_shell> set top_design mv_lp_top
+mv_lp_top
+dc_shell> source /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/scripts/dc.tcl
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK
+set top_design ${top_design}
+mv_lp_top
+set FCL 1
+1
+set add_ios 0
+0
+set pad_design 0
+0
+set design_size {100 100}
+100 100
+set design_io_border 10
+10
+set dc_floorplanning 1
+1
+set enable_dft 0
+0
+set innovus_enable_manual_macro_placement 0
+0
+set split_constraints 0
+0
+set rtl_list [list ../rtl/$top_design.sv ]
+../rtl/mv_lp_top.sv
+set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v
+#set slow_corner "ss0p95vn40c_i0p95v ss0p95vn40c "
+set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v
+set slow_metal 1p9m_Cmax_-40
+1p9m_Cmax_-40
+set fast_metal 1p9m_Cmax_-40
+1p9m_Cmax_-40
+set synth_corners $slow_corner
+ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v
+set synth_corners_slow $slow_corner
+ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v
+set synth_corners_fast $fast_corner
+ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v
+set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+stdcell_hvt stdcell_rvt stdcell_lvt sram
+# Get just the main standard cells, srams
+set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ 
+# Full MCMM Corners
+if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+#set topdir /u/$env(USER)/PSU_RTL2GDS
+#set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+Warning: No designs to list. (UID-275)
+== ANALYZE autoread all files ==
+
+Starting ANALYZE autoread mode...
+Information: Adding '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv'.  (AUTOREAD-100)
+Information: Scanning file { mv_lp_top.sv }. (AUTOREAD-303)
+Compiling source file /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:37: the undeclared symbol 'B2A' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:37: the undeclared symbol 'C2A' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:37: the undeclared symbol 'D2A' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:37: the undeclared symbol 'A2B' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:37: the undeclared symbol 'A2C' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:37: the undeclared symbol 'A2D' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:38: the undeclared symbol 'C2B' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:38: the undeclared symbol 'D2B' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:38: the undeclared symbol 'B2C' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:38: the undeclared symbol 'B2D' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:39: the undeclared symbol 'D2C' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:39: the undeclared symbol 'C2D' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Presto compilation completed successfully.
+Autoread command completed successfully.
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_dlvl_ss0p75vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ulvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_dlvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ulvl_ss0p95vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/dw_foundation.sldb'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/gtech.db'
+Loading db file '/pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/libraries/syn/standard.sldb'
+  Loading link library 'saed32hvt_ss0p75vn40c'
+  Loading link library 'saed32hvt_dlvl_ss0p75vn40c_i0p95v'
+  Loading link library 'saed32hvt_ulvl_ss0p75vn40c_i0p75v'
+  Loading link library 'saed32hvt_dlvl_ss0p75vn40c_i0p75v'
+  Loading link library 'saed32hvt_ss0p95vn40c'
+  Loading link library 'saed32hvt_ulvl_ss0p95vn40c_i0p75v'
+  Loading link library 'saed32rvt_ss0p75vn40c'
+  Loading link library 'saed32rvt_dlvl_ss0p75vn40c_i0p95v'
+  Loading link library 'saed32rvt_ulvl_ss0p75vn40c_i0p75v'
+  Loading link library 'saed32rvt_dlvl_ss0p75vn40c_i0p75v'
+  Loading link library 'saed32rvt_ss0p95vn40c'
+  Loading link library 'saed32rvt_ulvl_ss0p95vn40c_i0p75v'
+  Loading link library 'saed32lvt_ss0p75vn40c'
+  Loading link library 'saed32lvt_dlvl_ss0p75vn40c_i0p95v'
+  Loading link library 'saed32lvt_ulvl_ss0p75vn40c_i0p75v'
+  Loading link library 'saed32lvt_dlvl_ss0p75vn40c_i0p75v'
+  Loading link library 'saed32lvt_ss0p95vn40c'
+  Loading link library 'saed32lvt_ulvl_ss0p95vn40c_i0p75v'
+  Loading link library 'saed32sram_ss0p95vn40c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (mv_lp_top)
+Elaborated 1 design.
+Current design is now 'mv_lp_top'.
+Information: Building the design 'modA'. (HDL-193)
+
+Inferred memory devices in process
+        in routine modA line 75 in file
+                '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       A2B_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       A2C_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       A2D_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RA1_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RA2_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RA3_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RA4_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        Z_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (modA)
+Information: Building the design 'modB'. (HDL-193)
+
+Inferred memory devices in process
+        in routine modB line 100 in file
+                '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       B2A_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       B2C_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       B2D_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RB1_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RB2_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RB3_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RB4_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        Y_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (modB)
+Information: Building the design 'modC'. (HDL-193)
+
+Inferred memory devices in process
+        in routine modC line 124 in file
+                '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       C2A_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       C2B_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       C2D_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RC1_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RC2_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RC3_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RC4_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        X_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (modC)
+Information: Building the design 'modD'. (HDL-193)
+
+Inferred memory devices in process
+        in routine modD line 148 in file
+                '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/rtl/mv_lp_top.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       D2A_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       D2B_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       D2C_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RD1_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RD2_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RD3_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       RD4_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        W_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (modD)
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+#Seed RTL SDC
+# Create clock
+set design_clk upf_clk
+upf_clk
+set design_clk_period 0.8
+0.8
+create_clock -period ${design_clk_period} -waveform {0 0.5} -name $design_clk [get_ports upf_clk]
+1
+set_clock_transition 0.05 [get_clocks $design_clk]
+1
+set_clock_latency 0.2 [get_clocks $design_clk]
+1
+set_clock_uncertainty 0.05 -setup [get_clocks $design_clk]
+1
+set_clock_uncertainty 0.01 -hold [get_clocks $design_clk]
+1
+# 30% of clock period for input delay
+set_input_delay -max [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+1
+set_input_delay -min [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+1
+#60% of clock periold for output delay
+set_output_delay -max [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+1
+set_output_delay -min [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+1
+#
+set_max_delay [expr 0.9 * $design_clk_period] -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"] 
+1
+#set_input_transition 0.00001 [get_ports {A B C D E}] 
+set_drive 0.00001 [get_ports {A C E}] 
+1
+set_load 0.05 [get_ports {P Q R S T}]
+1
+group_path -name in2reg -from [get_ports -filter "direction==in&&full_name!~*clk*"]
+1
+group_path -name reg2out -to [get_ports -filter "direction==out"]
+1
+group_path -name in2out -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"]
+1
+if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_shell") } {
+    puts " Creating ICC2 MCMM "
+    create_mode func
+    create_corner slow
+    create_scenario -mode func -corner slow -name func_slow
+    current_scenario func_slow
+    set_operating_conditions ss0p75v125c
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmax.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmax
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmin.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmin
+ 
+    set_parasitic_parameters -early_spec Cmax -early_temperature 125
+    set_parasitic_parameters -late_spec Cmax -late_temperature 125
+    set_scenario_status func_slow -active true -hold true -setup true
+}
+Current design is 'mv_lp_top'.
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p7v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p95vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p7v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p95vn40c_i0p95v.db'
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p95v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p7v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p95vn40c_i0p95v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p75vn40c_i0p75v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p75v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p95v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p95v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p75v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p7v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p95vn40c_i0p95v.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.db"
+Analyzing: "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.db"
+Library analysis succeeded.
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | Q-2019.12-DWBB_201912.3 |     *     |
+| Licensed DW Building Blocks        | Q-2019.12-DWBB_201912.3 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'mv_lp_top'
+
+  Loading target library 'saed32hvt_ulvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32hvt_dlvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32hvt_dlvl_ss0p75vn40c_i0p95v'
+  Loading target library 'saed32hvt_ss0p95vn40c'
+  Loading target library 'saed32hvt_ulvl_ss0p95vn40c_i0p95v'
+  Loading target library 'saed32hvt_ulvl_ss0p95vn40c_i0p75v'
+  Loading target library 'saed32hvt_ulvl_ss0p95vn40c_i0p7v'
+  Loading target library 'saed32hvt_dlvl_ss0p95vn40c_i0p95v'
+  Loading target library 'saed32lvt_ulvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32lvt_dlvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32lvt_dlvl_ss0p75vn40c_i0p95v'
+  Loading target library 'saed32lvt_ss0p95vn40c'
+  Loading target library 'saed32lvt_ulvl_ss0p95vn40c_i0p95v'
+  Loading target library 'saed32lvt_ulvl_ss0p95vn40c_i0p75v'
+  Loading target library 'saed32lvt_ulvl_ss0p95vn40c_i0p7v'
+  Loading target library 'saed32lvt_dlvl_ss0p95vn40c_i0p95v'
+Loaded alib file './alib-52/saed32hvt_ss0p75vn40c.db.alib'
+Loaded alib file './alib-52/saed32hvt_ulvl_ss0p75vn40c_i0p75v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_dlvl_ss0p75vn40c_i0p75v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_dlvl_ss0p75vn40c_i0p95v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_ss0p95vn40c.db.alib'
+Loaded alib file './alib-52/saed32hvt_ulvl_ss0p95vn40c_i0p95v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_ulvl_ss0p95vn40c_i0p75v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_ulvl_ss0p95vn40c_i0p7v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_dlvl_ss0p95vn40c_i0p95v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_ss0p75vn40c.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_ulvl_ss0p75vn40c_i0p75v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_dlvl_ss0p75vn40c_i0p75v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_dlvl_ss0p75vn40c_i0p95v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_ss0p95vn40c.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_ulvl_ss0p95vn40c_i0p95v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_ulvl_ss0p95vn40c_i0p75v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_ulvl_ss0p95vn40c_i0p7v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32lvt_dlvl_ss0p95vn40c_i0p95v.db.alib' (placeholder)
+Warning: Operating condition ss0p75vn40c set on design mv_lp_top has different process,
+voltage and temperatures parameters than the parameters at which target library 
+saed32hvt_dlvl_ss0p75vn40c_i0p95v is characterized. Delays may be inaccurate as a result. (OPT-998)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'modD'
+Information: Added key list 'DesignWare' to design 'modD'. (DDB-72)
+  Processing 'modC'
+Information: Added key list 'DesignWare' to design 'modC'. (DDB-72)
+  Processing 'modA'
+Information: Added key list 'DesignWare' to design 'modA'. (DDB-72)
+  Processing 'modB'
+Information: Added key list 'DesignWare' to design 'modB'. (DDB-72)
+  Processing 'mv_lp_top'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_HVT' in the library 'saed32hvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_HVT' in the library 'saed32hvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_HVT' in the library 'saed32hvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_HVT' in the library 'saed32hvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_HVT' in the library 'saed32hvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_HVT' in the library 'saed32hvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT3_LVT' in the library 'saed32lvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_LVT' in the library 'saed32lvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_LVT' in the library 'saed32lvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_LVT' in the library 'saed32lvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_LVT' in the library 'saed32lvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_LVT' in the library 'saed32lvt_ss0p75vn40c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Automatic shift-register identification is enabled for scan. Not all registers will be scan-replaced. (OPT-467)
+Information: Complementing port 'W' in design 'modD'.
+         The new name of the port is 'W_BAR'. (OPT-319)
+Information: Complementing port 'X' in design 'modC'.
+         The new name of the port is 'X_BAR'. (OPT-319)
+Information: Complementing port 'Y' in design 'modB'.
+         The new name of the port is 'Y_BAR'. (OPT-319)
+Information: Complementing port 'Z' in design 'modA'.
+         The new name of the port is 'Z_BAR'. (OPT-319)
+Information: Complementing port 'C2B' in design 'modB'.
+         The new name of the port is 'C2B_BAR'. (OPT-319)
+Information: Complementing port 'C2B' in design 'modC'.
+         The new name of the port is 'C2B_BAR'. (OPT-319)
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:12:06     538.3      0.26       6.3       0.0                           1211262.6250
+    0:12:06     538.3      0.26       6.3       0.0                           1211262.6250
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 0.00%, saed32cell_lvt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 0.00%, saed32cell_lvt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 39.25%, saed32cell_lvt 60.75%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 39.25%, saed32cell_lvt 60.75%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:12:06     538.8      1.60      43.5       0.0                           465035.1562
+    0:12:07     541.3      0.26       6.4       0.0                           1183041.7500
+    0:12:07     541.3      0.26       6.4       0.0                           1183041.7500
+    0:12:07     517.7      0.16       1.3       0.0                           1372387.8750
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 0.00%, saed32cell_lvt 100.00%
+    0:12:07     517.7      0.16       1.3       0.0                           1372387.8750
+    0:12:07     517.7      0.16       1.3       0.0                           1372387.8750
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:12:07     503.2      0.16       1.2       0.0                           1331756.1250
+    0:12:07     501.7      0.15       1.2       0.0                           1310178.6250
+    0:12:07     501.7      0.15       1.2       0.0                           1310178.6250
+    0:12:07     503.7      0.15       1.2       0.0                           1327824.5000
+    0:12:07     503.7      0.15       1.2       0.0                           1327824.5000
+    0:12:08     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:08     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:08     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:08     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:09     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:09     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:09     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:09     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:10     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:10     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:11     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:11     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:11     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:11     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:12     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:12     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:12     504.0      0.14       1.2       0.0                           1328061.8750
+    0:12:12     517.4      0.05       0.6       0.0                           1334923.0000
+    0:12:13     517.7      0.05       0.6       0.0                           1327096.3750
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 4.59%, saed32cell_lvt 95.41%
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:12:13     517.7      0.05       0.6       0.0                           1327096.3750
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+Information: Complementing port 'W_BAR' in design 'modD'.
+         The new name of the port is 'W'. (OPT-319)
+Information: Complementing port 'X_BAR' in design 'modC'.
+         The new name of the port is 'X'. (OPT-319)
+Information: Complementing port 'Y_BAR' in design 'modB'.
+         The new name of the port is 'Y'. (OPT-319)
+Information: Complementing port 'Z_BAR' in design 'modA'.
+         The new name of the port is 'Z'. (OPT-319)
+Information: Complementing port 'A2D' in design 'modD'.
+         The new name of the port is 'A2D_BAR'. (OPT-319)
+Information: Complementing port 'A2D' in design 'modA'.
+         The new name of the port is 'A2D_BAR'. (OPT-319)
+Information: Complementing port 'B2D' in design 'modD'.
+         The new name of the port is 'B2D_BAR'. (OPT-319)
+Information: Complementing port 'B2D' in design 'modB'.
+         The new name of the port is 'B2D_BAR'. (OPT-319)
+Information: Complementing port 'D2C' in design 'modC'.
+         The new name of the port is 'D2C_BAR'. (OPT-319)
+Information: Complementing port 'D2C' in design 'modD'.
+         The new name of the port is 'D2C_BAR'. (OPT-319)
+    0:12:13     528.6      0.05       0.5       0.0                           1326877.0000
+    0:12:13     528.4      0.05       0.5       0.0                           1318028.1250
+    0:12:13     528.4      0.05       0.5       0.0                           1318028.1250
+    0:12:14     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:14     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:14     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:14     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:14     529.4      0.05       0.4       0.0                           1381740.0000
+    0:12:14     529.4      0.05       0.4       0.0                           1381740.0000
+    0:12:14     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:14     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:15     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:15     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:16     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:16     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:17     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:17     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:17     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:17     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:18     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:18     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:18     529.6      0.05       0.4       0.0                           1381977.3750
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:12:18     529.6      0.05       0.4       0.0                           1381977.3750
+    0:12:19     519.5      0.05       0.4       0.0                           1350892.0000
+    0:12:19     521.5      0.05       0.4       0.0                           1378807.6250
+    0:12:19     521.5      0.05       0.4       0.0                           1378807.6250
+    0:12:19     521.8      0.05       0.4       0.0                           1394593.1250
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 0.94%, saed32cell_lvt 99.06%
+
+  Beginning Delay Optimization HSVT Pass
+  --------------------------------------
+    0:12:20     521.8      0.05       0.4       0.0                           1394593.1250
+    0:12:20     521.8      0.05       0.4       0.0                           1394593.1250
+    0:12:20     521.8      0.05       0.4       0.0                           1394593.1250
+    0:12:20     521.8      0.05       0.4       0.0                           1394593.1250
+    0:12:22     521.5      0.05       0.4       0.0                           1378713.8750
+    0:12:23     521.5      0.06       0.4       0.0                           1378713.8750
+    0:12:23     521.5      0.06       0.4       0.0                           1378713.8750
+    0:12:23     521.5      0.06       0.4       0.0                           1378713.8750
+    0:12:23     521.5      0.06       0.4       0.0                           1378713.8750
+    0:12:23     521.2      0.06       0.4       0.0                           1378476.5000
+    0:12:23     512.9      0.06       0.4       0.0                           1348277.6250
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p75vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_dlvl_ss0p75vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ulvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_dlvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ulvl_ss0p95vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p7v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p95vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p75vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p95v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p75v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ulvl_ss0p95vn40c_i0p7v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_dlvl_ss0p95vn40c_i0p95v.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+  Loading target library 'saed32hvt_ulvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32hvt_dlvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32hvt_dlvl_ss0p75vn40c_i0p95v'
+  Loading target library 'saed32hvt_ss0p95vn40c'
+  Loading target library 'saed32hvt_ulvl_ss0p95vn40c_i0p95v'
+  Loading target library 'saed32hvt_ulvl_ss0p95vn40c_i0p75v'
+  Loading target library 'saed32hvt_ulvl_ss0p95vn40c_i0p7v'
+  Loading target library 'saed32hvt_dlvl_ss0p95vn40c_i0p95v'
+  Loading target library 'saed32lvt_ulvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32lvt_dlvl_ss0p75vn40c_i0p75v'
+  Loading target library 'saed32lvt_dlvl_ss0p75vn40c_i0p95v'
+  Loading target library 'saed32lvt_ss0p95vn40c'
+  Loading target library 'saed32lvt_ulvl_ss0p95vn40c_i0p95v'
+  Loading target library 'saed32lvt_ulvl_ss0p95vn40c_i0p75v'
+  Loading target library 'saed32lvt_ulvl_ss0p95vn40c_i0p7v'
+  Loading target library 'saed32lvt_dlvl_ss0p95vn40c_i0p95v'
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Writing verilog file '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/outputs/mv_lp_top.dc.vg'.
+Writing ddc file '../outputs/mv_lp_top.dc.ddc'.
+1
+dc_shell> 
+dc_shell> pwd
+/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/work
+dc_shell> source ../scripts/dc-mv_lp_top.tcl
+Error: could not open script file "../../mv_lp_top_design_config.tcl" (CMD-015)
+Running PRESTO HDLC
+Compiling source file ../rtl/mv_lp_top.sv
+Warning:  ../rtl/mv_lp_top.sv:37: the undeclared symbol 'B2A' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:37: the undeclared symbol 'C2A' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:37: the undeclared symbol 'D2A' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:37: the undeclared symbol 'A2B' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:37: the undeclared symbol 'A2C' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:37: the undeclared symbol 'A2D' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:38: the undeclared symbol 'C2B' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:38: the undeclared symbol 'D2B' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:38: the undeclared symbol 'B2C' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:38: the undeclared symbol 'B2D' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:39: the undeclared symbol 'D2C' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:39: the undeclared symbol 'C2D' assumed to have the default net type, which is 'wire'. (VER-936)
+Warning:  ../rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:98: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:122: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../rtl/mv_lp_top.sv:146: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Presto compilation completed successfully.
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p85v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ff0p85v125c_i1p16v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ff1p16v125c_i0p85v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_pg_ff0p85v25c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_pg_ff1p16v25c.db'
+  Loading link library 'saed32hvt_ff0p85v125c'
+  Loading link library 'saed32hvt_ff1p16v125c'
+  Loading link library 'saed32hvt_dlvl_ff0p85v125c_i1p16v'
+  Loading link library 'saed32hvt_ulvl_ff1p16v125c_i0p85v'
+  Loading link library 'saed32hvt_pg_ff0p85v25c'
+  Loading link library 'saed32hvt_pg_ff1p16v25c'
+Running PRESTO HDLC
+Presto compilation completed successfully. (mv_lp_top)
+Warning: Overwriting design file '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/work/mv_lp_top.db'. (DDB-24)
+Elaborated 1 design.
+Current design is now 'mv_lp_top'.
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing ddc file '../outputs/mv_lp_top.dc_elab.ddc'.
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+
+
+Loading UPF file ../rtl/mv_lp_top.upf ...
+set upf_create_implicit_supply_sets false
+# Create Power domains for top and sub-modules all the modules
+#create_power_domain
+create_power_domain pd_top -include_scope
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_power_domain pd_moda -elements {modA_inst}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_power_domain pd_modb -elements {modB_inst}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_power_domain pd_modc -elements {modC_inst}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_power_domain pd_modd -elements {modD_inst}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Create Supply ports
+#create_supply_port
+create_supply_port VDDH -direction in -domain pd_top
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_port VDDL -direction in -domain pd_top
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_port VSS -direction in -domain pd_top
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Create Supply Nets for top
+#create_supply_net
+create_supply_net VDDH -domain pd_top
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VDDL -domain pd_top
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VSS -domain pd_top
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Create Supply Nets for (Voltage 1.16V) for module-A and module-B
+#creaet_supply_net
+create_supply_net VDDH -domain pd_moda -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VDDH_gated_moda -domain pd_moda 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VSS -domain pd_moda -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VDDH -domain pd_modb -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VDDH_gated_modb -domain pd_modb 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VSS -domain pd_modb -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Create Supply Nets for (Voltage 0.85V) for module-C and module-D
+#create_supply_net
+create_supply_net VDDL -domain pd_modc -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VDDL_gated_modc -domain pd_modc 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VSS -domain pd_modc -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VDDL -domain pd_modd -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VDDL_gated_modd -domain pd_modd 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_supply_net VSS -domain pd_modd -reuse
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Connect supply nets to ports (top level)
+#connect_supply_net
+connect_supply_net VDDH -ports VDDH
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+connect_supply_net VDDL -ports VDDL
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+connect_supply_net VSS -ports VSS
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Set Primary power connection for the domains
+#set_domain_supply_net
+set_domain_supply_net pd_top -primary_power_net VDDH -primary_ground_net VSS
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_domain_supply_net pd_moda -primary_power_net VDDH_gated_moda -primary_ground_net VSS
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_domain_supply_net pd_modb -primary_power_net VDDH_gated_modb -primary_ground_net VSS
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_domain_supply_net pd_modc -primary_power_net VDDL_gated_modc -primary_ground_net VSS
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_domain_supply_net pd_modd -primary_power_net VDDL_gated_modd -primary_ground_net VSS
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Define Power Switches for the gated domains. All the domains can be gated. You can use -lib_cells HEADX2_HVT
+#create_power_switch
+#map_power_switch 
+create_power_switch pg_moda_ps -domain pd_moda -input_supply_port "VDDH VDDH" -output_supply_port "VDDH_gated_moda VDDH_gated_moda" -control_port "sleep_moda sleep_moda" -on_state "ON VDDH sleep_moda" -off_state "OFF !sleep_moda" 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+map_power_switch pg_moda_ps -domain pd_moda -lib_cells HEADX2_HVT
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_power_switch pg_modc_ps -domain pd_modc -input_supply_port "VDDL VDDL" -output_supply_port "VDDL_gated_modc VDDL_gated_modc" -control_port "sleep_modc sleep_modc" -on_state "ON VDDL sleep_modc" -off_state "OFF !sleep_modc" 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+map_power_switch pg_modc_ps -domain pd_modc -lib_cells HEADX2_HVT
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_power_switch pg_modb_ps -domain pd_modb -input_supply_port "VDDH VDDH" -output_supply_port "VDDH_gated_modb VDDH_gated_modb" -control_port "sleep_modb sleep_modb" -on_state "ON VDDH sleep_modb" -off_state "OFF !sleep_modb" 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+map_power_switch pg_modb_ps -domain pd_modb -lib_cells HEADX2_HVT
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+create_power_switch pg_modd_ps -domain pd_modd -input_supply_port "VDDL VDDL" -output_supply_port "VDDL_gated_modd VDDL_gated_modd" -control_port "sleep_modd sleep_modd" -on_state "ON VDDL sleep_modd" -off_state "OFF !sleep_modd" 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+map_power_switch pg_modd_ps -domain pd_modd -lib_cells HEADX2_HVT
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Define Isolation Strategies
+#set_isolation 
+set_isolation iso_pg_moda_b -domain pd_moda -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modA_inst/A2B} 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation_control iso_pg_moda_b -domain pd_moda -isolation_signal "iso_en" -isolation_sense high -location parent
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation iso_pg_moda_c -domain pd_moda -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modA_inst/A2C} 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation_control iso_pg_moda_c -domain pd_moda -isolation_signal "iso_en" -isolation_sense high -location parent
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation iso_pg_modc_a -domain pd_modc -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modC_inst/C2A}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation_control iso_pg_modc_a -domain pd_modc -isolation_signal "iso_en" -isolation_sense high -location parent
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation iso_pg_modc_b -domain pd_modc -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modC_inst/C2B}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Can't find ports, pins or instances matching 'modC_inst/C2B' in design 'mv_lp_top'. (UID-95)
+Error: Nothing matched for -elements (SEL-005)
+set_isolation_control iso_pg_modc_b -domain pd_modc -isolation_signal "iso_en" -isolation_sense high -location parent
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Error: Isolation strategy iso_pg_modc_b either does not exist, or it does not belong to power domain pd_modc. (UPF-061)
+set_isolation iso_pg_modd_a -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/D2A}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation_control iso_pg_modd_a -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation iso_pg_modd_b -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/D2B}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_isolation_control iso_pg_modd_b -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+#set_isolation iso_pg_moda_top -domain pd_moda -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modA_inst/Z_reg}
+#set_isolation_control iso_pg_moda_top -domain pd_moda -isolation_signal "iso_en" -isolation_sense high -location parent
+#
+##set_isolation iso_pg_modb_a -domain pd_modb -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modB_inst/B2A} 
+##set_isolation_control iso_pg_modb_a -domain pd_modb -isolation_signal "iso_en" -isolation_sense high -location parent
+#set_isolation iso_pg_modb_c -domain pd_modb -applies_to both -isolation_power_net VDDH -isolation_ground_net VSS -clamp_value 0 -elements {modB_inst/B2C} 
+#set_isolation_control iso_pg_modb_c -domain pd_modb -isolation_signal "iso_en" -isolation_sense high -location parent
+#
+#set_isolation iso_pg_modd_c -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/D2C_reg}
+#set_isolation_control iso_pg_modd_c -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+#
+#set_isolation iso_pg_modc_top -domain pd_modc -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modC_inst/X_reg}
+#set_isolation_control iso_pg_modc_top -domain pd_modc -isolation_signal "iso_en" -isolation_sense high -location parent
+#
+#set_isolation iso_pg_modd_top -domain pd_modd -applies_to both -isolation_power_net VDDL -isolation_ground_net VSS -clamp_value 1 -elements {modD_inst/W_reg}
+#set_isolation_control iso_pg_modd_top -domain pd_modd -isolation_signal "iso_en" -isolation_sense high -location parent
+# Define Level Shifter Strategies
+#set_level_shifter
+set_level_shifter ls_modc2top -domain pd_modc -location parent -elements {modC_inst/X} -rule low_to_high 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_level_shifter ls_modd2top -domain pd_modd -location parent -elements {modD_inst/W} -rule low_to_high 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_level_shifter ls_moda2modc -domain pd_moda -location parent -elements {modA_inst/A2C} -rule high_to_low 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_level_shifter ls_moda2modd -domain pd_moda -location parent -elements {modA_inst/A2D} -rule high_to_low 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Can't find ports, pins or instances matching 'modA_inst/A2D' in design 'mv_lp_top'. (UID-95)
+Error: Nothing matched for -elements (SEL-005)
+set_level_shifter ls_modb2modc -domain pd_modb -location parent -elements {modB_inst/B2C} -rule high_to_low 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_level_shifter ls_modb2modd -domain pd_modb -location parent -elements {modB_inst/B2D} -rule high_to_low 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Can't find ports, pins or instances matching 'modB_inst/B2D' in design 'mv_lp_top'. (UID-95)
+Error: Nothing matched for -elements (SEL-005)
+set_level_shifter ls_modc2moda -domain pd_modc -location parent -elements {modC_inst/C2A} -rule low_to_high 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_level_shifter ls_modd2moda -domain pd_modd -location parent -elements {modD_inst/D2A} -rule low_to_high 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+set_level_shifter ls_modc2modb -domain pd_modc -location parent -elements {modC_inst/C2B} -rule low_to_high 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Can't find ports, pins or instances matching 'modC_inst/C2B' in design 'mv_lp_top'. (UID-95)
+Error: Nothing matched for -elements (SEL-005)
+set_level_shifter ls_modd2modb -domain pd_modd -location parent -elements {modD_inst/D2B} -rule low_to_high 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+#set_level_shifter ls_modc2upfclk -domain pd_modc -location parent -elements {modC_inst/upf_clk} -rule high_to_low
+# Power State Tables
+#add_port_state 
+add_port_state VDDH -state {power_on 1.16} -state {power_off off} 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_port_state VDDL -state {power_on 0.85} -state {power_off off}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_port_state VSS -state {gnd 0.0}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_port_state pg_moda_ps/VDDH_gated_moda -state {power_on 1.16} -state {power_off off}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_port_state pg_modb_ps/VDDH_gated_modb -state {power_on 1.16} -state {power_off off}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_port_state pg_modc_ps/VDDL_gated_modc -state {power_on 0.85} -state {power_off off}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_port_state pg_modd_ps/VDDL_gated_modd -state {power_on 0.85} -state {power_off off}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+#create_pst power_state_table 
+create_pst MV_gated -supplies {VDDH VDDL VSS pg_moda_ps/VDDH_gated_moda pg_modb_ps/VDDH_gated_modb pg_modc_ps/VDDL_gated_modc pg_modd_ps/VDDL_gated_modd}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+#add_pst_state
+#PS1 {ModA_OFF, ModB_ON, ModC_ON, ModD_OFF} & PS2 (ModA_ON, ModB_ON, ModC_OFF, ModD_Off)
+add_pst_state s0 -pst MV_gated -state {power_on power_on gnd power_on power_on power_on power_on}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_pst_state s1 -pst MV_gated -state {power_on power_on gnd power_off power_on power_on power_off}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+add_pst_state s2 -pst MV_gated -state {power_on power_on gnd power_on power_on power_off power_off}
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+
+End loading UPF file ../rtl/mv_lp_top.upf
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AND3X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND4X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X4_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO22X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OA21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modD'. (LINK-5)
+ 
+****************************************
+Report : level_shifter
+Design : mv_lp_top
+Version: Q-2019.12-SP3
+Date   : Sun May 14 21:46:47 2023
+****************************************
+
+No level shifter cells to report in scope mv_lp_top.
+#Seed RTL SDC
+# Create clock
+set design_clk upf_clk
+upf_clk
+set design_clk_period 0.8
+0.8
+create_clock -period ${design_clk_period} -waveform {0 0.5} -name $design_clk [get_ports upf_clk]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_transition 0.05 [get_clocks $design_clk]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_latency 0.2 [get_clocks $design_clk]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_uncertainty 0.05 -setup [get_clocks $design_clk]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_clock_uncertainty 0.01 -hold [get_clocks $design_clk]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+# 30% of clock period for input delay
+set_input_delay -max [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_input_delay -min [expr 0.2 * $design_clk_period] -clock $design_clk [get_ports {A B C D E}]  
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#60% of clock periold for output delay
+set_output_delay -max [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_output_delay -min [expr 0.3 * $design_clk_period] -clock $design_clk [get_ports {P Q R S T W X Y Z}]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#
+set_max_delay [expr 0.9 * $design_clk_period] -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"] 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+#set_input_transition 0.00001 [get_ports {A B C D E}] 
+set_drive 0.00001 [get_ports {A C E}] 
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+set_load 0.05 [get_ports {P Q R S T}]
+1
+group_path -name in2reg -from [get_ports -filter "direction==in&&full_name!~*clk*"]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+group_path -name reg2out -to [get_ports -filter "direction==out"]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+group_path -name in2out -from [get_ports -filter "direction==in&&full_name!~*clk*"] -to [get_ports -filter "direction==out"]
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_shell") } {
+    puts " Creating ICC2 MCMM "
+    create_mode func
+    create_corner slow
+    create_scenario -mode func -corner slow -name func_slow
+    current_scenario func_slow
+    set_operating_conditions ss0p75v125c
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmax.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmax
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmin.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmin
+ 
+    set_parasitic_parameters -early_spec Cmax -early_temperature 125
+    set_parasitic_parameters -late_spec Cmax -late_temperature 125
+    set_scenario_status func_slow -active true -hold true -setup true
+}
+Using operating conditions 'ff1p16v125c' found in library 'saed32hvt_ff1p16v125c'.
+Using operating conditions 'ff0p85v125c' found in library 'saed32hvt_ff0p85v125c'.
+Using operating conditions 'dlvl_ff0p85v125c_i1p16v' found in library 'saed32hvt_dlvl_ff0p85v125c_i1p16v'.
+Using operating conditions 'ulvl_ff1p16v125c_i0p85v' found in library 'saed32hvt_ulvl_ff1p16v125c_i0p85v'.
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: The value of variable 'compile_preserve_subdesign_interfaces' has been changed to true because '-no_boundary_optimization' is used. (OPT-133)
+Information: Starting from 2013.12 release, constant propagation is enabled even when boundary optimization is disabled. (OPT-1318)
+Warning: Design 'mv_lp_top' has '41' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Warning: "The variable 'compile_high_effort_area_in_incremental' is supported in DC NXT only. Ignoring this setting." (OPT-1726)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AND3X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND4X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X4_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO22X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OA21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modD'. (LINK-5)
+
+Information: There are 11 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Warning: Found 44 pin to pin connections requiring level shifter(s).  (MV-229)
+Warning: Power switch pg_moda_ps does not have a match in the target libraries. (UPF-114)
+Warning: Power switch pg_modc_ps does not have a match in the target libraries. (UPF-114)
+Warning: Power switch pg_modb_ps does not have a match in the target libraries. (UPF-114)
+Warning: Power switch pg_modd_ps does not have a match in the target libraries. (UPF-114)
+Information: Related supplies are not explicitly specified on 20 port(s) and primary supplies (VDDH, VSS) of top power domain will be assumed as the related supply. (UPF-405)
+Information: Total 0 repeater cells are inserted. (UPF-464)
+Warning: Isolation cell is not inserted at hierarchical pin modD_inst/D2A, because it does not have any load. (UPF-400)
+Warning: Isolation cell is not inserted at hierarchical pin modD_inst/D2B, because it does not have any load. (UPF-400)
+Information: A total of 3 isolation cells are inserted. (UPF-214)
+  Loading target library 'saed32hvt_ff0p85v125c'
+  Loading target library 'saed32hvt_ff1p16v125c'
+  Loading target library 'saed32hvt_dlvl_ff0p85v125c_i1p16v'
+  Loading target library 'saed32hvt_ulvl_ff1p16v125c_i0p85v'
+  Loading target library 'saed32hvt_pg_ff0p85v25c'
+  Loading target library 'saed32hvt_pg_ff1p16v25c'
+  Simplifying Design 'mv_lp_top'
+Information: Performing clock-gating with positive edge logic: 'integrated' and negative edge logic: 'integrated'. (PWR-1047)
+
+  Loading target library 'saed32hvt_dlvl_ff0p85v125c_i1p16v'
+  Loading target library 'saed32hvt_ulvl_ff1p16v125c_i0p85v'
+  Loading target library 'saed32hvt_pg_ff0p85v25c'
+  Loading target library 'saed32hvt_pg_ff1p16v25c'
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AND3X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND4X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X4_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO22X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OA21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modD'. (LINK-5)
+Loaded alib file './alib-52/saed32hvt_ff1p16v125c.db.alib'
+Loaded alib file './alib-52/saed32hvt_dlvl_ff0p85v125c_i1p16v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_ulvl_ff1p16v125c_i0p85v.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_ff0p85v125c.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AND3X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND4X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X4_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO22X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OA21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modD'. (LINK-5)
+  Processing 'mv_lp_top'
+  Processing 'modD'
+  Processing 'modA'
+  Processing 'modC'
+  Processing 'modB'
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AND3X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND4X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X4_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO22X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OA21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AND3X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND4X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X4_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO22X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OA21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modD'. (LINK-5)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_HVT' in the library 'saed32hvt_ff0p85v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_HVT' in the library 'saed32hvt_ff0p85v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_HVT' in the library 'saed32hvt_ff0p85v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_HVT' in the library 'saed32hvt_ff0p85v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_HVT' in the library 'saed32hvt_ff0p85v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_HVT' in the library 'saed32hvt_ff0p85v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT3_HVT' in the library 'saed32hvt_ff1p16v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_HVT' in the library 'saed32hvt_ff1p16v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_HVT' in the library 'saed32hvt_ff1p16v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_HVT' in the library 'saed32hvt_ff1p16v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_HVT' in the library 'saed32hvt_ff1p16v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_HVT' in the library 'saed32hvt_ff1p16v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Skipping clock gating on design mv_lp_top, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design modA, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design modB, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design modC, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design modD, since there are no registers. (PWR-806)
+Information: Total 0 level shifters are removed. (MV-238)
+Information: Total 8 level shifters are inserted. (MV-239)
+Warning: 5 nets required level shifters but matching level shifters were not found. (MV-611)
+Warning: 1 nets required level shifters but was ignored. (MV-612)
+Warning: 5 nets has level shifter constraints but no level shifters are inserted. (MV-614)
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+   24:53:08     101.4      0.09       0.3       0.0                           496578496.0000
+   24:53:08     101.4      0.09       0.3       0.0                           496578496.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+  Global Optimization (Phase 50)
+  Global Optimization (Phase 51)
+  Global Optimization (Phase 52)
+  Global Optimization (Phase 53)
+  Global Optimization (Phase 54)
+  Global Optimization (Phase 55)
+  Global Optimization (Phase 56)
+  Global Optimization (Phase 57)
+  Global Optimization (Phase 58)
+  Global Optimization (Phase 59)
+  Global Optimization (Phase 60)
+  Global Optimization (Phase 61)
+  Global Optimization (Phase 62)
+  Global Optimization (Phase 63)
+  Global Optimization (Phase 64)
+  Global Optimization (Phase 65)
+  Global Optimization (Phase 66)
+  Global Optimization (Phase 67)
+  Global Optimization (Phase 68)
+  Global Optimization (Phase 69)
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+   24:53:08      89.2      0.09       0.3       0.0                           265332896.0000
+   24:53:08     100.9      0.07       0.3       0.0                           345331424.0000
+   24:53:08     100.9      0.07       0.3       0.0                           345331424.0000
+   24:53:08     100.9      0.07       0.3       0.0                           345331424.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+   24:53:08     100.9      0.07       0.3       0.0                           345331424.0000
+   24:53:08     100.9      0.07       0.3       0.0                           345331424.0000
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+Information: Level shifter LSDNSSX8_HVT from library saed32hvt_dlvl_ff0p85v125c_i1p16v cannot be inserted to net net11632 because of main power mismatch(require power pin VDDL to be connected to domain primary power VDDH). (MV-753)
+Information: Total 0 level shifters are removed incrementally. (MV-238)
+Information: Total 0 level shifters are inserted incrementally. (MV-239)
+Warning: 5 nets required level shifters but matching level shifters were not found. (MV-611)
+Warning: 1 nets required level shifters but was ignored. (MV-612)
+   24:53:08      97.6      0.07       0.3       0.0                           310295104.0000
+   24:53:08      97.1      0.07       0.2       0.0                           299808800.0000
+   24:53:08      97.1      0.07       0.2       0.0                           299808800.0000
+   24:53:08      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:08      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:08      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.07       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      86.9      0.06       0.2       0.4                           274807232.0000
+   24:53:09      84.9      0.06       0.2       0.4                           265099312.0000
+   24:53:09      84.9      0.06       0.2       0.4                           265099312.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+   24:53:09      84.9      0.06       0.2       0.4                           265099312.0000
+  Global Optimization (Phase 70)
+  Global Optimization (Phase 71)
+  Global Optimization (Phase 72)
+  Global Optimization (Phase 73)
+  Global Optimization (Phase 74)
+  Global Optimization (Phase 75)
+  Global Optimization (Phase 76)
+  Global Optimization (Phase 77)
+  Global Optimization (Phase 78)
+  Global Optimization (Phase 79)
+  Global Optimization (Phase 80)
+  Global Optimization (Phase 81)
+  Global Optimization (Phase 82)
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:09      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+   24:53:10      82.9      0.06       0.2       0.4                           222079776.0000
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p85v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16v125c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ff0p85v125c_i1p16v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ff1p16v125c_i0p85v.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_pg_ff0p85v25c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_pg_ff1p16v25c.db'
+Loading db file '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75vn40c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Found 6 net(s) without isolation. (MV-046)
+Warning: Found 1 net(s) with redundant isolation cells.  (MV-047)
+Warning: Found 1 unused power management cells in the design. (MV-530)
+Warning: Found 23 pin to pin connections requiring level shifter(s).  (MV-229)
+  Loading target library 'saed32hvt_dlvl_ff0p85v125c_i1p16v'
+  Loading target library 'saed32hvt_ulvl_ff1p16v125c_i0p85v'
+  Loading target library 'saed32hvt_pg_ff0p85v25c'
+  Loading target library 'saed32hvt_pg_ff1p16v25c'
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AND3X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND4X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modA'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFARX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X4_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modB'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XNOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'NAND2X0_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO22X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modC'. (LINK-5)
+Warning: Unable to resolve reference 'SDFFX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'NAND3X0_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'INVX1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR2X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'XOR3X2_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'OA21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AO21X1_LVT' in 'modD'. (LINK-5)
+Warning: Unable to resolve reference 'AND2X1_LVT' in 'modD'. (LINK-5)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated black box outputs. (PWR-428)
+Warning: Design 'mv_lp_top' has '39' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing verilog file '/u/sun5/ECE530/final_prj-530_alex_and_jie/syn/outputs/mv_lp_top.dc.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Design 'mv_lp_top' has '39' unresolved references. For more detailed information, use the "link" command. (UID-341)
+1
+dc_shell> 
