@@ -82,10 +82,10 @@ floorPlan -s [lindex $design_size 0] [lindex $design_size 1] $margin $margin $ma
 # moda => modd starts LL and goes clockwise, UL, UR, LR
 
 # modifyPowerDomainAttr pd_top              I don't think I want one for pd_top
-modifyPowerDomainAttr pd_moda -box 20 20 40 40
-modifyPowerDomainAttr pd_modb -box 20 60 40 80
-modifyPowerDomainAttr pd_modc -box 60 60 80 80
-modifyPowerDomainAttr pd_modd -box 60 20 80 40
+modifyPowerDomainAttr pd_moda -box 30 30 50 50
+modifyPowerDomainAttr pd_modb -box 30 70 50 90
+modifyPowerDomainAttr pd_modc -box 70 70 90 90
+modifyPowerDomainAttr pd_modd -box 70 30 90 50
 
 
 #Generate quick floorplan (planDesign)

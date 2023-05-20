@@ -1,0 +1,706 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2019 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v19.16-s053_1, built Mon Aug 31 13:16:01 PDT 2020
+Options:	
+Date:		Sat May 20 16:13:45 2023
+Host:		mo.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.88.1.el7.x86_64) (1core*32cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		invs	Innovus Implementation System	19.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (170 mbytes). Set global soft_stack_size_limit to change the value.
+Sourcing startup file ./enc.tcl
+<CMD> alias fs set top_design fifo1_sram
+<CMD> alias f set top_design fifo1
+<CMD> alias o set top_design ORCA_TOP
+<CMD> alias e set top_design ExampleRocketSystem
+<CMD> alias lp set top_design mv_lp_top
+<CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+**WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+<CMD> set_global report_timing_format  {delay arrival slew load fanout cell hpin}
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> win
+<CMD> man planDesign
+<CMD> lp
+### Start verbose source output (echo mode) for '../../mv_lp_top.design_config.tcl' ...
+# set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK
+# set top_design ${top_design}
+# set FCL 1
+# set add_ios 0
+# set pad_design 0
+# set design_size {100 100}
+# set design_io_border 10
+# set dc_floorplanning 1
+# set enable_dft 0
+# set innovus_enable_manual_macro_placement 0
+# set split_constraints 0
+# set rtl_list [list ../rtl/$top_design.sv ]
+# set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+# set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+# set slow_metal 1p9m_Cmax_-40
+# set fast_metal 1p9m_Cmax_-40
+# set synth_corners $slow_corner
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+# set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+# if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+### End verbose source output for '../../mv_lp_top.design_config.tcl'.
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> set search_path {}
+<CMD> set init_lef_file {../../cadence_cap_tech/tech.lef saed32sram.lef saed32nm_lvt_1p9m.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef}
+<CMD> set init_design_netlisttype Verilog
+<CMD> set init_verilog ../../syn/outputs/mv_lp_top.genus.vg
+<CMD> set init_top_cell mv_lp_top
+<CMD> set init_pwr_net {VDDH VDDL}
+<CMD> set init_gnd_net VSS
+<CMD> all_constraint_modes -active
+<CMD> set_interactive_constraint_modes [all_constraint_modes -active]
+<CMD> init_design
+
+Loading LEF file ../../cadence_cap_tech/tech.lef ...
+
+Loading LEF file saed32sram.lef ...
+Set DBUPerIGU to M2 pitch 152.
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32sram.lef at line 197399.
+
+Loading LEF file saed32nm_lvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_lvt_1p9m.lef at line 67466.
+
+Loading LEF file saed32nm_hvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_hvt_1p9m.lef at line 191962.
+
+Loading LEF file saed32nm_rvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_rvt_1p9m.lef at line 148040.
+
+viaInitial starts at Sat May 20 16:15:15 2023
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12BAR_C' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12LG_C' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12BAR' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12LG' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23BAR_C' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23LG_C' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23BAR' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23LG' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34BAR_C' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34LG_C' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34BAR' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34LG' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45BAR_C' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45LG_C' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45BAR' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45LG' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56BAR_C' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56LG_C' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56BAR' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56LG' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (EMS-27):	Message (IMPPP-543) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+viaInitial ends at Sat May 20 16:15:15 2023
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+*** End library_loading (cpu=0.00min, real=0.00min, mem=0.0M, fe_cpu=0.39min, fe_real=1.50min, fe_mem=788.2M) ***
+#% Begin Load netlist data ... (date=05/20 16:15:15, mem=521.3M)
+*** Begin netlist parsing (mem=788.2M) ***
+Created 0 new cells from 0 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '../../syn/outputs/mv_lp_top.genus.vg'
+
+*** Memory Usage v#1 (Current mem = 793.223M, initial mem = 289.684M) ***
+*** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=793.2M) ***
+#% End Load netlist data ... (date=05/20 16:15:15, total cpu=0:00:00.1, real=0:00:00.0, peak res=525.9M, current mem=525.9M)
+Set top cell to mv_lp_top.
+Hooked 0 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell mv_lp_top ...
+*** Netlist is unique.
+** info: there are 1090 modules.
+** info: there are 150 stdCell insts.
+** info: there are 10 multi-height stdCell insts (2 stdCells)
+
+*** Memory Usage v#1 (Current mem = 846.652M, initial mem = 289.684M) ***
+**WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 0 (derived)
+Vertical Layer M2 offset = 0 (derived)
+Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPSYT-7328):	The design has been initialized in physical-only mode because the init_mmmc_file global variable was not defined. Timing analysis will not be possible within this session. You can only use commands that do not depend on timing data. If you need to use timing, you need to restart with an init_mmmc_file to define the timing setup, or you can save this design and use restoreDesign -mmmc_file <viewDef.tcl> to add the timing setup information.
+Extraction setup Started 
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+WARNING   IMPSYT-7328          1  The design has been initialized in physi...
+WARNING   IMPPP-543           28  Inconsistent cut size definition in VIAR...
+*** Message Summary: 33 warning(s), 0 error(s)
+
+<CMD> read_power_intent -1801 ../../syn/rtl/mv_lp_top.upf
+Reading power intent file ../../syn/rtl/mv_lp_top.upf ...
+Checking power intent
+Checking scoped supply_net connected to top-level supply_net
+IEEE1801_RUNTIME: checking scoped supply_net: cpu=0:00:00.00 real=0:00:00.00
+Checking supply_set/supply_net
+IEEE1801_RUNTIME: checking pst supplies: cpu=0:00:00.01 real=0:00:00.00
+Setting boundaryports(3) from port_attr
+IEEE1801_RUNTIME: checking port_attribute: cpu=0:00:00.00 real=0:00:00.00
+IEEE1801_RUNTIME: checking related_supply_net: cpu=0:00:00.00 real=0:00:00.00
+<CMD> commit_power_intent -verbose
+IEEE1801_RUNTIME: freeTimingGraph: cpu=0:00:00.15 real=0:00:00.00
+COMMIT_1801: commit_logic_port_net 
+IEEE1801_RUNTIME: commit_logic_port/net: cpu=0:00:00.00 real=0:00:00.00
+COMMIT_1801: commit_supply_net 
+::MSV::createSupplyPort VSS -dir input -type ground
+::MSV::createSupplyPort VDDH -dir input -type power
+::MSV::createSupplyPort VDDL -dir input -type power
+::MSV::createSupplyNet VDDH -type power
+::MSV::createSupplyNet VDDL_gated_modd -type power
+::MSV::createSupplyNet VDDL -type power
+::MSV::createSupplyNet VDDH_gated_moda -type power
+::MSV::createSupplyNet VDDL_gated_modc -type power
+::MSV::createSupplyNet VDDH_gated_modb -type power
+::MSV::createSupplyNet VSS -type ground
+IEEE1801_RUNTIME: commit_supply_net: cpu=0:00:00.01 real=0:00:00.00
+COMMIT_1801: commit_power_domain 
+::MSV::createPowerDomain pd_moda -alwaysOn false
+::MSV::modifyPowerDomainMember pd_moda  -instances {modA_inst} -power { } -ground {}
+::MSV::createPowerDomain pd_modb -alwaysOn false
+::MSV::modifyPowerDomainMember pd_modb  -instances {modB_inst} -power { } -ground {}
+::MSV::createPowerDomain pd_modc -alwaysOn false
+::MSV::modifyPowerDomainMember pd_modc  -instances {modC_inst} -power { } -ground {}
+::MSV::createPowerDomain pd_modd -alwaysOn false
+::MSV::modifyPowerDomainMember pd_modd  -instances {modD_inst} -power { } -ground {}
+::MSV::createPowerDomain pd_top -default
+::MSV::modifyPowerDomainMember pd_top  -instances * -power {} -ground {}
+::MSV::createPowerDomain _internal_VDDL_VSS_
+::MSV::setPowerDomainPGNets _internal_VDDL_VSS_ -power VDDL -ground VSS
+::MSV::setPowerDomainSupplySet _internal_VDDL_VSS_ -primary _ss_VDDL_VSS_
+::MSV::PD::setIsPdInternal _internal_VDDL_VSS_
+IEEE1801_RUNTIME: commit_power_domain: cpu=0:00:00.00 real=0:00:00.00
+COMMIT_1801: commit_global_connect -no_related_pg
+COMMIT_1801: commit_supplynet_connect 
+IEEE1801_RUNTIME: commit_global_connect: cpu=0:00:00.01 real=0:00:00.00
+::MSV::createSupplySet pd_moda_primary_ss_ -power VDDH_gated_moda -ground VSS
+::MSV::createSupplySet pd_modc_primary_ss_ -power VDDL_gated_modc -ground VSS
+::MSV::createSupplySet _ss_VDDL_VSS_ -power VDDL -ground VSS
+::MSV::createSupplySet pd_modb_primary_ss_ -power VDDH_gated_modb -ground VSS
+::MSV::createSupplySet pd_top_primary_ss_ -power VDDH -ground VSS
+::MSV::createSupplySet pd_modd_primary_ss_ -power VDDL_gated_modd -ground VSS
+::MSV::setPowerDomainPGNets pd_moda -power VDDH_gated_moda -ground VSS
+::MSV::setPowerDomainPGNets pd_modb -power VDDH_gated_modb -ground VSS
+::MSV::setPowerDomainPGNets pd_modc -power VDDL_gated_modc -ground VSS
+::MSV::setPowerDomainPGNets pd_modd -power VDDL_gated_modd -ground VSS
+::MSV::setPowerDomainPGNets pd_top -power VDDH -ground VSS
+::MSV::addUpfPortState pg_moda_ps/VDDH_gated_moda -state {power_on 1.16} -state {power_off off} -net VDDH_gated_moda
+::MSV::addUpfPortState pg_modd_ps/VDDL_gated_modd -state {power_on 0.85} -state {power_off off} -net VDDL_gated_modd
+::MSV::addUpfPortState VSS -state {gnd 0.0} -net VSS
+::MSV::addUpfPortState VDDH -state {power_on 1.16} -state {power_off off} -net VDDH
+::MSV::addUpfPortState pg_modc_ps/VDDL_gated_modc -state {power_on 0.85} -state {power_off off} -net VDDL_gated_modc
+::MSV::addUpfPortState VDDL -state {power_on 0.85} -state {power_off off} -net VDDL
+::MSV::addUpfPortState pg_modb_ps/VDDH_gated_modb -state {power_on 1.16} -state {power_off off} -net VDDH_gated_modb
+::MSV::createUpfPst MV_gated -supplies {VDDH VDDL VSS pg_moda_ps/VDDH_gated_moda pg_modb_ps/VDDH_gated_modb pg_modc_ps/VDDL_gated_modc pg_modd_ps/VDDL_gated_modd}
+::MSV::addUpfPstState s0 -pst MV_gated -state {power_on power_on gnd power_on power_on power_on power_on}
+::MSV::addUpfPstState s1 -pst MV_gated -state {power_on power_on gnd power_off power_on power_on power_off}
+::MSV::addUpfPstState s2 -pst MV_gated -state {power_on power_on gnd power_on power_on power_off power_off}
+IEEE1801_RUNTIME: commit_power_mode: cpu=0:00:00.00 real=0:00:00.00
+::MSV::setMsvPinConstraint iso_en
+::MSV::setUpfPinDupConstraint pd_moda { modA_inst/A2B} -applies_to both
+::MSV::setUpfPinDupConstraint pd_modc { modC_inst/C2B} -applies_to both
+::MSV::setUpfPinDupConstraint pd_modc { modC_inst/C2A} -applies_to both
+::MSV::setUpfPinDupConstraint pd_modd { modD_inst/D2B} -applies_to both
+::MSV::setUpfPinDupConstraint pd_modd { modD_inst/D2A} -applies_to both
+::MSV::setUpfPinDupConstraint pd_moda { modA_inst/A2C} -applies_to both
+::MSV::setUpfPinDupConstraint pd_modc { modC_inst/C2B}
+::MSV::setUpfPinDupConstraint pd_modd { modD_inst/D2B}
+::MSV::setUpfPinDupConstraint pd_moda { modA_inst/A2C}
+::MSV::setUpfPinDupConstraint pd_modb { modB_inst/B2C}
+::MSV::setUpfPinDupConstraint pd_modd { modD_inst/W}
+::MSV::setUpfPinDupConstraint pd_modc { modC_inst/X}
+::MSV::setUpfPinDupConstraint pd_modc { modC_inst/C2A}
+::MSV::setUpfPinDupConstraint pd_modd { modD_inst/D2A}
+::MSV::setUpfPinDupConstraint pd_moda { modA_inst/A2D}
+::MSV::setUpfPinDupConstraint pd_modb { modB_inst/B2D}
+::MSV::createSupplySet pd_moda_primary_ss_ -power VDDH_gated_moda -ground VSS
+::MSV::createSupplySet pd_modc_primary_ss_ -power VDDL_gated_modc -ground VSS
+::MSV::createSupplySet _ss_VDDL_VSS_ -power VDDL -ground VSS
+::MSV::createSupplySet pd_modb_primary_ss_ -power VDDH_gated_modb -ground VSS
+::MSV::createSupplySet pd_top_primary_ss_ -power VDDH -ground VSS
+::MSV::createSupplySet pd_modd_primary_ss_ -power VDDL_gated_modd -ground VSS
+::MSV::setPowerDomainPGNets pd_moda -power VDDH_gated_moda -ground VSS
+::MSV::setPowerDomainSupplySet pd_moda -primary pd_moda_primary_ss_
+::MSV::setPowerDomainPGNets pd_modb -power VDDH_gated_modb -ground VSS
+::MSV::setPowerDomainSupplySet pd_modb -primary pd_modb_primary_ss_
+::MSV::setPowerDomainPGNets pd_modc -power VDDL_gated_modc -ground VSS
+::MSV::setPowerDomainSupplySet pd_modc -primary pd_modc_primary_ss_
+::MSV::setPowerDomainPGNets pd_modd -power VDDL_gated_modd -ground VSS
+::MSV::setPowerDomainSupplySet pd_modd -primary pd_modd_primary_ss_
+::MSV::setPowerDomainPGNets pd_top -power VDDH -ground VSS
+::MSV::setPowerDomainSupplySet pd_top -primary pd_top_primary_ss_
+::MSV::setPowerDomainPGNets _internal_VDDL_VSS_ -power VDDL -ground VSS
+::MSV::setPowerDomainSupplySet _internal_VDDL_VSS_ -primary _ss_VDDL_VSS_
+::MSV::PD::setIsPdInternal _internal_VDDL_VSS_
+IEEE1801_RUNTIME: define_low_power_cells: cpu=0:00:00.09 real=0:00:00.00
+IEEE1801_RUNTIME: buildTimingGraph: cpu=0:00:00.15 real=0:00:01.00
+Cell 'HEADX2_HVT' has been added to powerDomain pd_modc connection specification.
+Cell 'HEADX2_HVT' has been added to powerDomain pd_modb connection specification.
+Cell 'HEADX2_HVT' has been added to powerDomain pd_modd connection specification.
+Cell 'HEADX2_HVT' has been added to powerDomain pd_moda connection specification.
+IEEE1801_RUNTIME: GNC_connect_existing_iso_shifter: cpu=0:00:00.01 real=0:00:00.00
+IEEE1801_RUNTIME: connectAlwaysOnBuf: cpu=0:00:00.00 real=0:00:00.00
+IEEE1801_RUNTIME: replaceAlwaysOnAssignBuffer: cpu=0:00:00.00 real=0:00:00.00
+COMMIT_1801: commit_power_switch pg_modc_ps 
+pg_net VDDL_gated_modc is the primary pg_net of VDDL
+::MSV::modifyPowerDomainMember pd_modc -cells HEADX2_HVT -power { (VDDL_gated_modc:VDDL_gated_modc) (VDDL:)}
+Cell 'HEADX2_HVT' has been added to powerDomain pd_modc connection specification.
+COMMIT_1801: commit_power_switch pg_modb_ps 
+pg_net VDDH_gated_modb is the primary pg_net of VDDH
+::MSV::modifyPowerDomainMember pd_modb -cells HEADX2_HVT -power { (VDDH_gated_modb:VDDH_gated_modb) (VDDH:)}
+Cell 'HEADX2_HVT' has been added to powerDomain pd_modb connection specification.
+COMMIT_1801: commit_power_switch pg_modd_ps 
+pg_net VDDL_gated_modd is the primary pg_net of VDDL
+::MSV::modifyPowerDomainMember pd_modd -cells HEADX2_HVT -power { (VDDL_gated_modd:VDDL_gated_modd) (VDDL:)}
+Cell 'HEADX2_HVT' has been added to powerDomain pd_modd connection specification.
+COMMIT_1801: commit_power_switch pg_moda_ps 
+pg_net VDDH_gated_moda is the primary pg_net of VDDH
+::MSV::modifyPowerDomainMember pd_moda -cells HEADX2_HVT -power { (VDDH_gated_moda:VDDH_gated_moda) (VDDH:)}
+Cell 'HEADX2_HVT' has been added to powerDomain pd_moda connection specification.
+IEEE1801_RUNTIME: commit_power_switch: cpu=0:00:00.00 real=0:00:00.00
+IEEE1801_RUNTIME: commit_retention: cpu=0:00:00.00 real=0:00:00.00
+COMMIT_1801: commit_isolation iso_pg_moda_b {}
+**ERROR: (IMPMSMV-7501):	cannot get matched isolation lib_cell for isolation strategy iso_pg_moda_b
+::MSV::commitUpfIsoStrategy iso_pg_moda_b -domain pd_moda -lib_cells {} -isolation_signal iso_en -isolation_sense 1 -elements {modA_inst/A2B} -applies_to {both} -location {parent} -clamp_value {0} -isolation_power_net VDDH -isolation_ground_net VSS
+**ERROR: (IMPMSMV-8104):	rule iso_pg_moda_b: no valid library cell specified for isolation
+INFO: isolation strategy iso_pg_moda_b: added 0 isolation insts
+commit_isolation iso_pg_moda_b 
+COMMIT_1801: commit_isolation iso_pg_modc_b {}
+**ERROR: (IMPMSMV-7501):	cannot get matched isolation lib_cell for isolation strategy iso_pg_modc_b
+::MSV::commitUpfIsoStrategy iso_pg_modc_b -domain pd_modc -lib_cells {} -isolation_signal iso_en -isolation_sense 1 -elements {modC_inst/C2B} -applies_to {both} -location {parent} -clamp_value {1} -isolation_power_net VDDL -isolation_ground_net VSS
+**ERROR: (IMPMSMV-8104):	rule iso_pg_modc_b: no valid library cell specified for isolation
+INFO: isolation strategy iso_pg_modc_b: added 0 isolation insts
+commit_isolation iso_pg_modc_b 
+COMMIT_1801: commit_isolation iso_pg_modc_a {}
+**ERROR: (IMPMSMV-7501):	cannot get matched isolation lib_cell for isolation strategy iso_pg_modc_a
+::MSV::commitUpfIsoStrategy iso_pg_modc_a -domain pd_modc -lib_cells {} -isolation_signal iso_en -isolation_sense 1 -elements {modC_inst/C2A} -applies_to {both} -location {parent} -clamp_value {1} -isolation_power_net VDDL -isolation_ground_net VSS
+**ERROR: (IMPMSMV-8104):	rule iso_pg_modc_a: no valid library cell specified for isolation
+INFO: isolation strategy iso_pg_modc_a: added 0 isolation insts
+commit_isolation iso_pg_modc_a 
+COMMIT_1801: commit_isolation iso_pg_modd_b {}
+**ERROR: (IMPMSMV-7501):	cannot get matched isolation lib_cell for isolation strategy iso_pg_modd_b
+::MSV::commitUpfIsoStrategy iso_pg_modd_b -domain pd_modd -lib_cells {} -isolation_signal iso_en -isolation_sense 1 -elements {modD_inst/D2B} -applies_to {both} -location {parent} -clamp_value {1} -isolation_power_net VDDL -isolation_ground_net VSS
+**ERROR: (IMPMSMV-8104):	rule iso_pg_modd_b: no valid library cell specified for isolation
+INFO: isolation strategy iso_pg_modd_b: added 0 isolation insts
+commit_isolation iso_pg_modd_b 
+COMMIT_1801: commit_isolation iso_pg_modd_a {}
+**ERROR: (IMPMSMV-7501):	cannot get matched isolation lib_cell for isolation strategy iso_pg_modd_a
+::MSV::commitUpfIsoStrategy iso_pg_modd_a -domain pd_modd -lib_cells {} -isolation_signal iso_en -isolation_sense 1 -elements {modD_inst/D2A} -applies_to {both} -location {parent} -clamp_value {1} -isolation_power_net VDDL -isolation_ground_net VSS
+**ERROR: (IMPMSMV-8104):	rule iso_pg_modd_a: no valid library cell specified for isolation
+INFO: isolation strategy iso_pg_modd_a: added 0 isolation insts
+commit_isolation iso_pg_modd_a 
+COMMIT_1801: commit_isolation iso_pg_moda_c {}
+**ERROR: (IMPMSMV-7501):	cannot get matched isolation lib_cell for isolation strategy iso_pg_moda_c
+::MSV::commitUpfIsoStrategy iso_pg_moda_c -domain pd_moda -lib_cells {} -isolation_signal iso_en -isolation_sense 1 -elements {modA_inst/A2C} -applies_to {both} -location {parent} -clamp_value {0} -isolation_power_net VDDH -isolation_ground_net VSS
+**ERROR: (IMPMSMV-8104):	rule iso_pg_moda_c: no valid library cell specified for isolation
+INFO: isolation strategy iso_pg_moda_c: added 0 isolation insts
+commit_isolation iso_pg_moda_c 
+IEEE1801_RUNTIME: commit_isolation: cpu=0:00:00.02 real=0:00:00.00
+COMMIT_1801: commit_level_shifter ls_modc2modb {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modc2modb
+::MSV::commitUpfLsStrategy ls_modc2modb -domain pd_modc -lib_cells {} -elements {modC_inst/C2B} -location {parent} -rule {low_to_high}
+**ERROR: (IMPMSMV-8104):	rule ls_modc2modb: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modc2modb: added 0 level_shifter insts
+commit_level_shifter ls_modc2modb 
+COMMIT_1801: commit_level_shifter ls_modd2modb {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modd2modb
+::MSV::commitUpfLsStrategy ls_modd2modb -domain pd_modd -lib_cells {} -elements {modD_inst/D2B} -location {parent} -rule {low_to_high}
+**ERROR: (IMPMSMV-8104):	rule ls_modd2modb: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modd2modb: added 0 level_shifter insts
+commit_level_shifter ls_modd2modb 
+COMMIT_1801: commit_level_shifter ls_moda2modc {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_moda2modc
+::MSV::commitUpfLsStrategy ls_moda2modc -domain pd_moda -lib_cells {} -elements {modA_inst/A2C} -location {parent} -rule {high_to_low}
+**ERROR: (IMPMSMV-8104):	rule ls_moda2modc: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_moda2modc: added 0 level_shifter insts
+commit_level_shifter ls_moda2modc 
+COMMIT_1801: commit_level_shifter ls_modb2modc {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modb2modc
+::MSV::commitUpfLsStrategy ls_modb2modc -domain pd_modb -lib_cells {} -elements {modB_inst/B2C} -location {parent} -rule {high_to_low}
+**ERROR: (IMPMSMV-8104):	rule ls_modb2modc: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modb2modc: added 0 level_shifter insts
+commit_level_shifter ls_modb2modc 
+COMMIT_1801: commit_level_shifter ls_modd2top {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modd2top
+::MSV::commitUpfLsStrategy ls_modd2top -domain pd_modd -lib_cells {} -elements {modD_inst/W} -location {parent} -rule {low_to_high}
+**ERROR: (IMPMSMV-8104):	rule ls_modd2top: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modd2top: added 0 level_shifter insts
+commit_level_shifter ls_modd2top 
+COMMIT_1801: commit_level_shifter ls_modc2top {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modc2top
+::MSV::commitUpfLsStrategy ls_modc2top -domain pd_modc -lib_cells {} -elements {modC_inst/X} -location {parent} -rule {low_to_high}
+**ERROR: (IMPMSMV-8104):	rule ls_modc2top: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modc2top: added 0 level_shifter insts
+commit_level_shifter ls_modc2top 
+COMMIT_1801: commit_level_shifter ls_modc2moda {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modc2moda
+::MSV::commitUpfLsStrategy ls_modc2moda -domain pd_modc -lib_cells {} -elements {modC_inst/C2A} -location {parent} -rule {low_to_high}
+**ERROR: (IMPMSMV-8104):	rule ls_modc2moda: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modc2moda: added 0 level_shifter insts
+commit_level_shifter ls_modc2moda 
+COMMIT_1801: commit_level_shifter ls_modd2moda {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modd2moda
+::MSV::commitUpfLsStrategy ls_modd2moda -domain pd_modd -lib_cells {} -elements {modD_inst/D2A} -location {parent} -rule {low_to_high}
+**ERROR: (IMPMSMV-8104):	rule ls_modd2moda: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modd2moda: added 0 level_shifter insts
+commit_level_shifter ls_modd2moda 
+COMMIT_1801: commit_level_shifter ls_moda2modd {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_moda2modd
+::MSV::commitUpfLsStrategy ls_moda2modd -domain pd_moda -lib_cells {} -elements {modA_inst/A2D} -location {parent} -rule {high_to_low}
+**ERROR: (IMPMSMV-8104):	rule ls_moda2modd: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_moda2modd: added 0 level_shifter insts
+commit_level_shifter ls_moda2modd 
+COMMIT_1801: commit_level_shifter ls_modb2modd {}
+**ERROR: (IMPMSMV-7502):	cannot get matched level_shifter lib_cell for level_shifter strategy ls_modb2modd
+::MSV::commitUpfLsStrategy ls_modb2modd -domain pd_modb -lib_cells {} -elements {modB_inst/B2D} -location {parent} -rule {high_to_low}
+**ERROR: (IMPMSMV-8104):	rule ls_modb2modd: no valid library cell specified for level_shifter
+INFO: level_shifter strategy ls_modb2modd: added 0 level_shifter insts
+commit_level_shifter ls_modb2modd 
+IEEE1801_RUNTIME: commit_level_shifter: cpu=0:00:00.00 real=0:00:00.00
+IEEE1801_RUNTIME: connectAlwaysOnBuf: cpu=0:00:00.00 real=0:00:00.00
+IEEE1801_RUNTIME: initIsoLSNeededBetweenPowerDomains: cpu=0:00:00.01 real=0:00:00.00
+check Iso/LS needed between power domains
+finished checking Iso/LS needed between power domains
+finished commitUpf -verbose
+<CMD> floorPlan -s 100 100 10 10 10 10 -flip s -coreMarginsBy io
+**WARN: (IMPFP-4026):	Adjusting core to 'Left' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Right' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Top' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 0 (derived)
+Vertical Layer M2 offset = 0 (derived)
+Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> get_message -id GLOBAL-100 -suppress
+<CMD> get_message -id GLOBAL-100 -suppress
+<CMD> editPin -edge 3 -pin {A B C D E upf_clk P Q R S T} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 2 -unit MICRON -fixedPin 1
+Successfully spread [11] pins.
+editPin : finished (cpu = 0:00:04.3 real = 0:00:03.0, mem = 1127.7M).
+<CMD> get_message -id GLOBAL-100 -suppress
+<CMD> get_message -id GLOBAL-100 -suppress
+<CMD> editPin -edge 3 -pin {W X Y Z sleep_moda sleep_modb sleep_modc sleep_modd iso_en} -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 2 -unit MICRON -fixedPin 1
+Successfully spread [9] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1127.7M).
+<CMD> setPinAssignMode -pinEditInBatch false
+<CMD> modifyPowerDomainAttr pd_moda -box 30 30 50 50
+Power Domain 'pd_moda'.
+	  Boundary = 29.9440 30.0960 49.9440 50.0960
+	   minGaps = T:0.0560 B:0.0560 L:0.0560 R:0.0560
+	   rsExts  = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   core2Side = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   rowSpaceType = 2
+	   rowSpacing = 0.0000
+	   rowFlip = first
+	   site = unit
+<CMD> modifyPowerDomainAttr pd_modb -box 30 70 50 90
+Power Domain 'pd_modb'.
+	  Boundary = 29.9440 70.2240 49.9440 90.2240
+	   minGaps = T:0.0560 B:0.0560 L:0.0560 R:0.0560
+	   rsExts  = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   core2Side = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   rowSpaceType = 2
+	   rowSpacing = 0.0000
+	   rowFlip = first
+	   site = unit
+<CMD> modifyPowerDomainAttr pd_modc -box 70 70 90 90
+Power Domain 'pd_modc'.
+	  Boundary = 70.0720 70.2240 90.0720 90.2240
+	   minGaps = T:0.0560 B:0.0560 L:0.0560 R:0.0560
+	   rsExts  = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   core2Side = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   rowSpaceType = 2
+	   rowSpacing = 0.0000
+	   rowFlip = first
+	   site = unit
+<CMD> modifyPowerDomainAttr pd_modd -box 70 30 90 50
+Power Domain 'pd_modd'.
+	  Boundary = 70.0720 30.0960 90.0720 50.0960
+	   minGaps = T:0.0560 B:0.0560 L:0.0560 R:0.0560
+	   rsExts  = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   core2Side = T:0.0000 B:0.0000 L:0.0000 R:0.0000
+	   rowSpaceType = 2
+	   rowSpacing = 0.0000
+	   rowFlip = first
+	   site = unit
+<CMD> planDesign
+#% Begin planDesign (date=05/20 16:15:20, mem=824.5M)
+**WARN: (IMPAFP-9021):	Failed to read in timing data, check timing constraint or library, set timingDriven false.
+Deleted 0 physical inst  (cell - / prefix -).
+***** New seed flow = 1. *****  
+Ignore PD Guides: numIgnoredGuide = 5 
+Ignoring the OffRegion constraint modA_inst.
+Ignoring the OffRegion constraint modB_inst.
+Ignoring the OffRegion constraint modC_inst.
+Ignoring the OffRegion constraint modD_inst.
+INFO: #ExclusiveGroups=0
+INFO: There are no Exclusive Groups.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Extracting macro/IO cell pins and blockage ...... 
+Pin and blockage extraction finished
+*** Starting "NanoPlace(TM) placement v#2 (mem=1119.4M)" ...
+No user-set net weight.
+Net fanout histogram:
+2		: 100 (61.7%) nets
+3		: 36 (22.2%) nets
+4     -	14	: 23 (14.2%) nets
+15    -	39	: 3 (1.9%) nets
+40    -	79	: 0 (0.0%) nets
+80    -	159	: 0 (0.0%) nets
+160   -	319	: 0 (0.0%) nets
+320   -	639	: 0 (0.0%) nets
+640   -	1279	: 0 (0.0%) nets
+1280  -	2559	: 0 (0.0%) nets
+2560  -	5119	: 0 (0.0%) nets
+5120+		: 0 (0.0%) nets
+Options: clkGateAware pinGuide congEffort=auto gpeffort=medium 
+#std cell=150 (0 fixed + 150 movable) #buf cell=0 #inv cell=0 #block=0 (0 floating + 0 preplaced)
+#ioInst=0 #net=162 #term=488 #term/net=3.01, #fixedIo=0, #floatIo=0, #fixedPin=20, #floatPin=0
+stdCell: 140 single + 10 double + 0 multi
+Total standard cell length = 0.3192 (mm), area = 0.0006 (mm^2)
+**WARN: (IMPSP-362):	Site 'unit' has one std.Cell height, so ignoring its X-symmetry.
+Type 'man IMPSP-362' for more detail.
+Estimated cell power/ground rail width = 0.209 um
+
+
+
+
+Average module density = 0.061.
+Density for module 'pd_modd' = 0.276.
+       = stdcell_area 398 sites (101 um^2) / alloc_area 1441 sites (366 um^2).
+Density for module 'pd_modc' = 0.266.
+       = stdcell_area 384 sites (98 um^2) / alloc_area 1441 sites (366 um^2).
+Density for module 'pd_modb' = 0.262.
+       = stdcell_area 378 sites (96 um^2) / alloc_area 1441 sites (366 um^2).
+Density for module 'pd_moda' = 0.269.
+       = stdcell_area 388 sites (99 um^2) / alloc_area 1441 sites (366 um^2).
+       = stdcell_area 692 sites (176 um^2) / alloc_area 31237 sites (7939 um^2).
+Density for the design = 0.061.
+       = stdcell_area 2240 sites (569 um^2) / alloc_area 37001 sites (9404 um^2).
+Pin Density = 0.01257.
+            = total # of pins 488 / total area 38822.
+
+
+Fence Initialization: numPrefixFence = 4,  numAutoFence = 0, numPrefixGuide = 0  numAutoGuide = 0 numNoCon = 0 
+
+=== lastAutoLevel = 7 
+Iteration  1: Total net bbox = 4.232e+03 (1.50e+03 2.73e+03)
+              Est.  stn bbox = 4.557e+03 (1.62e+03 2.94e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1139.4M
+User specified -module_cluster_mode =  0 
+Iteration  2: Total net bbox = 4.232e+03 (1.50e+03 2.73e+03)
+              Est.  stn bbox = 4.557e+03 (1.62e+03 2.94e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1136.1M
+Iteration  3: Total net bbox = 3.508e+03 (1.31e+03 2.19e+03)
+              Est.  stn bbox = 3.905e+03 (1.45e+03 2.45e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1137.6M
+Iteration  4: Total net bbox = 3.463e+03 (1.31e+03 2.15e+03)
+              Est.  stn bbox = 3.859e+03 (1.45e+03 2.41e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1137.9M
+Iteration  5: Total net bbox = 2.936e+03 (1.07e+03 1.86e+03)
+              Est.  stn bbox = 3.297e+03 (1.19e+03 2.10e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1138.0M
+ RelinkConst: Total constraint = 4, Relinked 0 constraints . 
+User specified -fenceSpacing =  -1.0000 
+User specified fence spacing: -1.0000 um
+*** The nonConstraint instance area ratio is 0.012197 
+*** The prefixed-fenceArea/coreBoxArea is 0.110963, The auto-ConstraintArea/coreBoxArea is 0.000000 
+Start Auto fence creation, hasNoConInst = 1  .
+
+================== Start Auto-Fence Creation ==================
+User define fence spacing: -1.0000 um
+Number of Movable Guide      : 0
+Number of Movable Region     : 0
+Number of Movable Fence      : 0
+Number of Movable Soft Guide : 0
+Total Movable Objects        : 0 (non-group: 0, group: 0)
+Total Prefixed Objects       : 4
+Total Partition Cut Objects  : 0
+
+
+
+Number of Nested Objects    : 0
+Number of Non-Nested Objects: 0
+Number of Nested Sets       : 0
+Number of Master&Clone Pairs: 0
+
+Fence Spacing: 2.0000 um
+Snap Spacing: X(0.1520 um), Y(1.6720 um)
+Fence2Core Spaceing: 0.0000 um
+
+==== Design Information ====
+Core site: (10032, 10032) - (110048, 110048)
+Design Whitespace% : 100.00%
+Maximum Logical Level: 0
+Has Non-constraint Instance: 1
+Allow Disjoint Whitespace: 0
+
+==To Place Non-Nested Objects==
+Targets: 
+Number of Total Targets: 0
+
+================== Finished Auto-Fence Creation ===============
+*** Done Auto-Fence Creation, (cpu = 0:00:00.0, mem = 1136.7M, mem_delta = 0.0M) ***
+End Auto fence creation 1.
+Iteration  6: Total net bbox = 3.029e+03 (1.15e+03 1.88e+03)
+              Est.  stn bbox = 3.390e+03 (1.27e+03 2.12e+03)
+              cpu = 0:00:00.2 real = 467951:15:22 mem = 1136.7M
+*** cost = 3.029e+03 (1.15e+03 1.88e+03) (cpu for global=0:00:00.2) real=467951:15:22***
+net ignore based on current view = 0
+Solver runtime cpu: 0:00:00.0 real: 0:00:00.0
+Core Placement runtime cpu: 0:00:00.1 real: 0:00:01.0
+Ignoring the OffRegion constraint modA_inst.
+Ignoring the OffRegion constraint modB_inst.
+Ignoring the OffRegion constraint modC_inst.
+Ignoring the OffRegion constraint modD_inst.
+checkFence: found no fence violation.
+Checking routing tracks.....
+Checking other grids.....
+Checking FINFET Grid is on Manufacture Grid.....
+Checking core/die box is on Grid.....
+Checking snap rule ......
+Checking Row is on grid......
+Checking AreaIO row.....
+Checking row out of die ...
+Checking routing blockage.....
+Checking components.....
+Checking IO Pads out of die...
+Checking constraints (guide/region/fence).....
+**WARN: (IMPFP-7400):	Module modD_insts vertexes (70.0720000000 , 50.0960000000) (90.0720000000 , 50.0960000000) (90.0720000000 , 30.0960000000)  are NOT on InstanceGrid. Please use command fpiGetSnapRule to check current Grid settings. And use command fpiSetSnapRule to change which grid to snap to. Use command setPreference SnapAllCorners 1(0) control if all vertexes need snap to grid.
+**WARN: (IMPFP-7400):	Module modC_insts vertexes (70.0720000000 , 90.2240000000) (90.0720000000 , 90.2240000000) (90.0720000000 , 70.2240000000)  are NOT on InstanceGrid. Please use command fpiGetSnapRule to check current Grid settings. And use command fpiSetSnapRule to change which grid to snap to. Use command setPreference SnapAllCorners 1(0) control if all vertexes need snap to grid.
+**WARN: (IMPFP-7400):	Module modB_insts vertexes (29.9440000000 , 90.2240000000) (49.9440000000 , 90.2240000000) (49.9440000000 , 70.2240000000)  are NOT on InstanceGrid. Please use command fpiGetSnapRule to check current Grid settings. And use command fpiSetSnapRule to change which grid to snap to. Use command setPreference SnapAllCorners 1(0) control if all vertexes need snap to grid.
+**WARN: (IMPFP-7400):	Module modA_insts vertexes (29.9440000000 , 50.0960000000) (49.9440000000 , 50.0960000000) (49.9440000000 , 30.0960000000)  are NOT on InstanceGrid. Please use command fpiGetSnapRule to check current Grid settings. And use command fpiSetSnapRule to change which grid to snap to. Use command setPreference SnapAllCorners 1(0) control if all vertexes need snap to grid.
+Checking groups.....
+
+Checking Preroutes.....
+No. of regular pre-routes not on tracks : 0 
+
+Reporting Utilizations.....
+
+Core utilization  = 5.691004
+TU for constraint module  modD_inst = 25.287328
+TU for constraint module  modC_inst = 24.397824
+TU for constraint module  modB_inst = 24.016608
+TU for constraint module  modA_inst = 24.651968
+TU for group pd_moda = 24.651968
+TU for group pd_modb = 24.016608
+TU for group pd_modc = 24.397824
+TU for group pd_modd = 25.287328
+TU for group pd_top = 1.758114
+Effective Utilizations
+Ignoring the OffRegion constraint modA_inst.
+Ignoring the OffRegion constraint modB_inst.
+Ignoring the OffRegion constraint modC_inst.
+Ignoring the OffRegion constraint modD_inst.
+
+Average module density = 0.059.
+Density for module 'pd_modd' = 0.276.
+       = stdcell_area 398 sites (101 um^2) / alloc_area 1441 sites (366 um^2).
+Density for module 'pd_modc' = 0.266.
+       = stdcell_area 384 sites (98 um^2) / alloc_area 1441 sites (366 um^2).
+Density for module 'pd_modb' = 0.262.
+       = stdcell_area 378 sites (96 um^2) / alloc_area 1441 sites (366 um^2).
+Density for module 'pd_moda' = 0.269.
+       = stdcell_area 388 sites (99 um^2) / alloc_area 1441 sites (366 um^2).
+       = stdcell_area 692 sites (176 um^2) / alloc_area 31906 sites (8109 um^2).
+Density for the design = 0.059.
+       = stdcell_area 2240 sites (569 um^2) / alloc_area 37670 sites (9574 um^2).
+Pin Density = 0.01345.
+            = total # of pins 522 / total area 38822.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPFP-7400           4  %s are NOT on %s. Please use command %s ...
+WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+WARNING   IMPAFP-9021          1  Failed to read in timing data, check tim...
+*** Message Summary: 6 warning(s), 0 error(s)
+
+#% End planDesign (date=05/20 16:15:23, total cpu=0:00:01.5, real=0:00:03.0, peak res=857.3M, current mem=841.1M)
+<CMD> fit
+<CMD> fit
