@@ -24,11 +24,11 @@ source ../scripts/innovus-get-timlibslefs.tcl
 ###NOTE You need to fill in the correct data < > per your design
 
 # Design specified Variables
-set init_design_netlisttype <Your Netlist type Verilog, SV, VHDL>
-set init_verilog ../../syn/outputs/${top_design}.genus.vg
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/${top_design}.dc.vg
 set init_top_cell ${top_design}
-set init_pwr_net <{Power Net Names as in your design like VDD1 VSS1}>
-set init_gnd_net <Ground Net Name>
+set init_pwr_net {VDDH VDDL}
+set init_gnd_net VSS
 set power_intent_file "../../syn/rtl/${top_design}.upf"
 
 
