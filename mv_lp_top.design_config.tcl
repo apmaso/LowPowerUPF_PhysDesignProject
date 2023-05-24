@@ -25,7 +25,10 @@ set synth_corners_fast $fast_corner
 
 set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
 # Get just the main standard cells, srams
-set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+
+# The 5th sub_lib_type was missing. Prof told us to include via slack
+#set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32?vt_pg_ "
 
 # Full MCMM Corners
 if { 0 } {

@@ -31,6 +31,9 @@ set init_pwr_net {VDDH VDDL}
 set init_gnd_net VSS 
 set power_intent_file "../../syn/rtl/${top_design}.upf"
 
+# Sourcing mmmc.sdc file for our design mv_lp_top
+
+source ../../constraints/${top_design}.mmmc.sdc
 
 set_interactive_constraint_modes [all_constraint_modes -active]
 

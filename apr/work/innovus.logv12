@@ -1,0 +1,107 @@
+[05/23 21:17:50      0s] 
+[05/23 21:17:50      0s] Cadence Innovus(TM) Implementation System.
+[05/23 21:17:50      0s] Copyright 2019 Cadence Design Systems, Inc. All rights reserved worldwide.
+[05/23 21:17:50      0s] 
+[05/23 21:17:50      0s] Version:	v19.16-s053_1, built Mon Aug 31 13:16:01 PDT 2020
+[05/23 21:17:50      0s] Options:	
+[05/23 21:17:50      0s] Date:		Tue May 23 21:17:50 2023
+[05/23 21:17:50      0s] Host:		mo.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.88.1.el7.x86_64) (1core*32cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB)
+[05/23 21:17:50      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[05/23 21:17:50      0s] 
+[05/23 21:17:50      0s] License:
+[05/23 21:17:51      0s] 		invs	Innovus Implementation System	19.1	checkout succeeded
+[05/23 21:17:51      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[05/23 21:18:26     19s] @(#)CDS: Innovus v19.16-s053_1 (64bit) 08/31/2020 13:16 (Linux 2.6.32-431.11.2.el6.x86_64)
+[05/23 21:18:26     19s] @(#)CDS: NanoRoute 19.16-s053_1 NR200827-1939/19_16-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+[05/23 21:18:26     19s] @(#)CDS: AAE 19.16-s019 (64bit) 08/31/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+[05/23 21:18:26     19s] @(#)CDS: CTE 19.16-s019_1 () Aug 22 2020 00:37:42 ( )
+[05/23 21:18:26     19s] @(#)CDS: SYNTECH 19.16-s010_1 () Aug 17 2020 09:10:13 ( )
+[05/23 21:18:26     19s] @(#)CDS: CPE v19.16-s038
+[05/23 21:18:26     19s] @(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+[05/23 21:18:26     19s] @(#)CDS: OA 22.60-s011 Tue Jun 16 12:27:00 2020
+[05/23 21:18:26     19s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[05/23 21:18:26     19s] @(#)CDS: RCDB 11.14.18
+[05/23 21:18:26     19s] @(#)CDS: STYLUS 19.10-s018_1 (06/12/2020 04:43 PDT)
+[05/23 21:18:26     19s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_5592_mo.ece.pdx.edu_amaso_8505Na.
+
+[05/23 21:18:26     19s] Change the soft stacksize limit to 0.2%RAM (170 mbytes). Set global soft_stack_size_limit to change the value.
+[05/23 21:18:28     20s] Sourcing startup file ./enc.tcl
+[05/23 21:18:28     20s] <CMD> alias fs set top_design fifo1_sram
+[05/23 21:18:28     20s] <CMD> alias f set top_design fifo1
+[05/23 21:18:28     20s] <CMD> alias o set top_design ORCA_TOP
+[05/23 21:18:28     20s] <CMD> alias e set top_design ExampleRocketSystem
+[05/23 21:18:28     20s] <CMD> alias lp set top_design mv_lp_top
+[05/23 21:18:28     20s] <CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+[05/23 21:18:28     20s] **WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+[05/23 21:18:28     20s] <CMD> set_global report_timing_format  {delay arrival slew load fanout cell hpin}
+[05/23 21:18:28     20s] 
+[05/23 21:18:28     20s] **INFO:  MMMC transition support version v31-84 
+[05/23 21:18:28     20s] 
+[05/23 21:18:28     20s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[05/23 21:18:28     20s] <CMD> suppressMessage ENCEXT-2799
+[05/23 21:18:28     20s] <CMD> win
+[05/23 21:18:34     21s] <CMD> lp
+[05/23 21:19:06     27s] ### Start verbose source output (echo mode) for '../../mv_lp_top.design_config.tcl' ...
+[05/23 21:19:06     27s] # set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK
+# set top_design ${top_design}
+# set FCL 1
+# set add_ios 0
+# set pad_design 0
+# set design_size {100 100}
+# set design_io_border 10
+# set dc_floorplanning 1
+# set enable_dft 0
+# set innovus_enable_manual_macro_placement 0
+# set split_constraints 0
+# set rtl_list [list ../rtl/$top_design.sv ]
+# set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+# set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+# set slow_metal 1p9m_Cmax_-40
+# set fast_metal 1p9m_Cmax_-40
+# set synth_corners $slow_corner
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+# set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32?vt_pg_ "
+# if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+### End verbose source output for '../../mv_lp_top.design_config.tcl'.
+[05/23 21:19:06     27s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[05/23 21:19:06     27s] <CMD> set search_path {}
+[05/23 21:19:06     27s] <CMD> set init_lef_file {../../cadence_cap_tech/tech.lef saed32sram.lef saed32nm_lvt_1p9m.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef}
+[05/23 21:19:06     27s] <CMD> set init_design_netlisttype Verilog
+[05/23 21:19:06     27s] <CMD> set init_verilog ../../syn/outputs/mv_lp_top.genus.vg
+[05/23 21:19:06     27s] <CMD> set init_top_cell mv_lp_top
+[05/23 21:19:06     27s] <CMD> set init_pwr_net {VDDH VDDL}
+[05/23 21:19:06     27s] <CMD> set init_gnd_net VSS
+[05/23 21:19:07     27s] <CMD> set init_mmmc_file mmmc.tcl
+[05/23 21:19:07     27s] <CMD> all_constraint_modes -active
+[05/23 21:19:07     27s] <CMD> set_interactive_constraint_modes [all_constraint_modes -active]
+[05/23 21:19:07     27s] <CMD> init_design
+[05/23 21:19:07     27s] #% Begin Load MMMC data ... (date=05/23 21:19:07, mem=493.4M)
+[05/23 21:19:07     28s] 
+[05/23 21:19:07     28s] Usage: create_constraint_mode [-help] [-ilm_sdc_files {file1.sdc file2.sdc ...}] -name <modeName> -sdc_files {file1.sdc file2.sdc ...}
+[05/23 21:19:07     28s]                               [-tcl_vars {{var_name1 value1} {var_name2 value2} {var_name3 value3} ...}]
+[05/23 21:19:07     28s] 
+[05/23 21:19:07     28s] **ERROR: (IMPTCM-46):	Argument "-sdc_files" is required for command "create_constraint_mode", either this option is not specified or an option prior to it is not specified correctly.
+
+[05/23 21:19:22     31s] 
+[05/23 21:19:22     31s] *** Memory Usage v#1 (Current mem = 771.652M, initial mem = 289.684M) ***
+[05/23 21:19:22     31s] 
+[05/23 21:19:22     31s] *** Summary of all messages that are not suppressed in this session:
+[05/23 21:19:22     31s] Severity  ID               Count  Summary                                  
+[05/23 21:19:22     31s] ERROR     IMPTCM-46            1  Argument "%s" is required for command "%...
+[05/23 21:19:22     31s] WARNING   TCLCMD-1083          1  '%s'                                     
+[05/23 21:19:22     31s] *** Message Summary: 1 warning(s), 1 error(s)
+[05/23 21:19:22     31s] 
+[05/23 21:19:22     31s] --- Ending "Innovus" (totcpu=0:00:31.5, real=0:01:32, mem=771.7M) ---
