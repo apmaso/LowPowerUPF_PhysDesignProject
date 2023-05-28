@@ -29,10 +29,10 @@ echo create_delay_corner -name best_corner -library_set best_libs -rc_corner cmi
 
 #Creating modes , Mentioning SDC File:
 
-echo create_constraint_mode -name func_best_mode -sdc_files {"../../constraints/ORCA_TOP_func_best.sdc"} >> mmmc.tcl
-echo create_constraint_mode -name func_worst_mode -sdc_files {"../../constraints/ORCA_TOP_func_worst.sdc"} >> mmmc.tcl
-echo create_constraint_mode -name test_best_mode -sdc_files {"../../constraints/ORCA_TOP_test_best.sdc"} >> mmmc.tcl
-echo create_constraint_mode -name test_worst_mode -sdc_files {"../../constraints/ORCA_TOP_test_worst.sdc"} >> mmmc.tcl
+echo create_constraint_mode -name func_best_mode -sdc_files {"../../constraints/${top_design}.sdc"} >> mmmc.tcl
+echo create_constraint_mode -name func_worst_mode -sdc_files {"../../constraints/${top_design}.sdc"} >> mmmc.tcl
+echo create_constraint_mode -name test_best_mode -sdc_files {"../../constraints/${top_design}.sdc"} >> mmmc.tcl
+echo create_constraint_mode -name test_worst_mode -sdc_files {"../../constraints/${top_design}.sdc"} >> mmmc.tcl
 
 #Creating scenarios :
 echo create_analysis_view -name func_worst_scenario -delay_corner worst_corner -constraint_mode func_worst_mode >> mmmc.tcl

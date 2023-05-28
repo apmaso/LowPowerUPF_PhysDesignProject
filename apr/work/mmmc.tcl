@@ -4,10 +4,10 @@ create_rc_corner -name cmax -T -40 -cap_table ../../cadence_cap_tech/saed32nm_1p
 create_rc_corner -name cmin -T -40 -cap_table ../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap
 create_delay_corner -name worst_corner -library_set worst_libs -rc_corner cmax
 create_delay_corner -name best_corner -library_set best_libs -rc_corner cmin
-create_constraint_mode -name func_best_mode -sdc_files "../../constraints/ORCA_TOP_func_best.sdc"
-create_constraint_mode -name func_worst_mode -sdc_files "../../constraints/ORCA_TOP_func_worst.sdc"
-create_constraint_mode -name test_best_mode -sdc_files "../../constraints/ORCA_TOP_test_best.sdc"
-create_constraint_mode -name test_worst_mode -sdc_files "../../constraints/ORCA_TOP_test_worst.sdc"
+create_constraint_mode -name func_best_mode -sdc_files "../../constraints/${top_design}.sdc"
+create_constraint_mode -name func_worst_mode -sdc_files "../../constraints/${top_design}.sdc"
+create_constraint_mode -name test_best_mode -sdc_files "../../constraints/${top_design}.sdc"
+create_constraint_mode -name test_worst_mode -sdc_files "../../constraints/${top_design}.sdc"
 create_analysis_view -name func_worst_scenario -delay_corner worst_corner -constraint_mode func_worst_mode
 create_analysis_view -name func_best_scenario -delay_corner best_corner -constraint_mode func_best_mode
 create_analysis_view -name test_worst_scenario -delay_corner worst_corner -constraint_mode test_worst_mode
