@@ -67,15 +67,14 @@ floorPlan -s [lindex $design_size 0] [lindex $design_size 1] $margin $margin $ma
 #editPin 
 
  #Cadence method.  Not floating with these statements
+ #Isolated all input ports and then all output ports
  setPinAssignMode -pinEditInBatch true
- set all_ports [ get_ports * ]
- set num_ports [ sizeof_collection $all_ports ]
- ## Split the ports into two balanced collections
- set ports1 [ range_collection $all_ports 0 [expr $num_ports / 2 ] ]
- set ports2 [ range_collection $all_ports [expr ($num_ports / 2 ) + 1 ]  [ expr $num_ports - 1 ]  ]
+ set input_ports [ all_inputs ]
+ set output_ports [ all_outputs ]
  # put the two collections on to two layers of ports
- editPin -edge 3 -pin [get_attribute $ports1 full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 2 -unit MICRON -fixedPin 1
-  editPin -edge 3 -pin [get_attribute $ports2 full_name ] -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 2 -unit MICRON -fixedPin 1
+ # Leaving the ports on different layers for now... Inputs on left and outputs on the right
+ editPin -edge 0 -pin [get_attribute $input_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 5 -unit MICRON -fixedPin 1
+ editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
  setPinAssignMode -pinEditInBatch false
 
 
@@ -85,10 +84,10 @@ floorPlan -s [lindex $design_size 0] [lindex $design_size 1] $margin $margin $ma
 # moda => modd starts LL and goes clockwise, UL, UR, LR
 
 # modifyPowerDomainAttr pd_top              I don't think I want one for pd_top
-modifyPowerDomainAttr pd_moda -box 30 30 50 50
-modifyPowerDomainAttr pd_modb -box 30 70 50 90
-modifyPowerDomainAttr pd_modc -box 70 70 90 90
-modifyPowerDomainAttr pd_modd -box 70 30 90 50
+modifyPowerDomainAttr pd_moda -box 30 30 50 50 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modb -box 30 70 50 90 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modc -box 70 70 90 90 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modd -box 70 30 90 50 -minGaps {5 5 5 5}
 
 
 #Generate quick floorplan (planDesign)
