@@ -61,21 +61,17 @@ floorPlan -s [lindex $design_size 0] [lindex $design_size 1] $margin $margin $ma
 
 
 # Removing this for now... Copied Pin placement commands from ORCA_TOP tcl file and modified offset to fit in our floorplan
-# place input pins
-#editPin 
-#Place output pins
-#editPin 
 
- #Cadence method.  Not floating with these statements
- #Isolated all input ports and then all output ports
- setPinAssignMode -pinEditInBatch true
- set input_ports [ all_inputs ]
- set output_ports [ all_outputs ]
- # put the two collections on to two layers of ports
- # Leaving the ports on different layers for now... Inputs on left and outputs on the right
- editPin -edge 0 -pin [get_attribute $input_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 5 -unit MICRON -fixedPin 1
- editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
- setPinAssignMode -pinEditInBatch false
+#Cadence method.  Not floating with these statements
+#Isolated all input ports and then all output ports
+setPinAssignMode -pinEditInBatch true
+set input_ports [ all_inputs ]
+set output_ports [ all_outputs ]
+# put the two collections on to two layers of ports
+# Leaving the ports on different layers for now... Inputs on left and outputs on the right
+editPin -edge 0 -pin [get_attribute $input_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 5 -unit MICRON -fixedPin 1
+editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
+setPinAssignMode -pinEditInBatch false
 
 
 
@@ -119,7 +115,10 @@ planDesign
 #addPowerSwitch 
 #addPowerSwitch 
 #addPowerSwitch 
-
+addPowerSwitch -powerDomain pd_moda -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_moda_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_moda
+addPowerSwitch -powerDomain pd_modb -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modb_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modb
+addPowerSwitch -powerDomain pd_modc -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modc_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modc
+addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modd_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modd
 
 ####################################################################################
 # Add the Power Structure for top and all the sub modules (domains)
