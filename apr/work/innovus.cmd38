@@ -1,0 +1,67 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Mon May 29 20:40:56 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.16-s053_1 (64bit) 08/31/2020 13:16 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.16-s053_1 NR200827-1939/19_16-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.16-s019 (64bit) 08/31/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.16-s019_1 () Aug 22 2020 00:37:42 ( )
+#@(#)CDS: SYNTECH 19.16-s010_1 () Aug 17 2020 09:10:13 ( )
+#@(#)CDS: CPE v19.16-s038
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+alias lp set top_design mv_lp_top
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew load fanout cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+lp
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {../../cadence_cap_tech/tech.lef saed32sram.lef saed32nm_lvt_1p9m.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef}
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/mv_lp_top.genus.vg
+set init_top_cell mv_lp_top
+set init_pwr_net {VDDH VDDL}
+set init_gnd_net VSS
+set init_mmmc_file mmmc.tcl
+all_constraint_modes -active
+set_interactive_constraint_modes [all_constraint_modes -active]
+init_design
+read_power_intent -1801 ../../syn/rtl/mv_lp_top.upf
+commit_power_intent -verbose
+floorPlan -s 100 100 10 10 10 10 -flip s -coreMarginsBy io
+setPinAssignMode -pinEditInBatch true
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 0 -pin {A B C D E upf_clk} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 5 -unit MICRON -fixedPin 1
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 2 -pin {P Q R S T W X Y Z sleep_moda sleep_modb sleep_modc sleep_modd iso_en} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
+setPinAssignMode -pinEditInBatch false
+modifyPowerDomainAttr pd_moda -box 30 30 50 50 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modb -box 30 70 50 90 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modc -box 70 70 90 90 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modd -box 70 30 90 50 -minGaps {5 5 5 5}
+planDesign
+addPowerSwitch -powerDomain pd_moda -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_moda_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_moda
+addPowerSwitch -powerDomain pd_modb -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modb_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modb
+addPowerSwitch -powerDomain pd_modc -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modc_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modc
+addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modd_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modd
+select_obj pd_top
+addRing -type core_rings -nets {VDDH VSS} -layer {top M8 left M9 bottom M8 right M9} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2
+addStripe -nets {VDDH VSS} -direction vertical -layer M8 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_top
+addStripe -nets {VDDH VSS} -direction horizontal -layer M9 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_top
+deselect_obj -all
+select_obj pd_moda
+addRing -type core_rings -nets {VDDH VSS} -layer {top M7 left M6 bottom M7 right M6} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+deselectAll
+fit

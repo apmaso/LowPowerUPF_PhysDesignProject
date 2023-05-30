@@ -70,7 +70,7 @@ set output_ports [ all_outputs ]
 # put the two collections on to two layers of ports
 # Leaving the ports on different layers for now... Inputs on left and outputs on the right
 editPin -edge 0 -pin [get_attribute $input_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 5 -unit MICRON -fixedPin 1
-editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
+editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
 setPinAssignMode -pinEditInBatch false
 
 
@@ -111,14 +111,10 @@ planDesign
 # Ensure they are placed nicely and spread evenly like a mesh (not too many not too less)
 # Add Power Switches to each of the 4 power domains
 
-#addPowerSwitch 
-#addPowerSwitch 
-#addPowerSwitch 
-#addPowerSwitch 
-addPowerSwitch -powerDomain pd_moda -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_moda_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_moda
-addPowerSwitch -powerDomain pd_modb -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modb_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modb
-addPowerSwitch -powerDomain pd_modc -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modc_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modc
-addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modd_ps -column -horizontalPitch 4 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modd
+addPowerSwitch -powerDomain pd_moda -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_moda_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_moda
+addPowerSwitch -powerDomain pd_modb -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modb_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modb
+addPowerSwitch -powerDomain pd_modc -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modc_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modc
+addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modd_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modd
 
 ####################################################################################
 # Add the Power Structure for top and all the sub modules (domains)
@@ -130,59 +126,58 @@ addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerS
 
 
 ##### Create Power structure for Top level (Vertical and Horizontal Metal layers to use M8 and M9 for top-level)  
-#select_obj pd_top
+select_obj pd_top
 ## command that you may use addRing, addStripe
-#addRing
-#addStripe
-#addStripe
-#deselect_obj -all
+addRing -type core_rings -nets {VDDH VSS} -layer {top M8 left M9 bottom M8 right M9} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 
+addStripe -nets {VDDH VSS} -direction vertical -layer M9 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_top}
+addStripe -nets {VDDH VSS} -direction horizontal -layer M8 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_top}
+deselect_obj -all
 
 #### Create Power structure for module A (Metal layers for ring M6 , M5 and strip M4, M3)
-#select_obj pd_moda
+select_obj pd_moda
 ## commands that you may use addRing, addStripe, sroute
-#addRing
-#addStripe
-#addStripe
+addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
+addStripe -nets {VDDH VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
 
 ## Route the power nets
-#sroute
-#deselect_obj -all
-
+sroute -nets {VDDH VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_moda -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDL}
+deselect_obj -all
 
 #### Create Power structure for module B (Metal layers for ring M6 , M5 and strip M4, M3)
-#select_obj pd_moda
+select_obj pd_modb
 ## commands that you may use addRing, addStripe, sroute
-#addRing
-#addStripe
-#addStripe
+addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
+addStripe -nets {VDDH VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
 
 ## Route the power nets
-#sroute
-#deselect_obj -all
-
+sroute -nets {VDDH VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modb -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDL}
+deselect_obj -all
 
 #### Create Power structure for module C (Metal layers for ring M6 , M5 and strip M4, M3)
-#select_obj pd_moda
+select_obj pd_modc
 ## commands that you may use addRing, addStripe, sroute
-#addRing
-#addStripe
-#addStripe
+addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
+addStripe -nets {VDDL VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
 
 ## Route the power nets
-#sroute
-#deselect_obj -all
-
+sroute -nets {VDDL VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modc -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDH}
+deselect_obj -all
 
 #### Create Power structure for module D (Metal layers for ring M6 , M5 and strip M4, M3)
-#select_obj pd_moda
+select_obj pd_modd
 ## commands that you may use addRing, addStripe, sroute
-#addRing
-#addStripe
-#addStripe
+addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
+addStripe -nets {VDDL VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
 
 ## Route the power nets
-#sroute
-#deselect_obj -all
+sroute -nets {VDDL VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modd -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDH}
+deselect_obj -all
+
+
 
 
 ###########################################################################################
@@ -197,8 +192,10 @@ addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerS
 
 
 #   Run Placement on the design 
+place_design
 
 #   Run Optimization on the design (ensure it is run pre CTS)
+optDesign -preCTS
 
 #   Route the entire design
 
