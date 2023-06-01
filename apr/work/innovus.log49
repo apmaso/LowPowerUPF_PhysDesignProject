@@ -4,7 +4,7 @@ Copyright 2019 Cadence Design Systems, Inc. All rights reserved worldwide.
 
 Version:	v19.16-s053_1, built Mon Aug 31 13:16:01 PDT 2020
 Options:	
-Date:		Thu Jun  1 14:54:13 2023
+Date:		Thu Jun  1 15:11:37 2023
 Host:		mo.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.88.1.el7.x86_64) (1core*32cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB)
 OS:		CentOS Linux release 7.9.2009 (Core)
 
@@ -75,8 +75,8 @@ Sourcing startup file ./enc.tcl
 <CMD> all_constraint_modes -active
 <CMD> set_interactive_constraint_modes [all_constraint_modes -active]
 <CMD> init_design
-#% Begin Load MMMC data ... (date=06/01 14:54:57, mem=492.7M)
-#% End Load MMMC data ... (date=06/01 14:54:57, total cpu=0:00:00.1, real=0:00:00.0, peak res=493.0M, current mem=493.0M)
+#% Begin Load MMMC data ... (date=06/01 15:12:15, mem=497.0M)
+#% End Load MMMC data ... (date=06/01 15:12:15, total cpu=0:00:00.1, real=0:00:00.0, peak res=497.2M, current mem=497.2M)
 cmin cmax
 
 Loading LEF file ../../cadence_cap_tech/tech.lef ...
@@ -102,7 +102,7 @@ WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with ver
 Without BUSBITCHARS defined, the LEF file is technically incorrect.
 Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_rvt_1p9m.lef at line 148040.
 
-viaInitial starts at Thu Jun  1 14:54:59 2023
+viaInitial starts at Thu Jun  1 15:12:17 2023
 **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12BAR_C' and 'VIA12SQ_C'.
 Type 'man IMPPP-543' for more detail.
 **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12LG_C' and 'VIA12SQ_C'.
@@ -145,7 +145,7 @@ Type 'man IMPPP-543' for more detail.
 Type 'man IMPPP-543' for more detail.
 **WARN: (EMS-27):	Message (IMPPP-543) has exceeded the current message display limit of 20.
 To increase the message display limit, refer to the product command reference manual.
-viaInitial ends at Thu Jun  1 14:54:59 2023
+viaInitial ends at Thu Jun  1 15:12:17 2023
 
 ##  Check design process and node:  
 ##  Both design process and tech node are not set.
@@ -326,17 +326,17 @@ Reading best_libs timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/std
 Read 12 cells in library 'saed32lvt_ulvl_ff1p16vn40c_i0p95v' 
 Reading best_libs timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ff1p16vn40c.lib' ...
 Read 35 cells in library 'saed32sram_ff1p16vn40c' 
-*** End library_loading (cpu=0.29min, real=0.27min, mem=65.4M, fe_cpu=0.73min, fe_real=1.03min, fe_mem=857.5M) ***
-#% Begin Load netlist data ... (date=06/01 14:55:15, mem=564.6M)
-*** Begin netlist parsing (mem=857.5M) ***
+*** End library_loading (cpu=0.28min, real=0.27min, mem=60.4M, fe_cpu=0.69min, fe_real=0.93min, fe_mem=860.7M) ***
+#% Begin Load netlist data ... (date=06/01 15:12:33, mem=565.9M)
+*** Begin netlist parsing (mem=860.7M) ***
 Created 1085 new cells from 56 timing libraries.
 Reading netlist ...
 Backslashed names will retain backslash and a trailing blank character.
 Reading verilog netlist '../../syn/outputs/mv_lp_top.genus.vg'
 
-*** Memory Usage v#1 (Current mem = 857.469M, initial mem = 289.684M) ***
-*** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=857.5M) ***
-#% End Load netlist data ... (date=06/01 14:55:15, total cpu=0:00:00.1, real=0:00:00.0, peak res=600.4M, current mem=600.4M)
+*** Memory Usage v#1 (Current mem = 860.656M, initial mem = 289.684M) ***
+*** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=860.7M) ***
+#% End Load netlist data ... (date=06/01 15:12:33, total cpu=0:00:00.1, real=0:00:00.0, peak res=601.7M, current mem=601.7M)
 Set top cell to mv_lp_top.
 Hooked 4378 DB cells to tlib cells.
 Starting recursive module instantiation check.
@@ -347,7 +347,7 @@ Building hierarchical netlist for Cell mv_lp_top ...
 ** info: there are 150 stdCell insts.
 ** info: there are 10 multi-height stdCell insts (2 stdCells)
 
-*** Memory Usage v#1 (Current mem = 961.895M, initial mem = 289.684M) ***
+*** Memory Usage v#1 (Current mem = 962.082M, initial mem = 289.684M) ***
 **WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
 Type 'man IMPFP-3961' for more detail.
 **WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
@@ -441,25 +441,25 @@ Initializing multi-corner capacitance tables ...
 Initializing multi-corner resistance tables ...
 *Info: initialize multi-corner CTS.
 Reading timing constraints file '../../constraints/mv_lp_top.sdc' ...
-Current (total cpu=0:00:46.9, real=0:01:06, peak res=912.3M, current mem=888.6M)
+Current (total cpu=0:00:44.0, real=0:01:01, peak res=919.8M, current mem=889.9M)
 INFO (CTE): Constraints read successfully.
-Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=929.3M, current mem=929.3M)
-Current (total cpu=0:00:47.1, real=0:01:06, peak res=929.3M, current mem=929.3M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=930.6M, current mem=930.6M)
+Current (total cpu=0:00:44.2, real=0:01:01, peak res=930.6M, current mem=930.6M)
 Reading timing constraints file '../../constraints/mv_lp_top.sdc' ...
-Current (total cpu=0:00:47.1, real=0:01:06, peak res=929.3M, current mem=929.3M)
+Current (total cpu=0:00:44.2, real=0:01:01, peak res=930.6M, current mem=930.6M)
 INFO (CTE): Constraints read successfully.
-Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=929.6M, current mem=929.6M)
-Current (total cpu=0:00:47.2, real=0:01:06, peak res=929.6M, current mem=929.6M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=930.9M, current mem=930.9M)
+Current (total cpu=0:00:44.3, real=0:01:01, peak res=930.9M, current mem=930.9M)
 Reading timing constraints file '../../constraints/mv_lp_top.sdc' ...
-Current (total cpu=0:00:47.3, real=0:01:06, peak res=929.6M, current mem=929.6M)
+Current (total cpu=0:00:44.3, real=0:01:01, peak res=930.9M, current mem=930.9M)
 INFO (CTE): Constraints read successfully.
-Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=930.0M, current mem=930.0M)
-Current (total cpu=0:00:47.4, real=0:01:06, peak res=930.0M, current mem=930.0M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=931.3M, current mem=931.3M)
+Current (total cpu=0:00:44.4, real=0:01:01, peak res=931.3M, current mem=931.3M)
 Reading timing constraints file '../../constraints/mv_lp_top.sdc' ...
-Current (total cpu=0:00:47.4, real=0:01:06, peak res=930.0M, current mem=930.0M)
+Current (total cpu=0:00:44.5, real=0:01:01, peak res=931.3M, current mem=931.3M)
 INFO (CTE): Constraints read successfully.
-Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=930.4M, current mem=930.4M)
-Current (total cpu=0:00:47.5, real=0:01:06, peak res=930.4M, current mem=930.4M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=931.7M, current mem=931.7M)
+Current (total cpu=0:00:44.5, real=0:01:01, peak res=931.7M, current mem=931.7M)
 **WARN: (TA-976):	Path groups asserted by the group_path constraint are considered by the software to be global in nature - they cannot be restricted to specific constraint modes. Due to this restriction, the group_path constraint is not supported directly in the constraint files which are configured in mode-specific commands such as create_constraint_mode. The current group_path entry will be ignored. You can enter the group_path constraint interactively or as part of a general command script -  where it will be interpreted as global and will be in effect for all modes.
 Total number of combinational cells: 402
 Total number of sequential cells: 396
@@ -505,9 +505,9 @@ Setting boundaryports(3) from port_attr
 IEEE1801_RUNTIME: checking port_attribute: cpu=0:00:00.00 real=0:00:00.00
 IEEE1801_RUNTIME: checking related_supply_net: cpu=0:00:00.00 real=0:00:00.00
 <CMD> commit_power_intent -verbose
-IEEE1801_RUNTIME: freeTimingGraph: cpu=0:00:00.20 real=0:00:00.00
+IEEE1801_RUNTIME: freeTimingGraph: cpu=0:00:00.17 real=0:00:00.00
 COMMIT_1801: commit_logic_port_net 
-IEEE1801_RUNTIME: commit_logic_port/net: cpu=0:00:00.01 real=0:00:00.00
+IEEE1801_RUNTIME: commit_logic_port/net: cpu=0:00:00.00 real=0:00:00.00
 COMMIT_1801: commit_supply_net 
 ::MSV::createSupplyPort VSS -dir input -type ground
 ::MSV::createSupplyPort VDDH -dir input -type power
@@ -536,10 +536,10 @@ COMMIT_1801: commit_power_domain
 ::MSV::setPowerDomainSupplySet _internal_VDDL_VSS_ -primary _ss_VDDL_VSS_
 ::MSV::PD::setIsPdInternal _internal_VDDL_VSS_
 worst_corner best_corner
-IEEE1801_RUNTIME: commit_power_domain: cpu=0:00:00.02 real=0:00:00.00
+IEEE1801_RUNTIME: commit_power_domain: cpu=0:00:00.04 real=0:00:00.00
 COMMIT_1801: commit_global_connect -no_related_pg
 COMMIT_1801: commit_supplynet_connect 
-IEEE1801_RUNTIME: commit_global_connect: cpu=0:00:00.01 real=0:00:00.00
+IEEE1801_RUNTIME: commit_global_connect: cpu=0:00:00.00 real=0:00:00.00
 ::MSV::createSupplySet pd_moda_primary_ss_ -power VDDH_gated_moda -ground VSS
 ::MSV::createSupplySet pd_modc_primary_ss_ -power VDDL_gated_modc -ground VSS
 ::MSV::createSupplySet _ss_VDDL_VSS_ -power VDDL -ground VSS
@@ -562,7 +562,7 @@ IEEE1801_RUNTIME: commit_global_connect: cpu=0:00:00.01 real=0:00:00.00
 ::MSV::addUpfPstState s0 -pst MV_gated -state {power_on power_on gnd power_on power_on power_on power_on}
 ::MSV::addUpfPstState s1 -pst MV_gated -state {power_on power_on gnd power_off power_on power_on power_off}
 ::MSV::addUpfPstState s2 -pst MV_gated -state {power_on power_on gnd power_on power_on power_off power_off}
-IEEE1801_RUNTIME: commit_power_mode: cpu=0:00:00.00 real=0:00:00.00
+IEEE1801_RUNTIME: commit_power_mode: cpu=0:00:00.02 real=0:00:00.00
 worst_corner best_corner
 worst_corner best_corner
 defineLowPowerCell -isolation ISOLORAOX2_RVT -output_power VDDG -input_power VDD -output_ground VSS -always_on_pin  {ISO} {ISO} {D} {Q} {VDDG} -from_lib
@@ -1100,19 +1100,19 @@ defineLowPowerCell -always_on AOINVX1_LVT -always_on_pin  {VDDG} -from_lib
 ::MSV::setPowerDomainSupplySet _internal_VDDL_VSS_ -primary _ss_VDDL_VSS_
 ::MSV::PD::setIsPdInternal _internal_VDDL_VSS_
 IEEE1801_RUNTIME: define_low_power_cells: cpu=0:00:00.23 real=0:00:00.00
-Current (total cpu=0:00:48.8, real=0:01:08, peak res=995.1M, current mem=987.5M)
-Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1003.6M, current mem=1003.6M)
-Current (total cpu=0:00:48.9, real=0:01:08, peak res=1003.6M, current mem=1003.6M)
-Current (total cpu=0:00:48.9, real=0:01:08, peak res=1003.7M, current mem=1003.7M)
-Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1004.0M, current mem=1004.0M)
-Current (total cpu=0:00:49.0, real=0:01:08, peak res=1004.0M, current mem=1004.0M)
-Current (total cpu=0:00:49.0, real=0:01:08, peak res=1004.0M, current mem=1004.0M)
-Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1004.3M, current mem=1004.3M)
-Current (total cpu=0:00:49.1, real=0:01:08, peak res=1004.3M, current mem=1004.3M)
-Current (total cpu=0:00:49.2, real=0:01:08, peak res=1004.3M, current mem=1004.3M)
-Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1004.7M, current mem=1004.7M)
-Current (total cpu=0:00:49.2, real=0:01:08, peak res=1004.7M, current mem=1004.7M)
-IEEE1801_RUNTIME: buildTimingGraph: cpu=0:00:00.69 real=0:00:01.00
+Current (total cpu=0:00:45.8, real=0:01:02, peak res=996.0M, current mem=988.6M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:01.0, peak res=1004.8M, current mem=1004.8M)
+Current (total cpu=0:00:46.0, real=0:01:03, peak res=1004.8M, current mem=1004.8M)
+Current (total cpu=0:00:46.0, real=0:01:03, peak res=1004.8M, current mem=1004.8M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1005.2M, current mem=1005.2M)
+Current (total cpu=0:00:46.1, real=0:01:03, peak res=1005.2M, current mem=1005.2M)
+Current (total cpu=0:00:46.1, real=0:01:03, peak res=1005.2M, current mem=1005.2M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1005.5M, current mem=1005.5M)
+Current (total cpu=0:00:46.2, real=0:01:03, peak res=1005.5M, current mem=1005.5M)
+Current (total cpu=0:00:46.3, real=0:01:03, peak res=1005.5M, current mem=1005.5M)
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1005.9M, current mem=1005.9M)
+Current (total cpu=0:00:46.4, real=0:01:03, peak res=1005.9M, current mem=1005.9M)
+IEEE1801_RUNTIME: buildTimingGraph: cpu=0:00:00.81 real=0:00:01.00
 Cell 'HEADX2_HVT' has been added to powerDomain pd_modc connection specification.
 Cell 'HEADX2_HVT' has been added to powerDomain pd_modb connection specification.
 Cell 'HEADX2_HVT' has been added to powerDomain pd_modd connection specification.
@@ -1131,7 +1131,7 @@ Cell 'LSUPX1_HVT' has been added to powerDomain pd_top connection specification.
 Cell 'LSUPX1_HVT' has been added to powerDomain pd_top connection specification.
 IEEE1801_RUNTIME: GNC_connect_existing_iso_shifter: cpu=0:00:00.02 real=0:00:00.00
 IEEE1801_RUNTIME: connectAlwaysOnBuf: cpu=0:00:00.00 real=0:00:00.00
-IEEE1801_RUNTIME: replaceAlwaysOnAssignBuffer: cpu=0:00:00.00 real=0:00:00.00
+IEEE1801_RUNTIME: replaceAlwaysOnAssignBuffer: cpu=0:00:00.01 real=0:00:00.00
 COMMIT_1801: commit_power_switch pg_modc_ps 
 pg_net VDDL_gated_modc is the primary pg_net of VDDL
 ::MSV::modifyPowerDomainMember pd_modc -cells HEADX2_HVT -power { (VDDL_gated_modc:VDD) (VDDL:VDDG)}
@@ -1174,7 +1174,7 @@ COMMIT_1801: commit_isolation iso_pg_moda_c {}
 ::MSV::commitUpfIsoStrategy iso_pg_moda_c -domain pd_moda -lib_cells {ISOLANDAOX1_LVT ISOLANDAOX2_LVT ISOLANDAOX4_LVT ISOLANDAOX8_LVT ISOLANDX1_LVT ISOLANDX2_LVT ISOLANDX4_LVT ISOLANDX8_LVT ISOLANDAOX1_HVT ISOLANDAOX2_HVT ISOLANDAOX4_HVT ISOLANDAOX8_HVT ISOLANDX1_HVT ISOLANDX2_HVT ISOLANDX4_HVT ISOLANDX8_HVT ISOLANDAOX1_RVT ISOLANDAOX2_RVT ISOLANDAOX4_RVT ISOLANDAOX8_RVT ISOLANDX1_RVT ISOLANDX2_RVT ISOLANDX4_RVT ISOLANDX8_RVT LSUPENCLX1_LVT LSUPENCLX2_LVT LSUPENCLX4_LVT LSUPENCLX8_LVT LSDNENCLX4_LVT LSDNENCLX8_LVT LSDNENCLSSX1_LVT LSDNENCLSSX2_LVT LSDNENCLSSX4_LVT LSDNENCLSSX8_LVT LSDNENCLX1_LVT LSDNENCLX2_LVT LSUPENCLX1_HVT LSUPENCLX2_HVT LSUPENCLX4_HVT LSUPENCLX8_HVT LSDNENCLX4_HVT LSDNENCLX8_HVT LSDNENCLSSX1_HVT LSDNENCLSSX2_HVT LSDNENCLSSX4_HVT LSDNENCLSSX8_HVT LSDNENCLX1_HVT LSDNENCLX2_HVT LSUPENCLX1_RVT LSUPENCLX2_RVT LSUPENCLX4_RVT LSUPENCLX8_RVT LSDNENCLX4_RVT LSDNENCLX8_RVT LSDNENCLSSX1_RVT LSDNENCLSSX2_RVT LSDNENCLSSX4_RVT LSDNENCLSSX8_RVT LSDNENCLX1_RVT LSDNENCLX2_RVT} -isolation_signal iso_en -isolation_sense 1 -elements {modA_inst/A2C} -applies_to {both} -location {parent} -clamp_value {0} -isolation_power_net VDDH -isolation_ground_net VSS
 INFO: isolation strategy iso_pg_moda_c: added 0 isolation insts
 commit_isolation iso_pg_moda_c 
-IEEE1801_RUNTIME: commit_isolation: cpu=0:00:00.12 real=0:00:00.00
+IEEE1801_RUNTIME: commit_isolation: cpu=0:00:00.11 real=0:00:00.00
 COMMIT_1801: commit_level_shifter ls_modc2modb {}
 ::MSV::commitUpfLsStrategy ls_modc2modb -domain pd_modc -lib_cells {LSUPX1_LVT LSUPX2_LVT LSUPX4_LVT LSUPX8_LVT LSUPX1_HVT LSUPX2_HVT LSUPX4_HVT LSUPX8_HVT LSUPX1_RVT LSUPX2_RVT LSUPX4_RVT LSUPX8_RVT LSUPENX8_RVT LSUPENX4_RVT LSUPENX2_RVT LSUPENX1_RVT LSUPENCLX8_RVT LSUPENCLX4_RVT LSUPENCLX2_RVT LSUPENCLX1_RVT LSUPENX8_HVT LSUPENX4_HVT LSUPENX2_HVT LSUPENX1_HVT LSUPENCLX8_HVT LSUPENCLX4_HVT LSUPENCLX2_HVT LSUPENCLX1_HVT LSUPENX8_LVT LSUPENX4_LVT LSUPENX2_LVT LSUPENX1_LVT LSUPENCLX8_LVT LSUPENCLX4_LVT LSUPENCLX2_LVT LSUPENCLX1_LVT} -elements {modC_inst/C2B} -location {parent} -rule {low_to_high}
 INFO: level_shifter strategy ls_modc2modb: added 1 level_shifter insts
@@ -1215,7 +1215,7 @@ COMMIT_1801: commit_level_shifter ls_modb2modd {}
 ::MSV::commitUpfLsStrategy ls_modb2modd -domain pd_modb -lib_cells {LSDNSSX8_LVT LSDNX1_LVT LSDNX2_LVT LSDNX4_LVT LSDNX8_LVT LSDNSSX1_LVT LSDNSSX2_LVT LSDNSSX4_LVT LSDNSSX8_HVT LSDNX1_HVT LSDNX2_HVT LSDNX4_HVT LSDNX8_HVT LSDNSSX1_HVT LSDNSSX2_HVT LSDNSSX4_HVT LSDNSSX8_RVT LSDNX1_RVT LSDNX2_RVT LSDNX4_RVT LSDNX8_RVT LSDNSSX1_RVT LSDNSSX2_RVT LSDNSSX4_RVT LSDNENCLX2_RVT LSDNENCLX1_RVT LSDNENCLSSX8_RVT LSDNENCLSSX4_RVT LSDNENCLSSX2_RVT LSDNENCLSSX1_RVT LSDNENX8_RVT LSDNENX4_RVT LSDNENX2_RVT LSDNENX1_RVT LSDNENSSX8_RVT LSDNENSSX4_RVT LSDNENSSX2_RVT LSDNENSSX1_RVT LSDNENCLX8_RVT LSDNENCLX4_RVT LSDNENCLX2_HVT LSDNENCLX1_HVT LSDNENCLSSX8_HVT LSDNENCLSSX4_HVT LSDNENCLSSX2_HVT LSDNENCLSSX1_HVT LSDNENX8_HVT LSDNENX4_HVT LSDNENX2_HVT LSDNENX1_HVT LSDNENSSX8_HVT LSDNENSSX4_HVT LSDNENSSX2_HVT LSDNENSSX1_HVT LSDNENCLX8_HVT LSDNENCLX4_HVT LSDNENCLX2_LVT LSDNENCLX1_LVT LSDNENCLSSX8_LVT LSDNENCLSSX4_LVT LSDNENCLSSX2_LVT LSDNENCLSSX1_LVT LSDNENX8_LVT LSDNENX4_LVT LSDNENX2_LVT LSDNENX1_LVT LSDNENSSX8_LVT LSDNENSSX4_LVT LSDNENSSX2_LVT LSDNENSSX1_LVT LSDNENCLX8_LVT LSDNENCLX4_LVT} -elements {modB_inst/B2D} -location {parent} -rule {high_to_low}
 INFO: level_shifter strategy ls_modb2modd: added 1 level_shifter insts
 commit_level_shifter ls_modb2modd 
-IEEE1801_RUNTIME: commit_level_shifter: cpu=0:00:00.05 real=0:00:00.00
+IEEE1801_RUNTIME: commit_level_shifter: cpu=0:00:00.03 real=0:00:00.00
 IEEE1801_RUNTIME: connectAlwaysOnBuf: cpu=0:00:00.00 real=0:00:00.00
 IEEE1801_RUNTIME: initIsoLSNeededBetweenPowerDomains: cpu=0:00:00.00 real=0:00:00.00
 Total number of combinational cells: 384
@@ -1271,12 +1271,12 @@ Generated pitch 0.152 in M3 is different from 0.304 defined in technology file i
 <CMD> get_message -id GLOBAL-100 -suppress
 <CMD> editPin -edge 0 -pin {A B C D E upf_clk} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 5 -unit MICRON -fixedPin 1
 Successfully spread [6] pins.
-editPin : finished (cpu = 0:00:04.6 real = 0:00:04.0, mem = 1326.9M).
+editPin : finished (cpu = 0:00:04.4 real = 0:00:04.0, mem = 1327.1M).
 <CMD> get_message -id GLOBAL-100 -suppress
 <CMD> get_message -id GLOBAL-100 -suppress
 <CMD> editPin -edge 2 -pin {P Q R S T W X Y Z sleep_moda sleep_modb sleep_modc sleep_modd iso_en} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
 Successfully spread [14] pins.
-editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1326.9M).
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1327.1M).
 <CMD> setPinAssignMode -pinEditInBatch false
 <CMD> modifyPowerDomainAttr pd_moda -box 30 30 50 50 -minGaps {5 5 5 5}
 Power Domain 'pd_moda'.
@@ -1319,7 +1319,7 @@ Power Domain 'pd_modd'.
 	   rowFlip = first
 	   site = unit
 <CMD> planDesign
-#% Begin planDesign (date=06/01 14:55:25, mem=1119.5M)
+#% Begin planDesign (date=06/01 15:12:44, mem=1124.2M)
 Deleted 0 physical inst  (cell - / prefix -).
 ***** New seed flow = 1. *****  
 Ignore PD Guides: numIgnoredGuide = 5 
@@ -1333,7 +1333,7 @@ Extracting standard cell pins and blockage ......
 Pin and blockage extraction finished
 Extracting macro/IO cell pins and blockage ...... 
 Pin and blockage extraction finished
-*** Starting "NanoPlace(TM) placement v#2 (mem=1319.7M)" ...
+*** Starting "NanoPlace(TM) placement v#2 (mem=1319.5M)" ...
 *** Build Buffered Sizing Timing Model (Used Compact Buffer Set) ...(cpu=0:00:02.7 mem=1408.1M) ***
 *** Build Virtual Sizing Timing Model
 (cpu=0:00:05.7 mem=1419.9M) ***
@@ -1384,7 +1384,7 @@ Fence Initialization: numPrefixFence = 4,  numAutoFence = 0, numPrefixGuide = 0 
 === lastAutoLevel = 7 
 Iteration  1: Total net bbox = 3.624e+03 (2.41e+03 1.22e+03)
               Est.  stn bbox = 3.994e+03 (2.65e+03 1.34e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1446.5M
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1446.4M
 User specified -module_cluster_mode =  0 
 Iteration  2: Total net bbox = 3.624e+03 (2.41e+03 1.22e+03)
               Est.  stn bbox = 3.994e+03 (2.65e+03 1.34e+03)
@@ -1397,7 +1397,7 @@ Iteration  4: Total net bbox = 3.733e+03 (2.26e+03 1.47e+03)
               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1446.0M
 Iteration  5: Total net bbox = 3.422e+03 (2.20e+03 1.22e+03)
               Est.  stn bbox = 3.870e+03 (2.47e+03 1.40e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1446.2M
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1446.1M
  RelinkConst: Total constraint = 4, Relinked 0 constraints . 
 User specified -fenceSpacing =  -1.0000 
 User specified fence spacing: -1.0000 um
@@ -1442,12 +1442,12 @@ Number of Total Targets: 0
 End Auto fence creation 1.
 Iteration  6: Total net bbox = 3.480e+03 (2.24e+03 1.24e+03)
               Est.  stn bbox = 3.927e+03 (2.50e+03 1.42e+03)
-              cpu = 0:00:00.2 real = 468237:55:33 mem = 1444.8M
-*** cost = 3.480e+03 (2.24e+03 1.24e+03) (cpu for global=0:00:00.2) real=468237:55:33***
+              cpu = 0:00:00.2 real = 468238:12:52 mem = 1444.8M
+*** cost = 3.480e+03 (2.24e+03 1.24e+03) (cpu for global=0:00:00.2) real=468238:12:52***
 net ignore based on current view = 0
 Solver runtime cpu: 0:00:00.0 real: 0:00:00.0
-Core Placement runtime cpu: 0:00:00.1 real: 0:00:01.0
-*** Free Virtual Timing Model ...(mem=1338.5M)
+Core Placement runtime cpu: 0:00:00.1 real: 0:00:02.0
+*** Free Virtual Timing Model ...(mem=1338.4M)
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -1513,7 +1513,7 @@ WARNING   IMPFP-7400           4  %s are NOT on %s. Please use command %s ...
 WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
 *** Message Summary: 5 warning(s), 0 error(s)
 
-#% End planDesign (date=06/01 14:55:33, total cpu=0:00:07.3, real=0:00:08.0, peak res=1260.9M, current mem=1142.2M)
+#% End planDesign (date=06/01 15:12:52, total cpu=0:00:07.3, real=0:00:08.0, peak res=1265.7M, current mem=1146.7M)
 <CMD> addPowerSwitch -powerDomain pd_moda -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_moda_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_moda
 **WARN: (IMPPSO-192):	The specified -enableNetIn is different from the power intent rule net: sleep_moda != sleep_moda_N0 in rule pg_moda_ps.
 The net name defined in cpf rule will be ignored. Please correct the net name if it's not the expected enable input net.
@@ -1744,9 +1744,9 @@ Total number of instances added to pd_modd : 10
 addPowerSwitch finished successfully.
 <CMD> select_obj pd_top
 <CMD> addRing -type core_rings -nets {VDDH VSS} -layer {top M8 left M9 bottom M8 right M9} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2
-#% Begin addRing (date=06/01 14:55:34, mem=1144.8M)
+#% Begin addRing (date=06/01 15:12:52, mem=1149.5M)
 
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.2M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.0M)
 The power planner has cut rows, and such rows will be considered to be placement objects.
 Ring generation is complete.
 vias are now being generated.
@@ -1759,11 +1759,11 @@ ViaGen created 8 vias, deleted 0 via to avoid violation.
 |  VIA8  |        8       |        0       |
 |   M9   |        4       |       NA       |
 +--------+----------------+----------------+
-#% End addRing (date=06/01 14:55:34, total cpu=0:00:00.1, real=0:00:00.0, peak res=1146.5M, current mem=1146.5M)
+#% End addRing (date=06/01 15:12:52, total cpu=0:00:00.0, real=0:00:00.0, peak res=1151.2M, current mem=1151.2M)
 <CMD> addStripe -nets {VDDH VSS} -direction vertical -layer M9 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_top
-#% Begin addStripe (date=06/01 14:55:34, mem=1146.5M)
+#% Begin addStripe (date=06/01 15:12:52, mem=1151.2M)
 
-Initialize fgc environment(mem: 1339.7M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
+Initialize fgc environment(mem: 1339.5M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.5M)
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_29_43_2' was increased to (29.944000 43.472000) (32.071999 46.846001) because cell geometry (29.944000 46.785999) (32.071999 46.846001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_29_43_2' was increased to (29.944000 43.442001) (32.071999 46.846001) because cell geometry (29.944000 43.442001) (32.071999 43.501999) was outside the original block boundary.
@@ -1806,9 +1806,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (EMS-27):	Message (IMPPP-133) has exceeded the current message display limit of 20.
 To increase the message display limit, refer to the product command reference manual.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.5M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.5M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.5M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -1821,11 +1821,11 @@ ViaGen created 0 via, deleted 0 via to avoid violation.
 +--------+----------------+----------------+
 |   M9   |       18       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:34, total cpu=0:00:00.1, real=0:00:00.0, peak res=1147.4M, current mem=1147.4M)
+#% End addStripe (date=06/01 15:12:52, total cpu=0:00:00.0, real=0:00:01.0, peak res=1152.1M, current mem=1152.1M)
 <CMD> addStripe -nets {VDDL VSS} -direction horizontal -layer M8 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_top
-#% Begin addStripe (date=06/01 14:55:34, mem=1147.4M)
+#% Begin addStripe (date=06/01 15:12:53, mem=1152.1M)
 
-Initialize fgc environment(mem: 1339.8M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.8M)
+Initialize fgc environment(mem: 1339.6M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.6M)
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_29_43_2' was increased to (29.944000 43.472000) (32.071999 46.846001) because cell geometry (29.944000 46.785999) (32.071999 46.846001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_29_43_2' was increased to (29.944000 43.442001) (32.071999 46.846001) because cell geometry (29.944000 43.442001) (32.071999 43.501999) was outside the original block boundary.
@@ -1868,9 +1868,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (EMS-27):	Message (IMPPP-133) has exceeded the current message display limit of 20.
 To increase the message display limit, refer to the product command reference manual.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.8M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.8M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.8M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.6M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.6M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.6M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -1884,13 +1884,13 @@ ViaGen created 21 vias, deleted 0 via to avoid violation.
 |   M8   |       18       |       NA       |
 |  VIA8  |       21       |        0       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:34, total cpu=0:00:00.0, real=0:00:00.0, peak res=1147.4M, current mem=1147.4M)
+#% End addStripe (date=06/01 15:12:53, total cpu=0:00:00.1, real=0:00:00.0, peak res=1152.1M, current mem=1152.1M)
 <CMD> deselect_obj -all
 <CMD> select_obj pd_moda
 <CMD> addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
-#% Begin addRing (date=06/01 14:55:34, mem=1147.4M)
+#% Begin addRing (date=06/01 15:12:53, mem=1152.1M)
 
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.8M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.6M)
 The power planner has cut rows, and such rows will be considered to be placement objects.
 Ring generation is complete.
 vias are now being generated.
@@ -1913,11 +1913,11 @@ ViaGen created 24 vias, deleted 0 via to avoid violation.
 |  VIA6  |        8       |        0       |
 |  VIA7  |        8       |        0       |
 +--------+----------------+----------------+
-#% End addRing (date=06/01 14:55:34, total cpu=0:00:00.0, real=0:00:00.0, peak res=1147.6M, current mem=1147.6M)
+#% End addRing (date=06/01 15:12:53, total cpu=0:00:00.0, real=0:00:00.0, peak res=1152.3M, current mem=1152.3M)
 <CMD> addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_moda
-#% Begin addStripe (date=06/01 14:55:34, mem=1147.6M)
+#% Begin addStripe (date=06/01 15:12:53, mem=1152.3M)
 
-Initialize fgc environment(mem: 1340.0M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
+Initialize fgc environment(mem: 1339.7M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
 **WARN: (IMPPP-4033):	The net 'VDDH' is not a primary but secondary net of the power domain pd_moda.
 Type 'man IMPPP-4033' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_39_43_7' was increased to (39.976002 43.472000) (42.104000 46.846001) because cell geometry (39.976002 46.785999) (42.104000 46.846001) was outside the original block boundary.
@@ -1948,9 +1948,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_34_33_3' was increased to (34.959999 33.410000) (37.088001 36.813999) because cell geometry (34.959999 33.410000) (37.088001 33.470001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -1963,11 +1963,11 @@ ViaGen created 0 via, deleted 0 via to avoid violation.
 +--------+----------------+----------------+
 |   M3   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:34, total cpu=0:00:00.0, real=0:00:00.0, peak res=1147.6M, current mem=1147.6M)
+#% End addStripe (date=06/01 15:12:53, total cpu=0:00:00.0, real=0:00:00.0, peak res=1152.3M, current mem=1152.3M)
 <CMD> addStripe -nets {VDDH_gated_moda VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_moda
-#% Begin addStripe (date=06/01 14:55:34, mem=1147.6M)
+#% Begin addStripe (date=06/01 15:12:53, mem=1152.3M)
 
-Initialize fgc environment(mem: 1340.0M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
+Initialize fgc environment(mem: 1339.7M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_29_43_2' was increased to (29.944000 43.472000) (32.071999 46.846001) because cell geometry (29.944000 46.785999) (32.071999 46.846001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_29_43_2' was increased to (29.944000 43.442001) (32.071999 46.846001) because cell geometry (29.944000 43.442001) (32.071999 43.501999) was outside the original block boundary.
@@ -2004,9 +2004,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_moda_1_HEADX2_HVT_34_33_3' was increased to (34.959999 33.410000) (37.088001 36.813999) because cell geometry (34.959999 33.410000) (37.088001 33.470001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1340.0M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1339.7M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -2020,16 +2020,16 @@ ViaGen created 1 via, deleted 0 via to avoid violation.
 |  VIA3  |        1       |        0       |
 |   M4   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:34, total cpu=0:00:00.0, real=0:00:00.0, peak res=1147.6M, current mem=1147.6M)
-<CMD> sroute -nets {VDDH VDDH_gated_moda VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_moda -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDH_gated_moda
-#% Begin sroute (date=06/01 14:55:34, mem=1147.6M)
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:34 2023 ***
+#% End addStripe (date=06/01 15:12:53, total cpu=0:00:00.1, real=0:00:00.0, peak res=1152.3M, current mem=1152.3M)
+<CMD> sroute -nets {VDDH VDDH_gated_moda VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_moda -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_moda2modc ls_moda2modd}
+#% Begin sroute (date=06/01 15:12:53, mem=1152.3M)
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:12:53 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
 Begin option processing ...
 srouteConnectPowerBump set to false
-routeSelectNet set to "VDDH_gated_moda"
+routeSelectNet set to "ls_moda2modc ls_moda2modd"
 routeSpecial set to true
 srouteBlockPin set to "useLef"
 srouteConnectCorePin set to false
@@ -2041,7 +2041,7 @@ sroutePreserveExistingRoutes set to true
 srouteRoutePowerBarPortOnBothDir set to true
 srouteStopBlockPin set to "nearestTarget"
 srouteStopSCPin set to true
-End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2475.00 megs.
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2471.00 megs.
 
 Reading DB technology information...
 Finished reading DB technology information.
@@ -2057,35 +2057,11 @@ Read in 3 logical pins
 Read in 20 nets
 Read in 7 special nets, 4 routed
 Read in 279 terminals
-1 net selected.
-
-Begin power routing ...
-**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDDH_gated_moda net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
-**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDDH_gated_moda net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
-Type 'man IMPSR-1256' for more detail.
-Cannot find any AREAIO class pad pin of net VDDH_gated_moda. Check net list, or change port class in the technology file, or change option to include pin in given range.
-  Number of IO ports routed: 0
-  Number of Block ports routed: 0
-  Number of Stripe ports routed: 0  open: 2
-  Number of Core ports routed: 0  ignored: 10
-  Number of Pad ports routed: 0
-  Number of Power Bump ports routed: 0
-  Number of Followpin connections: 10
-End power routing: cpu: 0:00:00, real: 0:00:00, peak: 2477.00 megs.
-
-
-
- Begin updating DB with routing results ...
- Updating DB with 20 io pins ...
- Updating DB with 0 via definition ...
-sroute created 10 wires.
-ViaGen created 0 via, deleted 0 via to avoid violation.
-+--------+----------------+----------------+
-|  Layer |     Created    |     Deleted    |
-+--------+----------------+----------------+
-|   M1   |       10       |       NA       |
-+--------+----------------+----------------+
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:35 2023 ***
+**WARN: (IMPSR-4500):	Net name ls_moda2modc in selected net list is illegal so will be ignored
+**WARN: (IMPSR-4500):	Net name ls_moda2modd in selected net list is illegal so will be ignored
+Can not find net ls_moda2modc ls_moda2modd in design.
+**ERROR: (IMPSR-663):	No net has been selected. Indicate which net to route by -nets option. All nets by default.
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:12:54 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
@@ -2103,7 +2079,7 @@ sroutePreserveExistingRoutes set to true
 srouteRoutePowerBarPortOnBothDir set to true
 srouteStopBlockPin set to "nearestTarget"
 srouteStopSCPin set to true
-End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2477.00 megs.
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2471.00 megs.
 
 Reading DB technology information...
 Finished reading DB technology information.
@@ -2145,7 +2121,7 @@ CPU time for FollowPin 0 seconds
   Number of Pad ports routed: 0
   Number of Power Bump ports routed: 0
   Number of Followpin connections: 11
-End power routing: cpu: 0:00:03, real: 0:00:03, peak: 2777.00 megs.
+End power routing: cpu: 0:00:03, real: 0:00:02, peak: 2771.00 megs.
 
 
 
@@ -2161,20 +2137,20 @@ ViaGen created 12 vias, deleted 0 via to avoid violation.
 |  VIA1  |        6       |        0       |
 |  VIA2  |        6       |        0       |
 +--------+----------------+----------------+
-#% End sroute (date=06/01 14:55:39, total cpu=0:00:04.3, real=0:00:05.0, peak res=1491.3M, current mem=1152.7M)
+#% End sroute (date=06/01 15:12:57, total cpu=0:00:04.1, real=0:00:04.0, peak res=1496.3M, current mem=1158.3M)
 <CMD> deselect_obj -all
 <CMD> select_obj pd_modb
 <CMD> addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
-#% Begin addRing (date=06/01 14:55:39, mem=1152.7M)
+#% Begin addRing (date=06/01 15:12:57, mem=1158.3M)
 
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.2M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.9M)
 The power planner has cut rows, and such rows will be considered to be placement objects.
 Ring generation is complete.
-#% End addRing (date=06/01 14:55:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=1152.7M, current mem=1152.7M)
+#% End addRing (date=06/01 15:12:57, total cpu=0:00:00.0, real=0:00:00.0, peak res=1158.3M, current mem=1158.3M)
 <CMD> addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modb
-#% Begin addStripe (date=06/01 14:55:39, mem=1152.7M)
+#% Begin addStripe (date=06/01 15:12:57, mem=1158.3M)
 
-Initialize fgc environment(mem: 1343.3M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.3M)
+Initialize fgc environment(mem: 1343.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.9M)
 **WARN: (IMPPP-4033):	The net 'VDDH' is not a primary but secondary net of the power domain pd_modb.
 Type 'man IMPPP-4033' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modb_1_HEADX2_HVT_44_73_8' was increased to (44.992001 73.568001) (47.119999 76.942001) because cell geometry (44.992001 76.882004) (47.119999 76.942001) was outside the original block boundary.
@@ -2205,9 +2181,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modb_1_HEADX2_HVT_34_80_4' was increased to (34.959999 80.225998) (37.088001 83.629997) because cell geometry (34.959999 80.225998) (37.088001 80.286003) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.3M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.3M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.3M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.9M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -2220,11 +2196,11 @@ ViaGen created 0 via, deleted 0 via to avoid violation.
 +--------+----------------+----------------+
 |   M3   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=1153.0M, current mem=1153.0M)
+#% End addStripe (date=06/01 15:12:57, total cpu=0:00:00.1, real=0:00:00.0, peak res=1158.5M, current mem=1158.5M)
 <CMD> addStripe -nets {VDDH_gated_modb VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modb
-#% Begin addStripe (date=06/01 14:55:39, mem=1153.0M)
+#% Begin addStripe (date=06/01 15:12:57, mem=1158.5M)
 
-Initialize fgc environment(mem: 1343.5M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.5M)
+Initialize fgc environment(mem: 1344.1M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.1M)
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modb_1_HEADX2_HVT_29_83_2' was increased to (29.944000 83.599998) (32.071999 86.973999) because cell geometry (29.944000 86.914001) (32.071999 86.973999) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modb_1_HEADX2_HVT_29_83_2' was increased to (29.944000 83.570000) (32.071999 86.973999) because cell geometry (29.944000 83.570000) (32.071999 83.629997) was outside the original block boundary.
@@ -2261,9 +2237,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modb_1_HEADX2_HVT_34_80_4' was increased to (34.959999 80.225998) (37.088001 83.629997) because cell geometry (34.959999 80.225998) (37.088001 80.286003) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.5M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.5M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.5M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:01.0, peak mem: 1344.1M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.1M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.1M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -2277,16 +2253,16 @@ ViaGen created 1 via, deleted 0 via to avoid violation.
 |  VIA3  |        1       |        0       |
 |   M4   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=1153.1M, current mem=1153.1M)
-<CMD> sroute -nets {VDDH VDDH_gated_modb VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modb -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDH_gated_modb
-#% Begin sroute (date=06/01 14:55:39, mem=1153.1M)
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:39 2023 ***
+#% End addStripe (date=06/01 15:12:58, total cpu=0:00:00.1, real=0:00:01.0, peak res=1158.7M, current mem=1158.7M)
+<CMD> sroute -nets {VDDH VDDH_gated_modb VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modb -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modb2modc ls_modb2modd}
+#% Begin sroute (date=06/01 15:12:58, mem=1158.7M)
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:12:58 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
 Begin option processing ...
 srouteConnectPowerBump set to false
-routeSelectNet set to "VDDH_gated_modb"
+routeSelectNet set to "ls_modb2modc ls_modb2modd"
 routeSpecial set to true
 srouteBlockPin set to "useLef"
 srouteConnectCorePin set to false
@@ -2298,7 +2274,7 @@ sroutePreserveExistingRoutes set to true
 srouteRoutePowerBarPortOnBothDir set to true
 srouteStopBlockPin set to "nearestTarget"
 srouteStopSCPin set to true
-End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2777.00 megs.
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2771.00 megs.
 
 Reading DB technology information...
 Finished reading DB technology information.
@@ -2314,35 +2290,11 @@ Read in 3 logical pins
 Read in 20 nets
 Read in 7 special nets, 5 routed
 Read in 279 terminals
-1 net selected.
-
-Begin power routing ...
-**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDDH_gated_modb net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
-**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDDH_gated_modb net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
-Type 'man IMPSR-1256' for more detail.
-Cannot find any AREAIO class pad pin of net VDDH_gated_modb. Check net list, or change port class in the technology file, or change option to include pin in given range.
-  Number of IO ports routed: 0
-  Number of Block ports routed: 0
-  Number of Stripe ports routed: 0  open: 2
-  Number of Core ports routed: 0  ignored: 10
-  Number of Pad ports routed: 0
-  Number of Power Bump ports routed: 0
-  Number of Followpin connections: 10
-End power routing: cpu: 0:00:00, real: 0:00:00, peak: 2777.00 megs.
-
-
-
- Begin updating DB with routing results ...
- Updating DB with 20 io pins ...
- Updating DB with 0 via definition ...
-sroute created 10 wires.
-ViaGen created 0 via, deleted 0 via to avoid violation.
-+--------+----------------+----------------+
-|  Layer |     Created    |     Deleted    |
-+--------+----------------+----------------+
-|   M1   |       10       |       NA       |
-+--------+----------------+----------------+
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:40 2023 ***
+**WARN: (IMPSR-4500):	Net name ls_modb2modc in selected net list is illegal so will be ignored
+**WARN: (IMPSR-4500):	Net name ls_modb2modd in selected net list is illegal so will be ignored
+Can not find net ls_modb2modc ls_modb2modd in design.
+**ERROR: (IMPSR-663):	No net has been selected. Indicate which net to route by -nets option. All nets by default.
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:12:58 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
@@ -2360,7 +2312,7 @@ sroutePreserveExistingRoutes set to true
 srouteRoutePowerBarPortOnBothDir set to true
 srouteStopBlockPin set to "nearestTarget"
 srouteStopSCPin set to true
-End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2777.00 megs.
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2771.00 megs.
 
 Reading DB technology information...
 Finished reading DB technology information.
@@ -2402,7 +2354,7 @@ CPU time for FollowPin 0 seconds
   Number of Pad ports routed: 0
   Number of Power Bump ports routed: 0
   Number of Followpin connections: 11
-End power routing: cpu: 0:00:02, real: 0:00:02, peak: 2777.00 megs.
+End power routing: cpu: 0:00:03, real: 0:00:03, peak: 2777.00 megs.
 
 
 
@@ -2418,20 +2370,20 @@ ViaGen created 12 vias, deleted 0 via to avoid violation.
 |  VIA1  |        6       |        0       |
 |  VIA2  |        6       |        0       |
 +--------+----------------+----------------+
-#% End sroute (date=06/01 14:55:42, total cpu=0:00:03.5, real=0:00:03.0, peak res=1500.5M, current mem=1155.9M)
+#% End sroute (date=06/01 15:13:02, total cpu=0:00:04.2, real=0:00:04.0, peak res=1502.6M, current mem=1158.8M)
 <CMD> deselect_obj -all
 <CMD> select_obj pd_modc
 <CMD> addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
-#% Begin addRing (date=06/01 14:55:43, mem=1155.9M)
+#% Begin addRing (date=06/01 15:13:02, mem=1158.8M)
 
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.4M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.4M)
 The power planner has cut rows, and such rows will be considered to be placement objects.
 Ring generation is complete.
-#% End addRing (date=06/01 14:55:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=1155.9M, current mem=1155.9M)
+#% End addRing (date=06/01 15:13:02, total cpu=0:00:00.1, real=0:00:00.0, peak res=1158.8M, current mem=1158.8M)
 <CMD> addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modc
-#% Begin addStripe (date=06/01 14:55:43, mem=1155.9M)
+#% Begin addStripe (date=06/01 15:13:02, mem=1158.8M)
 
-Initialize fgc environment(mem: 1343.4M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.4M)
+Initialize fgc environment(mem: 1344.4M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.4M)
 **WARN: (IMPPP-4033):	The net 'VDDL' is not a primary but secondary net of the power domain pd_modc.
 Type 'man IMPPP-4033' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modc_1_HEADX2_HVT_85_73_8' was increased to (85.120003 73.568001) (87.248001 76.942001) because cell geometry (85.120003 76.882004) (87.248001 76.942001) was outside the original block boundary.
@@ -2462,9 +2414,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modc_1_HEADX2_HVT_75_80_4' was increased to (75.087997 80.225998) (77.216003 83.629997) because cell geometry (75.087997 80.225998) (77.216003 80.286003) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.4M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.4M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.4M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.4M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.4M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.4M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -2477,11 +2429,11 @@ ViaGen created 0 via, deleted 0 via to avoid violation.
 +--------+----------------+----------------+
 |   M3   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=1156.1M, current mem=1156.1M)
+#% End addStripe (date=06/01 15:13:02, total cpu=0:00:00.1, real=0:00:00.0, peak res=1159.1M, current mem=1159.1M)
 <CMD> addStripe -nets {VDDL_gated_modc VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modc
-#% Begin addStripe (date=06/01 14:55:43, mem=1156.1M)
+#% Begin addStripe (date=06/01 15:13:02, mem=1159.1M)
 
-Initialize fgc environment(mem: 1343.7M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.7M)
+Initialize fgc environment(mem: 1344.7M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.7M)
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modc_1_HEADX2_HVT_85_73_8' was increased to (85.120003 73.568001) (87.248001 76.942001) because cell geometry (85.120003 76.882004) (87.248001 76.942001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modc_1_HEADX2_HVT_85_73_8' was increased to (85.120003 73.538002) (87.248001 76.942001) because cell geometry (85.120003 73.538002) (87.248001 73.598000) was outside the original block boundary.
@@ -2518,9 +2470,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modc_1_HEADX2_HVT_70_76_1' was increased to (70.071999 76.882004) (72.199997 80.286003) because cell geometry (70.071999 76.882004) (72.199997 76.942001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.7M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.7M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1343.7M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.7M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.7M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.7M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -2534,16 +2486,16 @@ ViaGen created 1 via, deleted 0 via to avoid violation.
 |  VIA3  |        1       |        0       |
 |   M4   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=1156.3M, current mem=1156.3M)
-<CMD> sroute -nets {VDDL VDDL_gated_modc VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modc -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDL_gated_modc
-#% Begin sroute (date=06/01 14:55:43, mem=1156.3M)
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:43 2023 ***
+#% End addStripe (date=06/01 15:13:02, total cpu=0:00:00.0, real=0:00:00.0, peak res=1159.3M, current mem=1159.3M)
+<CMD> sroute -nets {VDDL VDDL_gated_modc VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modc -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modc2top ls_modc2moda ls_modc2modb}
+#% Begin sroute (date=06/01 15:13:02, mem=1159.3M)
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:13:02 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
 Begin option processing ...
 srouteConnectPowerBump set to false
-routeSelectNet set to "VDDL_gated_modc"
+routeSelectNet set to "ls_modc2top ls_modc2moda ls_modc2modb"
 routeSpecial set to true
 srouteBlockPin set to "useLef"
 srouteConnectCorePin set to false
@@ -2571,35 +2523,12 @@ Read in 3 logical pins
 Read in 20 nets
 Read in 7 special nets, 6 routed
 Read in 279 terminals
-1 net selected.
-
-Begin power routing ...
-**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDDL_gated_modc net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
-**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDDL_gated_modc net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
-Type 'man IMPSR-1256' for more detail.
-Cannot find any AREAIO class pad pin of net VDDL_gated_modc. Check net list, or change port class in the technology file, or change option to include pin in given range.
-  Number of IO ports routed: 0
-  Number of Block ports routed: 0
-  Number of Stripe ports routed: 0  open: 2
-  Number of Core ports routed: 0  ignored: 10
-  Number of Pad ports routed: 0
-  Number of Power Bump ports routed: 0
-  Number of Followpin connections: 10
-End power routing: cpu: 0:00:00, real: 0:00:00, peak: 2777.00 megs.
-
-
-
- Begin updating DB with routing results ...
- Updating DB with 20 io pins ...
- Updating DB with 0 via definition ...
-sroute created 10 wires.
-ViaGen created 0 via, deleted 0 via to avoid violation.
-+--------+----------------+----------------+
-|  Layer |     Created    |     Deleted    |
-+--------+----------------+----------------+
-|   M1   |       10       |       NA       |
-+--------+----------------+----------------+
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:44 2023 ***
+**WARN: (IMPSR-4500):	Net name ls_modc2top in selected net list is illegal so will be ignored
+**WARN: (IMPSR-4500):	Net name ls_modc2moda in selected net list is illegal so will be ignored
+**WARN: (IMPSR-4500):	Net name ls_modc2modb in selected net list is illegal so will be ignored
+Can not find net ls_modc2top ls_modc2moda ls_modc2modb in design.
+**ERROR: (IMPSR-663):	No net has been selected. Indicate which net to route by -nets option. All nets by default.
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:13:03 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
@@ -2659,7 +2588,7 @@ CPU time for FollowPin 0 seconds
   Number of Pad ports routed: 0
   Number of Power Bump ports routed: 0
   Number of Followpin connections: 11
-End power routing: cpu: 0:00:01, real: 0:00:02, peak: 2777.00 megs.
+End power routing: cpu: 0:00:01, real: 0:00:01, peak: 2777.00 megs.
 
 
 
@@ -2675,20 +2604,20 @@ ViaGen created 12 vias, deleted 0 via to avoid violation.
 |  VIA1  |        6       |        0       |
 |  VIA2  |        6       |        0       |
 +--------+----------------+----------------+
-#% End sroute (date=06/01 14:55:46, total cpu=0:00:03.1, real=0:00:03.0, peak res=1177.1M, current mem=1157.4M)
+#% End sroute (date=06/01 15:13:05, total cpu=0:00:03.1, real=0:00:03.0, peak res=1160.4M, current mem=1160.4M)
 <CMD> deselect_obj -all
 <CMD> select_obj pd_modd
 <CMD> addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
-#% Begin addRing (date=06/01 14:55:46, mem=1157.4M)
+#% Begin addRing (date=06/01 15:13:05, mem=1160.4M)
 
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1345.9M)
 The power planner has cut rows, and such rows will be considered to be placement objects.
 Ring generation is complete.
-#% End addRing (date=06/01 14:55:46, total cpu=0:00:00.0, real=0:00:00.0, peak res=1157.4M, current mem=1157.4M)
+#% End addRing (date=06/01 15:13:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1160.4M, current mem=1160.4M)
 <CMD> addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modd
-#% Begin addStripe (date=06/01 14:55:46, mem=1157.4M)
+#% Begin addStripe (date=06/01 15:13:05, mem=1160.4M)
 
-Initialize fgc environment(mem: 1344.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.9M)
+Initialize fgc environment(mem: 1346.0M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.0M)
 **WARN: (IMPPP-4033):	The net 'VDDL' is not a primary but secondary net of the power domain pd_modd.
 Type 'man IMPPP-4033' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modd_1_HEADX2_HVT_80_43_7' was increased to (80.103996 43.472000) (82.232002 46.846001) because cell geometry (80.103996 46.785999) (82.232002 46.846001) was outside the original block boundary.
@@ -2719,9 +2648,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modd_1_HEADX2_HVT_80_36_6' was increased to (80.103996 36.754002) (82.232002 40.158001) because cell geometry (80.103996 36.754002) (82.232002 36.813999) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.9M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.9M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1344.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.0M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.0M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.0M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -2734,11 +2663,11 @@ ViaGen created 0 via, deleted 0 via to avoid violation.
 +--------+----------------+----------------+
 |   M3   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:46, total cpu=0:00:00.0, real=0:00:00.0, peak res=1157.6M, current mem=1157.6M)
+#% End addStripe (date=06/01 15:13:05, total cpu=0:00:00.1, real=0:00:00.0, peak res=1160.6M, current mem=1160.6M)
 <CMD> addStripe -nets {VDDL_gated_modd VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modd
-#% Begin addStripe (date=06/01 14:55:46, mem=1157.6M)
+#% Begin addStripe (date=06/01 15:13:05, mem=1160.6M)
 
-Initialize fgc environment(mem: 1345.2M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1345.2M)
+Initialize fgc environment(mem: 1346.2M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.2M)
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modd_1_HEADX2_HVT_80_43_7' was increased to (80.103996 43.472000) (82.232002 46.846001) because cell geometry (80.103996 46.785999) (82.232002 46.846001) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modd_1_HEADX2_HVT_80_43_7' was increased to (80.103996 43.442001) (82.232002 46.846001) because cell geometry (80.103996 43.442001) (82.232002 43.501999) was outside the original block boundary.
@@ -2775,9 +2704,9 @@ Type 'man IMPPP-133' for more detail.
 Type 'man IMPPP-133' for more detail.
 **WARN: (IMPPP-133):	The block boundary of instance 'psoI_pd_modd_1_HEADX2_HVT_80_36_6' was increased to (80.103996 36.754002) (82.232002 40.158001) because cell geometry (80.103996 36.754002) (82.232002 36.813999) was outside the original block boundary.
 Type 'man IMPPP-133' for more detail.
-Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1345.2M)
-Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1345.2M)
-Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1345.2M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.2M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.2M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1346.2M)
 Starting stripe generation ...
 Non-Default Mode Option Settings :
   NONE
@@ -2791,16 +2720,16 @@ ViaGen created 1 via, deleted 0 via to avoid violation.
 |  VIA3  |        1       |        0       |
 |   M4   |        2       |       NA       |
 +--------+----------------+----------------+
-#% End addStripe (date=06/01 14:55:46, total cpu=0:00:00.1, real=0:00:00.0, peak res=1157.8M, current mem=1157.8M)
-<CMD> sroute -nets {VDDL VDDL_gated_modd VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modd -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDL_gated_modd
-#% Begin sroute (date=06/01 14:55:46, mem=1157.8M)
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:46 2023 ***
+#% End addStripe (date=06/01 15:13:06, total cpu=0:00:00.0, real=0:00:00.0, peak res=1160.6M, current mem=1156.9M)
+<CMD> sroute -nets {VDDL VDDL_gated_modd VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modd -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modd2top ls_modd2moda ls_modd2modb}
+#% Begin sroute (date=06/01 15:13:06, mem=1156.9M)
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:13:06 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
 Begin option processing ...
 srouteConnectPowerBump set to false
-routeSelectNet set to "VDDL_gated_modd"
+routeSelectNet set to "ls_modd2top ls_modd2moda ls_modd2modb"
 routeSpecial set to true
 srouteBlockPin set to "useLef"
 srouteConnectCorePin set to false
@@ -2828,35 +2757,12 @@ Read in 3 logical pins
 Read in 20 nets
 Read in 7 special nets, 7 routed
 Read in 279 terminals
-1 net selected.
-
-Begin power routing ...
-**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDDL_gated_modd net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
-**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDDL_gated_modd net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
-Type 'man IMPSR-1256' for more detail.
-Cannot find any AREAIO class pad pin of net VDDL_gated_modd. Check net list, or change port class in the technology file, or change option to include pin in given range.
-  Number of IO ports routed: 0
-  Number of Block ports routed: 0
-  Number of Stripe ports routed: 0  open: 2
-  Number of Core ports routed: 0  ignored: 10
-  Number of Pad ports routed: 0
-  Number of Power Bump ports routed: 0
-  Number of Followpin connections: 10
-End power routing: cpu: 0:00:00, real: 0:00:00, peak: 2777.00 megs.
-
-
-
- Begin updating DB with routing results ...
- Updating DB with 20 io pins ...
- Updating DB with 0 via definition ...
-sroute created 10 wires.
-ViaGen created 0 via, deleted 0 via to avoid violation.
-+--------+----------------+----------------+
-|  Layer |     Created    |     Deleted    |
-+--------+----------------+----------------+
-|   M1   |       10       |       NA       |
-+--------+----------------+----------------+
-*** Begin SPECIAL ROUTE on Thu Jun  1 14:55:47 2023 ***
+**WARN: (IMPSR-4500):	Net name ls_modd2top in selected net list is illegal so will be ignored
+**WARN: (IMPSR-4500):	Net name ls_modd2moda in selected net list is illegal so will be ignored
+**WARN: (IMPSR-4500):	Net name ls_modd2modb in selected net list is illegal so will be ignored
+Can not find net ls_modd2top ls_modd2moda ls_modd2modb in design.
+**ERROR: (IMPSR-663):	No net has been selected. Indicate which net to route by -nets option. All nets by default.
+*** Begin SPECIAL ROUTE on Thu Jun  1 15:13:06 2023 ***
 SPECIAL ROUTE ran on directory: /home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/apr/work
 SPECIAL ROUTE ran on machine: mo.ece.pdx.edu (Linux 3.10.0-1160.88.1.el7.x86_64 Xeon 2.60Ghz)
 
@@ -2916,7 +2822,7 @@ CPU time for FollowPin 0 seconds
   Number of Pad ports routed: 0
   Number of Power Bump ports routed: 0
   Number of Followpin connections: 11
-End power routing: cpu: 0:00:02, real: 0:00:01, peak: 2777.00 megs.
+End power routing: cpu: 0:00:02, real: 0:00:02, peak: 2777.00 megs.
 
 
 
@@ -2932,32 +2838,15 @@ ViaGen created 12 vias, deleted 0 via to avoid violation.
 |  VIA1  |        6       |        0       |
 |  VIA2  |        6       |        0       |
 +--------+----------------+----------------+
-#% End sroute (date=06/01 14:55:49, total cpu=0:00:03.2, real=0:00:03.0, peak res=1159.9M, current mem=1159.9M)
+#% End sroute (date=06/01 15:13:09, total cpu=0:00:03.2, real=0:00:03.0, peak res=1178.4M, current mem=1158.5M)
 <CMD> deselect_obj -all
 <CMD> fit
-<CMD> zoomIn
-<CMD> zoomIn
-<CMD> fit
-<CMD> zoomIn
-<CMD> panPage -1 0
-<CMD> panPage 0 1
-<CMD> panPage 0 1
-<CMD> panPage 1 0
-<CMD> zoomIn
-<CMD> panPage -1 0
-<CMD> panPage 0 -1
-<CMD> panPage -1 0
-<CMD> panPage 0 -1
-<CMD> panPage -1 0
-<CMD> panPage 0 1
-<CMD> panPage 1 0
-<CMD> panPage 1 0
-<CMD> selectWire 39.9760 85.2420 42.1040 85.3020 1 VDDH_gated_modb
-<CMD> deselectAll
-<CMD> selectMarker 41.0460 85.2220 41.1460 85.3220 4 3 7
-<CMD> panPage -1 0
-<CMD> deselectAll
 <CMD> selectObject Module modB_inst
+<CMD> deselectAll
+<CMD> zoomIn
+<CMD> selectWire 42.9440 70.2240 43.9440 90.2240 3 VSS
+<CMD> deselectAll
+<CMD> selectInst psoI_pd_modb_1_HEADX2_HVT_39_76_6
 <CMD> place_design
 -place_design_floorplan_mode false         # bool, default=false
 **ERROR: (IMPSP-9099):	Scan chains exist in this design but are not defined for 46.88% flops. Placement and timing QoR can be severely impacted in this case!
@@ -2968,17 +2857,17 @@ Turning on -handlePartition option for MSV flow
 Info: Detect buffers to remove automatically.
 Analyzing netlist ...
 Updating netlist
-AAE DB initialization (MEM=1500.14 CPU=0:00:00.3 REAL=0:00:01.0) 
+AAE DB initialization (MEM=1500.75 CPU=0:00:00.3 REAL=0:00:00.0) 
 
 *summary: 22 instances (buffers/inverters) removed
-*** Finish deleteBufferTree (0:00:02.7) ***
+*** Finish deleteBufferTree (0:00:02.6) ***
 **INFO: Enable pre-place timing setting for timing analysis
 Set Using Default Delay Limit as 101.
 **WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
 Set Default Net Delay as 0 ps.
 Set Default Net Load as 0 pF. 
 **INFO: Analyzing IO path groups for slack adjustment
-Effort level <high> specified for reg2reg_tmp.26093 path_group
+Effort level <high> specified for reg2reg_tmp.9720 path_group
 #################################################################################
 # Design Stage: PreRoute
 # Design Name: mv_lp_top
@@ -2989,7 +2878,7 @@ Effort level <high> specified for reg2reg_tmp.26093 path_group
 #################################################################################
 Calculate delays in BcWc mode...
 Calculate delays in BcWc mode...
-Start delay calculation (fullDC) (1 T). (MEM=1541.08)
+Start delay calculation (fullDC) (1 T). (MEM=1541.37)
 **WARN: (IMPESI-2013):	The  power  rail of instance psoI_pd_modd_1_HEADX2_HVT_85_40_9 term SLEEP of cell HEADX2_HVT from library (N/A) and library file (N/A) has zero voltage, resetting the power rail to default vdd. Check the power specification of this instance.
 **WARN: (IMPESI-2013):	The  power  rail of instance psoI_pd_modd_1_HEADX2_HVT_85_40_9 term SLEEP of cell HEADX2_HVT from library (N/A) and library file (N/A) has zero voltage, resetting the power rail to default vdd. Check the power specification of this instance.
 **WARN: (IMPESI-2013):	The  power  rail of instance psoI_pd_modd_1_HEADX2_HVT_85_40_9 term SLEEP of cell HEADX2_HVT from library (N/A) and library file (N/A) has zero voltage, resetting the power rail to default vdd. Check the power specification of this instance.
@@ -3033,8 +2922,8 @@ To increase the message display limit, refer to the product command reference ma
 **WARN: (IMPMSMV-1810):	Net sleep_modd, driver g395/Y (cell INVX0_HVT) voltage 0.75 does not match receiver psoI_pd_modd_1_HEADX2_HVT_70_36_1/SLEEP (cell HEADX2_HVT) voltage 0 for view test_worst_scenario.
 **WARN: (IMPMSMV-1810):	Net sleep_modd, driver g395/Y (cell INVX0_HVT) voltage 0.75 does not match receiver psoI_pd_modd_1_HEADX2_HVT_70_30_0/SLEEP (cell HEADX2_HVT) voltage 0 for view test_worst_scenario.
 Total number of fetched objects 191
-End delay calculation. (MEM=1608.81 CPU=0:00:00.1 REAL=0:00:00.0)
-End delay calculation (fullDC). (MEM=1562.65 CPU=0:00:00.9 REAL=0:00:01.0)
+End delay calculation. (MEM=1609.1 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1562.94 CPU=0:00:00.9 REAL=0:00:02.0)
 **INFO: Disable pre-place timing setting for timing analysis
 Set Using Default Delay Limit as 1000.
 Set Default Net Delay as 1000 ps.
@@ -3047,10 +2936,10 @@ Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 INFO: #ExclusiveGroups=0
 INFO: There are no Exclusive Groups.
-*** Starting "NanoPlace(TM) placement v#2 (mem=1532.2M)" ...
-*** Build Buffered Sizing Timing Model (Used Compact Buffer Set) ...(cpu=0:00:02.6 mem=1619.9M) ***
+*** Starting "NanoPlace(TM) placement v#2 (mem=1532.5M)" ...
+*** Build Buffered Sizing Timing Model (Used Compact Buffer Set) ...(cpu=0:00:02.6 mem=1621.6M) ***
 *** Build Virtual Sizing Timing Model
-(cpu=0:00:05.7 mem=1632.7M) ***
+(cpu=0:00:05.6 mem=1634.5M) ***
 No user-set net weight.
 Net fanout histogram:
 2		: 95 (61.7%) nets
@@ -3097,36 +2986,36 @@ Pin Density = 0.01327.
 Clock gating cells determined by native netlist tracing.
 Iteration  1: Total net bbox = 2.699e+03 (1.75e+03 9.51e+02)
               Est.  stn bbox = 3.229e+03 (2.10e+03 1.13e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1641.5M
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1643.5M
 Iteration  2: Total net bbox = 2.699e+03 (1.75e+03 9.51e+02)
               Est.  stn bbox = 3.229e+03 (2.10e+03 1.13e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1641.5M
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1643.5M
 Iteration  3: Total net bbox = 2.321e+03 (1.47e+03 8.47e+02)
               Est.  stn bbox = 2.891e+03 (1.84e+03 1.05e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1643.1M
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1645.1M
 Active setup views:
     func_worst_scenario
 Iteration  4: Total net bbox = 2.931e+03 (1.86e+03 1.07e+03)
               Est.  stn bbox = 3.567e+03 (2.27e+03 1.30e+03)
-              cpu = 0:00:00.3 real = 0:00:00.0 mem = 1684.9M
+              cpu = 0:00:00.3 real = 0:00:01.0 mem = 1686.9M
 Active setup views:
     func_worst_scenario
 Iteration  5: Total net bbox = 3.094e+03 (1.84e+03 1.26e+03)
               Est.  stn bbox = 3.749e+03 (2.25e+03 1.50e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1684.9M
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1686.9M
 Active setup views:
     func_worst_scenario
 Iteration  6: Total net bbox = 3.138e+03 (1.85e+03 1.29e+03)
               Est.  stn bbox = 3.789e+03 (2.25e+03 1.54e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1685.1M
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1687.2M
 Active setup views:
     func_worst_scenario
 Iteration  7: Total net bbox = 3.307e+03 (1.96e+03 1.35e+03)
               Est.  stn bbox = 3.960e+03 (2.36e+03 1.60e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1685.1M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1687.2M
 Iteration  8: Total net bbox = 3.355e+03 (1.98e+03 1.38e+03)
               Est.  stn bbox = 4.008e+03 (2.38e+03 1.62e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1685.2M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1687.4M
 Active setup views:
     func_worst_scenario
 Active setup views:
@@ -3135,17 +3024,17 @@ Active setup views:
     func_worst_scenario
 Iteration  9: Total net bbox = 3.445e+03 (2.02e+03 1.43e+03)
               Est.  stn bbox = 4.102e+03 (2.42e+03 1.68e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1687.9M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1690.0M
 Iteration 10: Total net bbox = 3.527e+03 (2.07e+03 1.45e+03)
               Est.  stn bbox = 4.185e+03 (2.48e+03 1.70e+03)
-              cpu = 0:00:00.3 real = 0:00:00.0 mem = 1686.5M
+              cpu = 0:00:00.3 real = 0:00:00.0 mem = 1688.6M
 Iteration 11: Total net bbox = 3.527e+03 (2.07e+03 1.45e+03)
               Est.  stn bbox = 4.185e+03 (2.48e+03 1.70e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1686.5M
-*** cost = 3.527e+03 (2.07e+03 1.45e+03) (cpu for global=0:00:00.9) real=0:00:00.0***
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1688.6M
+*** cost = 3.527e+03 (2.07e+03 1.45e+03) (cpu for global=0:00:00.9) real=0:00:01.0***
 Info: 0 clock gating cells identified, 0 (on average) moved 0/3
-Solver runtime cpu: 0:00:00.3 real: 0:00:00.3
-Core Placement runtime cpu: 0:00:00.7 real: 0:00:00.0
+Solver runtime cpu: 0:00:00.4 real: 0:00:00.4
+Core Placement runtime cpu: 0:00:00.7 real: 0:00:01.0
 **WARN: (IMPSP-9025):	No scan chain specified/traced.
 Type 'man IMPSP-9025' for more detail.
 Ignoring the OffRegion constraint modA_inst.
@@ -3153,7 +3042,7 @@ Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
-*** Starting refinePlace (0:02:19 mem=1684.6M) ***
+*** Starting refinePlace (0:01:50 mem=1686.0M) ***
 Total net bbox length = 3.395e+03 (2.013e+03 1.383e+03) (ext = 1.247e+03)
 **WARN: (IMPSP-7207):	Shifter 'pd_modd_iso_pg_modd_b_5_UPF_ISO' has no connections outside its power domain.
 Type 'man IMPSP-7207' for more detail.
@@ -3169,7 +3058,7 @@ Type 'man IMPSP-7207' for more detail.
 4 shifters have encountered some problem.
 Move report: Detail placement moves 129 insts, mean move: 0.86 um, max move: 6.09 um
 	Max move on inst (modB_inst/B2C_reg): (35.73, 75.87) --> (39.52, 73.57)
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1685.6MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1687.0MB
 Summary Report:
 Instances move: 145 (out of 145 movable)
 Instances flipped: 0
@@ -3177,9 +3066,9 @@ Mean displacement: 1.27 um
 Max displacement: 16.58 um (Instance: pd_modd_ls_modd2top_11_UPF_LS) (95.713, 28.784) -> (87.856, 20.064)
 	Length: 14 sites, height: 2 rows, site name: unit, cell type: LSUPX1_HVT
 Total net bbox length = 3.354e+03 (1.932e+03 1.422e+03) (ext = 1.275e+03)
-Runtime: CPU: 0:00:00.1 REAL: 0:00:00.0 MEM: 1685.6MB
-*** Finished refinePlace (0:02:19 mem=1685.6M) ***
-*** End of Placement (cpu=0:00:07.2, real=0:00:07.0, mem=1680.0M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1687.0MB
+*** Finished refinePlace (0:01:50 mem=1687.0M) ***
+*** End of Placement (cpu=0:00:07.0, real=0:00:07.0, mem=1677.5M) ***
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -3191,14 +3080,14 @@ powerDomain pd_modb: bins with density > 0.750 =  0.00 % ( 0 / 4 )
 powerDomain pd_modc: bins with density > 0.750 =  0.00 % ( 0 / 4 )
 powerDomain pd_modd: bins with density > 0.750 =  0.00 % ( 0 / 4 )
 Density distribution unevenness ratio = 61.804%
-*** Free Virtual Timing Model ...(mem=1581.3M)
+*** Free Virtual Timing Model ...(mem=1581.6M)
 **INFO: Enable pre-place timing setting for timing analysis
 Set Using Default Delay Limit as 101.
 **WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
 Set Default Net Delay as 0 ps.
 Set Default Net Load as 0 pF. 
 **INFO: Analyzing IO path groups for slack adjustment
-Effort level <high> specified for reg2reg_tmp.26093 path_group
+Effort level <high> specified for reg2reg_tmp.9720 path_group
 #################################################################################
 # Design Stage: PreRoute
 # Design Name: mv_lp_top
@@ -3208,12 +3097,12 @@ Effort level <high> specified for reg2reg_tmp.26093 path_group
 # Signoff Settings: SI Off 
 #################################################################################
 Calculate delays in BcWc mode...
-Start delay calculation (fullDC) (1 T). (MEM=1566.24)
+Start delay calculation (fullDC) (1 T). (MEM=1566.55)
 **WARN: (EMS-27):	Message (IMPMSMV-1810) has exceeded the current message display limit of 20.
 To increase the message display limit, refer to the product command reference manual.
 Total number of fetched objects 191
-End delay calculation. (MEM=1582.44 CPU=0:00:00.1 REAL=0:00:00.0)
-End delay calculation (fullDC). (MEM=1582.44 CPU=0:00:00.3 REAL=0:00:00.0)
+End delay calculation. (MEM=1582.78 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1582.78 CPU=0:00:00.4 REAL=0:00:00.0)
 **INFO: Disable pre-place timing setting for timing analysis
 Set Using Default Delay Limit as 1000.
 Set Default Net Delay as 1000 ps.
@@ -3232,9 +3121,9 @@ Collecting buffer chain nets ...
 [NR-eGR] M8 has single uniform track structure
 [NR-eGR] M9 has single uniform track structure
 [NR-eGR] MRDL has single uniform track structure
-[NR-eGR] Started Read PG Shapes ( Curr Mem: 1545.84 MB )
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1546.11 MB )
 [NR-eGR] Read 254 PG shapes
-[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1545.84 MB )
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1546.11 MB )
 [NR-eGR] #Routing Blockages  : 0
 [NR-eGR] #Instance Blockages : 0
 [NR-eGR] #PG Blockages       : 254
@@ -3270,7 +3159,7 @@ Collecting buffer chain nets ...
 [NR-eGR] 
 [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
 [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
-Early Global Route congestion estimation runtime: 0.03 seconds, mem = 1546.4M
+Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1546.7M
 Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
 Skipped repairing congestion.
 [NR-eGR] --------------------------------------------------------------------------
@@ -3288,12 +3177,12 @@ Skipped repairing congestion.
 [NR-eGR] --------------------------------------------------------------------------
 [NR-eGR] Total eGR-routed clock nets wire length: 2.485200e+02um 
 [NR-eGR] --------------------------------------------------------------------------
-Early Global Route wiring runtime: 0.01 seconds, mem = 1546.4M
+Early Global Route wiring runtime: 0.01 seconds, mem = 1542.5M
 End of congRepair (cpu=0:00:00.1, real=0:00:00.0)
 *** Finishing placeDesign default flow ***
 **ERROR: (IMPSP-9099):	Scan chains exist in this design but are not defined for 46.88% flops. Placement and timing QoR can be severely impacted in this case!
 It is highly recommend to define scan chains either through input scan def (preferred) or specifyScanChain.
-**placeDesign ... cpu = 0: 0:12, real = 0: 0:14, mem = 1542.2M **
+**placeDesign ... cpu = 0: 0:12, real = 0: 0:13, mem = 1542.5M **
 Tdgp not successfully inited but do clear!
 0 delay mode for cte disabled.
 
@@ -3311,7 +3200,7 @@ ERROR     IMPSP-9099           2  Scan chains exist in this design but are...
 <CMD_INTERNAL> gpsPrivate::masterAndSlaveCPU
 <CMD_INTERNAL> gpsPrivate::masterAndSlaveCPU
 <CMD> optDesign -preCTS
-**optDesign ... cpu = 0:00:00, real = 0:00:00, mem = 1287.7M, totSessionCpu=0:02:27 **
+**optDesign ... cpu = 0:00:00, real = 0:00:00, mem = 1290.9M, totSessionCpu=0:01:54 **
 Executing: place_opt_design -opt
 No user sequential activity specified, applying default sequential activity of "0.2" for Dynamic Power reporting.
 'set_default_switching_activity' finished successfully.
@@ -3324,7 +3213,7 @@ Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
-**optDesign ... cpu = 0:00:00, real = 0:00:00, mem = 1288.2M, totSessionCpu=0:02:28 **
+**optDesign ... cpu = 0:00:00, real = 0:00:00, mem = 1291.3M, totSessionCpu=0:01:54 **
 **INFO: setDesignMode -flowEffort standard -> setting 'setOptMode -allEndPoints true' for the duration of this command.
 **WARN: (IMPOPT-3668):	There are 2 nets with MSV violations, timing and DRV optimization of such nets is limited.  Please use verifyPowerDomain to analyze these further.
 [GPS-MSV] UPF Flow. Number of Power Domains: 6
@@ -3343,7 +3232,7 @@ Ignoring the OffRegion constraint modD_inst.
 Updating RC grid for preRoute extraction ...
 Initializing multi-corner capacitance tables ... 
 Initializing multi-corner resistance tables ...
-AAE DB initialization (MEM=1454.99 CPU=0:00:00.3 REAL=0:00:00.0) 
+AAE DB initialization (MEM=1455.27 CPU=0:00:00.3 REAL=0:00:00.0) 
 Setting timing_disable_library_data_to_data_checks to 'true'.
 Setting timing_disable_user_data_to_data_checks to 'true'.
 Ignoring the OffRegion constraint modA_inst.
@@ -3351,7 +3240,7 @@ Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
-**optDesign ... cpu = 0:00:02, real = 0:00:02, mem = 1218.6M, totSessionCpu=0:02:29 **
+**optDesign ... cpu = 0:00:02, real = 0:00:01, mem = 1222.4M, totSessionCpu=0:01:56 **
 *** optDesign -preCTS ***
 DRC Margin: user margin 0.0; extra margin 0.2
 Setup Target Slack: user slack 0; extra slack 0.0
@@ -3364,7 +3253,7 @@ Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 Multi-VT timing optimization disabled based on library information.
-[NR-eGR] Started Early Global Route kernel ( Curr Mem: 1455.96 MB )
+[NR-eGR] Started Early Global Route kernel ( Curr Mem: 1456.96 MB )
 [NR-eGR] Track table information for default rule: 
 [NR-eGR] M1 has no routable track
 [NR-eGR] M2 has single uniform track structure
@@ -3376,9 +3265,9 @@ Multi-VT timing optimization disabled based on library information.
 [NR-eGR] M8 has single uniform track structure
 [NR-eGR] M9 has single uniform track structure
 [NR-eGR] MRDL has single uniform track structure
-[NR-eGR] Started Read PG Shapes ( Curr Mem: 1455.98 MB )
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1456.97 MB )
 [NR-eGR] Read 254 PG shapes
-[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1455.98 MB )
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1456.97 MB )
 [NR-eGR] #Routing Blockages  : 0
 [NR-eGR] #Instance Blockages : 0
 [NR-eGR] #PG Blockages       : 254
@@ -3429,7 +3318,7 @@ Multi-VT timing optimization disabled based on library information.
 [NR-eGR] --------------------------------------------------------------------------
 [NR-eGR] Total eGR-routed clock nets wire length: 2.439600e+02um 
 [NR-eGR] --------------------------------------------------------------------------
-[NR-eGR] Finished Early Global Route kernel ( CPU: 0.05 sec, Real: 0.04 sec, Curr Mem: 1455.98 MB )
+[NR-eGR] Finished Early Global Route kernel ( CPU: 0.06 sec, Real: 0.05 sec, Curr Mem: 1456.12 MB )
 Extraction called for design 'mv_lp_top' of instances=185 and nets=198 using extraction engine 'preRoute' .
 **WARN: (IMPEXT-3530):	The process node is not set. Use the command setDesignMode -process <process node> prior to extraction for maximum accuracy and optimal automatic threshold setting.
 Type 'man IMPEXT-3530' for more detail.
@@ -3447,7 +3336,7 @@ Using capacitance table file ...
 Updating RC grid for preRoute extraction ...
 Initializing multi-corner capacitance tables ... 
 Initializing multi-corner resistance tables ...
-PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1455.980M)
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1456.121M)
 **WARN: (IMPOPT-3668):	There are 2 nets with MSV violations, timing and DRV optimization of such nets is limited.  Please use verifyPowerDomain to analyze these further.
 
 Starting delay calculation for Setup views
@@ -3461,7 +3350,7 @@ Starting delay calculation for Setup views
 #################################################################################
 Calculate delays in BcWc mode...
 Calculate delays in BcWc mode...
-Start delay calculation (fullDC) (1 T). (MEM=1477.59)
+Start delay calculation (fullDC) (1 T). (MEM=1478.6)
 **WARN: (IMPESI-2013):	The  power  rail of instance psoI_pd_modd_1_HEADX2_HVT_85_40_9 term SLEEP of cell HEADX2_HVT from library (N/A) and library file (N/A) has zero voltage, resetting the power rail to default vdd. Check the power specification of this instance.
 **WARN: (IMPESI-2013):	The  power  rail of instance psoI_pd_modd_1_HEADX2_HVT_85_40_9 term SLEEP of cell HEADX2_HVT from library (N/A) and library file (N/A) has zero voltage, resetting the power rail to default vdd. Check the power specification of this instance.
 **WARN: (IMPESI-2013):	The  power  rail of instance psoI_pd_modd_1_HEADX2_HVT_85_40_9 term SLEEP of cell HEADX2_HVT from library (N/A) and library file (N/A) has zero voltage, resetting the power rail to default vdd. Check the power specification of this instance.
@@ -3503,9 +3392,9 @@ Start delay calculation (fullDC) (1 T). (MEM=1477.59)
 **WARN: (IMPMSMV-1810):	Net sleep_modd, driver g395/Y (cell INVX0_HVT) voltage 0.75 does not match receiver psoI_pd_modd_1_HEADX2_HVT_85_33_8/SLEEP (cell HEADX2_HVT) voltage 0 for view test_worst_scenario.
 **WARN: (IMPMSMV-1810):	Net sleep_modd, driver g395/Y (cell INVX0_HVT) voltage 0.75 does not match receiver psoI_pd_modd_1_HEADX2_HVT_85_40_9/SLEEP (cell HEADX2_HVT) voltage 0 for view test_worst_scenario.
 Total number of fetched objects 191
-End delay calculation. (MEM=1554.09 CPU=0:00:00.1 REAL=0:00:01.0)
-End delay calculation (fullDC). (MEM=1507.93 CPU=0:00:00.9 REAL=0:00:01.0)
-*** Done Building Timing Graph (cpu=0:00:01.1 real=0:00:01.0 totSessionCpu=0:02:32 mem=1508.0M)
+End delay calculation. (MEM=1555.11 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1508.95 CPU=0:00:00.9 REAL=0:00:02.0)
+*** Done Building Timing Graph (cpu=0:00:01.1 real=0:00:02.0 totSessionCpu=0:01:59 mem=1509.1M)
 
 ------------------------------------------------------------
              Initial Summary                             
@@ -3518,7 +3407,7 @@ Setup views included:
 |     Setup mode     |   all   |
 +--------------------+---------+
 |           WNS (ns):| -14.980 |
-|           TNS (ns):|-189.836 |
+|           TNS (ns):|-189.834 |
 |    Violating Paths:|   78    |
 |          All Paths:|   78    |
 +--------------------+---------+
@@ -3536,7 +3425,7 @@ Setup views included:
 
 Density: 6.882%
 ------------------------------------------------------------
-**optDesign ... cpu = 0:00:05, real = 0:00:05, mem = 1264.7M, totSessionCpu=0:02:32 **
+**optDesign ... cpu = 0:00:05, real = 0:00:05, mem = 1268.5M, totSessionCpu=0:01:59 **
 ** INFO : this run is activating medium effort placeOptDesign flow
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
@@ -3548,9 +3437,9 @@ Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
-*** Starting optimizing excluded clock nets MEM= 1509.7M) ***
+*** Starting optimizing excluded clock nets MEM= 1510.8M) ***
 *info: No excluded clock nets to be optimized.
-*** Finished optimizing excluded clock nets (CPU Time= 0:00:00.0  MEM= 1509.9M) ***
+*** Finished optimizing excluded clock nets (CPU Time= 0:00:00.0  MEM= 1510.9M) ***
 The useful skew maximum allowed delay is: 0.16
 
 Optimization is working on the following views:
@@ -3559,7 +3448,7 @@ Optimization is working on the following views:
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** AreaOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:32.7/0:06:09.7 (0.4), mem = 1507.1M
+*** AreaOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:01:59.4/0:03:43.8 (0.5), mem = 1507.6M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -3590,25 +3479,25 @@ Netlist preparation processing...
 Removed 3 instances
 *info: Marking 6 isolation instances dont touch
 *info: Marking 14 level shifter instances dont touch
-*** AreaOpt [finish] : cpu/real = 0:00:03.0/0:00:03.0 (1.0), totSession cpu/real = 0:02:35.6/0:06:12.7 (0.4), mem = 1593.8M
+*** AreaOpt [finish] : cpu/real = 0:00:03.0/0:00:03.1 (1.0), totSession cpu/real = 0:02:02.4/0:03:46.9 (0.5), mem = 1594.9M
 **INFO: Always on buffers available for drv fixing
 Begin: GigaOpt high fanout net optimization
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:35.9/0:06:12.9 (0.4), mem = 1587.9M
+*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:02.7/0:03:47.1 (0.5), mem = 1588.8M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
-*** DrvOpt [finish] : cpu/real = 0:00:03.8/0:00:03.8 (1.0), totSession cpu/real = 0:02:39.7/0:06:16.7 (0.4), mem = 1594.4M
+*** DrvOpt [finish] : cpu/real = 0:00:03.5/0:00:03.5 (1.0), totSession cpu/real = 0:02:06.2/0:03:50.7 (0.5), mem = 1595.4M
 End: GigaOpt high fanout net optimization
 Begin: GigaOpt DRV Optimization
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:39.7/0:06:16.7 (0.4), mem = 1594.4M
+*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:06.2/0:03:50.7 (0.5), mem = 1595.4M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -3620,8 +3509,8 @@ Ignoring the OffRegion constraint modD_inst.
 | nets | terms|  wViol  | nets | terms|  wViol  | nets | terms| nets | terms|   WNS   |   TNS   |  #Buf  |  #Inv  | #Resize|Density|   Real   |   Mem   |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 |    29|    39|    -1.26|    14|    14|    -0.02|     0|     0|     0|     0|   -14.85|  -185.75|       0|       0|       0|   6.51|          |         |
-|    16|    23|    -1.17|     0|     0|     0.00|     0|     0|     0|     0|   -14.67|  -174.42|      10|       0|       9|   6.94| 0:00:01.0|  1675.8M|
-|    16|    23|    -1.17|     0|     0|     0.00|     0|     0|     0|     0|   -14.67|  -174.43|       1|       0|       0|   6.96| 0:00:00.0|  1676.0M|
+|    16|    23|    -1.17|     0|     0|     0.00|     0|     0|     0|     0|   -14.67|  -174.42|      10|       0|       9|   6.94| 0:00:00.0|  1676.9M|
+|    16|    23|    -1.17|     0|     0|     0.00|     0|     0|     0|     0|   -14.67|  -174.43|       1|       0|       0|   6.96| 0:00:00.0|  1677.1M|
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 **** Begin NDR-Layer Usage Statistics ****
 0 Ndr or Layer constraints added by optimization 
@@ -3636,11 +3525,11 @@ Ignoring the OffRegion constraint modD_inst.
 *info: Total 1 net(s) were new nets created by previous iteration of DRV buffering. Further DRV fixing might remove some violations.
 
 
-*** Finish DRV Fixing (cpu=0:00:00.5 real=0:00:01.0 mem=1676.0M) ***
+*** Finish DRV Fixing (cpu=0:00:00.5 real=0:00:00.0 mem=1677.1M) ***
 
-*** DrvOpt [finish] : cpu/real = 0:00:03.2/0:00:03.2 (1.0), totSession cpu/real = 0:02:42.9/0:06:20.0 (0.4), mem = 1603.4M
+*** DrvOpt [finish] : cpu/real = 0:00:03.5/0:00:03.5 (1.0), totSession cpu/real = 0:02:09.7/0:03:54.1 (0.6), mem = 1604.4M
 End: GigaOpt DRV Optimization
-**optDesign ... cpu = 0:00:15, real = 0:00:16, mem = 1355.8M, totSessionCpu=0:02:43 **
+**optDesign ... cpu = 0:00:16, real = 0:00:16, mem = 1359.6M, totSessionCpu=0:02:10 **
 
 Active setup views:
  func_worst_scenario
@@ -3652,7 +3541,7 @@ Begin: GigaOpt Global Optimization
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:42.9/0:06:20.0 (0.4), mem = 1599.4M
+*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:09.7/0:03:54.2 (0.6), mem = 1600.4M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -3667,38 +3556,38 @@ Ignoring the OffRegion constraint modD_inst.
 +--------+--------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   |  TNS   | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+--------+----------+------------+--------+-------------------+---------+------------------------+
-| -14.665|-174.429|     6.96%|   0:00:00.0| 1651.5M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
-| -14.667|-164.633|     6.98%|   0:00:01.0| 1698.9M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
-| -14.667|-164.633|     6.98%|   0:00:00.0| 1699.3M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
-| -14.667|-164.633|     6.98%|   0:00:00.0| 1699.3M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
-| -11.681| -71.633|     7.02%|   0:00:00.0| 1710.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.682| -71.704|     7.10%|   0:00:01.0| 1711.6M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.682| -71.704|     7.10%|   0:00:00.0| 1711.6M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.682| -71.704|     7.10%|   0:00:00.0| 1711.6M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.551|     7.07%|   0:00:00.0| 1711.6M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.535|     7.04%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.535|     7.04%|   0:00:01.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.535|     7.04%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.521|     7.04%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.547|     7.04%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.547|     7.04%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.547|     7.04%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.562|     7.08%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.562|     7.08%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.562|     7.08%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.562|     7.08%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.505|     7.10%|   0:00:00.0| 1711.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
-| -11.669| -57.505|     7.10%|   0:00:00.0| 1712.0M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -14.665|-174.429|     6.96%|   0:00:00.0| 1652.7M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+| -14.667|-164.633|     6.98%|   0:00:00.0| 1700.0M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+| -14.667|-164.633|     6.98%|   0:00:00.0| 1700.4M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+| -14.667|-164.633|     6.98%|   0:00:00.0| 1700.4M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+| -11.681| -71.633|     7.02%|   0:00:01.0| 1711.9M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.682| -71.704|     7.10%|   0:00:00.0| 1712.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.682| -71.704|     7.10%|   0:00:00.0| 1712.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.682| -71.704|     7.10%|   0:00:00.0| 1712.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.551|     7.07%|   0:00:00.0| 1712.7M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.535|     7.04%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.535|     7.04%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.535|     7.04%|   0:00:01.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.521|     7.04%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.547|     7.04%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.547|     7.04%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.547|     7.04%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.562|     7.08%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.562|     7.08%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.562|     7.08%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.562|     7.08%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.505|     7.10%|   0:00:00.0| 1712.8M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
+| -11.669| -57.505|     7.10%|   0:00:00.0| 1713.1M|func_worst_scenario|  default| modA_inst/RA4_reg/D    |
 +--------+--------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish pre-CTS Global Setup Fixing (cpu=0:00:03.0 real=0:00:03.0 mem=1711.2M) ***
+*** Finish pre-CTS Global Setup Fixing (cpu=0:00:02.6 real=0:00:02.0 mem=1712.3M) ***
 
-*** Finish pre-CTS Setup Fixing (cpu=0:00:03.0 real=0:00:03.0 mem=1711.2M) ***
+*** Finish pre-CTS Setup Fixing (cpu=0:00:02.6 real=0:00:02.0 mem=1712.3M) ***
 **** Begin NDR-Layer Usage Statistics ****
 0 Ndr or Layer constraints added by optimization 
 **** End NDR-Layer Usage Statistics ****
 ** GigaOpt Global Opt End WNS Slack -11.669  TNS Slack -57.505 
-*** SetupOpt [finish] : cpu/real = 0:00:08.5/0:00:08.5 (1.0), totSession cpu/real = 0:02:51.4/0:06:28.5 (0.4), mem = 1617.6M
+*** SetupOpt [finish] : cpu/real = 0:00:08.0/0:00:08.0 (1.0), totSession cpu/real = 0:02:17.8/0:04:02.2 (0.6), mem = 1618.7M
 End: GigaOpt Global Optimization
 *** Timing NOT met, worst failing slack is -11.669
 *** Check timing (0:00:00.0)
@@ -3724,9 +3613,9 @@ SKP will enable view:
 [NR-eGR] M8 has single uniform track structure
 [NR-eGR] M9 has single uniform track structure
 [NR-eGR] MRDL has single uniform track structure
-[NR-eGR] Started Read PG Shapes ( Curr Mem: 1617.79 MB )
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1618.81 MB )
 [NR-eGR] Read 254 PG shapes
-[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1617.79 MB )
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1618.81 MB )
 [NR-eGR] #Routing Blockages  : 0
 [NR-eGR] #Instance Blockages : 0
 [NR-eGR] #PG Blockages       : 254
@@ -3762,7 +3651,7 @@ SKP will enable view:
 [NR-eGR] 
 [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
 [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
-Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1618.1M
+Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1619.1M
 Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
 
 === incrementalPlace Internal Loop 1 ===
@@ -3776,23 +3665,23 @@ Ignoring the OffRegion constraint modD_inst.
 *** Finished SKP initialization (cpu=0:00:00.2, real=0:00:00.0)***
 Iteration  5: Total net bbox = 2.958e+03 (1.72e+03 1.23e+03)
               Est.  stn bbox = 3.520e+03 (2.06e+03 1.46e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1583.7M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1584.6M
 Iteration  6: Total net bbox = 2.974e+03 (1.73e+03 1.25e+03)
               Est.  stn bbox = 3.538e+03 (2.06e+03 1.48e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1583.9M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1584.8M
 Iteration  7: Total net bbox = 3.068e+03 (1.78e+03 1.29e+03)
               Est.  stn bbox = 3.635e+03 (2.12e+03 1.52e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1584.2M
+              cpu = 0:00:00.1 real = 0:00:01.0 mem = 1585.2M
 Iteration  8: Total net bbox = 3.221e+03 (1.84e+03 1.38e+03)
               Est.  stn bbox = 3.794e+03 (2.18e+03 1.62e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1584.5M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1585.4M
 Iteration  9: Total net bbox = 3.179e+03 (1.83e+03 1.35e+03)
               Est.  stn bbox = 3.749e+03 (2.16e+03 1.59e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1584.6M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1585.6M
 Move report: Timing Driven Placement moves 140 insts, mean move: 3.66 um, max move: 25.48 um
 	Max move on inst (g396__1881): (63.38, 78.58) --> (73.69, 63.41)
 
-Finished Incremental Placement (cpu=0:00:00.9, real=0:00:01.0, mem=1578.4M)
+Finished Incremental Placement (cpu=0:00:01.0, real=0:00:01.0, mem=1579.7M)
 **WARN: (IMPSP-9025):	No scan chain specified/traced.
 Type 'man IMPSP-9025' for more detail.
 Ignoring the OffRegion constraint modA_inst.
@@ -3800,7 +3689,7 @@ Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
-*** Starting refinePlace (0:02:53 mem=1584.0M) ***
+*** Starting refinePlace (0:02:20 mem=1585.3M) ***
 Total net bbox length = 3.375e+03 (1.952e+03 1.423e+03) (ext = 1.232e+03)
 **WARN: (IMPSP-7207):	Shifter 'pd_modd_iso_pg_modd_b_5_UPF_ISO' has no connections outside its power domain.
 Type 'man IMPSP-7207' for more detail.
@@ -3818,7 +3707,7 @@ Type 'man IMPSP-7207' for more detail.
 4 shifters have encountered some problem.
 Move report: Detail placement moves 140 insts, mean move: 0.60 um, max move: 6.04 um
 	Max move on inst (modA_inst/g413__6260_dup): (48.04, 43.57) --> (42.10, 43.47)
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1584.1MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1585.3MB
 Summary Report:
 Instances move: 140 (out of 156 movable)
 Instances flipped: 1
@@ -3826,8 +3715,8 @@ Mean displacement: 0.60 um
 Max displacement: 6.04 um (Instance: modA_inst/g413__6260_dup) (48.039, 43.574) -> (42.104, 43.472)
 	Length: 10 sites, height: 1 rows, site name: unit, cell type: AO22X1_HVT, constraint:Fence
 Total net bbox length = 3.304e+03 (1.870e+03 1.434e+03) (ext = 1.235e+03)
-Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1584.1MB
-*** Finished refinePlace (0:02:53 mem=1584.1M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1585.3MB
+*** Finished refinePlace (0:02:20 mem=1585.3M) ***
 [NR-eGR] Track table information for default rule: 
 [NR-eGR] M1 has no routable track
 [NR-eGR] M2 has single uniform track structure
@@ -3839,9 +3728,9 @@ Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1584.1MB
 [NR-eGR] M8 has single uniform track structure
 [NR-eGR] M9 has single uniform track structure
 [NR-eGR] MRDL has single uniform track structure
-[NR-eGR] Started Read PG Shapes ( Curr Mem: 1578.75 MB )
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1579.99 MB )
 [NR-eGR] Read 254 PG shapes
-[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1578.75 MB )
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1579.99 MB )
 [NR-eGR] #Routing Blockages  : 0
 [NR-eGR] #Instance Blockages : 0
 [NR-eGR] #PG Blockages       : 254
@@ -3877,7 +3766,7 @@ Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1584.1MB
 [NR-eGR] 
 [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
 [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
-Early Global Route congestion estimation runtime: 0.03 seconds, mem = 1579.1M
+Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1580.3M
 Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
 [NR-eGR] --------------------------------------------------------------------------
 [NR-eGR]     M1  (1F) length: 0.000000e+00um, number of vias: 520
@@ -3894,13 +3783,13 @@ Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalize
 [NR-eGR] --------------------------------------------------------------------------
 [NR-eGR] Total eGR-routed clock nets wire length: 2.740560e+02um 
 [NR-eGR] --------------------------------------------------------------------------
-Early Global Route wiring runtime: 0.01 seconds, mem = 1576.6M
+Early Global Route wiring runtime: 0.01 seconds, mem = 1577.7M
 0 delay mode for cte disabled.
 
-*** Finished incrementalPlace (cpu=0:00:01.3, real=0:00:01.0)***
+*** Finished incrementalPlace (cpu=0:00:01.4, real=0:00:01.0)***
 Start to check current routing status for nets...
 All nets are already routed correctly.
-End to check current routing status for nets (mem=1574.9M)
+End to check current routing status for nets (mem=1576.0M)
 Extraction called for design 'mv_lp_top' of instances=196 and nets=209 using extraction engine 'preRoute' .
 **WARN: (IMPEXT-3530):	The process node is not set. Use the command setDesignMode -process <process node> prior to extraction for maximum accuracy and optimal automatic threshold setting.
 Type 'man IMPEXT-3530' for more detail.
@@ -3918,9 +3807,9 @@ Using capacitance table file ...
 Updating RC grid for preRoute extraction ...
 Initializing multi-corner capacitance tables ... 
 Initializing multi-corner resistance tables ...
-PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1574.859M)
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1575.961M)
 Compute RC Scale Done ...
-**optDesign ... cpu = 0:00:26, real = 0:00:26, mem = 1322.0M, totSessionCpu=0:02:53 **
+**optDesign ... cpu = 0:00:26, real = 0:00:26, mem = 1325.8M, totSessionCpu=0:02:20 **
 #################################################################################
 # Design Stage: PreRoute
 # Design Name: mv_lp_top
@@ -3930,18 +3819,18 @@ Compute RC Scale Done ...
 # Signoff Settings: SI Off 
 #################################################################################
 Calculate delays in BcWc mode...
-Start delay calculation (fullDC) (1 T). (MEM=1585.52)
+Start delay calculation (fullDC) (1 T). (MEM=1586.62)
 **WARN: (EMS-27):	Message (IMPMSMV-1810) has exceeded the current message display limit of 20.
 To increase the message display limit, refer to the product command reference manual.
 Total number of fetched objects 202
-End delay calculation. (MEM=1605.31 CPU=0:00:00.1 REAL=0:00:00.0)
-End delay calculation (fullDC). (MEM=1605.31 CPU=0:00:00.4 REAL=0:00:01.0)
+End delay calculation. (MEM=1606.4 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1606.4 CPU=0:00:00.4 REAL=0:00:01.0)
 **INFO: Always on buffers available for drv fixing
 Begin: GigaOpt DRV Optimization
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:53.9/0:06:31.0 (0.4), mem = 1605.4M
+*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:20.4/0:04:04.9 (0.6), mem = 1606.5M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -3953,9 +3842,9 @@ Ignoring the OffRegion constraint modD_inst.
 | nets | terms|  wViol  | nets | terms|  wViol  | nets | terms| nets | terms|   WNS   |   TNS   |  #Buf  |  #Inv  | #Resize|Density|   Real   |   Mem   |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 |    15|    22|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.68|   -57.43|       0|       0|       0|   7.10|          |         |
-|    13|    17|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.65|   -57.68|       2|       4|       3|   7.45| 0:00:00.0|  1696.2M|
-|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.65|   -57.68|       0|       0|       1|   7.52| 0:00:00.0|  1696.3M|
-|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.65|   -57.68|       0|       0|       0|   7.52| 0:00:00.0|  1696.1M|
+|    13|    17|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.65|   -57.68|       2|       4|       3|   7.45| 0:00:00.0|  1697.5M|
+|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.65|   -57.68|       0|       0|       1|   7.52| 0:00:00.0|  1697.6M|
+|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.65|   -57.68|       0|       0|       0|   7.52| 0:00:00.0|  1697.4M|
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 **** Begin NDR-Layer Usage Statistics ****
 0 Ndr or Layer constraints added by optimization 
@@ -3973,18 +3862,18 @@ MultiBuffering failure reasons
 *info:     2 net(s): Could not be fixed because buffering engine can't find a solution.
 
 
-*** Finish DRV Fixing (cpu=0:00:00.6 real=0:00:00.0 mem=1696.1M) ***
+*** Finish DRV Fixing (cpu=0:00:00.5 real=0:00:00.0 mem=1697.4M) ***
 
-*** DrvOpt [finish] : cpu/real = 0:00:04.4/0:00:04.4 (1.0), totSession cpu/real = 0:02:58.3/0:06:35.4 (0.5), mem = 1624.5M
+*** DrvOpt [finish] : cpu/real = 0:00:04.2/0:00:04.2 (1.0), totSession cpu/real = 0:02:24.6/0:04:09.1 (0.6), mem = 1625.4M
 End: GigaOpt DRV Optimization
-**optDesign ... cpu = 0:00:31, real = 0:00:31, mem = 1372.2M, totSessionCpu=0:02:58 **
+**optDesign ... cpu = 0:00:31, real = 0:00:31, mem = 1375.9M, totSessionCpu=0:02:25 **
 *** Timing NOT met, worst failing slack is -11.653
 *** Check timing (0:00:00.0)
 Begin: GigaOpt Optimization in TNS mode
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:58.4/0:06:35.4 (0.5), mem = 1620.4M
+*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:24.7/0:04:09.2 (0.6), mem = 1621.4M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -4010,25 +3899,25 @@ Active Path Group: reg2reg
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-| -11.653|  -11.653| -41.395|  -57.685|     7.52%|   0:00:00.0| 1670.8M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/D    |
-| -11.642|  -11.642| -39.902|  -56.193|     7.47%|   0:00:00.0| 1718.5M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
-| -11.642|  -11.642| -39.873|  -56.193|     7.45%|   0:00:00.0| 1718.5M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
-| -11.642|  -11.642| -39.858|  -56.178|     7.46%|   0:00:00.0| 1718.5M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
-| -11.642|  -11.642| -39.503|  -55.822|     7.46%|   0:00:00.0| 1718.7M|func_worst_scenario|  reg2reg| modC_inst/RC4_reg/D    |
-| -11.642|  -11.642| -39.246|  -55.337|     7.46%|   0:00:01.0| 1718.7M|func_worst_scenario|  reg2reg| modD_inst/W_reg/D      |
-| -11.642|  -11.642| -38.930|  -55.146|     7.46%|   0:00:00.0| 1718.7M|func_worst_scenario|  reg2reg| modD_inst/D2C_reg/SE   |
-| -11.642|  -11.642| -38.901|  -55.176|     7.50%|   0:00:00.0| 1718.8M|func_worst_scenario|  reg2reg| modD_inst/D2A_reg/D    |
-| -11.642|  -11.642| -38.897|  -55.176|     7.50%|   0:00:00.0| 1718.8M|func_worst_scenario|  reg2reg| modD_inst/D2A_reg/D    |
-| -11.642|  -11.642| -38.880|  -55.176|     7.55%|   0:00:00.0| 1718.9M|func_worst_scenario|  reg2reg| modD_inst/D2A_reg/D    |
-| -11.642|  -11.642| -38.876|  -55.175|     7.54%|   0:00:00.0| 1719.0M|func_worst_scenario|  reg2reg| modB_inst/B2D_reg/SE   |
-| -11.642|  -11.642| -38.810|  -55.110|     7.54%|   0:00:00.0| 1719.0M|func_worst_scenario|  reg2reg| modD_inst/RD4_reg/SE   |
-| -11.642|  -11.642| -38.808|  -55.108|     7.57%|   0:00:00.0| 1719.0M|                 NA|       NA| NA                     |
-| -11.642|  -11.642| -38.808|  -55.108|     7.57%|   0:00:00.0| 1718.2M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.653|  -11.653| -41.395|  -57.685|     7.52%|   0:00:00.0| 1672.1M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/D    |
+| -11.642|  -11.642| -39.902|  -56.193|     7.47%|   0:00:00.0| 1719.8M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
+| -11.642|  -11.642| -39.873|  -56.193|     7.45%|   0:00:00.0| 1719.8M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
+| -11.642|  -11.642| -39.858|  -56.178|     7.46%|   0:00:00.0| 1719.8M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
+| -11.642|  -11.642| -39.503|  -55.822|     7.46%|   0:00:00.0| 1720.0M|func_worst_scenario|  reg2reg| modC_inst/RC4_reg/D    |
+| -11.642|  -11.642| -39.246|  -55.337|     7.46%|   0:00:00.0| 1720.0M|func_worst_scenario|  reg2reg| modD_inst/W_reg/D      |
+| -11.642|  -11.642| -38.930|  -55.146|     7.46%|   0:00:00.0| 1720.0M|func_worst_scenario|  reg2reg| modD_inst/D2C_reg/SE   |
+| -11.642|  -11.642| -38.901|  -55.176|     7.50%|   0:00:00.0| 1720.0M|func_worst_scenario|  reg2reg| modD_inst/D2A_reg/D    |
+| -11.642|  -11.642| -38.897|  -55.176|     7.50%|   0:00:01.0| 1720.0M|func_worst_scenario|  reg2reg| modD_inst/D2A_reg/D    |
+| -11.642|  -11.642| -38.880|  -55.176|     7.55%|   0:00:00.0| 1720.1M|func_worst_scenario|  reg2reg| modD_inst/D2A_reg/D    |
+| -11.642|  -11.642| -38.876|  -55.175|     7.54%|   0:00:00.0| 1720.2M|func_worst_scenario|  reg2reg| modB_inst/B2D_reg/SE   |
+| -11.642|  -11.642| -38.810|  -55.110|     7.54%|   0:00:00.0| 1720.2M|func_worst_scenario|  reg2reg| modD_inst/RD4_reg/SE   |
+| -11.642|  -11.642| -38.808|  -55.108|     7.57%|   0:00:00.0| 1720.2M|                 NA|       NA| NA                     |
+| -11.642|  -11.642| -38.808|  -55.108|     7.57%|   0:00:00.0| 1719.4M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:01.2 real=0:00:01.0 mem=1718.2M) ***
+*** Finish Core Optimize Step (cpu=0:00:01.2 real=0:00:01.0 mem=1719.4M) ***
 
-*** Finished Optimize Step Cumulative (cpu=0:00:01.2 real=0:00:01.0 mem=1718.2M) ***
+*** Finished Optimize Step Cumulative (cpu=0:00:01.2 real=0:00:01.0 mem=1719.4M) ***
 OptDebug: End of Optimizer TNS Pass:
 +----------+-------+-------+
 |Path Group|    WNS|    TNS|
@@ -4055,9 +3944,9 @@ OptDebug: End of Setup Fixing:
 0 Ndr or Layer constraints added by optimization 
 **** End NDR-Layer Usage Statistics ****
 
-*** Finish pre-CTS Setup Fixing (cpu=0:00:01.3 real=0:00:01.0 mem=1718.2M) ***
+*** Finish pre-CTS Setup Fixing (cpu=0:00:01.3 real=0:00:01.0 mem=1719.4M) ***
 
-*** SetupOpt [finish] : cpu/real = 0:00:06.8/0:00:06.8 (1.0), totSession cpu/real = 0:03:05.2/0:06:42.3 (0.5), mem = 1629.6M
+*** SetupOpt [finish] : cpu/real = 0:00:06.6/0:00:06.6 (1.0), totSession cpu/real = 0:02:31.3/0:04:15.8 (0.6), mem = 1629.9M
 End: GigaOpt Optimization in TNS mode
 
 
@@ -4077,9 +3966,9 @@ SKP will enable view:
 [NR-eGR] M8 has single uniform track structure
 [NR-eGR] M9 has single uniform track structure
 [NR-eGR] MRDL has single uniform track structure
-[NR-eGR] Started Read PG Shapes ( Curr Mem: 1629.15 MB )
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1629.49 MB )
 [NR-eGR] Read 254 PG shapes
-[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1629.15 MB )
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1629.49 MB )
 [NR-eGR] #Routing Blockages  : 0
 [NR-eGR] #Instance Blockages : 0
 [NR-eGR] #PG Blockages       : 254
@@ -4115,7 +4004,7 @@ SKP will enable view:
 [NR-eGR] 
 [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
 [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
-Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1629.4M
+Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1629.8M
 Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
 
 === incrementalPlace Internal Loop 1 ===
@@ -4126,32 +4015,32 @@ Ignoring the OffRegion constraint modD_inst.
 
 
 
-*** Finished SKP initialization (cpu=0:00:00.2, real=0:00:00.0)***
+*** Finished SKP initialization (cpu=0:00:00.2, real=0:00:01.0)***
 Iteration  5: Total net bbox = 2.996e+03 (1.73e+03 1.26e+03)
               Est.  stn bbox = 3.558e+03 (2.06e+03 1.49e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1595.0M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1595.4M
 Iteration  6: Total net bbox = 2.989e+03 (1.73e+03 1.26e+03)
               Est.  stn bbox = 3.554e+03 (2.06e+03 1.49e+03)
-              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1595.2M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1595.5M
 Iteration  7: Total net bbox = 3.051e+03 (1.76e+03 1.30e+03)
               Est.  stn bbox = 3.615e+03 (2.09e+03 1.52e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1595.5M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1595.9M
 Iteration  8: Total net bbox = 3.249e+03 (1.85e+03 1.40e+03)
               Est.  stn bbox = 3.817e+03 (2.18e+03 1.64e+03)
-              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1595.7M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1596.0M
 Iteration  9: Total net bbox = 3.224e+03 (1.84e+03 1.39e+03)
               Est.  stn bbox = 3.789e+03 (2.17e+03 1.62e+03)
-              cpu = 0:00:00.2 real = 0:00:01.0 mem = 1595.8M
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1596.2M
 Move report: Timing Driven Placement moves 149 insts, mean move: 2.41 um, max move: 12.14 um
 	Max move on inst (modA_inst/FE_OFC37_n_24): (48.94, 45.14) --> (38.84, 43.11)
 
-Finished Incremental Placement (cpu=0:00:00.9, real=0:00:01.0, mem=1594.1M)
+Finished Incremental Placement (cpu=0:00:00.9, real=0:00:01.0, mem=1590.0M)
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
-*** Starting refinePlace (0:03:07 mem=1594.3M) ***
+*** Starting refinePlace (0:02:33 mem=1590.3M) ***
 Total net bbox length = 3.434e+03 (1.977e+03 1.456e+03) (ext = 1.227e+03)
 **WARN: (IMPSP-7207):	Shifter 'pd_modd_ls_modd2modb_10_UPF_LS' has no connections outside its power domain.
 Type 'man IMPSP-7207' for more detail.
@@ -4173,7 +4062,7 @@ Type 'man IMPSP-7207' for more detail.
 4 shifters have encountered some problem.
 Move report: Detail placement moves 149 insts, mean move: 0.59 um, max move: 5.87 um
 	Max move on inst (modA_inst/FE_OFC44_n_30): (42.57, 46.92) --> (48.34, 46.82)
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1594.4MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1590.4MB
 Summary Report:
 Instances move: 149 (out of 165 movable)
 Instances flipped: 0
@@ -4181,8 +4070,8 @@ Mean displacement: 0.59 um
 Max displacement: 5.87 um (Instance: modA_inst/FE_OFC44_n_30) (42.571, 46.919) -> (48.336, 46.816)
 	Length: 8 sites, height: 1 rows, site name: unit, cell type: NBUFFX2_LVT, constraint:Fence
 Total net bbox length = 3.352e+03 (1.883e+03 1.469e+03) (ext = 1.242e+03)
-Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1594.4MB
-*** Finished refinePlace (0:03:07 mem=1594.4M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1590.4MB
+*** Finished refinePlace (0:02:33 mem=1590.4M) ***
 [NR-eGR] Track table information for default rule: 
 [NR-eGR] M1 has no routable track
 [NR-eGR] M2 has single uniform track structure
@@ -4194,9 +4083,9 @@ Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1594.4MB
 [NR-eGR] M8 has single uniform track structure
 [NR-eGR] M9 has single uniform track structure
 [NR-eGR] MRDL has single uniform track structure
-[NR-eGR] Started Read PG Shapes ( Curr Mem: 1594.45 MB )
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1590.39 MB )
 [NR-eGR] Read 254 PG shapes
-[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1594.45 MB )
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1590.39 MB )
 [NR-eGR] #Routing Blockages  : 0
 [NR-eGR] #Instance Blockages : 0
 [NR-eGR] #PG Blockages       : 254
@@ -4232,7 +4121,7 @@ Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1594.4MB
 [NR-eGR] 
 [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
 [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
-Early Global Route congestion estimation runtime: 0.03 seconds, mem = 1594.5M
+Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1590.7M
 Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
 [NR-eGR] --------------------------------------------------------------------------
 [NR-eGR]     M1  (1F) length: 0.000000e+00um, number of vias: 538
@@ -4249,13 +4138,13 @@ Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalize
 [NR-eGR] --------------------------------------------------------------------------
 [NR-eGR] Total eGR-routed clock nets wire length: 2.710160e+02um 
 [NR-eGR] --------------------------------------------------------------------------
-Early Global Route wiring runtime: 0.02 seconds, mem = 1588.7M
+Early Global Route wiring runtime: 0.01 seconds, mem = 1587.8M
 0 delay mode for cte disabled.
 
-*** Finished incrementalPlace (cpu=0:00:01.4, real=0:00:02.0)***
+*** Finished incrementalPlace (cpu=0:00:01.3, real=0:00:01.0)***
 Start to check current routing status for nets...
 All nets are already routed correctly.
-End to check current routing status for nets (mem=1586.9M)
+End to check current routing status for nets (mem=1586.0M)
 Extraction called for design 'mv_lp_top' of instances=205 and nets=218 using extraction engine 'preRoute' .
 **WARN: (IMPEXT-3530):	The process node is not set. Use the command setDesignMode -process <process node> prior to extraction for maximum accuracy and optimal automatic threshold setting.
 Type 'man IMPEXT-3530' for more detail.
@@ -4273,9 +4162,9 @@ Using capacitance table file ...
 Updating RC grid for preRoute extraction ...
 Initializing multi-corner capacitance tables ... 
 Initializing multi-corner resistance tables ...
-PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1586.930M)
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1586.023M)
 Compute RC Scale Done ...
-**optDesign ... cpu = 0:00:39, real = 0:00:40, mem = 1335.6M, totSessionCpu=0:03:07 **
+**optDesign ... cpu = 0:00:39, real = 0:00:40, mem = 1337.5M, totSessionCpu=0:02:33 **
 #################################################################################
 # Design Stage: PreRoute
 # Design Name: mv_lp_top
@@ -4285,16 +4174,16 @@ Compute RC Scale Done ...
 # Signoff Settings: SI Off 
 #################################################################################
 Calculate delays in BcWc mode...
-Start delay calculation (fullDC) (1 T). (MEM=1599.62)
+Start delay calculation (fullDC) (1 T). (MEM=1598.72)
 Total number of fetched objects 211
-End delay calculation. (MEM=1619.48 CPU=0:00:00.1 REAL=0:00:00.0)
-End delay calculation (fullDC). (MEM=1619.48 CPU=0:00:00.4 REAL=0:00:00.0)
+End delay calculation. (MEM=1618.57 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1618.57 CPU=0:00:00.4 REAL=0:00:00.0)
 **INFO: Always on buffers available for drv fixing
 Begin: GigaOpt DRV Optimization
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:03:07.7/0:06:44.8 (0.5), mem = 1617.5M
+*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:33.7/0:04:18.2 (0.6), mem = 1616.6M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -4306,8 +4195,8 @@ Ignoring the OffRegion constraint modD_inst.
 | nets | terms|  wViol  | nets | terms|  wViol  | nets | terms| nets | terms|   WNS   |   TNS   |  #Buf  |  #Inv  | #Resize|Density|   Real   |   Mem   |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 |    13|    17|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.66|   -55.35|       0|       0|       0|   7.57|          |         |
-|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.66|   -55.89|       0|       0|       1|   7.57| 0:00:00.0|  1697.4M|
-|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.66|   -55.89|       0|       0|       0|   7.57| 0:00:01.0|  1698.0M|
+|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.66|   -55.89|       0|       0|       1|   7.57| 0:00:00.0|  1698.8M|
+|    12|    16|    -1.18|     0|     0|     0.00|     0|     0|     0|     0|   -11.66|   -55.89|       0|       0|       0|   7.57| 0:00:00.0|  1699.2M|
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 **** Begin NDR-Layer Usage Statistics ****
 0 Ndr or Layer constraints added by optimization 
@@ -4325,33 +4214,33 @@ MultiBuffering failure reasons
 *info:     1 net(s): Could not be fixed because buffering engine can't find a solution.
 
 
-*** Finish DRV Fixing (cpu=0:00:00.4 real=0:00:01.0 mem=1698.0M) ***
+*** Finish DRV Fixing (cpu=0:00:00.3 real=0:00:00.0 mem=1699.2M) ***
 
 
-*** Starting refinePlace (0:03:12 mem=1714.9M) ***
+*** Starting refinePlace (0:02:38 mem=1716.0M) ***
 Total net bbox length = 3.352e+03 (1.883e+03 1.469e+03) (ext = 1.242e+03)
 Move report: Detail placement moves 0 insts, mean move: 0.00 um, max move: 0.00 um
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1715.1MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1716.0MB
 Summary Report:
 Instances move: 0 (out of 165 movable)
 Instances flipped: 0
 Mean displacement: 0.00 um
 Max displacement: 0.00 um 
 Total net bbox length = 3.352e+03 (1.883e+03 1.469e+03) (ext = 1.242e+03)
-Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1715.1MB
-*** Finished refinePlace (0:03:12 mem=1715.1M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1716.0MB
+*** Finished refinePlace (0:02:38 mem=1716.0M) ***
 *** maximum move = 0.00 um ***
-*** Finished re-routing un-routed nets (1715.1M) ***
+*** Finished re-routing un-routed nets (1716.0M) ***
 
 
-*** Finish Physical Update (cpu=0:00:00.3 real=0:00:00.0 mem=1715.1M) ***
-*** DrvOpt [finish] : cpu/real = 0:00:04.4/0:00:04.4 (1.0), totSession cpu/real = 0:03:12.1/0:06:49.2 (0.5), mem = 1630.0M
+*** Finish Physical Update (cpu=0:00:00.4 real=0:00:01.0 mem=1716.0M) ***
+*** DrvOpt [finish] : cpu/real = 0:00:04.3/0:00:04.3 (1.0), totSession cpu/real = 0:02:38.0/0:04:22.5 (0.6), mem = 1630.9M
 End: GigaOpt DRV Optimization
 **WARN: (IMPOPT-3668):	There are 2 nets with MSV violations, timing and DRV optimization of such nets is limited.  Please use verifyPowerDomain to analyze these further.
 
 
 ------------------------------------------------------------
-     Summary (cpu=0.07min real=0.07min mem=1630.0M)                             
+     Summary (cpu=0.07min real=0.08min mem=1630.9M)                             
 ------------------------------------------------------------
 
 Setup views included:
@@ -4380,14 +4269,14 @@ Setup views included:
 Density: 7.572%
 Routing Overflow: 0.00% H and 0.00% V
 ------------------------------------------------------------
-**optDesign ... cpu = 0:00:45, real = 0:00:45, mem = 1377.0M, totSessionCpu=0:03:12 **
+**optDesign ... cpu = 0:00:44, real = 0:00:45, mem = 1380.8M, totSessionCpu=0:02:38 **
 *** Timing NOT met, worst failing slack is -11.659
 *** Check timing (0:00:00.0)
 Begin: GigaOpt Optimization in WNS mode
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:03:12.3/0:06:49.4 (0.5), mem = 1626.0M
+*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:38.2/0:04:22.7 (0.6), mem = 1626.9M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -4413,22 +4302,22 @@ Active Path Group: reg2reg
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-| -11.659|  -11.659| -39.545|  -55.887|     7.57%|   0:00:00.0| 1677.7M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
-| -11.596|  -11.596| -39.411|  -55.747|     7.61%|   0:00:01.0| 1726.9M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.659|  -11.659| -39.545|  -55.887|     7.57%|   0:00:00.0| 1678.8M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.596|  -11.596| -39.411|  -55.747|     7.61%|   0:00:01.0| 1728.0M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:00.9 real=0:00:01.0 mem=1726.9M) ***
+*** Finish Core Optimize Step (cpu=0:00:00.9 real=0:00:01.0 mem=1728.0M) ***
 Active Path Group: default 
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-|  -9.420|  -11.596| -48.404|  -55.747|     7.61%|   0:00:00.0| 1726.9M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
-|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:03.0| 1728.3M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+|  -9.420|  -11.596| -48.404|  -55.747|     7.61%|   0:00:00.0| 1728.0M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:03.0| 1729.4M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:03.6 real=0:00:03.0 mem=1728.3M) ***
+*** Finish Core Optimize Step (cpu=0:00:03.2 real=0:00:03.0 mem=1729.4M) ***
 
-*** Finished Optimize Step Cumulative (cpu=0:00:04.5 real=0:00:04.0 mem=1728.3M) ***
+*** Finished Optimize Step Cumulative (cpu=0:00:04.1 real=0:00:04.0 mem=1729.4M) ***
 OptDebug: End of Optimizer WNS Pass 0:
 +----------+-------+-------+
 |Path Group|    WNS|    TNS|
@@ -4441,11 +4330,11 @@ OptDebug: End of Optimizer WNS Pass 0:
 
 ** GigaOpt Optimizer WNS Slack -11.596 TNS Slack -56.785 Density 7.75
 
-*** Starting refinePlace (0:03:22 mem=1729.1M) ***
+*** Starting refinePlace (0:02:48 mem=1730.2M) ***
 Total net bbox length = 3.403e+03 (1.929e+03 1.475e+03) (ext = 1.216e+03)
 Move report: Detail placement moves 20 insts, mean move: 1.48 um, max move: 3.34 um
 	Max move on inst (modA_inst/g420__4319): (41.34, 41.80) --> (43.02, 43.47)
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1729.4MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1730.5MB
 Summary Report:
 Instances move: 20 (out of 170 movable)
 Instances flipped: 0
@@ -4453,13 +4342,13 @@ Mean displacement: 1.48 um
 Max displacement: 3.34 um (Instance: modA_inst/g420__4319) (41.344, 41.8) -> (43.016, 43.472)
 	Length: 24 sites, height: 1 rows, site name: unit, cell type: DEC24X1_LVT, constraint:Fence
 Total net bbox length = 3.417e+03 (1.937e+03 1.480e+03) (ext = 1.217e+03)
-Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1729.4MB
-*** Finished refinePlace (0:03:23 mem=1729.4M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1730.5MB
+*** Finished refinePlace (0:02:48 mem=1730.5M) ***
 *** maximum move = 3.34 um ***
-*** Finished re-routing un-routed nets (1729.4M) ***
+*** Finished re-routing un-routed nets (1730.5M) ***
 
 
-*** Finish Physical Update (cpu=0:00:00.3 real=0:00:01.0 mem=1729.4M) ***
+*** Finish Physical Update (cpu=0:00:00.4 real=0:00:01.0 mem=1730.5M) ***
 ** GigaOpt Optimizer WNS Slack -11.596 TNS Slack -56.785 Density 7.75
 OptDebug: Start of Optimizer WNS Pass 1:
 +----------+-------+-------+
@@ -4475,22 +4364,22 @@ Active Path Group: reg2reg
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1729.7M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
-| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1729.7M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1730.8M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1730.8M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:00.4 real=0:00:00.0 mem=1729.7M) ***
+*** Finish Core Optimize Step (cpu=0:00:00.4 real=0:00:00.0 mem=1730.8M) ***
 Active Path Group: default 
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:00.0| 1729.7M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
-|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:01.0| 1729.7M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:00.0| 1730.8M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:01.0| 1730.8M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:01.3 real=0:00:01.0 mem=1729.7M) ***
+*** Finish Core Optimize Step (cpu=0:00:01.0 real=0:00:01.0 mem=1730.8M) ***
 
-*** Finished Optimize Step Cumulative (cpu=0:00:01.7 real=0:00:01.0 mem=1729.7M) ***
+*** Finished Optimize Step Cumulative (cpu=0:00:01.4 real=0:00:01.0 mem=1730.8M) ***
 OptDebug: End of Optimizer WNS Pass 1:
 +----------+-------+-------+
 |Path Group|    WNS|    TNS|
@@ -4515,25 +4404,25 @@ Active Path Group: reg2reg
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:01.0| 1730.8M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1731.9M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
 Analyzing useful skew in preCTS mode ...
 The view delay ratios are: (test_worst_scenario 1) (func_worst_scenario 1) (test_best_scenario 0.199341) (func_best_scenario 0.199341)
-| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1738.6M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1739.7M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:00.5 real=0:00:01.0 mem=1738.6M) ***
+*** Finish Core Optimize Step (cpu=0:00:00.5 real=0:00:00.0 mem=1739.7M) ***
 Active Path Group: default 
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:00.0| 1738.6M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:00.0| 1739.7M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
 Analyzing useful skew in preCTS mode ...
-|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:01.0| 1738.6M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
+|  -9.397|  -11.596| -49.518|  -56.785|     7.75%|   0:00:01.0| 1739.7M|func_worst_scenario|  default| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:01.3 real=0:00:01.0 mem=1738.6M) ***
+*** Finish Core Optimize Step (cpu=0:00:01.2 real=0:00:01.0 mem=1739.7M) ***
 
-*** Finished Optimize Step Cumulative (cpu=0:00:01.8 real=0:00:02.0 mem=1738.6M) ***
+*** Finished Optimize Step Cumulative (cpu=0:00:01.7 real=0:00:01.0 mem=1739.7M) ***
 OptDebug: End of Optimizer WNS Pass 2:
 +----------+-------+-------+
 |Path Group|    WNS|    TNS|
@@ -4546,23 +4435,23 @@ OptDebug: End of Optimizer WNS Pass 2:
 
 ** GigaOpt Optimizer WNS Slack -11.596 TNS Slack -56.785 Density 7.75
 
-*** Starting refinePlace (0:03:27 mem=1735.2M) ***
+*** Starting refinePlace (0:02:52 mem=1736.2M) ***
 Total net bbox length = 3.417e+03 (1.937e+03 1.480e+03) (ext = 1.217e+03)
 Move report: Detail placement moves 0 insts, mean move: 0.00 um, max move: 0.00 um
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1735.5MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1736.4MB
 Summary Report:
 Instances move: 0 (out of 170 movable)
 Instances flipped: 9
 Mean displacement: 0.00 um
 Max displacement: 0.00 um 
 Total net bbox length = 3.420e+03 (1.937e+03 1.483e+03) (ext = 1.217e+03)
-Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1735.5MB
-*** Finished refinePlace (0:03:27 mem=1735.5M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1736.4MB
+*** Finished refinePlace (0:02:52 mem=1736.4M) ***
 *** maximum move = 0.00 um ***
-*** Finished re-routing un-routed nets (1735.5M) ***
+*** Finished re-routing un-routed nets (1736.4M) ***
 
 
-*** Finish Physical Update (cpu=0:00:00.3 real=0:00:01.0 mem=1735.5M) ***
+*** Finish Physical Update (cpu=0:00:00.4 real=0:00:01.0 mem=1736.4M) ***
 ** GigaOpt Optimizer WNS Slack -11.596 TNS Slack -56.785 Density 7.75
 OptDebug: End of Setup Fixing:
 +----------+-------+-------+
@@ -4578,9 +4467,9 @@ OptDebug: End of Setup Fixing:
 0 Ndr or Layer constraints added by optimization 
 **** End NDR-Layer Usage Statistics ****
 
-*** Finish pre-CTS Setup Fixing (cpu=0:00:09.0 real=0:00:09.0 mem=1734.7M) ***
+*** Finish pre-CTS Setup Fixing (cpu=0:00:08.3 real=0:00:09.0 mem=1735.6M) ***
 
-*** SetupOpt [finish] : cpu/real = 0:00:14.4/0:00:14.4 (1.0), totSession cpu/real = 0:03:26.7/0:07:03.8 (0.5), mem = 1641.4M
+*** SetupOpt [finish] : cpu/real = 0:00:13.8/0:00:13.8 (1.0), totSession cpu/real = 0:02:52.0/0:04:36.5 (0.6), mem = 1637.3M
 End: GigaOpt Optimization in WNS mode
 *** Timing NOT met, worst failing slack is -11.596
 *** Check timing (0:00:00.0)
@@ -4588,7 +4477,7 @@ Begin: GigaOpt Optimization in TNS mode
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:03:26.8/0:07:03.8 (0.5), mem = 1634.6M
+*** SetupOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:02:52.1/0:04:36.6 (0.6), mem = 1635.3M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -4614,25 +4503,25 @@ Active Path Group: reg2reg
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 |  WNS   | All WNS |  TNS   | All TNS | Density  |    Real    |  Mem   |    Worst View     |Pathgroup|       End Point        |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
-| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1679.7M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
-| -11.596|  -11.596| -38.613|  -56.001|     7.68%|   0:00:02.0| 1734.1M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
-| -11.596|  -11.596| -38.589|  -55.977|     7.67%|   0:00:00.0| 1734.1M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
-| -11.596|  -11.596| -38.577|  -55.965|     7.69%|   0:00:00.0| 1734.1M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
-| -11.596|  -11.596| -38.565|  -55.965|     7.71%|   0:00:00.0| 1734.2M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
-| -11.596|  -11.596| -38.375|  -55.775|     7.71%|   0:00:00.0| 1734.2M|func_worst_scenario|  reg2reg| modC_inst/C2D_reg/D    |
-| -11.596|  -11.596| -38.217|  -55.617|     7.71%|   0:00:00.0| 1734.2M|func_worst_scenario|  reg2reg| modC_inst/C2D_reg/D    |
-| -11.596|  -11.596| -38.198|  -55.598|     7.71%|   0:00:00.0| 1734.2M|func_worst_scenario|  reg2reg| modC_inst/RC4_reg/D    |
-| -11.596|  -11.596| -37.847|  -55.441|     7.71%|   0:00:00.0| 1734.2M|func_worst_scenario|  reg2reg| modC_inst/RC4_reg/D    |
-| -11.596|  -11.596| -37.757|  -55.350|     7.71%|   0:00:01.0| 1734.2M|func_worst_scenario|  reg2reg| modD_inst/D2C_reg/SE   |
-| -11.596|  -11.596| -37.728|  -55.340|     7.78%|   0:00:00.0| 1734.5M|func_worst_scenario|  reg2reg| modD_inst/D2C_reg/SE   |
-| -11.596|  -11.596| -37.717|  -55.340|     7.78%|   0:00:01.0| 1734.8M|func_worst_scenario|  reg2reg| modD_inst/RD4_reg/SE   |
-| -11.596|  -11.596| -37.710|  -55.354|     7.78%|   0:00:00.0| 1734.8M|func_worst_scenario|  reg2reg| modD_inst/RD4_reg/SE   |
-| -11.596|  -11.596| -37.710|  -55.339|     7.81%|   0:00:00.0| 1733.9M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.596|  -11.596| -39.411|  -56.785|     7.75%|   0:00:00.0| 1680.9M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
+| -11.596|  -11.596| -38.613|  -56.001|     7.68%|   0:00:02.0| 1735.2M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
+| -11.596|  -11.596| -38.589|  -55.977|     7.67%|   0:00:00.0| 1735.2M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
+| -11.596|  -11.596| -38.577|  -55.965|     7.69%|   0:00:00.0| 1735.2M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
+| -11.596|  -11.596| -38.565|  -55.965|     7.71%|   0:00:00.0| 1735.3M|func_worst_scenario|  reg2reg| modC_inst/C2B_reg/D    |
+| -11.596|  -11.596| -38.375|  -55.775|     7.71%|   0:00:00.0| 1735.4M|func_worst_scenario|  reg2reg| modC_inst/C2D_reg/D    |
+| -11.596|  -11.596| -38.217|  -55.617|     7.71%|   0:00:00.0| 1735.4M|func_worst_scenario|  reg2reg| modC_inst/C2D_reg/D    |
+| -11.596|  -11.596| -38.198|  -55.598|     7.71%|   0:00:00.0| 1735.4M|func_worst_scenario|  reg2reg| modC_inst/RC4_reg/D    |
+| -11.596|  -11.596| -37.847|  -55.441|     7.71%|   0:00:00.0| 1735.4M|func_worst_scenario|  reg2reg| modC_inst/RC4_reg/D    |
+| -11.596|  -11.596| -37.757|  -55.350|     7.71%|   0:00:00.0| 1735.4M|func_worst_scenario|  reg2reg| modD_inst/D2C_reg/SE   |
+| -11.596|  -11.596| -37.728|  -55.340|     7.78%|   0:00:01.0| 1735.6M|func_worst_scenario|  reg2reg| modD_inst/D2C_reg/SE   |
+| -11.596|  -11.596| -37.717|  -55.340|     7.78%|   0:00:00.0| 1735.9M|func_worst_scenario|  reg2reg| modD_inst/RD4_reg/SE   |
+| -11.596|  -11.596| -37.710|  -55.354|     7.78%|   0:00:01.0| 1735.9M|func_worst_scenario|  reg2reg| modD_inst/RD4_reg/SE   |
+| -11.596|  -11.596| -37.710|  -55.339|     7.81%|   0:00:00.0| 1735.1M|func_worst_scenario|  reg2reg| modA_inst/RA4_reg/SETB |
 +--------+---------+--------+---------+----------+------------+--------+-------------------+---------+------------------------+
 
-*** Finish Core Optimize Step (cpu=0:00:03.8 real=0:00:04.0 mem=1733.9M) ***
+*** Finish Core Optimize Step (cpu=0:00:03.7 real=0:00:04.0 mem=1735.1M) ***
 
-*** Finished Optimize Step Cumulative (cpu=0:00:03.8 real=0:00:04.0 mem=1733.9M) ***
+*** Finished Optimize Step Cumulative (cpu=0:00:03.7 real=0:00:04.0 mem=1735.1M) ***
 OptDebug: End of Optimizer TNS Pass:
 +----------+-------+-------+
 |Path Group|    WNS|    TNS|
@@ -4645,11 +4534,11 @@ OptDebug: End of Optimizer TNS Pass:
 
 ** GigaOpt Optimizer WNS Slack -11.596 TNS Slack -55.339 Density 7.81
 
-*** Starting refinePlace (0:03:36 mem=1729.4M) ***
+*** Starting refinePlace (0:03:01 mem=1730.6M) ***
 Total net bbox length = 3.426e+03 (1.925e+03 1.501e+03) (ext = 1.217e+03)
 Move report: Detail placement moves 26 insts, mean move: 1.34 um, max move: 3.04 um
 	Max move on inst (modA_inst/FE_OCPC60_A2C_1): (41.50, 40.13) --> (42.86, 38.46)
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1730.1MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1731.2MB
 Summary Report:
 Instances move: 26 (out of 174 movable)
 Instances flipped: 0
@@ -4657,13 +4546,13 @@ Mean displacement: 1.34 um
 Max displacement: 3.04 um (Instance: modA_inst/FE_OCPC60_A2C_1) (41.496, 40.128) -> (42.864, 38.456)
 	Length: 8 sites, height: 1 rows, site name: unit, cell type: NBUFFX2_LVT, constraint:Fence
 Total net bbox length = 3.459e+03 (1.941e+03 1.518e+03) (ext = 1.216e+03)
-Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1730.1MB
-*** Finished refinePlace (0:03:36 mem=1730.1M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1731.2MB
+*** Finished refinePlace (0:03:02 mem=1731.2M) ***
 *** maximum move = 3.04 um ***
-*** Finished re-routing un-routed nets (1730.1M) ***
+*** Finished re-routing un-routed nets (1731.2M) ***
 
 
-*** Finish Physical Update (cpu=0:00:00.4 real=0:00:01.0 mem=1730.1M) ***
+*** Finish Physical Update (cpu=0:00:00.3 real=0:00:00.0 mem=1731.2M) ***
 ** GigaOpt Optimizer WNS Slack -11.596 TNS Slack -55.339 Density 7.81
 OptDebug: End of Setup Fixing:
 +----------+-------+-------+
@@ -4679,9 +4568,9 @@ OptDebug: End of Setup Fixing:
 0 Ndr or Layer constraints added by optimization 
 **** End NDR-Layer Usage Statistics ****
 
-*** Finish pre-CTS Setup Fixing (cpu=0:00:04.3 real=0:00:05.0 mem=1729.2M) ***
+*** Finish pre-CTS Setup Fixing (cpu=0:00:04.1 real=0:00:04.0 mem=1730.4M) ***
 
-*** SetupOpt [finish] : cpu/real = 0:00:09.8/0:00:09.9 (1.0), totSession cpu/real = 0:03:36.6/0:07:13.7 (0.5), mem = 1642.6M
+*** SetupOpt [finish] : cpu/real = 0:00:09.6/0:00:09.6 (1.0), totSession cpu/real = 0:03:01.7/0:04:46.2 (0.6), mem = 1643.9M
 End: GigaOpt Optimization in TNS mode
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
@@ -4692,48 +4581,48 @@ Ignoring the OffRegion constraint modC_inst.
 Ignoring the OffRegion constraint modD_inst.
 
 Begin: Area Reclaim Optimization
-*** AreaOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:03:36.8/0:07:13.9 (0.5), mem = 1661.7M
+*** AreaOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:03:01.8/0:04:46.3 (0.6), mem = 1663.0M
 Reclaim Optimization WNS Slack -11.596  TNS Slack -55.339 Density 7.81
 +----------+---------+--------+--------+------------+--------+
 | Density  | Commits |  WNS   |  TNS   |    Real    |  Mem   |
 +----------+---------+--------+--------+------------+--------+
-|     7.81%|        -| -11.596| -55.339|   0:00:00.0| 1661.7M|
-|     7.81%|        0| -11.596| -55.339|   0:00:00.0| 1662.5M|
-|     7.72%|        3| -11.596| -55.203|   0:00:00.0| 1702.3M|
-|     7.68%|       10| -11.596| -55.166|   0:00:00.0| 1702.3M|
-|     7.68%|        0| -11.596| -55.166|   0:00:00.0| 1702.3M|
-|     7.68%|        0| -11.596| -55.166|   0:00:00.0| 1702.3M|
+|     7.81%|        -| -11.596| -55.339|   0:00:00.0| 1663.0M|
+|     7.81%|        0| -11.596| -55.339|   0:00:00.0| 1663.8M|
+|     7.72%|        3| -11.596| -55.203|   0:00:00.0| 1703.6M|
+|     7.68%|       10| -11.596| -55.166|   0:00:00.0| 1703.6M|
+|     7.68%|        0| -11.596| -55.166|   0:00:00.0| 1703.6M|
+|     7.68%|        0| -11.596| -55.166|   0:00:00.0| 1703.6M|
 +----------+---------+--------+--------+------------+--------+
 Reclaim Optimization End WNS Slack -11.596  TNS Slack -55.166 Density 7.68
 **** Begin NDR-Layer Usage Statistics ****
 0 Ndr or Layer constraints added by optimization 
 **** End NDR-Layer Usage Statistics ****
-End: Core Area Reclaim Optimization (cpu = 0:00:01.4) (real = 0:00:01.0) **
+End: Core Area Reclaim Optimization (cpu = 0:00:01.5) (real = 0:00:02.0) **
 
-*** Starting refinePlace (0:03:38 mem=1718.3M) ***
+*** Starting refinePlace (0:03:03 mem=1719.6M) ***
 Total net bbox length = 3.452e+03 (1.940e+03 1.512e+03) (ext = 1.216e+03)
 Move report: Detail placement moves 0 insts, mean move: 0.00 um, max move: 0.00 um
-	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1718.4MB
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1719.7MB
 Summary Report:
 Instances move: 0 (out of 171 movable)
 Instances flipped: 0
 Mean displacement: 0.00 um
 Max displacement: 0.00 um 
 Total net bbox length = 3.452e+03 (1.940e+03 1.512e+03) (ext = 1.216e+03)
-Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1718.4MB
-*** Finished refinePlace (0:03:38 mem=1718.4M) ***
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1719.7MB
+*** Finished refinePlace (0:03:04 mem=1719.7M) ***
 *** maximum move = 0.00 um ***
-*** Finished re-routing un-routed nets (1718.4M) ***
+*** Finished re-routing un-routed nets (1719.7M) ***
 
 
-*** Finish Physical Update (cpu=0:00:00.4 real=0:00:01.0 mem=1718.4M) ***
-*** AreaOpt [finish] : cpu/real = 0:00:01.8/0:00:01.8 (1.0), totSession cpu/real = 0:03:38.6/0:07:15.7 (0.5), mem = 1717.6M
-End: Area Reclaim Optimization (cpu=0:00:02, real=0:00:02, mem=1644.15M, totSessionCpu=0:03:39).
+*** Finish Physical Update (cpu=0:00:00.4 real=0:00:00.0 mem=1719.7M) ***
+*** AreaOpt [finish] : cpu/real = 0:00:01.9/0:00:01.9 (1.0), totSession cpu/real = 0:03:03.7/0:04:48.2 (0.6), mem = 1718.9M
+End: Area Reclaim Optimization (cpu=0:00:02, real=0:00:02, mem=1645.46M, totSessionCpu=0:03:04).
 Begin: GigaOpt postEco DRV Optimization
 *info: Marking 14 level shifter instances dont touch
 *info: Marking 6 isolation instances dont touch
 Info: 1 clock net  excluded from IPO operation.
-*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:03:38.7/0:07:15.8 (0.5), mem = 1644.2M
+*** DrvOpt [begin] : cpu/real = 0:00:00.0/0:00:00.0 (0.0), totSession cpu/real = 0:03:03.8/0:04:48.3 (0.6), mem = 1645.5M
 Ignoring the OffRegion constraint modA_inst.
 Ignoring the OffRegion constraint modB_inst.
 Ignoring the OffRegion constraint modC_inst.
@@ -4745,7 +4634,7 @@ Ignoring the OffRegion constraint modD_inst.
 | nets | terms|  wViol  | nets | terms|  wViol  | nets | terms| nets | terms|   WNS   |   TNS   |  #Buf  |  #Inv  | #Resize|Density|   Real   |   Mem   |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 |    15|    19|    -1.22|     0|     0|     0.00|     0|     0|     0|     0|   -11.60|   -55.17|       0|       0|       0|   7.68|          |         |
-|    15|    19|    -1.22|     0|     0|     0.00|     0|     0|     0|     0|   -11.60|   -55.17|       0|       0|       0|   7.68| 0:00:00.0|  1709.0M|
+|    15|    19|    -1.22|     0|     0|     0.00|     0|     0|     0|     0|   -11.60|   -55.17|       0|       0|       0|   7.68| 0:00:00.0|  1710.3M|
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+
 **** Begin NDR-Layer Usage Statistics ****
 0 Ndr or Layer constraints added by optimization 
@@ -4763,9 +4652,9 @@ MultiBuffering failure reasons
 *info:     1 net(s): Could not be fixed because buffering engine can't find a solution.
 
 
-*** Finish DRV Fixing (cpu=0:00:00.2 real=0:00:00.0 mem=1709.0M) ***
+*** Finish DRV Fixing (cpu=0:00:00.3 real=0:00:00.0 mem=1710.3M) ***
 
-*** DrvOpt [finish] : cpu/real = 0:00:03.1/0:00:03.1 (1.0), totSession cpu/real = 0:03:41.9/0:07:19.0 (0.5), mem = 1645.9M
+*** DrvOpt [finish] : cpu/real = 0:00:03.0/0:00:03.0 (1.0), totSession cpu/real = 0:03:06.8/0:04:51.3 (0.6), mem = 1647.3M
 End: GigaOpt postEco DRV Optimization
 
 Active setup views:
@@ -4791,7 +4680,7 @@ Using capacitance table file ...
 Skipped RC grid update for preRoute extraction.
 Initializing multi-corner capacitance tables ... 
 Initializing multi-corner resistance tables ...
-PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1598.496M)
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1599.785M)
 Skewing Data Summary (End_of_FINAL)
 --------------------------------------------------
  Total skewed count:0
@@ -4807,9 +4696,9 @@ Skewing Data Summary (End_of_FINAL)
 [NR-eGR] M8 has single uniform track structure
 [NR-eGR] M9 has single uniform track structure
 [NR-eGR] MRDL has single uniform track structure
-[NR-eGR] Started Read PG Shapes ( Curr Mem: 1623.58 MB )
+[NR-eGR] Started Read PG Shapes ( Curr Mem: 1624.82 MB )
 [NR-eGR] Read 254 PG shapes
-[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1623.58 MB )
+[NR-eGR] Finished Read PG Shapes ( CPU: 0.00 sec, Real: 0.00 sec, Curr Mem: 1624.82 MB )
 [NR-eGR] #Routing Blockages  : 0
 [NR-eGR] #Instance Blockages : 0
 [NR-eGR] #PG Blockages       : 254
@@ -4845,7 +4734,7 @@ Skewing Data Summary (End_of_FINAL)
 [NR-eGR] 
 [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
 [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
-[NR-eGR] Finished Early Global Route kernel ( CPU: 0.03 sec, Real: 0.03 sec, Curr Mem: 1623.97 MB )
+[NR-eGR] Finished Early Global Route kernel ( CPU: 0.02 sec, Real: 0.03 sec, Curr Mem: 1625.21 MB )
 [hotspot] +------------+---------------+---------------+
 [hotspot] |            |   max hotspot | total hotspot |
 [hotspot] +------------+---------------+---------------+
@@ -4863,13 +4752,13 @@ Starting delay calculation for Setup views
 #################################################################################
 Calculate delays in BcWc mode...
 Calculate delays in BcWc mode...
-Start delay calculation (fullDC) (1 T). (MEM=1611.97)
+Start delay calculation (fullDC) (1 T). (MEM=1613.21)
 Total number of fetched objects 217
-End delay calculation. (MEM=1631.75 CPU=0:00:00.1 REAL=0:00:01.0)
-End delay calculation (fullDC). (MEM=1631.75 CPU=0:00:00.4 REAL=0:00:01.0)
-*** Done Building Timing Graph (cpu=0:00:00.6 real=0:00:01.0 totSessionCpu=0:03:43 mem=1631.8M)
+End delay calculation. (MEM=1633.01 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1633.01 CPU=0:00:00.4 REAL=0:00:00.0)
+*** Done Building Timing Graph (cpu=0:00:00.5 real=0:00:00.0 totSessionCpu=0:03:08 mem=1633.0M)
 Reported timing to dir ./timingReports
-**optDesign ... cpu = 0:01:15, real = 0:01:16, mem = 1385.7M, totSessionCpu=0:03:43 **
+**optDesign ... cpu = 0:01:14, real = 0:01:14, mem = 1389.8M, totSessionCpu=0:03:08 **
 **WARN: (IMPOPT-3668):	There are 2 nets with MSV violations, timing and DRV optimization of such nets is limited.  Please use verifyPowerDomain to analyze these further.
 
 
@@ -4903,11 +4792,11 @@ Setup views included:
 Density: 7.683%
 Routing Overflow: 0.00% H and 0.00% V
 ------------------------------------------------------------
-**optDesign ... cpu = 0:01:15, real = 0:01:18, mem = 1387.4M, totSessionCpu=0:03:43 **
+**optDesign ... cpu = 0:01:14, real = 0:01:16, mem = 1391.5M, totSessionCpu=0:03:08 **
 **WARN: (IMPOPT-3195):	Analysis mode has changed.
 Type 'man IMPOPT-3195' for more detail.
 *** Finished optDesign ***
-**place_opt_design ... cpu = 0:01:16, real = 0:01:18, mem = 1551.6M **
+**place_opt_design ... cpu = 0:01:14, real = 0:01:17, mem = 1552.9M **
 *** Finished GigaPlace ***
 
 *** Summary of all messages that are not suppressed in this session:
@@ -4922,8 +4811,41 @@ WARNING   IMPOPT-3195          2  Analysis mode has changed.
 *** Message Summary: 663 warning(s), 0 error(s)
 
 <CMD> fit
+<CMD> selectInst psoI_pd_modb_1_HEADX2_HVT_34_80_4
+<CMD> zoomIn
+<CMD> zoomIn
+<CMD> zoomIn
+<CMD> zoomOut
+<CMD> zoomOut
+<CMD> panPage -1 0
+<CMD> panPage 0 1
+<CMD> panPage 0 1
+<CMD> panPage 0 -1
+<CMD> deselectAll
+<CMD> selectWire 29.9440 83.2240 49.9440 84.2240 4 VSS
+<CMD> deselectAll
+<CMD> selectInst psoI_pd_modb_1_HEADX2_HVT_39_83_7
+<CMD> deselectAll
+<CMD> selectInst psoI_pd_modc_1_HEADX2_HVT_70_76_1
+<CMD> zoomBox -23.11000 46.29600 77.88100 98.09700
+<CMD> fit
+<CMD> deselectAll
+<CMD> selectInst psoI_pd_modc_1_HEADX2_HVT_80_76_6
+<CMD> deselectAll
+<CMD> selectWire 42.9440 30.0960 43.9440 50.0960 3 VSS
+<CMD> deselectAll
+<CMD> selectObject Module modA_inst
+<CMD> deselectAll
+<CMD> selectObject Module modA_inst
+<CMD> deselectAll
+<CMD> selectInst psoI_pd_moda_1_HEADX2_HVT_29_36_1
+<CMD> gui_select -rect {87.21600 41.69000 85.66800 41.22600}
+<CMD> deselectAll
+<CMD> selectInst psoI_pd_modd_1_HEADX2_HVT_75_33_3
+<CMD> deselectAll
+<CMD> selectObject Module modD_inst
 
-*** Memory Usage v#1 (Current mem = 1551.812M, initial mem = 289.684M) ***
-*** Message Summary: 1578 warning(s), 2 error(s)
+*** Memory Usage v#1 (Current mem = 1549.547M, initial mem = 289.684M) ***
+*** Message Summary: 1580 warning(s), 6 error(s)
 
---- Ending "Innovus" (totcpu=0:03:49, real=0:07:51, mem=1551.8M) ---
+--- Ending "Innovus" (totcpu=0:03:27, real=0:06:08, mem=1549.5M) ---

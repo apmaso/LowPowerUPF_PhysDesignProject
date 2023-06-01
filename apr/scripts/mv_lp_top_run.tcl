@@ -141,7 +141,7 @@ addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 
 addStripe -nets {VDDH_gated_moda VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
 
 ## Route the power nets
-sroute -nets {VDDH VDDH_gated_moda VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_moda -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDH_gated_moda}
+sroute -nets {VDDH VDDH_gated_moda VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_moda -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_moda2modc ls_moda2modd}
 deselect_obj -all
 
 #### Create Power structure for module B (Metal layers for ring M6 , M5 and strip M4, M3)
@@ -152,7 +152,7 @@ addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 
 addStripe -nets {VDDH_gated_modb VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
 
 ## Route the power nets
-sroute -nets {VDDH VDDH_gated_modb VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modb -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDH_gated_modb}
+sroute -nets {VDDH VDDH_gated_modb VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modb -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modb2modc ls_modb2modd}
 deselect_obj -all
 
 #### Create Power structure for module C (Metal layers for ring M6 , M5 and strip M4, M3)
@@ -163,7 +163,7 @@ addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 
 addStripe -nets {VDDL_gated_modc VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
 
 ## Route the power nets
-sroute -nets {VDDL VDDL_gated_modc VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modc -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDL_gated_modc}
+sroute -nets {VDDL VDDL_gated_modc VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modc -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modc2top ls_modc2moda ls_modc2modb}
 deselect_obj -all
 
 #### Create Power structure for module D (Metal layers for ring M6 , M5 and strip M4, M3)
@@ -174,7 +174,7 @@ addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 
 addStripe -nets {VDDL_gated_modd VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
 
 ## Route the power nets
-sroute -nets {VDDL VDDL_gated_modd VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modd -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {VDDL_gated_modd}
+sroute -nets {VDDL VDDL_gated_modd VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modd -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modd2top ls_modd2moda ls_modd2modb}
 deselect_obj -all
 
 

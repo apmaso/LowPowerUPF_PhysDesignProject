@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Thu Jun  1 14:54:36 2023                
+#  Created on Thu Jun  1 15:11:58 2023                
 #                                                     
 #######################################################
 
@@ -65,53 +65,69 @@ select_obj pd_moda
 addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_moda
 addStripe -nets {VDDH_gated_moda VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_moda
-sroute -nets {VDDH VDDH_gated_moda VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_moda -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDH_gated_moda
+sroute -nets {VDDH VDDH_gated_moda VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_moda -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_moda2modc ls_moda2modd}
 deselect_obj -all
 select_obj pd_modb
 addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modb
 addStripe -nets {VDDH_gated_modb VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modb
-sroute -nets {VDDH VDDH_gated_modb VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modb -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDH_gated_modb
+sroute -nets {VDDH VDDH_gated_modb VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modb -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modb2modc ls_modb2modd}
 deselect_obj -all
 select_obj pd_modc
 addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modc
 addStripe -nets {VDDL_gated_modc VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modc
-sroute -nets {VDDL VDDL_gated_modc VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modc -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDL_gated_modc
+sroute -nets {VDDL VDDL_gated_modc VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modc -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modc2top ls_modc2moda ls_modc2modb}
 deselect_obj -all
 select_obj pd_modd
 addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modd
 addStripe -nets {VDDL_gated_modd VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains pd_modd
-sroute -nets {VDDL VDDL_gated_modd VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modd -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet VDDL_gated_modd
+sroute -nets {VDDL VDDL_gated_modd VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget none -powerDomains pd_modd -blockPinTarget nearestTarget -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modd2top ls_modd2moda ls_modd2modb}
 deselect_obj -all
 fit
-zoomIn
-zoomIn
-fit
-zoomIn
-panPage -1 0
-panPage 0 1
-panPage 0 1
-panPage 1 0
-zoomIn
-panPage -1 0
-panPage 0 -1
-panPage -1 0
-panPage 0 -1
-panPage -1 0
-panPage 0 1
-panPage 1 0
-panPage 1 0
-selectWire 39.9760 85.2420 42.1040 85.3020 1 VDDH_gated_modb
-deselectAll
-selectMarker 41.0460 85.2220 41.1460 85.3220 4 3 7
-panPage -1 0
-deselectAll
 selectObject Module modB_inst
+deselectAll
+zoomIn
+selectWire 42.9440 70.2240 43.9440 90.2240 3 VSS
+deselectAll
+selectInst psoI_pd_modb_1_HEADX2_HVT_39_76_6
 place_design
 gpsPrivate::masterAndSlaveCPU
 gpsPrivate::masterAndSlaveCPU
 gpsPrivate::masterAndSlaveCPU
 optDesign -preCTS
 fit
+selectInst psoI_pd_modb_1_HEADX2_HVT_34_80_4
+zoomIn
+zoomIn
+zoomIn
+zoomOut
+zoomOut
+panPage -1 0
+panPage 0 1
+panPage 0 1
+panPage 0 -1
+deselectAll
+selectWire 29.9440 83.2240 49.9440 84.2240 4 VSS
+deselectAll
+selectInst psoI_pd_modb_1_HEADX2_HVT_39_83_7
+deselectAll
+selectInst psoI_pd_modc_1_HEADX2_HVT_70_76_1
+zoomBox -23.11000 46.29600 77.88100 98.09700
+fit
+deselectAll
+selectInst psoI_pd_modc_1_HEADX2_HVT_80_76_6
+deselectAll
+selectWire 42.9440 30.0960 43.9440 50.0960 3 VSS
+deselectAll
+selectObject Module modA_inst
+deselectAll
+selectObject Module modA_inst
+deselectAll
+selectInst psoI_pd_moda_1_HEADX2_HVT_29_36_1
+gui_select -rect {87.21600 41.69000 85.66800 41.22600}
+deselectAll
+selectInst psoI_pd_modd_1_HEADX2_HVT_75_33_3
+deselectAll
+selectObject Module modD_inst
