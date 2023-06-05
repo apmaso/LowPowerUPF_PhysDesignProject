@@ -128,7 +128,7 @@ addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerS
 ##### Create Power structure for Top level (Vertical and Horizontal Metal layers to use M8 and M9 for top-level)  
 select_obj pd_top
 ## command that you may use addRing, addStripe
-addRing -type core_rings -nets {VDDH VSS} -layer {top M8 left M9 bottom M8 right M9} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 
+addRing -type core_rings -nets {VDDH VDDL VSS} -layer {top M8 left M9 bottom M8 right M9} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 
 addStripe -nets {VDDH VSS} -direction vertical -layer M9 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_top}
 addStripe -nets {VDDL VSS} -direction horizontal -layer M8 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_top}
 deselect_obj -all
@@ -136,7 +136,7 @@ deselect_obj -all
 #### Create Power structure for module A (Metal layers for ring M6 , M5 and strip M4, M3)
 select_obj pd_moda
 ## commands that you may use addRing, addStripe, sroute
-addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addRing -type core_rings -nets {VDDH VDDH_gated_moda VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
 addStripe -nets {VDDH_gated_moda VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
 
@@ -152,7 +152,7 @@ deselect_obj -all
 #### Create Power structure for module B (Metal layers for ring M6 , M5 and strip M4, M3)
 select_obj pd_modb
 ## commands that you may use addRing, addStripe, sroute
-addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addRing -type core_rings -nets {VDDH VDDH_gated_modb VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
 addStripe -nets {VDDH_gated_modb VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
 
@@ -168,7 +168,7 @@ deselect_obj -all
 #### Create Power structure for module C (Metal layers for ring M6 , M5 and strip M4, M3)
 select_obj pd_modc
 ## commands that you may use addRing, addStripe, sroute
-addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addRing -type core_rings -nets {VDDL VDDL_gated_modc VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
 addStripe -nets {VDDL_gated_modc VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
 
@@ -184,7 +184,7 @@ deselect_obj -all
 #### Create Power structure for module D (Metal layers for ring M6 , M5 and strip M4, M3)
 select_obj pd_modd
 ## commands that you may use addRing, addStripe, sroute
-addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
+addRing -type core_rings -nets {VDDL VDDL_gated_modd VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
 addStripe -nets {VDDL_gated_modd VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
 
