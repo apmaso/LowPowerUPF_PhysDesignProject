@@ -138,7 +138,7 @@ select_obj pd_moda
 ## commands that you may use addRing, addStripe, sroute
 addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
-addStripe -nets {VDDH VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
+addStripe -nets {VDDH_gated_moda VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_moda}
 
 ## Route the power nets - Our command/parameters
 #sroute -nets {VDDH VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_moda -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_moda2modc ls_moda2modd}
@@ -154,7 +154,7 @@ select_obj pd_modb
 ## commands that you may use addRing, addStripe, sroute
 addRing -type core_rings -nets {VDDH VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDH VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
-addStripe -nets {VDDH VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
+addStripe -nets {VDDH_gated_modb VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modb}
 
 ## Route the power nets - Our command/parameters
 #sroute -nets {VDDH VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modb -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modb2modc ls_modb2modd}
@@ -170,7 +170,7 @@ select_obj pd_modc
 ## commands that you may use addRing, addStripe, sroute
 addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
-addStripe -nets {VDDL VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
+addStripe -nets {VDDL_gated_modc VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modc}
 
 ## Route the power nets - Our command/parameters
 #sroute -nets {VDDL VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modc -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modc2top ls_modc2moda ls_modc2modb}
@@ -186,7 +186,7 @@ select_obj pd_modd
 ## commands that you may use addRing, addStripe, sroute
 addRing -type core_rings -nets {VDDL VSS} -layer {top M6 left M5 bottom M6 right M5} -offset {top 2 bottom 2 left 2 right 2} -width 2 -spacing 2 -around power_domain
 addStripe -nets {VDDL VSS} -direction vertical -layer M3 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
-addStripe -nets {VDDL VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
+addStripe -nets {VDDL_gated_modd VSS} -direction horizontal -layer M4 -width 1 -start_offset 3 -spacing 9 -over_power_domain 1 -set_to_set_distance 20 -power_domains {pd_modd}
 
 ## Route the power nets - Our Command/Parameters
 #sroute -nets {VDDL VSS} -allowLayerChange 1 -allowJogging 1 -corePinTarget {none} -powerDomains pd_modd -blockPinTarget {nearestTarget} -connect {blockPin padPin padRing corePin floatingStripe secondaryPowerPin} -blockPin useLef -secondaryPinNet {ls_modd2top ls_modd2moda ls_modd2modb}
