@@ -69,8 +69,8 @@ set input_ports [ all_inputs ]
 set output_ports [ all_outputs ]
 # put the two collections on to two layers of ports
 # Leaving the ports on different layers for now... Inputs on left and outputs on the right
-editPin -edge 0 -pin [get_attribute $input_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 5 -unit MICRON -fixedPin 1
-editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 5 -unit MICRON -fixedPin 1
+editPin -edge 0 -pin [get_attribute $input_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 10 -unit MICRON -fixedPin 1
+editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 8 -unit MICRON -fixedPin 1
 setPinAssignMode -pinEditInBatch false
 
 
@@ -162,7 +162,7 @@ select_obj pd_moda
 #### commands that you may use addRing, addStripe, sroute
 addRing -type block_rings -nets {VDDH VSS} -layer {top M5 left M6 bottom M5 right M6} -offset 1 -width 1 -spacing 1 -around power_domain
 addStripe -nets {VDDH VSS} -direction vertical -layer M4 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains {pd_moda}
-addStripe -nets {VDDH VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains {pd_moda}
+addStripe -nets {VDDH_gated_moda VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains {pd_moda}
 
 sroute -connect secondaryPowerPin -powerDomains pd_moda
 
@@ -184,7 +184,7 @@ select_obj pd_modc
 #### commands that you may use addRing, addStripe, sroute
 addRing -type block_rings -nets {VDDL VSS} -layer {top M5 left M6 bottom M5 right M6} -offset 1 -width 1 -spacing 1 -around power_domain
 addStripe -nets {VDDL VSS} -direction vertical -layer M4 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains {pd_modc}
-addStripe -nets {VDDL VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains {pd_modc}
+addStripe -nets {VDDL_gated_modc VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains {pd_modc}
 
 sroute -connect secondaryPowerPin -powerDomains pd_modc
 
@@ -213,15 +213,19 @@ deselect_obj -all
 
 
 #   Run Placement on the design 
-
-#place_design
+#   Using the command place_opt_design since this command is for pre-CTS by default
+#
+#place_opt_design
 
 #   Run Optimization on the design (ensure it is run pre CTS)
-
+#   We believe that we no longer need this command since the previous command
+#   also optimizes the design and is for pre-CTS by default as well
+   
 #optDesign -preCTS
 
 #   Route the entire design
 
+#routeDesign
 
 #proc innovus_reporting { stage postcts postroute } {
 #global top_design
