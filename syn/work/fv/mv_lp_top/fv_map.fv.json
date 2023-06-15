@@ -227,6 +227,10 @@
 "object":"/libraries/saed32hvt_ss0p75vn40c",
 "type":"library"},
 
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_pg_ss0p75vn40c.lib",
+"object":"/libraries/saed32hvt_pg_ss0p75vn40c",
+"type":"library"},
+
 {"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_dlvl_ss0p75vn40c_i0p95v.lib",
 "object":"/libraries/saed32hvt_dlvl_ss0p75vn40c_i0p95v",
 "type":"library"},
@@ -241,6 +245,10 @@
 
 {"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib",
 "object":"/libraries/saed32hvt_ss0p95vn40c",
+"type":"library"},
+
+{"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_pg_ss0p95vn40c.lib",
+"object":"/libraries/saed32hvt_pg_ss0p95vn40c",
 "type":"library"},
 
 {"files":"/pkgs/synopsys/2016/libs/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ulvl_ss0p95vn40c_i0p75v.lib",
@@ -440,14 +448,14 @@
 "type":"instance"},
 
 {"index": "1", 
- "date": "Fri May 19 21:02:26 PDT 2023",
- "seconds": 1684555346.9606168,
+ "date": "Wed Jun 14 15:45:44 PDT 2023",
+ "seconds": 1686782744.825141,
  "netlist": "fv/mv_lp_top/fv_map.v.gz", 
  "design_name": "mv_lp_top", 
  "synth_workdir": "/home/amaso/common/Documents/ECE530/final_prj-530_alex_and_jie/syn/work", 
  "synthesis_command":"",
  "current_label": "fv_map", 
  "previous_label": "rtl", 
- "write_verif_file_runtime": 1.45679 
+ "write_verif_file_runtime": 1.734551 
  }
 ]

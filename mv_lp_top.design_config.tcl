@@ -11,7 +11,7 @@ set enable_dft 0
 set innovus_enable_manual_macro_placement 0
 set split_constraints 0
 
-set rtl_list [list ../rtl/$top_design.sv ]
+set rtl_list [list ../rtl/$top_design.sv]
 
 set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
 #set slow_corner "ss0p95vn40c_i0p95v ss0p95vn40c "

@@ -32,11 +32,9 @@ set init_gnd_net VSS
 set power_intent_file "../../syn/rtl/${top_design}.upf"
 
 # Sourcing mmmc.sdc file for our design mv_lp_top
-
 source ../../constraints/${top_design}.mmmc.sdc
 
 set_interactive_constraint_modes [all_constraint_modes -active]
-
 
 if { $pad_design } {
     # subtract off the IO width if this is a pad design.  The floorplan statement automatically includes the IO border
@@ -149,8 +147,8 @@ globalNetConnect VDDL_gated_modd -type pgpin -pin VDDG -instanceBasename *modd*H
 select_obj pd_top
 ## command that you may use addRing, addStripe
 addRing -type core_rings -nets {VDDH VDDL VSS} -layer {top M9 left M8 bottom M9 right M8} -offset 2 -width 1 -spacing 1 
-addStripe -nets {VDDH VDDL VSS} -direction vertical -layer M8 -width 1 -start_offset 3 -spacing 5 -set_to_set_distance 10 -power_domains {pd_top}
-addStripe -nets {VDDH VDDL VSS} -direction horizontal -layer M9 -width 1 -start_offset 3 -spacing 5 -set_to_set_distance 10 -power_domains {pd_top}
+addStripe -nets {VDDH VDDL VSS} -direction vertical -layer M8 -width 1 -start_offset 3 -spacing 3 -set_to_set_distance 10 -power_domains {pd_top}
+addStripe -nets {VDDH VDDL VSS} -direction horizontal -layer M9 -width 1 -start_offset 3 -spacing 3 -set_to_set_distance 10 -power_domains {pd_top}
 
 sroute -nets {VSS VDDH}
 sroute -nets {VSS VDDL}
@@ -215,7 +213,7 @@ deselect_obj -all
 #   Run Placement on the design 
 #   Using the command place_opt_design since this command is for pre-CTS by default
 #
-#place_opt_design
+place_opt_design
 
 #   Run Optimization on the design (ensure it is run pre CTS)
 #   We believe that we no longer need this command since the previous command
@@ -225,7 +223,7 @@ deselect_obj -all
 
 #   Route the entire design
 
-#routeDesign
+routeDesign
 
 #proc innovus_reporting { stage postcts postroute } {
 #global top_design

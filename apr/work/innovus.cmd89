@@ -1,0 +1,109 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Wed Jun 14 19:25:53 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.16-s053_1 (64bit) 08/31/2020 13:16 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.16-s053_1 NR200827-1939/19_16-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.16-s019 (64bit) 08/31/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.16-s019_1 () Aug 22 2020 00:37:42 ( )
+#@(#)CDS: SYNTECH 19.16-s010_1 () Aug 17 2020 09:10:13 ( )
+#@(#)CDS: CPE v19.16-s038
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+alias lp set top_design mv_lp_top
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew load fanout cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+lp
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {../../cadence_cap_tech/tech.lef saed32sram.lef saed32nm_lvt_1p9m.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef}
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/mv_lp_top.genus.vg
+set init_top_cell mv_lp_top
+set init_pwr_net {VDDH VDDL}
+set init_gnd_net VSS
+set init_mmmc_file mmmc.tcl
+all_constraint_modes -active
+set_interactive_constraint_modes [all_constraint_modes -active]
+init_design
+read_power_intent -1801 ../../syn/rtl/mv_lp_top.upf
+commit_power_intent -verbose
+floorPlan -s 100 100 10 10 10 10 -flip s -coreMarginsBy io
+setPinAssignMode -pinEditInBatch true
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 0 -pin {A B C D E upf_clk} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 10 -unit MICRON -fixedPin 1
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 2 -pin {P Q R S T W X Y Z sleep_moda sleep_modb sleep_modc sleep_modd iso_en} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 8 -unit MICRON -fixedPin 1
+setPinAssignMode -pinEditInBatch false
+modifyPowerDomainAttr pd_moda -box 30 30 50 50 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modb -box 30 70 50 90 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modc -box 70 70 90 90 -minGaps {5 5 5 5}
+modifyPowerDomainAttr pd_modd -box 70 30 90 50 -minGaps {5 5 5 5}
+planDesign
+addPowerSwitch -powerDomain pd_moda -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_moda_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_moda
+addPowerSwitch -powerDomain pd_modb -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modb_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modb
+addPowerSwitch -powerDomain pd_modc -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modc_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modc
+addPowerSwitch -powerDomain pd_modd -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modd_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modd
+globalNetConnect VSS -type pgpin -pin VSS -all
+globalNetConnect VDDH -type pgpin -pin VDDH -all
+globalNetConnect VDDL -type pgpin -pin VDDL -all
+globalNetConnect VDDH_gated_moda -type pgpin -pin VDD -powerDomain pd_moda
+globalNetConnect VDDH -type pgpin -pin VDD -instanceBasename *moda*HEAD*
+globalNetConnect VDDH_gated_moda -type pgpin -pin VDDG -instanceBasename *moda*HEAD*
+globalNetConnect VDDH_gated_modb -type pgpin -pin VDD -powerDomain pd_modb
+globalNetConnect VDDH -type pgpin -pin VDD -instanceBasename *modb*HEAD*
+globalNetConnect VDDH_gated_modb -type pgpin -pin VDDG -instanceBasename *modb*HEAD*
+globalNetConnect VDDL_gated_modc -type pgpin -pin VDD -powerDomain pd_modc
+globalNetConnect VDDL -type pgpin -pin VDD -instanceBasename *modc*HEAD*
+globalNetConnect VDDL_gated_modc -type pgpin -pin VDDG -instanceBasename *modc*HEAD*
+globalNetConnect VDDL_gated_modd -type pgpin -pin VDD -powerDomain pd_modd
+globalNetConnect VDDL -type pgpin -pin VDD -instanceBasename *modd*HEAD*
+globalNetConnect VDDL_gated_modd -type pgpin -pin VDDG -instanceBasename *modd*HEAD*
+select_obj pd_top
+addRing -type core_rings -nets {VDDH VDDL VSS} -layer {top M9 left M8 bottom M9 right M8} -offset 2 -width 1 -spacing 1
+addStripe -nets {VDDH VDDL VSS} -direction vertical -layer M8 -width 1 -start_offset 3 -spacing 3 -set_to_set_distance 10 -power_domains pd_top
+addStripe -nets {VDDH VDDL VSS} -direction horizontal -layer M9 -width 1 -start_offset 3 -spacing 3 -set_to_set_distance 10 -power_domains pd_top
+sroute -nets {VSS VDDH}
+sroute -nets {VSS VDDL}
+deselect_obj -all
+select_obj pd_moda
+addRing -type block_rings -nets {VDDH VSS} -layer {top M5 left M6 bottom M5 right M6} -offset 1 -width 1 -spacing 1 -around power_domain
+addStripe -nets {VDDH VSS} -direction vertical -layer M4 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_moda
+addStripe -nets {VDDH_gated_moda VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_moda
+sroute -connect secondaryPowerPin -powerDomains pd_moda
+deselect_obj -all
+select_obj pd_modb
+addRing -type block_rings -nets {VDDH VSS} -layer {top M5 left M6 bottom M5 right M6} -offset 1 -width 1 -spacing 1 -around power_domain
+addStripe -nets {VDDH VSS} -direction vertical -layer M4 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_modb
+addStripe -nets {VDDH_gated_modb VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_modb
+sroute -connect secondaryPowerPin -powerDomains pd_modb
+deselect_obj -all
+select_obj pd_modc
+addRing -type block_rings -nets {VDDL VSS} -layer {top M5 left M6 bottom M5 right M6} -offset 1 -width 1 -spacing 1 -around power_domain
+addStripe -nets {VDDL VSS} -direction vertical -layer M4 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_modc
+addStripe -nets {VDDL_gated_modc VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_modc
+sroute -connect secondaryPowerPin -powerDomains pd_modc
+deselect_obj -all
+select_obj pd_modd
+addRing -type block_rings -nets {VDDL VSS} -layer {top M5 left M6 bottom M5 right M6} -offset 1 -width 1 -spacing 1 -around power_domain
+addStripe -nets {VDDL VSS} -direction vertical -layer M4 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_modd
+addStripe -nets {VDDL_gated_modd VSS} -direction horizontal -layer M3 -width 0.2 -start_offset 1 -spacing 1 -set_to_set_distance 4 -power_domains pd_modd
+sroute -connect secondaryPowerPin -powerDomains pd_modd
+deselect_obj -all
+place_opt_design
+routeDesign
+select_obj {inst:mv_lp_top/FE_RC_19_0 inst:mv_lp_top/FE_RC_18_0 inst:mv_lp_top/FE_OCPC57_B inst:mv_lp_top/FE_RC_17_0 inst:mv_lp_top/FE_OCPC62_FE_OFN44_n inst:mv_lp_top/FE_OCPC61_FE_OFN44_n inst:mv_lp_top/FE_OCPC60_FE_OFN9_sleep_moda inst:mv_lp_top/FE_OCPC59_FE_OFN9_sleep_moda inst:mv_lp_top/FE_OCPC58_FE_OFN44_n inst:mv_lp_top/FE_RC_11_0 inst:mv_lp_top/FE_RC_6_0 inst:mv_lp_top/FE_RC_5_0 inst:mv_lp_top/FE_RC_2_0 inst:mv_lp_top/FE_RC_1_0 inst:mv_lp_top/FE_OFC47_sleep_moda inst:mv_lp_top/FE_OFC36_B inst:mv_lp_top/FE_OFC23_FE_OFN9_sleep_moda inst:mv_lp_top/FE_OFC21_n_29 inst:mv_lp_top/FE_OFC19_n_36 inst:mv_lp_top/FE_OFC16_n_124 inst:mv_lp_top/FE_OFC14_FE_OFN6_R inst:mv_lp_top/FE_DBTC4_A inst:mv_lp_top/FE_DBTC2_C inst:mv_lp_top/FE_DBTC1_D inst:mv_lp_top/FE_DBTC0_E inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_85_40_9 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_85_33_8 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_80_43_7 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_80_36_6 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_80_30_5 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_75_40_4 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_75_33_3 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_70_43_2 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_70_36_1 inst:mv_lp_top/psoI_pd_modd_1_HEADX2_HVT_70_30_0 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_85_80_9 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_85_73_8 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_80_83_7 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_80_76_6 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_80_70_5 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_75_80_4 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_75_73_3 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_70_83_2 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_70_76_1 inst:mv_lp_top/psoI_pd_modc_1_HEADX2_HVT_70_70_0 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_44_80_9 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_44_73_8 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_39_83_7 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_39_76_6 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_39_70_5 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_34_80_4 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_34_73_3 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_29_83_2 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_29_76_1 inst:mv_lp_top/psoI_pd_modb_1_HEADX2_HVT_29_70_0 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_44_40_9 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_44_33_8 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_39_43_7 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_39_36_6 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_39_30_5 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_34_40_4 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_34_33_3 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_29_43_2 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_29_36_1 inst:mv_lp_top/psoI_pd_moda_1_HEADX2_HVT_29_30_0 inst:mv_lp_top/ls_modb2modd_0_B2D inst:mv_lp_top/ls_moda2modd_0_A2D inst:mv_lp_top/ls_modd2moda_0_D2A inst:mv_lp_top/ls_modc2moda_0_C2A inst:mv_lp_top/ls_modb2modc_0_B2C inst:mv_lp_top/ls_moda2modc_0_A2C inst:mv_lp_top/ls_modd2modb_0_D2B inst:mv_lp_top/ls_modc2modb_0_C2B inst:mv_lp_top/modA_inst/FE_OCPC65_A2C_1 inst:mv_lp_top/modA_inst/FE_OCPC63_A2C_1 inst:mv_lp_top/modA_inst/FE_RC_16_0 inst:mv_lp_top/modA_inst/FE_RC_15_0 inst:mv_lp_top/modA_inst/FE_RC_13_0 inst:mv_lp_top/modA_inst/FE_RC_12_0 inst:mv_lp_top/modA_inst/FE_OFC49_P inst:mv_lp_top/modA_inst/FE_OFC37_A2C_1 inst:mv_lp_top/modA_inst/RA4_reg inst:mv_lp_top/modA_inst/RA3_reg inst:mv_lp_top/modA_inst/g420__4319 inst:mv_lp_top/modA_inst/RA1_reg inst:mv_lp_top/modA_inst/A2C_reg inst:mv_lp_top/modA_inst/A2D_reg inst:mv_lp_top/modA_inst/RA2_reg inst:mv_lp_top/modA_inst/Z_reg inst:mv_lp_top/modA_inst/A2B_reg inst:mv_lp_top/modA_inst/g345__5526 inst:mv_lp_top/modA_inst/g351__6783 inst:mv_lp_top/modA_inst/g299__489 inst:mv_lp_top/modA_inst/g413__490 inst:mv_lp_top/modA_inst/g413__6260_dup inst:mv_lp_top/modB_inst/FE_RC_22_0 inst:mv_lp_top/modB_inst/FE_OCPC64_B2D_1 inst:mv_lp_top/modB_inst/FE_RC_10_0 inst:mv_lp_top/modB_inst/FE_RC_9_0 inst:mv_lp_top/modB_inst/FE_RC_8_0 inst:mv_lp_top/modB_inst/FE_OCPC56_n_23 inst:mv_lp_top/modB_inst/FE_OCPC52_B2C_1 inst:mv_lp_top/modB_inst/FE_OCPC51_B2C_1 inst:mv_lp_top/modB_inst/FE_OFC43_n_21 inst:mv_lp_top/modB_inst/FE_OFC30_B2A inst:mv_lp_top/modB_inst/FE_OFC24_n_20 inst:mv_lp_top/modB_inst/FE_OFC20_n_25 inst:mv_lp_top/modB_inst/FE_OFC15_FE_OFN6_R inst:mv_lp_top/modB_inst/FE_OFC2_Y inst:mv_lp_top/modB_inst/Y_reg inst:mv_lp_top/modB_inst/RB4_reg inst:mv_lp_top/modB_inst/B2D_reg inst:mv_lp_top/modB_inst/g267__3680 inst:mv_lp_top/modB_inst/RB3_reg inst:mv_lp_top/modB_inst/g272__2802 inst:mv_lp_top/modB_inst/g274__1705 inst:mv_lp_top/modB_inst/RB2_reg inst:mv_lp_top/modB_inst/B2C_reg inst:mv_lp_top/modB_inst/B2A_reg inst:mv_lp_top/modB_inst/g281__5122 inst:mv_lp_top/modB_inst/g284__8246 inst:mv_lp_top/modB_inst/g2__7098 inst:mv_lp_top/modB_inst/RB1_reg inst:mv_lp_top/modB_inst/g139__5115 inst:mv_lp_top/modC_inst/FE_OCPC54_C2A_1 inst:mv_lp_top/modC_inst/FE_OFC28_n_129 inst:mv_lp_top/modC_inst/X_reg inst:mv_lp_top/modC_inst/g274__7482 inst:mv_lp_top/modC_inst/RC4_reg inst:mv_lp_top/modC_inst/C2B_reg inst:mv_lp_top/modC_inst/C2D_reg inst:mv_lp_top/modC_inst/RC2_reg inst:mv_lp_top/modC_inst/g279__4733 inst:mv_lp_top/modC_inst/RC3_reg inst:mv_lp_top/modC_inst/g284__2883 inst:mv_lp_top/modC_inst/RC1_reg inst:mv_lp_top/modC_inst/C2A_reg inst:mv_lp_top/modC_inst/g327__7410 inst:mv_lp_top/modC_inst/g328__6417 inst:mv_lp_top/modC_inst/g325__345 inst:mv_lp_top/modC_inst/g24 inst:mv_lp_top/modC_inst/g23 inst:mv_lp_top/modC_inst/g352 inst:mv_lp_top/modC_inst/g357 inst:mv_lp_top/modC_inst/g358 inst:mv_lp_top/modC_inst/g78 inst:mv_lp_top/modC_inst/g82 inst:mv_lp_top/modC_inst/g79 inst:mv_lp_top/modC_inst/g359 inst:mv_lp_top/modC_inst/g360 inst:mv_lp_top/modD_inst/FE_RC_21_0 inst:mv_lp_top/modD_inst/FE_RC_20_0 inst:mv_lp_top/modD_inst/FE_OCPC53_D2B_1 inst:mv_lp_top/modD_inst/FE_OCPC53_D2A_1 inst:mv_lp_top/modD_inst/FE_RC_0_0 inst:mv_lp_top/modD_inst/FE_OFC45_D2C inst:mv_lp_top/modD_inst/FE_OFC33_D2B_1 inst:mv_lp_top/modD_inst/FE_OFC31_A2D inst:mv_lp_top/modD_inst/FE_OFC27_n_49 inst:mv_lp_top/modD_inst/FE_OFC5_D2C inst:mv_lp_top/modD_inst/FE_OFC3_Z inst:mv_lp_top/modD_inst/RD4_reg inst:mv_lp_top/modD_inst/RD3_reg inst:mv_lp_top/modD_inst/g292__5107 inst:mv_lp_top/modD_inst/RD1_reg inst:mv_lp_top/modD_inst/W_reg inst:mv_lp_top/modD_inst/D2C_reg inst:mv_lp_top/modD_inst/D2A_reg inst:mv_lp_top/modD_inst/RD2_reg inst:mv_lp_top/modD_inst/D2B_reg inst:mv_lp_top/modD_inst/g355__3680 inst:mv_lp_top/modD_inst/g359__1617 inst:mv_lp_top/modD_inst/g293__376 inst:mv_lp_top/modD_inst/g354__378 inst:mv_lp_top/modD_inst/g56 inst:mv_lp_top/modD_inst/g60 inst:mv_lp_top/modD_inst/g57 inst:mv_lp_top/modD_inst/g18 inst:mv_lp_top/modD_inst/g19 inst:mv_lp_top/modD_inst/g391 inst:mv_lp_top/pd_moda_iso_pg_moda_b_0_UPF_ISO inst:mv_lp_top/pd_moda_iso_pg_moda_c_1_UPF_ISO inst:mv_lp_top/pd_modc_iso_pg_modc_a_2_UPF_ISO inst:mv_lp_top/pd_modc_iso_pg_modc_b_3_UPF_ISO inst:mv_lp_top/pd_modc_ls_modc2moda_6_UPF_LS inst:mv_lp_top/pd_modc_ls_modc2modb_7_UPF_LS inst:mv_lp_top/pd_modc_ls_modc2top_8_UPF_LS inst:mv_lp_top/pd_modd_iso_pg_modd_a_4_UPF_ISO inst:mv_lp_top/pd_modd_iso_pg_modd_b_5_UPF_ISO inst:mv_lp_top/pd_modd_ls_modd2moda_9_UPF_LS inst:mv_lp_top/pd_modd_ls_modd2modb_10_UPF_LS inst:mv_lp_top/pd_modd_ls_modd2top_11_UPF_LS inst:mv_lp_top/aon_buf inst:mv_lp_top/aon_buf171 inst:mv_lp_top/aon_buf173 inst:mv_lp_top/aon_buf174 inst:mv_lp_top/g390__1705 inst:mv_lp_top/g396__1881 inst:mv_lp_top/g397__5115 inst:mv_lp_top/g399__4733 inst:mv_lp_top/g408__9945 inst:mv_lp_top/g398__469 inst:mv_lp_top/g392__471 inst:mv_lp_top/g398__7482_dup inst:mv_lp_top/g393__7098_dup473 inst:mv_lp_top/g393__475 inst:mv_lp_top/g391__514 inst:mv_lp_top/g12 inst:mv_lp_top/g14 inst:mv_lp_top/g13 inst:mv_lp_top/g20 inst:mv_lp_top/g550}
+fit
+deselectAll
