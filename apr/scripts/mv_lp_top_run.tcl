@@ -58,15 +58,16 @@ commit_power_intent -verbose
 floorPlan -s [lindex $design_size 0] [lindex $design_size 1] $margin $margin $margin $margin -flip s -coreMarginsBy io 
 
 
-# Removing this for now... Copied Pin placement commands from ORCA_TOP tcl file and modified offset to fit in our floorplan
+## Copied Pin placement commands from ORCA_TOP tcl file
+## Updated to conform to our design specifications
 
 #Cadence method.  Not floating with these statements
 #Isolated all input ports and then all output ports
 setPinAssignMode -pinEditInBatch true
 set input_ports [ all_inputs ]
-set output_ports [ all_outputs ]
-# put the two collections on to two layers of ports
-# Leaving the ports on different layers for now... Inputs on left and outputs on the right
+set output_ports [ all_outputs ] 
+# Place the inputs on left edge and the outputs on the right
+# Keep all pins on the same layer and space them out properly
 editPin -edge 0 -pin [get_attribute $input_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 25 -spacing 10 -unit MICRON -fixedPin 1
 editPin -edge 2 -pin [get_attribute $output_ports full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 20 -spacing 8 -unit MICRON -fixedPin 1
 setPinAssignMode -pinEditInBatch false
@@ -109,6 +110,8 @@ planDesign
 # Ensure they are placed nicely and spread evenly like a mesh (not too many not too less)
 # Add Power Switches to each of the 4 power domains
 
+## HEADX2_HVT is header cell used for the switch, horizontalPitch is distance between switches
+## enableNetIn is named sleep bc it turns the power domain off/gated
 addPowerSwitch -powerDomain pd_moda -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_moda_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_moda
 addPowerSwitch -powerDomain pd_modb -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modb_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modb
 addPowerSwitch -powerDomain pd_modc -globalSwitchCellName HEADX2_HVT -1801PowerSwitchRuleName pg_modc_ps -column -horizontalPitch 5 -noDoubleHeightCheck -checkerBoard -enableNetIn sleep_modc
